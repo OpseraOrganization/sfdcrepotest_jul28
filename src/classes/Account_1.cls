@@ -7,7 +7,7 @@ public class Account_1 {
   }
   Public void invoke(){
   name='Ravi';
-  city='Ban';
+  city='Banglr';
   }
 
 }
