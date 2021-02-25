@@ -4,7 +4,7 @@ private class AccountContactRelationTrigger_Test {
 	@isTest
 	static void TestCreateAccountContactRelationTrigger() {
 
-		System.runAs(NCP_TestFactory.createUser(true, 'AES Admin', null, 'test@nokia.com.dev')) {
+		System.runAs(NCP_TestFactory.createUser(true, 'AESAdmin', null, 'test@nokia.com.dev')) {
 
 			Test.startTest();
 			List<ServiceContract> scList =  new List<ServiceContract>();
