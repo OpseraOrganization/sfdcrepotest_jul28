@@ -12,7 +12,7 @@
     <alerts>
         <fullName>Notification_to_Icare</fullName>
         <ccEmails>gss.partnersupport@nokia.com</ccEmails>
-        <description>Notification to Icare</description>
+        <description>Icare Notification</description>
         <protected>false</protected>
         <senderAddress>nokia_global_partner_communications@nokia.com</senderAddress>
         <senderType>OrgWideEmailAddress</senderType>
