@@ -7,7 +7,7 @@ background-color:#33C9FF;
 }
 table#t01 {
     width: 100%;    
-    background-color: #f1f1c1;
+    background-color: #f1f1c2;
 }
 
 </style>
