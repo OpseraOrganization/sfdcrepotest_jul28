@@ -1,0 +1,116 @@
+<aura:component controller="CH_CaseField_SideHighlightApex" implements="flexipage:availableForRecordHome,force:hasRecordId" > 
+    
+    <aura:attribute name="recordId" type="String" />
+    <!-- Attributes to show EDIT or READ access-->
+    <aura:attribute name="edit" type="boolean" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:if isTrue="{!v.edit}">
+        <lightning:layout horizontalAlign="Left">
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <Lightning:recordEditForm aura:id="recordEditForm" 
+                                          recordId="{!v.recordId}"
+                                          objectApiName="Case"
+                                          onsuccess="{!c.handleSuccess}" >
+                    <Lightning:messages />
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <Lightning:inputField fieldName="CH_CustomerDescription__c" />
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <Lightning:inputField fieldName="CH_ExternalBridge__c" /> 
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <Lightning:inputField fieldName="CH_InternalBridge__c" /> 
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="Severity__c" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="CH_Outage__c" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="CH_OutageType__c" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <lightning:button class="slds-m-top_small" variant="brand" type="button" name="update" label="Save" onclick="{!c.update}" />
+                        </div>
+                    </div>
+                </Lightning:recordEditForm>
+            </lightning:layoutItem>
+        </lightning:layout>
+        
+        <aura:set attribute="else">
+            <lightning:layout horizontalAlign="Left">
+                <lightning:layoutItem flexibility="auto" padding="around-small">
+                    <Lightning:recordViewForm aura:id="recordViewForm" 
+                                              recordId="{!v.recordId}"
+                                              objectApiName="Case" >
+                        <Lightning:messages />
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <Lightning:outputField fieldName="CH_CustomerDescription__c" />
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <Lightning:outputField fieldName="CH_ExternalBridge__c" /> 
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <Lightning:outputField fieldName="CH_InternalBridge__c" /> 
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col">
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="Severity__c" />
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_Outage__c" />
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_OutageType__c" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </Lightning:recordViewForm>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </aura:set>
+    </aura:if>
+</aura:component>

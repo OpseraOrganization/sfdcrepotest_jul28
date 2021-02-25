@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>NSW_SEC_KB_PQ</name>
+    <queueMembers>
+        <users>
+            <user>gaurav.kumar_agarwal@singlecrm.nokia.com</user>
+            <user>jean.samarani@singlecrm.nokia.com</user>
+            <user>kumar.abhishek@singlecrm.nokia.com</user>
+            <user>maciej.orzechowski@singlecrm.nokia.com</user>
+            <user>patrick.collins@singlecrm.nokia.com</user>
+            <user>pedro.reis@singlecrm.nokia.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>KnowledgeArticleVersion</sobjectType>
+    </queueSobject>
+</Queue>

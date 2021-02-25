@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CMSConnectSource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <cmsConnectAsset>
+        <assetPath>etc/designs/capricorn/app-prefixed.min.css</assetPath>
+        <assetType>CSS</assetType>
+        <sortOrder>1</sortOrder>
+    </cmsConnectAsset>
+    <cmsConnectAsset>
+        <assetPath>etc/designs/capricorn/w3data.js</assetPath>
+        <assetType>Javascript</assetType>
+        <sortOrder>1</sortOrder>
+    </cmsConnectAsset>
+    <connectionType>Public</connectionType>
+    <developerName>DemoCMSConnect</developerName>
+    <languageEnabled>N</languageEnabled>
+    <masterLabel>DemoCMSConnect</masterLabel>
+    <personalizationEnabled>N</personalizationEnabled>
+    <sortOrder>1</sortOrder>
+    <status>ACTIVE</status>
+    <type>AEM</type>
+    <websiteUrl>https://public-api.wordpress.com</websiteUrl>
+</CMSConnectSource>

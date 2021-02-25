@@ -1,0 +1,67 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global" controller="OpportunityWarningsCompController" >
+	<!-- Lightning Component for Opportunity to gather all warnings needed during the opp live cycle, instead of having multiple components -->
+
+	<!-- resources -->
+	<ltng:require styles="{!$Resource.toastmsg_nextline}" />
+
+	<!-- attributes -->
+	<aura:attribute name="simpleRecord" type="Object"/>
+	<aura:attribute name="recordLoadError" type="String"/>
+	<aura:attribute name="fields" type="String[]" default="Last_Refresh_OIF__c,OIF_Lines__c,G5_Planned_Date__c,IsClosed"/>
+	<aura:attribute name="modal_WDDate" type="boolean" default="false"/>
+	<aura:attribute name="firstTimeLoading" type="boolean" default="true"/>
+	<aura:attribute name="lastRefreshOIFs" type="Date" default="null"/>
+    <aura:attribute name="oifLines" type="Integer" default="0"/>
+	<aura:attribute name="newWDPlanDate" type="Date" default="null"/>
+
+	<!-- Event handlers -->
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<aura:handler event="force:refreshview" action="{!c.doRefresh}"/>
+
+	<!-- record loader -->
+	<force:recordData aura:id="recordLoader"
+					  recordId="{!v.recordId}"
+					  fields="{!v.fields}"
+					  targetFields="{!v.simpleRecord}"
+					  targetError="{!v.recordLoadError}"
+					  recordUpdated="{!c.handleRecordUpdated}"
+					  />
+	<!-- aura component -->
+	<!--F1784-->
+	<aura:if isTrue="{!v.modal_WDDate}">
+
+		<!-- Modal/Popup Box starts here-->
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+			<div class="slds-modal__container">
+				<!-- Modal/Popup Box Header Starts here-->
+				<header class="slds-modal__header">
+					<lightning:buttonIcon iconName="utility:close" onclick="{! c.closeModalWDPlanDate }" alternativeText="close" variant="bare-inverse" class="slds-modal__close"/>
+					<h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Opportunity Win Declaration Plan Date</h2>
+				</header>
+				<!--Modal/Popup Box Body Starts here-->
+				<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+					<p>According to your last update on the OIF of the opportunity, a new Win Declaration Plan Date is proposed.</p>
+					<br></br>
+					<p><i><b>Do you accept the override?</b></i></p>
+					<lightning:layout >
+						<lightning:layoutItem padding="around-small" size="6">
+							<p style="color: rgb(160, 150, 150);">Current Win Declaration Plan Date</p>
+							<p><lightning:formattedDateTime aura:id="oldWDDate" value="{!v.simpleRecord.G5_Planned_Date__c}"/></p>
+						</lightning:layoutItem>
+						<lightning:layoutItem padding="around-small" size="6">
+							<p style="color: rgb(160, 150, 150);">Proposed Win Declaration Plan Date</p>
+							<p><lightning:input type="date" label="" aura:id="newWDDate" value="{!v.newWDPlanDate}" /></p>
+						</lightning:layoutItem>
+					</lightning:layout>
+				</div>
+				<!--Modal/Popup Box Footer Starts here-->
+				<footer class="slds-modal__footer">
+					<lightning:button variant="neutral" label="Maintain" title="Maintain" onclick="{! c.closeModalWDPlanDate }"/>
+					<lightning:button variant="brand" label="Override" title="Override" onclick="{!c.submitModalWDPlanDate}"/>
+				</footer>
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</aura:if>
+
+</aura:component>

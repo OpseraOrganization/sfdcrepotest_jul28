@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Audience xmlns="http://soap.sforce.com/2006/04/metadata">
+    <audienceName>Co-op users</audienceName>
+    <container>Nokia Partner Portal</container>
+    <criteria>
+        <criterion>
+            <criterionValue>
+                <entityField>$User.Co_op_User__c</entityField>
+                <entityType>User</entityType>
+                <fieldValue>true</fieldValue>
+            </criterionValue>
+            <operator>Equal</operator>
+            <type>FieldBased</type>
+        </criterion>
+    </criteria>
+    <formulaFilterType>AllCriteriaMatch</formulaFilterType>
+    <isDefaultAudience>false</isDefaultAudience>
+    <targets>
+        <target>
+            <groupName>dc0652f8-1eed-4656-9fb9-d1b2ecd8cc79</groupName>
+            <priority>1</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>Coop_Coop_Page</targetValue>
+        </target>
+    </targets>
+</Audience>

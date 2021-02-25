@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>NSW</fullName>
+        <default>false</default>
+        <label>NSW</label>
+    </customValue>
+    <customValue>
+        <fullName>FN</fullName>
+        <default>false</default>
+        <label>FN</label>
+    </customValue>
+    <customValue>
+        <fullName>ION</fullName>
+        <default>false</default>
+        <label>ION</label>
+    </customValue>
+    <customValue>
+        <fullName>MN</fullName>
+        <default>false</default>
+        <label>MN</label>
+    </customValue>
+    <customValue>
+        <fullName>GS</fullName>
+        <default>false</default>
+        <label>GS</label>
+    </customValue>
+    <customValue>
+        <fullName>NEN</fullName>
+        <default>false</default>
+        <label>NEN</label>
+    </customValue>
+    <customValue>
+        <fullName>Financial Organization</fullName>
+        <default>false</default>
+        <label>Financial Organization</label>
+    </customValue>
+    <customValue>
+        <fullName>GCVERT</fullName>
+        <default>false</default>
+        <label>GCVERT</label>
+    </customValue>
+    <customValue>
+        <fullName>RB</fullName>
+        <default>false</default>
+        <label>RB</label>
+    </customValue>
+    <customValue>
+        <fullName>GCMO</fullName>
+        <default>false</default>
+        <label>GCMO</label>
+    </customValue>
+    <customValue>
+        <fullName>GCCTO</fullName>
+        <default>false</default>
+        <label>GCCTO</label>
+    </customValue>
+    <description>BG Values : Used in Opportunity, Product (Req :152) (Req:5537)</description>
+    <masterLabel>Business Group Values</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

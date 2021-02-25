@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>BG__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>If left blank all BG will be considered when assigning PSRO Cost Visibilities permission set</inlineHelpText>
+        <label>BG</label>
+        <length>5</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Role_Name__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>This is the role name that will be considered when giving the PSRO Cost Visibilties permission set to user.
+This permission set will be assigned to all users that are linked to a sales role with a name that contains the value in this field.</inlineHelpText>
+        <label>Role Name</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>PSRO Costs Visibilities Manager</label>
+    <pluralLabel>PSRO Costs Visibilities Managers</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

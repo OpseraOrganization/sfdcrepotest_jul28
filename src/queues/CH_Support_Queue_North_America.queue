@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>CH SWS Support Queue - NAM</name>
+    <queueMembers>
+        <users>
+            <user>cheryl.medley@singlecrm.nokia.com</user>
+            <user>chris.carter@singlecrm.nokia.com</user>
+            <user>conrad.wischnewski@singlecrm.nokia.com</user>
+            <user>daniel.bowman@singlecrm.nokia.com</user>
+            <user>david.liles@singlecrm.nokia.com</user>
+            <user>douglas.harper@singlecrm.nokia.com</user>
+            <user>frank.mcmanus@singlecrm.nokia.com</user>
+            <user>tito.delpin@singlecrm.nokia.com</user>
+            <user>jaime.ramirez@singlecrm.nokia.com</user>
+            <user>jason.byvelds@singlecrm.nokia.com</user>
+            <user>john.ton@singlecrm.nokia.com</user>
+            <user>judy.oliviero@singlecrm.nokia.com</user>
+            <user>kevin.rembis@singlecrm.nokia.com</user>
+            <user>laura.kestas@singlecrm.nokia.com</user>
+            <user>lynda.kennedy@singlecrm.nokia.com</user>
+            <user>mark.baker@singlecrm.nokia.com</user>
+            <user>mike.mccauley@singlecrm.nokia.com</user>
+            <user>pat.connolly@singlecrm.nokia.com</user>
+            <user>ray.burnett@singlecrm.nokia.com</user>
+            <user>ray.marsan@singlecrm.nokia.com</user>
+            <user>suzanne.pearson@singlecrm.nokia.com</user>
+            <user>syed.kamran@singlecrm.nokia.com</user>
+            <user>venkata.m@singlecrm.nokia.com</user>
+            <user>yihong.xiao@singlecrm.nokia.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

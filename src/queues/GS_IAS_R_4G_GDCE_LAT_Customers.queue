@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>GS_IAS_R_4G_GDCE_LAT-Customers</name>
+    <queueMembers>
+        <users>
+            <user>andre.rabaca@singlecrm.nokia.com</user>
+            <user>andre.2.silva@singlecrm.nokia.com</user>
+            <user>bruno.dias@singlecrm.nokia.com</user>
+            <user>bruno.1.reis@singlecrm.nokia.com</user>
+            <user>bruno.roxo@singlecrm.nokia.com</user>
+            <user>carlos.claudio@singlecrm.nokia.com</user>
+            <user>carolina.xavier@singlecrm.nokia.com</user>
+            <user>edgar.prates_ruivo_da_silva@singlecrm.nokia.com</user>
+            <user>guilherme.gois@singlecrm.nokia.com</user>
+            <user>hernani.alves@singlecrm.nokia.com</user>
+            <user>ines.domingos@singlecrm.nokia.com</user>
+            <user>jessica.caldas@singlecrm.nokia.com</user>
+            <user>joao.alcobia@singlecrm.nokia.com</user>
+            <user>joao.rendas@singlecrm.nokia.com</user>
+            <user>joao.paulo@singlecrm.nokia.com</user>
+            <user>jose.1.sousa@singlecrm.nokia.com</user>
+            <user>luis.mateus@singlecrm.nokia.com</user>
+            <user>nelson.1.oliveira@singlecrm.nokia.com</user>
+            <user>oscar.claro@singlecrm.nokia.com</user>
+            <user>pedro.almeida@singlecrm.nokia.com</user>
+            <user>pedro.delgado@singlecrm.nokia.com</user>
+            <user>pedro.ponte@singlecrm.nokia.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

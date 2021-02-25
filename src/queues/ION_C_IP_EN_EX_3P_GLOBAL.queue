@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>ION_C-IP_EN-EX_3P_GLOBAL</name>
+    <queueMembers>
+        <users>
+            <user>aneena.aleyas@singlecrm.nokia.com</user>
+            <user>bruno.lavos@singlecrm.nokia.com</user>
+            <user>chintu.chatterjee@singlecrm.nokia.com</user>
+            <user>chirag.bansal@singlecrm.nokia.com</user>
+            <user>david.cerqueira@singlecrm.nokia.com</user>
+            <user>georgina.cunha@singlecrm.nokia.com</user>
+            <user>guruvarasan.subramaniam@singlecrm.nokia.com</user>
+            <user>jayashree.k@singlecrm.nokia.com</user>
+            <user>joao.clemente@singlecrm.nokia.com</user>
+            <user>joao.fael@singlecrm.nokia.com</user>
+            <user>joao.2.machado@singlecrm.nokia.com</user>
+            <user>manuel.couto@singlecrm.nokia.com</user>
+            <user>marco.matias@singlecrm.nokia.com</user>
+            <user>miguel.estevez@singlecrm.nokia.com</user>
+            <user>nanda.mallela@singlecrm.nokia.com</user>
+            <user>paul.a.harmes@singlecrm.nokia.com</user>
+            <user>rui.1.almeida@singlecrm.nokia.com</user>
+            <user>rui.silva@singlecrm.nokia.com</user>
+            <user>sathish.chandran@singlecrm.nokia.com</user>
+            <user>swagata.banerjee@singlecrm.nokia.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

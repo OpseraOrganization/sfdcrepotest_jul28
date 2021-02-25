@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>ION_ES_R_LHWDM_Global_All-Customers</name>
+    <queueMembers>
+        <users>
+            <user>dario.cogotti@singlecrm.nokia.com</user>
+            <user>david.liles@singlecrm.nokia.com</user>
+            <user>ivan.macri@singlecrm.nokia.com</user>
+            <user>matteo.commito@singlecrm.nokia.com</user>
+            <user>mauriziocarlo.pizzi@singlecrm.nokia.com</user>
+            <user>mauro.nova@singlecrm.nokia.com</user>
+            <user>nicola.filosa@singlecrm.nokia.com</user>
+            <user>pierluigi.novelli@singlecrm.nokia.com</user>
+            <user>ray.marsan@singlecrm.nokia.com</user>
+            <user>stefano.cova@singlecrm.nokia.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

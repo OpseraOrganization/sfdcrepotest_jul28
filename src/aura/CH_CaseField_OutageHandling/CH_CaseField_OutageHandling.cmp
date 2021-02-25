@@ -1,0 +1,314 @@
+<!-- LastModified - Rajeshwari - 14th November  NOKIASC-24518-->
+<aura:component controller="CH_CaseField_SideHighlightApex" implements="flexipage:availableForRecordHome,force:hasRecordId" > 
+    
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="createODR" type="boolean" default="true"/>
+    <aura:attribute name="deleteODR" type="boolean" default="true"/>
+    <aura:attribute name="checkODR" type="boolean" default="true"/>
+    <aura:attribute name="isODRexist" type="boolean"/>
+    <aura:attribute name="edit" type="boolean" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!-- LastModified - NOKISC 22361 -->
+    <aura:attribute name="disableCreateODR" type="boolean"/> 
+    
+    
+    <aura:if isTrue="{!v.edit}">
+        <lightning:layout horizontalAlign="Left">
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <Lightning:recordEditForm aura:id="recordEditForm" 
+                                          recordId="{!v.recordId}"
+                                          objectApiName="Case"
+                                          onsuccess="{!c.handleSuccess}" >
+                    <Lightning:messages /> 
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="Severity__c" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="CH_Outage__c" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="CH_OutageType__c" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField disabled="true" fieldName="CH_Code_Red_Status__c" />  
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="CH_AssessedOutage__c" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="CH_NoneAlarmedOutage__c" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="CH_OutageContext__c" />
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="slds-col">
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="CH_RestoreAction__c" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="CH_PrimaryCause__c" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="CH_SecondaryCause__c" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="Outage_Triggered_by__c" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="CH_TL9000OutageValidation__c" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="CH_OutageCauseValidated__c" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <!-- US 22361 -->               
+                    <aura:if isTrue="{!v.createODR}">
+                        <div class="createODR">
+                            <lightning:flow aura:id="ODRCreation" onstatuschange="{!c.handleCreateODR}"/>
+                        </div> 
+                    </aura:if><br/>
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <Lightning:inputField fieldName="CH_OutageStartDate__c" />
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <Lightning:inputField fieldName="CH_OutageEndDate__c" />
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <Lightning:outputField fieldName="CH_TotalOutageDuration__c" />
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <lightning:button class="slds-m-top_small" variant="brand" type="button" name="update" label="Save" onclick="{!c.update}" />
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                    </div>  
+                    
+                    <br/>     
+                    
+                    <!-- US 22362 -->         
+                    
+                    <!-- NOKIASC-24518 -->
+                    <aura:if isTrue="{!v.deleteODR}">
+                        <div class="deleteODR">
+                            <lightning:flow aura:id="ODRDeletion" onstatuschange="{!c.handleDeleteODR}"/>
+                        </div> 
+                    </aura:if>
+                    <aura:if isTrue="{!v.checkODR}">
+                        <div class="checkODR">
+                            <lightning:flow aura:id="ODRCheck" onstatuschange="{!c.handleCheckODR}"/>
+                        </div>
+                    </aura:if>
+                    <!-- NOKIASC-24518Ends Here -->
+                    <div class="slds-p-around--small">
+                        
+                        <div class="slds-page-header" style="cursor: pointer;" onclick="{!c.sectionOne}">
+                            <section class="slds-clearfix">
+                                <div class="slds-float--left ">
+                                    <lightning:icon class="slds-show" aura:id="articleOne" iconName="utility:chevronright" size="x-small" alternativeText="Indicates add"/>
+                                    <lightning:icon class="slds-hide" aura:id="articleOne" iconName="utility:chevrondown" size="x-small" alternativeText="Indicates dash"/>
+                                </div>
+                                <div class="slds-text-title_bold">Outage Duration Records</div>
+                            </section>
+                        </div>
+                        
+                        <div class="slds-hide slds-p-around--small" aura:id="articleOne">
+                            <div class="slds-grid slds-gutters"> 
+                                <div class="slds-col">
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <lightning:button class="slds-m-top_small" variant="brand" type="button" name="update" label="Create ODR" onclick="{!c.launchCreateODR}"  />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-col">
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <lightning:button class="slds-m-top_small" variant="brand" type="button" name="update" label="Delete ODR" onclick="{!c.launchDeleteODR}" disabled="{!v.isODRexist}" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-col">
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <lightning:button class="slds-m-top_small" variant="brand" type="button" name="update" label="Validate ODR" onclick="{!c.launchCheckODR}" disabled="{!v.isODRexist}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            
+                        </div>
+                        
+                    </div>           
+                    
+                    
+                    
+                </Lightning:recordEditForm>
+            </lightning:layoutItem>
+        </lightning:layout>
+        <aura:set attribute="else">
+            <lightning:layout horizontalAlign="Left">
+                <lightning:layoutItem flexibility="auto" padding="around-small">
+                    <Lightning:recordViewForm aura:id="recordViewForm" 
+                                              recordId="{!v.recordId}"
+                                              objectApiName="Case" >
+                        <Lightning:messages /> 
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col">
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="Severity__c" />
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_Outage__c" />
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_OutageType__c" />
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_AssessedOutage__c" />
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_NoneAlarmedOutage__c" />
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_OutageContext__c" />
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-col">
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_RestoreAction__c" />
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_PrimaryCause__c" />
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_SecondaryCause__c" />
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="Outage_Triggered_by__c" />
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_TL9000OutageValidation__c" />
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_OutageCauseValidated__c" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <Lightning:outputField fieldName="CH_OutageStartDate__c" />
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <Lightning:outputField fieldName="CH_OutageEndDate__c" />
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <Lightning:outputField fieldName="CH_TotalOutageDuration__c" />
+                            </div>
+                        </div>
+                    </Lightning:recordViewForm>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </aura:set>
+    </aura:if>
+</aura:component>

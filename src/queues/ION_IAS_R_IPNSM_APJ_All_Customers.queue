@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>ION_IAS_R_IPNSM_APJ_All-Customers</name>
+    <queueMembers>
+        <users>
+            <user>amit.1.kumar_singh@singlecrm.nokia.com</user>
+            <user>anish.hdas@singlecrm.nokia.com</user>
+            <user>ashit.ashit@singlecrm.nokia.com</user>
+            <user>daniel.moncion@singlecrm.nokia.com</user>
+            <user>david.liles@singlecrm.nokia.com</user>
+            <user>govind.varshney@singlecrm.nokia.com</user>
+            <user>hem.pandey@singlecrm.nokia.com</user>
+            <user>ms.judge@singlecrm.nokia.com</user>
+            <user>manu.puri@singlecrm.nokia.com</user>
+            <user>naveen.2.kumar@singlecrm.nokia.com</user>
+            <user>nijroop.tripathi@singlecrm.nokia.com</user>
+            <user>nitesh.1.kumar@singlecrm.nokia.com</user>
+            <user>prateek.panda@singlecrm.nokia.com</user>
+            <user>rajeev.20.kumar@singlecrm.nokia.com</user>
+            <user>ranjana.d@singlecrm.nokia.com</user>
+            <user>ray.marsan@singlecrm.nokia.com</user>
+            <user>robert.baker@singlecrm.nokia.com</user>
+            <user>shatrughan.pratap@singlecrm.nokia.com</user>
+            <user>shubhalakshmi.aminbhavi@singlecrm.nokia.com</user>
+            <user>sudeepta.pradhan@singlecrm.nokia.com</user>
+            <user>sunil.k.dubey@singlecrm.nokia.com</user>
+            <user>toufiqahmed.badebade@singlecrm.nokia.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

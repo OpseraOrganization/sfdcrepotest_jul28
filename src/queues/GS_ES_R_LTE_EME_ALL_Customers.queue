@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>GS_ES_R_LTE_EME_ALL-Customers</name>
+    <queueMembers>
+        <users>
+            <user>bruno.dias@singlecrm.nokia.com</user>
+            <user>bruno.1.reis@singlecrm.nokia.com</user>
+            <user>hernani.alves@singlecrm.nokia.com</user>
+            <user>joao.alcobia@singlecrm.nokia.com</user>
+            <user>jose.1.sousa@singlecrm.nokia.com</user>
+            <user>luis.mateus@singlecrm.nokia.com</user>
+            <user>oscar.claro@singlecrm.nokia.com</user>
+            <user>pedro.almeida@singlecrm.nokia.com</user>
+            <user>pedro.ponte@singlecrm.nokia.com</user>
+            <user>tomasz.fert@singlecrm.nokia.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

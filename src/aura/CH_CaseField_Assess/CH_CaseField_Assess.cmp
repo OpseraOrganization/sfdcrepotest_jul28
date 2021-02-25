@@ -1,0 +1,168 @@
+<!--  NOKIASC-18141  Rajeshwari/Gourisankar Patra(TCS) 20th Aug-->
+<aura:component controller="CH_CaseField_SideHighlightApex" implements="flexipage:availableForRecordHome,force:hasRecordId" > 
+    
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="recordError" type="String"/>
+    <aura:attribute name="record" type="Object"/>
+    <!-- Attributes to show EDIT or READ access-->
+    <aura:attribute name="edit" type="boolean" />
+    <!-- Added reloadForm to rerender code red status for Def#28026 -->
+    <aura:attribute name="reloadForm" type="boolean" default="true" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<!--  NOKIASC-18141 -->
+    <aura:attribute name="currentCaseRecord" type="Object"/>
+    <aura:attribute name="outageflag" type="boolean" default="false" />
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.recordId}"
+                      fields="CH_Outage__c"
+                      targetFields="{!v.currentCaseRecord}"
+                      
+                      />
+    <aura:if isTrue="{!v.edit}">
+        
+        <lightning:layout horizontalAlign="Left">
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <Lightning:recordEditForm aura:id="recordEditForm" 
+                                          recordId="{!v.recordId}"
+                                          objectApiName="Case"
+                                          onsuccess="{!c.handleSuccess}"
+                                          onload="{!c.onEditLoad }">
+                    <Lightning:messages />
+                    
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <Lightning:inputField aura:id="initialdiagnosis"  fieldName="CH_InitialDiagnosis__c" class="requiredOverRide"/>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <Lightning:inputField fieldName="CH_CustomerDescription__c" />
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="Severity__c" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField aura:id ="oType" fieldName="CH_Outage__c" onchange="{!c.onchangeOutage }" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control"> <!--  NOKIASC-18141 --> 
+                                    <Lightning:inputField aura:id= "oValue" disabled ="{!v.outageflag}" fieldName="CH_OutageType__c" />  
+                                </div>
+                            </div>
+                            <div class="slds-form-element">
+                                <aura:if isTrue="{!v.reloadForm}">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField disabled="true" fieldName="CH_Code_Red_Status__c" />  
+                                </div>
+                                </aura:if>
+                            </div>
+                        </div>
+                        <div class="slds-col">
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="Priority" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="CH_LawfullIntercept_CALEA__c" /> 
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="CH_SuspectedDataBreach__c" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+					<span id="validaterequiredfields" style="color: rgb(194, 57, 52);"></span>
+                    
+                       
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <lightning:button class="slds-m-top_small" variant="brand" type="button" name="update" label="Save" onclick="{!c.update}" />
+                        </div>
+                    </div>
+                </Lightning:recordEditForm>
+            </lightning:layoutItem>
+        </lightning:layout>
+        
+        <aura:set attribute="else">
+            <lightning:layout horizontalAlign="Left">
+                <lightning:layoutItem flexibility="auto" padding="around-small">
+                    <Lightning:recordViewForm aura:id="recordViewForm" 
+                                              recordId="{!v.recordId}"
+                                              objectApiName="Case" >
+                        <Lightning:messages />
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <Lightning:outputField fieldName="CH_InitialDiagnosis__c" />
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <Lightning:outputField fieldName="CH_CustomerDescription__c" />
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col">
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="Severity__c" />
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_Outage__c" />
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_OutageType__c" />  
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col">
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="Priority" />
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_LawfullIntercept_CALEA__c" /> 
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_SuspectedDataBreach__c" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </Lightning:recordViewForm>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </aura:set>
+    </aura:if>
+</aura:component>

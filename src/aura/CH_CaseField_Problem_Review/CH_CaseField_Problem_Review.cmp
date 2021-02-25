@@ -1,0 +1,336 @@
+<!--
+    Last Modified By : Rajeshwari Aug 13 2019 - NOKIASC-18141
+    -->
+<aura:component controller="CH_CaseField_SideHighlightApex" implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:availableForFlowActions">
+    
+    <aura:attribute name="disableButtonCreateArt" type="boolean" default="true"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="shareTemporarySolutionFinished" type="boolean" default="true"/>
+    <aura:attribute name="shareSolutionFinished" type="boolean" default="true"/>
+    <aura:attribute name="createKnownErrorFinished" type="boolean" default="true"/>
+    <aura:attribute name="withdrawTemporarySolutionFinished" type="boolean" default="true"/>
+    <aura:attribute name="createProblemFinished" type="boolean" default="true"/>
+    <aura:attribute name="disableShareUpdate" type="boolean" default="true"/>
+    
+    <!-- Attributes to show EDIT or READ access-->
+    <aura:attribute name="edit" type="boolean" />
+    <aura:attribute name="transferRndShowButton" type="Boolean" default="false" />
+    <aura:attribute name="interfaceType" type="String" />
+    
+    <aura:handler event="c:CH_CaseField_Problem_ReviewAndRemedy_Init"  action="{!c.doInit}"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<aura:handler event="force:refreshView" action="{!c.doInit}" />
+    
+    <aura:attribute name="openSection" type="String" default="A"/>
+    <aura:attribute name="activeSections" type="List" default="['A','B']" />
+    <lightning:workspaceAPI aura:id="workspace"/>
+    
+    <aura:attribute name="closeProblem" type="Boolean" default="false" />
+    
+    <!--loading spinner start... style=Brand Medium (blue dots) -->
+    <!--Commented below two lines for BUG 24074 - Multiple Auto Refresh of Report by TCS Partha-->
+    <!-- <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/> -->
+    
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    
+    
+    <aura:if isTrue="{!v.Spinner}">
+        <div class="exampleHolder">
+            <lightning:spinner alternativeText="Loading" size="large" />
+        </div>
+        
+    </aura:if>
+    <!-- Loading spinner end-->
+    
+    <aura:if isTrue="{!v.shareTemporarySolutionFinished}">
+        <div class="shareTemporarySolutionFinished">
+            <lightning:flow aura:id="shareTemporarySolution" onstatuschange="{!c.handleShareTemporarySolutionChange}"/>
+        </div> 
+    </aura:if>
+    <aura:if isTrue="{!v.shareSolutionFinished}">
+        <div class="shareSolutionFinished">
+            <lightning:flow aura:id="shareSolution" onstatuschange="{!c.handleShareSolutionChange}"/>
+        </div> 
+    </aura:if>
+    <aura:if isTrue="{!v.createKnownErrorFinished}">
+        <div class="createKnownErrorFinished">
+            <lightning:flow aura:id="createKnownError" onstatuschange="{!c.handleCreateKnownErrorChange}"/>
+        </div> 
+    </aura:if>
+    <aura:if isTrue="{!v.withdrawTemporarySolutionFinished}">
+        <div class="withdrawTemporarySolutionFinished">
+            <lightning:flow aura:id="withdrawTemporarySolution" onstatuschange="{!c.handleWithdrawTemporarySolutionChange}"/>
+        </div> 
+    </aura:if>
+    <aura:if isTrue="{!v.createProblemFinished}">
+        <div class="createProblemFinished">
+            <lightning:flow aura:id="createProblemFinished" onstatuschange="{!c.handleCreateProblemFinished}"/>
+        </div> 
+    </aura:if>
+    <aura:if isTrue="{!v.edit}">
+        
+        <div aura:id="transferRndModal" />
+        <lightning:layout horizontalAlign="Left">
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <Lightning:recordEditForm aura:id="recordEditForm" 
+                                          recordId="{!v.recordId}"
+                                          objectApiName="Case"
+                                          onsuccess="{!c.handleSuccess}"
+										  onload="{!c.handleOnLoad}">
+                    <Lightning:messages />
+                    <lightning:accordion aura:id="accordion"
+                                         allowMultipleSectionsOpen="true"
+                                         onsectiontoggle="{! c.handleSectionToggle }"
+                                         activeSectionName="{! v.activeSections }">
+                        <aura:if isTrue="{!v.closeProblem}">
+                            <div class="closeProblemDiv">
+                                <div class="slds-text"><b>Close Problem</b></div> 
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField aura:id="cReason" fieldName="CH_Closure_Reason__c" />
+                                    </div>                        
+                                    <div class="slds-form-element__control">
+                                        <lightning:button class="slds-m-top_small" aura:id="disablebuttonid" variant="brand" type="button" name="update" label="Save" 
+                                                          onclick="{!c.saveCloseProblem}"/>
+                                    </div>
+                                </div>
+                            </div> <br/>
+                        </aura:if>
+                        <lightning:accordionSection name="A" label="Problem Validation">
+                            <aura:set attribute="body">
+                                <div class="slds-text"><b>Causal Analysis</b></div> 
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_CauseoftheIncident__c" />
+                                    </div>
+                                </div>
+                                <!-- Add below section as per NOKIASC-26291 Start-->
+                                <!--<div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_ListofContributingCauses__c" />
+                                    </div>
+                                </div>-->
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_Root_Cause_Description__c"/>
+                                    </div>
+                                </div>
+                                <!--<div class="slds-text"><b>Corrective Actions</b></div>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField fieldName="CH_ActionTaken__c" />
+                                    </div>
+                                </div>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField fieldName="CH_PreventiveActions__c" />
+                                    </div>
+                                </div>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField fieldName="CH_CorrectiveActions__c" />
+                                    </div>
+                                </div>
+                                <div class="slds-text"><b>Validation</b></div>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField fieldName="CH_ValidationofRootCause__c" />
+                                    </div>
+                                </div>-->
+                                <!-- NOKIASC-26291 -->
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField fieldName="CH_OutageCauseValidated__c" />
+                                    </div>
+                                </div>
+                                <div class="slds-text"><b>Reporting</b></div>
+                                <div class="slds-form-element">
+                                    <lightning:layout multipleRows="true">
+                                        <lightning:layoutItem size="4"><Lightning:inputField fieldName="CH_SuspectedProblem__c" /> </lightning:layoutItem>
+                                        <lightning:layoutItem size="3"><Lightning:inputField fieldName="CH_AssessedOutage__c" /></lightning:layoutItem>
+                                        <lightning:layoutItem size="2"><Lightning:inputField fieldName="CH_Defect__c" /></lightning:layoutItem>
+                                        <lightning:layoutItem size="3"><Lightning:inputField fieldName="CH_DefectiveFix__c" /></lightning:layoutItem>
+                                    </lightning:layout>
+                                </div>
+                                
+                            </aura:set>
+                        </lightning:accordionSection>
+                        
+                        <lightning:accordionSection name="B" label="Problem Prevention" >
+                            <aura:set attribute="body">
+                                <div class="slds-text"><b>Temporary Solution</b></div>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField fieldName="CH_TemporarySolution__c" />
+                                    </div>
+                                </div>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField fieldName="CH_Workaround_Type__c" />
+                                    </div>
+                                </div>
+                                <div class="slds-form-element">
+                                    <lightning:layout multipleRows="true">
+                                        <lightning:layoutItem size="6"><Lightning:inputField fieldName="CH_Workaround_Available__c" /> </lightning:layoutItem>
+                                    </lightning:layout>
+                                </div>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField fieldName="CH_Workaround_Available_Date__c" />
+                                    </div>
+                                </div>
+                                
+                            </aura:set>
+                        </lightning:accordionSection>
+                        
+                    </lightning:accordion>
+                    
+                </Lightning:recordEditForm>
+            </lightning:layoutItem>
+        </lightning:layout>
+        <aura:set attribute="else">
+            <lightning:layout horizontalAlign="Left">
+                <lightning:layoutItem flexibility="auto" padding="around-small">
+                    <Lightning:recordViewForm aura:id="recordViewForm" 
+                                              recordId="{!v.recordId}"
+                                              objectApiName="Case">
+                        <Lightning:messages />
+                        <lightning:accordion aura:id="accordion"
+                                             allowMultipleSectionsOpen="true"
+                                             onsectiontoggle="{! c.handleSectionToggle }"
+                                             activeSectionName="{! v.activeSections }">
+                            
+                            <lightning:accordionSection name="A" label="Problem Validation">
+                                <aura:set attribute="body">
+                                    <div class="slds-text"><b>Causal Analysis</b></div> 
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_CauseoftheIncident__c" />
+                                        </div>
+                                    </div>
+                                    <!-- Add below section as per NOKIASC-26291 Start-->
+                                    <!--<div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_ListofContributingCauses__c" />
+                                        </div>
+                                    </div>-->
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_Root_Cause_Description__c" />
+                                        </div>
+                                    </div>
+                                    <!--<div class="slds-text"><b>Corrective Actions</b></div>
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_ActionTaken__c" />
+                                        </div>
+                                    </div>
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_PreventiveActions__c" />
+                                        </div>
+                                    </div>
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_CorrectiveActions__c" />
+                                        </div>
+                                    </div>
+                                    <div class="slds-text"><b>Validation</b></div>
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_ValidationofRootCause__c" />
+                                        </div>
+                                    </div>-->
+                                    <!-- NOKIASC-26291 End-->
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_OutageCauseValidated__c" />
+                                        </div>
+                                    </div>
+                                    <div class="slds-text"><b>Reporting</b></div>
+                                    <div class="slds-form-element">
+                                        <lightning:layout multipleRows="true">
+                                            <lightning:layoutItem size="4"><Lightning:outputField fieldName="CH_SuspectedProblem__c" /> </lightning:layoutItem>
+                                            <lightning:layoutItem size="3"><Lightning:outputField fieldName="CH_AssessedOutage__c" /></lightning:layoutItem>
+                                            <lightning:layoutItem size="2"><Lightning:outputField fieldName="CH_Defect__c" /></lightning:layoutItem>
+                                            <lightning:layoutItem size="3"><Lightning:outputField fieldName="CH_DefectiveFix__c" /></lightning:layoutItem>
+                                        </lightning:layout>
+                                    </div>
+                                    
+                                </aura:set>
+                            </lightning:accordionSection>
+                            
+                            <lightning:accordionSection name="B" label="Problem Prevention" >
+                                <aura:set attribute="body">
+                                    <div class="slds-text"><b>Workaround</b></div>
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_TemporarySolution__c" />
+                                        </div>
+                                    </div>
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_Workaround_Type__c" />
+                                        </div>
+                                    </div>
+                                    <div class="slds-form-element">
+                                        <lightning:layout multipleRows="true">
+                                            <lightning:layoutItem size="6"><Lightning:outputField fieldName="CH_Workaround_Available__c" /> </lightning:layoutItem>
+                                        </lightning:layout>
+                                    </div>
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_Workaround_Available_Date__c" />
+                                        </div>
+                                    </div>
+                                    
+                                </aura:set>
+                            </lightning:accordionSection>
+                            
+                        </lightning:accordion>
+                    </Lightning:recordViewForm>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </aura:set>
+    </aura:if>
+    <aura:if isTrue="{!v.edit}">
+        <div>
+            <div class="slds-docked-form-footer">
+                
+                <div class="slds-col">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            &nbsp; <lightning:button class="slds-m-top_small" variant="brand" type="button" name="update" label="Save" onclick="{!c.update}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <lightning:button class="slds-m-top_small" variant="brand" type="button" name="update" label="Create Article" onclick="{!c.createKnownError}" disabled="{!v.disableButtonCreateArt}"/>
+                        </div>
+                    </div>
+                </div>
+                <!-- NOKIASC-26534-->
+                <div class="slds-col">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <lightning:button class="slds-m-top_small"  aura:id="disablebuttonidwrite"  variant="brand" type="button" name="update" label="Share Update" onclick="{!c.shareTemporarySolution}" disabled="{!v.disableShareUpdate}"  />
+                        </div>
+                    </div>
+                </div>
+                <!-- NOKIASC-26534-->
+                
+                <div class="slds-col">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <lightning:button class="slds-m-top_small" variant="brand" type="button" name="update" label="Close Problem" onclick="{!c.openTab}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </aura:if>
+</aura:component>

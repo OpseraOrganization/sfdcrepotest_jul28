@@ -1,0 +1,301 @@
+<aura:component controller ="CH_LightningController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction">    
+    <lightning:workspaceAPI aura:id="ReentitlementWorkspace" />
+    <!-- Aura Handlers -->
+    <aura:handler name="init" value="{!this}" action="{! c.init }" />
+    <aura:handler name="change" value="{! v.selectedEntitlement }" action="{! c.handleBHCalculation }" />
+    <aura:handler name="change" value="{! v.selectedNEA }" action="{! c.handleBHCalculation }" />
+    <!-- Main Attributes -->
+    <aura:attribute name="caseId" type="Id" description="" />
+    <aura:attribute name="case" type="Object" />
+    <aura:attribute name="selectedServiceType" type="String" description="" />
+    <aura:attribute name="selectedContact" type="Object" description="" />
+    <aura:attribute name="selectedLegalEntity" type = "Object" description="" />
+    <aura:attribute name="selectedAsset" type = "Object" description="" />
+    <aura:attribute name="selectedEntitlement" type = "Object" description="" /> 
+    <aura:attribute name="selectedNEA" type = "Object" description="" />
+    <aura:attribute name="selectedCountry" type = "Object" description="" />
+    <aura:attribute name="selectedProduct" type = "Object" description="" />
+    <aura:attribute name="selectedSolution" type = "Object" description="" />
+    <aura:attribute name="selectedProductVariant" type = "Object" description="" />
+    <aura:attribute name="selectedProductRelease" type = "Object" description="" />
+    <aura:attribute name="selectedTimeZone" type="String" default="" description="" />
+    <aura:attribute name="selectedBusinessHours" type="Object" description="" />
+    <aura:attribute name="incidentInitiationDateTime" type="DateTime" description="" />
+    <aura:attribute name="entitlementExceptionValue" type="String" default="" />
+    <aura:attribute name="entitlementScriptVerified" type="boolean" default="false" />
+        
+    <!-- Helper Attributes -->
+    <aura:attribute name="provisoryNEA" type = "Object" description="" />
+    <aura:attribute name="contactAuth" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="internalAccount" type="Object" access="private" />
+    <aura:attribute name="legalEntityNotFound" type="boolean" default="false" access="private" />
+    <aura:attribute name="notLinkedToCustomer" type="Boolean" default="false" access="private" />
+    <aura:attribute name="assetProductFields" type = "Object" description="" default=""/>
+    <aura:attribute name="actionCounter" type="Integer" default="0" description="Used to update total count of counter to show spinner" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false" description="To display spinner" />
+    <!-- Navigation Attributes -->
+    <aura:attribute name="stageNumber" type="Integer" default="1" description="Page to Display" access="private" />
+    <aura:attribute name="stagePercentage" type="Integer" default="0" description="Page to Display" access="private" />
+    <aura:attribute name="neaStageNumber" type="Integer" default="-1" description="" access="private" />
+    <aura:attribute name="redirectStageNumber" type="Integer" default="3" description="Page to Display" />
+    <aura:attribute name="unhappyStageNumber" type="Integer" default="-1" description="For the unhappy path" access="private" />
+    <aura:attribute name="unhappyPath" type="Boolean" default="false" description="For the unhappy path" access="private" />
+    <aura:attribute name="timeZoneMissing" type="Boolean" default="false" description="" access="private" />
+    <!-- Main Component -->
+    <article class="slds-card slds-is-relative">
+        <!-- Loading Spinner -->
+        <aura:if isTrue="{! v.showSpinner }">
+            <lightning:spinner aura:id="spinnerId" alternativeText="Loading" size="medium" />
+        </aura:if>
+        <!-- Header -->
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <lightning:icon iconName="standard:case" alternativeText="Case" />
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Create Case">
+                            <span>Case Re-Entitlement</span>
+                        </a>
+                    </h2>
+                </div>
+            </header>
+        </div>
+        <!-- Body -->
+        <div class="slds-card__body slds-card__body_inner slds-m-bottom_medium">
+            <!-- Selection Information -->
+            <div class="slds-grid slds-wrap">
+                <aura:if isTrue="{! v.stageNumber >= 0 }">
+                    <div class="slds-col slds-size_6-of-12 slds-p-horizontal_medium">
+                        <ui:outputText value="Contact Name:"/>&nbsp;
+                        <b><ui:outputText value="{! v.selectedContact.Name}"/></b>
+                    </div>
+                </aura:if>   
+                <aura:if isTrue="{! v.stageNumber > 1 }">
+                    <div class="slds-col slds-size_6-of-12 slds-p-horizontal_medium">
+                        <ui:outputText value="Legal Entity Name:"/>&nbsp;
+                        <b><ui:outputText value="{! v.notLinkedToCustomer?v.internalAccount.Name:v.selectedLegalEntity.Name}"/></b>
+                    </div>
+                </aura:if>
+                <aura:if isTrue="{! !v.unhappyPath }">
+                    <aura:if isTrue="{! and(v.stageNumber > 2, v.selectedAsset != null) }">
+                        <div class="slds-col slds-size_6-of-12 slds-p-horizontal_medium slds-p-top_small">
+                            <ui:outputText value="Asset Name:"/>&nbsp;
+                            <b><ui:outputText value="{! v.selectedAsset.Name}"/></b>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{! and(v.stageNumber > 3, v.selectedEntitlement != null) }">
+                        <div class="slds-col slds-size_6-of-12 slds-p-horizontal_medium slds-p-top_small">
+                            <ui:outputText value="Entitlement Name:"/>&nbsp;
+                            <b><ui:outputText value="{! v.selectedEntitlement.Name}"/></b>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{! and(v.stageNumber > 1, v.selectedNEA != null) }">
+                        <div class="slds-col slds-size_6-of-12 slds-p-horizontal_medium slds-p-top_small">
+                            <ui:outputText value="Network Element Asset Id:"/>&nbsp;
+                            <b><ui:outputText value="{! v.selectedNEA.CH_NetworkElementID__c }"/></b>
+                        </div>
+                    </aura:if>
+                </aura:if>
+                <aura:if isTrue="{! v.unhappyPath }">
+                    <aura:if isTrue="{! and(v.selectedCountry != null, v.selectedProduct != null) }">
+                        <div class="slds-col slds-size_6-of-12 slds-p-horizontal_medium slds-p-top_small">
+                            <ui:outputText value="Country/Product:"/>&nbsp;
+                            <b><ui:outputText value="{! v.selectedCountry}"/>/<ui:outputText value="{! v.selectedProduct.Name}"/></b>
+                        </div>
+                    </aura:if>
+                </aura:if>
+            </div>
+            <!-- Service Type Screen -->
+            <div class="{! v.stageNumber == 0 ? 'slds-grid slds-wrap slds-m-top_small': 'slds-hide'}">
+                <div class="slds-col slds-size_12-of-12 slds-p-horizontal_medium">
+                    <ui:outputText value="Previously Selected Service Type:"/>&nbsp;
+                    <b><ui:outputText value="{! v.case.CH_ServiceType__c }"/></b>
+                </div>
+                <div class="slds-col slds-p-horizontal_xx-large slds-m-around_xx-large">
+                    <lightning:select name="Service Type" label="Service Type" value="{! v.selectedServiceType }">
+                        <option value="Internal Support">Internal Support</option>
+                        <option value="Customer Support">Customer Support</option>
+                    </lightning:select>
+                </div>
+            </div>
+            <!-- Account Screen -->
+            <div class="{! v.stageNumber == 1 ? 'slds-grid slds-wrap slds-m-top_small': 'slds-hide'}">
+                <div class="slds-col slds-size_12-of-12 slds-p-horizontal_medium">
+                    <ui:outputText value="Previously Selected Legal Entity Name:"/>&nbsp;
+                    <b><ui:outputText value="{! v.case.Account.Name }"/></b>
+                </div>
+                <c:CH_LegalEntitySelection aura:id="legalEntitySelection"
+                                  			  contact="{! v.selectedContact }"
+                                              serviceType="{! v.selectedServiceType }"
+                                              onEvent="{! c.eventHandler}"
+                                              showOnlyAuthEntitiesToggle="true"/>
+            </div>
+            <!-- Asset Screen -->
+            <div class="{! v.stageNumber == 2 ? 'slds-grid slds-wrap slds-m-top_medium': 'slds-hide'}">
+                <div class="slds-col slds-size_12-of-12 slds-p-horizontal_medium slds-p-bottom_medium">
+                    <ui:outputText value="Previously Selected Asset Name:"/>&nbsp;
+                    <b><ui:outputText value="{! v.case.Asset.Name }"/></b>
+                </div>
+                <c:CH_AssetSelection aura:id="assetSelection"
+                                  		contact="{! v.selectedContact }"
+                                        account="{! and(v.selectedServiceType == 'Internal Support', (v.selectedLegalEntity != null || v.notLinkedToCustomer)) ? v.internalAccount : v.selectedLegalEntity }"
+                                        netElemAsset="{! v.selectedNEA }"
+                                        serviceType="{! v.selectedServiceType }"
+                                        onEvent="{! c.eventHandler }"
+                                        showDescription="true"
+                                        withoutSharing="true"/>
+            </div>
+            <!-- Entitlement Screen -->
+            <div class="{! v.stageNumber == 3 ? 'slds-grid slds-wrap slds-m-top_medium': 'slds-hide'}">
+                <div class="slds-col slds-size_12-of-12 slds-p-horizontal_medium slds-p-bottom_medium">
+                    <ui:outputText value="Previously Selected Entitlement Name:"/>&nbsp;
+                    <b><ui:outputText value="{! v.case.Entitlement.Name }"/></b>
+                </div>
+                <c:CH_EntitlementSelection aura:id="entitlementSelection"
+                                  			  asset="{! v.selectedAsset }"
+                                              contact="{! v.selectedContact }"
+                                              account="{! and(v.selectedServiceType == 'Internal Support', (v.selectedLegalEntity != null || v.notLinkedToCustomer)) ? v.internalAccount : v.selectedLegalEntity }"
+                                              netElemAsset="{! v.selectedNEA }"
+                                              serviceType="{! v.selectedServiceType }"
+                                              onEvent="{! c.eventHandler }"
+                                              showScripts="true"
+                                         	  withoutSharing="true"
+                                              displayEntitlementScriptVerified="true"
+                                              componentIsVisible="{! v.stageNumber == 3 }"/>
+            </div>
+            <!-- NEA Screen -->
+            <div class="{! v.stageNumber == 4 ? 'slds-grid slds-wrap slds-m-top_medium': 'slds-hide'}">
+                <div class="slds-col slds-size_12-of-12 slds-p-horizontal_medium slds-p-bottom_medium">
+                    <ui:outputText value="Previously Selected Network Element Asset Name:"/>&nbsp;
+                    <b><ui:outputText value="{! v.case.CH_NetworkElementAsset__r.Name }"/></b>
+                </div>
+                <c:CH_NEASelection aura:id="neaSelection"
+                                   account="{! and(v.selectedServiceType == 'Internal Support', (v.selectedLegalEntity != null || v.notLinkedToCustomer)) ? v.internalAccount : (v.selectedLegalEntity?v.selectedLegalEntity:'') }"
+                                   asset="{! and(v.stageNumber > 2, v.neaStageNumber != 2)? v.selectedAsset : null }"
+                                   entitlement="{! and(v.stageNumber >= 3, v.neaStageNumber == -1) ? v.selectedEntitlement : null }"
+                                   serviceType="{! v.selectedServiceType }"
+                                   selectionType="{! v.neaStageNumber !=-1 ? 'Network Element Asset' : 'Covered Network Element Asset' }"
+                                   onEvent="{!c.eventHandler}"
+                                   withoutSharing="true"/>
+            </div>
+            <!-- Product Screen -->
+            <div class="{! v.stageNumber == 5 ? '': 'slds-hide'}">
+                <div class="slds-col slds-size_12-of-12 slds-p-horizontal_medium slds-p-top_medium">
+                    <ui:outputText value="Previously Selected Country/Product:"/>&nbsp;
+                    <b><ui:outputText value="{! v.case.Country__c }"/>/<ui:outputText value="{! v.case.Product.Name }"/></b>
+                </div>
+                <div class="slds-grid slds-wrap slds-p-top_small">
+                    <c:CH_Product2Selection aura:id="productSelection"
+                                            onEvent="{!c.eventHandler}"
+                                            type="Minimal"
+                                            predefinedFields="{!v.assetProductFields}"/>
+                </div> 
+            </div>
+            <!-- Timezone Screen -->
+            <div class="{! and(v.stageNumber == 6) ? '': 'slds-hide'}">
+                <div class="slds-col slds-size_12-of-12 slds-p-around_medium">
+                    <ui:outputText value="Previously Computed Business Hours:"/>&nbsp;
+                    <b><ui:outputText value="{! v.case.BusinessHours.Name }"/></b>
+                </div>
+                <div class="slds-grid slds-wrap slds-p-top_large">
+                	<c:CH_TimeZoneSelection aura:id="timeZoneSelection"
+                                            onEvent="{! c.eventHandler }"
+                                            country="{! v.selectedEntitlement.ContractLineItem.CH_CountryISOName__c }"/>
+                </div> 
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="slds-card__footer slds-grid">
+            <div class="slds-col slds-size_3-of-12">   
+                <lightning:button class="slds-float_left" variant="brand" label="Cancel" onclick="{! c.cancel }"/>
+            </div>
+            <div class="slds-col slds-size_6-of-12">
+                <div class="slds-progress">
+                    <ol class="slds-progress__list">
+                        <li class="slds-progress__item slds-is-completed">
+                            <lightning:buttonIcon class="slds-progress__marker slds-progress__marker_icon" iconName="utility:success" variant="bare" alternativeText="Service Type"/>
+                        </li>
+                        <li class="{! 'slds-progress__item' + (or(v.legalEntityNotFound == true, v.selectedLegalEntity != null) || v.notLinkedToCustomer ? ' slds-is-completed' : '') }">
+                            <lightning:buttonIcon class="slds-progress__marker slds-progress__marker_icon"
+                                                  iconName="{! v.legalEntityNotFound == true ? 'utility:unlinked' : (or(v.selectedLegalEntity != null, v.notLinkedToCustomer) ? 'utility:success' : 'utility:record') }"
+                                                  variant="bare" alternativeText="Legal Entity" name="stage1"/>
+                        </li>
+                        <li class="{! 'slds-progress__item' + (or(v.unhappyPath == true, v.selectedAsset != null) ? ' slds-is-completed' : '') }">
+                            <lightning:buttonIcon class="slds-progress__marker slds-progress__marker_icon"
+                                                  iconName="{! v.unhappyPath == true ? 'utility:unlinked' : (v.selectedAsset != null ? 'utility:success' : 'utility:record') }"
+                                                  variant="bare" alternativeText="Covered Product (Asset)" name="stage2" />
+                        </li>
+                        <li class="{! 'slds-progress__item' + (or(v.unhappyPath == true, v.selectedEntitlement != null) ? ' slds-is-completed' : '') }">
+                            <lightning:buttonIcon class="slds-progress__marker slds-progress__marker_icon"
+                                                  iconName="{! v.unhappyPath == true ? 'utility:unlinked' : (v.selectedEntitlement != null ? 'utility:success' : 'utility:record') }"
+                                                  variant="bare" alternativeText="Entitlement" name="stage3" />
+                        </li>
+                        <aura:if isTrue="{! v.unhappyPath }">
+                            <li class="{! 'slds-progress__item'+(and(v.selectedCountry != null, v.selectedProduct != null) ? ' slds-is-completed' : '') }">
+                                <lightning:buttonIcon class="slds-progress__marker slds-progress__marker_icon"
+                                                      iconName="{! and(v.selectedCountry != null, v.selectedProduct != null) ? 'utility:success' : 'utility:record' }"
+                                                      variant="bare" alternativeText="Product Information" name="stage5"/>
+                            </li>
+                            <aura:set attribute="else">
+                                <aura:if isTrue="{! and(v.selectedEntitlement != null, v.selectedEntitlement.NEACount != 0) }">
+                                    <li class="{! 'slds-progress__item' + (v.selectedNEA != null ? ' slds-is-completed' : '') }">
+                                        <lightning:buttonIcon class="slds-progress__marker slds-progress__marker_icon"
+                                                            iconName="{! v.selectedNEA != null ? 'utility:success' : 'utility:record' }"
+                                                            variant="bare" alternativeText="Network Element Asset" name="stage4" />
+                                    </li>
+                                </aura:if>
+                                <aura:if isTrue="{! and(v.selectedEntitlement != null, v.timeZoneMissing) }">
+                                    <li class="{! 'slds-progress__item'+(v.selectedTimeZone != '' ? ' slds-is-completed' : '') }">
+                                        <lightning:buttonIcon class="slds-progress__marker slds-progress__marker_icon"
+                                                              iconName="{! v.selectedTimeZone != '' ? 'utility:success' : 'utility:record' }"
+                                                              variant="bare" alternativeText="Time Zone Information" name="stage6"/>
+                                    </li>
+                                </aura:if>
+                            </aura:set>
+                        </aura:if>
+                    </ol>
+                    <lightning:progressBar value="{! v.stagePercentage }" size="x-small"/>
+                </div>
+            </div>
+            <div class="slds-col slds-size_3-of-12">
+                <aura:if isTrue="{! v.stageNumber == 0 }">
+                    <lightning:button class="slds-float_right" variant="brand" disabled="{! v.selectedServiceType == null }" label="Next" onclick="{! c.next }" />   
+                </aura:if>
+                <aura:if isTrue="{! v.stageNumber == 1 }">
+                    <lightning:button class="slds-float_right" variant="brand" disabled="{! and(v.selectedLegalEntity == null, !v.notLinkedToCustomer) }" label="Next" onclick="{! c.next }" />   
+                </aura:if>
+                <aura:if isTrue="{! v.stageNumber == 2 }">
+                    <lightning:button class="slds-float_right" variant="brand" disabled="{! v.selectedAsset == null }" label="Next" onclick="{! c.next }" />   
+                </aura:if>
+                <aura:if isTrue="{! v.stageNumber == 3 }">
+                    <aura:if isTrue="{! and(v.selectedEntitlement != null, v.selectedEntitlement.NEACount != 0) || v.timeZoneMissing }">
+                        <lightning:button class="slds-float_right" variant="brand" disabled="{! v.selectedEntitlement == null }" label="Next" onclick="{! c.next }" />   
+                        <aura:set attribute="else">
+                        	<lightning:button class="slds-float_right" variant="brand" disabled="{! v.selectedEntitlement == null }" label="Save" onclick="{! c.saveCaseHandler }" />
+                        </aura:set>
+                    </aura:if>
+                </aura:if>
+                <aura:if isTrue="{! v.stageNumber == 4 }">
+                    <aura:if isTrue="{! v.timeZoneMissing || v.neaStageNumber != -1 }">
+                    	<lightning:button class="slds-float_right" variant="brand" disabled="{! v.provisoryNEA == null }" label="Next" onclick="{! c.next }" />
+                        <aura:set attribute="else">
+                            <lightning:button class="slds-float_right" variant="brand" disabled="{! v.selectedNEA == null }" label="Save" onclick="{! c.saveCaseHandler }" />
+                        </aura:set>
+                    </aura:if>
+                </aura:if>
+                <aura:if isTrue="{! v.stageNumber == 5 }">
+                    <lightning:button class="slds-float_right" variant="brand" disabled="{! v.selectedCountry == null || v.selectedProduct == null }" label="Save" onclick="{! c.saveCaseHandler }" />   
+                </aura:if>
+                <aura:if isTrue="{! v.stageNumber == 6 }">
+                    <lightning:button class="slds-float_right" variant="brand" disabled="{! v.selectedTimeZone == '' }" label="Save" title="Save" onclick="{! c.handleTimeZoneConfirmation }"/>
+                </aura:if>
+                <aura:if isTrue="false">
+                    <lightning:button class="slds-float_right" variant="brand" label="Save" title="Save" onclick="{! c.saveCaseHandler }" />
+                </aura:if>
+                <lightning:button class="slds-float_right slds-m-right_x-small" disabled="{! v.stageNumber == 0 || v.redirectStageNumber == v.stageNumber }" variant="Neutral" label="Previous"  onclick="{! c.previous }"/>
+            </div>
+        </footer>
+    </article>
+</aura:component>

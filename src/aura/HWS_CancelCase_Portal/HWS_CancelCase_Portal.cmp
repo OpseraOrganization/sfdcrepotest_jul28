@@ -1,0 +1,33 @@
+<aura:component controller="HWS_CancelCase_Portal" implements="force:hasSObjectName,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"  access="global">
+	<aura:attribute name="record" type="Object"/>
+    <aura:attribute name="simpleRecord" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+    <aura:attribute name="doNotShowSPS" type="Boolean"/>
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}"/>
+    <aura:handler event="force:refreshView" action="{!c.myAction}" />
+    <aura:attribute name="CasStatus" type="String"/> 
+    
+    <force:recordData aura:id="record"
+                      layoutType="FULL"
+                      recordId="{!v.recordId}"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord }"
+                      />
+    
+   
+    <!--<aura:attribute name="IsSpinner" type="Boolean"/>
+    <aura:if isTrue="{!v.IsSpinner}">
+        <lightning:spinner variant="brand"  size="large" />
+    </aura:if>
+    <aura:handler event="aura:waiting" action="{!c.showWaiting}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideWaiting}"/>--> 
+   
+    <div>
+        <aura:if isTrue="{!and(v.CasStatus != 'hidebtn',(v.CasStatus == 'Shipped' || v.CasStatus == 'Partially Shipped' || v.CasStatus == 'Delivered' || v.CasStatus == 'Open' ||v.CasStatus == 'Ordered'  || v.CasStatus == 'Draft' || v.CasStatus == 'In Progress' || v.CasStatus == 'On Hold'))}">
+            <lightning:layoutItem padding="around-small" size="5">
+                <lightning:button variant="brand" label="Cancel Case" onclick="{!c.cancelHwsCase}"/>
+            </lightning:layoutItem>
+        </aura:if>
+    </div>    
+</aura:component>

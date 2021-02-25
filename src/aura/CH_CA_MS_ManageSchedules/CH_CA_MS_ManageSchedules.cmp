@@ -1,0 +1,25 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+
+    <aura:handler event="c:CH_CA_MS_Child_Event" action="{!c.handleChildEvent}"/>
+    <aura:attribute name="recordId" type="Id" description="workgroup record id" />
+    <aura:attribute name="scheduleId" type="Id" description="Id of the current schedule" />
+    <aura:attribute name="timeslotId" type="Id" description="Id of the current timeslot" />
+	<aura:attribute name="displayScheduleList" type="boolean" default="true" />
+    <aura:attribute name="displayEditSchedule" type="boolean" default="false" />
+    <aura:attribute name="displayEditTimeslot" type="boolean" default="false" />
+    
+    <article class="slds-card">
+        <div>
+    		<aura:if isTrue="{!v.displayScheduleList}">
+    			<c:CH_CA_MS_List_Schedules aura:id="ListSchedules" workgroupId="{!v.recordId}" />
+            </aura:if>
+            <aura:if isTrue="{!v.displayEditSchedule}">
+                <c:CH_CA_MS_Edit_Schedule aura:id="EditSchedule" scheduleId="{!v.scheduleId}" workgroupId="{!v.recordId}" />
+            </aura:if>
+            <aura:if isTrue="{!v.displayEditTimeslot}">
+                <c:CH_CA_MS_Edit_Timeslot aura:id="EditTimeslot" timeslotId="{!v.timeslotId}" scheduleId="{!v.scheduleId}" />
+            </aura:if>
+        </div>
+    </article>
+    
+</aura:component>

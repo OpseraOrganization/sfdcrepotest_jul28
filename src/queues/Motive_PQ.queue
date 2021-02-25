@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Motive_PQ</name>
+    <queueMembers>
+        <users>
+            <user>alakesh.kalita@singlecrm.nokia.com</user>
+            <user>anamaria.budisteanu@singlecrm.nokia.com</user>
+            <user>artyom.sivkov@singlecrm.nokia.com</user>
+            <user>chris.goddard@singlecrm.nokia.com</user>
+            <user>dermot.coy@singlecrm.nokia.com</user>
+            <user>ioan.crisnic@singlecrm.nokia.com</user>
+            <user>jeny.ninan@singlecrm.nokia.com</user>
+            <user>jo.gys@singlecrm.nokia.com</user>
+            <user>john.dumont@singlecrm.nokia.com</user>
+            <user>sharanabasappa.s_hatti@singlecrm.nokia.com</user>
+            <user>srini.purma@singlecrm.nokia.com</user>
+            <user>srinivasa.kothapally@singlecrm.nokia.com</user>
+            <user>steven.dhondt@singlecrm.nokia.com</user>
+            <user>chdatamigration.user@singlecrm.nokia.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>KnowledgeArticleVersion</sobjectType>
+    </queueSobject>
+</Queue>

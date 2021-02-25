@@ -1,0 +1,201 @@
+<aura:component controller="CH_CaseField_SideHighlightApex" implements="flexipage:availableForRecordHome,force:hasRecordId" > 
+    
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="recordError" type="String"/>
+    <aura:attribute name="issueResolvedFinished" type="boolean" default="true"/>
+    <aura:attribute name="edit" type="boolean" />
+    <aura:attribute name="disableButtongensdr" type="boolean" default="true"/>
+
+     <aura:attribute name="disableissueresolve" type="boolean" default="false"/>
+    <aura:handler event="force:refreshView" action="{!c.doInit}" />
+    <!-- Code to display the spinner when searching -->
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    <!--aura:if isTrue="{!v.Spinner}"-->
+         <aura:if isTrue="{!v.showSpinner}">
+        <div aura:id="spinnerId" class="slds-spinner_container">
+            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:if isTrue="{!v.issueResolvedFinished}">
+        <div class="issueResolvedFinished">
+            <lightning:flow aura:id="issueResolved" onstatuschange="{!c.handleIssueResolvedFinishedChange}"/>
+        </div> 
+    </aura:if>
+    
+    <aura:if isTrue="{!v.edit}">
+        <lightning:layout horizontalAlign="Left">
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <Lightning:recordEditForm aura:id="recordEditForm" 
+                                          recordId="{!v.recordId}"
+                                          objectApiName="Case"
+                                          onsuccess="{!c.handleSuccess}" >
+                    <Lightning:messages />
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <Lightning:inputField class="customRequired" fieldName="CH_IssueDescription__c" aura:id="CH_IssueDescription__c" />
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <Lightning:inputField class="customRequired" fieldName="CH_TechnicalAnalysis__c" aura:id="CH_TechnicalAnalysis__c" /> 
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <Lightning:inputField fieldName="CH_Summary__c" /> 
+                        </div>
+                    </div>
+                    <br/>
+                    
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField fieldName="CH_AssessedOutage__c" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <Lightning:inputField disabled="true" fieldName="CH_Code_Red_Status__c" />  
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                    </div>  
+                    <div class="c-container"> 
+                        <lightning:layout horizontalAlign="space" >
+                            <lightning:layoutItem flexibility="auto" size ="6" padding="around-small">
+                                <Lightning:inputField fieldName="CH_TCAReady__c" aura:id="TCA"/>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem flexibility="auto" size ="6"  padding="around-small">
+                                <Lightning:inputField fieldName="CH_SuspectedDataBreach__c"/>
+                            </lightning:layoutItem>
+                        </lightning:layout> 
+                        <lightning:layout horizontalAlign="space" >
+                            <lightning:layoutItem flexibility="auto" size ="6"  padding="around-small">
+                                <Lightning:inputField fieldName="CH_Defect__c"/>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem flexibility="auto" size ="6"  padding="around-small">
+                                <lightning:inputField  class="customRequired" fieldName="CH_CaseCause__c" aura:id="CH_CaseCause__c" />
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                        <br/> 
+                    </div>                               
+                    
+                    
+                    
+                    <br/>
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <lightning:button class="slds-m-top_small" variant="brand" type="button" name="update" label="Save" onclick="{!c.update}" />
+                                                                        
+                                       
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="slds-col">
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <lightning:button class="slds-m-top_small" variant="brand" type="button"  name="update" label="Generate SDR" onclick="{!c.associateUsages}" disabled="{!v.disableButtongensdr}" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-col">
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <lightning:button class="slds-m-top_small" aura:id="disablebuttonidwrite" variant="brand" type="button" name="update" label="Generate CAR" onclick="{!c.generateCar}" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-col">
+                            <div class="slds-form-element">
+                              
+                                <div class="slds-form-element__control">
+                                    <lightning:button class="slds-m-top_small" aura:id="disablesetIssueresolve" variant="brand" type="button" name="update" label="Set Issue Resolved" onclick="{!c.finalSolution}" disabled="{!v.disableissueresolve}"/>
+                                </div>
+                             
+                            </div>
+                        </div>
+                    </div>
+                </Lightning:recordEditForm>
+            </lightning:layoutItem>
+        </lightning:layout>
+        <aura:set attribute="else">
+            <lightning:layout horizontalAlign="Left">
+                <lightning:layoutItem flexibility="auto" padding="around-small">
+                    <Lightning:recordViewForm aura:id="recordViewForm" 
+                                              recordId="{!v.recordId}"
+                                              objectApiName="Case" >
+                        <Lightning:messages />
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <Lightning:outputField class="customRequired" required = "true" fieldName="CH_IssueDescription__c"/>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <Lightning:outputField class="customRequired" fieldName="CH_TechnicalAnalysis__c" /> 
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <Lightning:outputField fieldName="CH_Summary__c" /> 
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col">
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_AssessedOutage__c"/>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-col">     
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <lightning:outputField  class="customRequired" fieldName="CH_CaseCause__c"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_TCAReady__c" /> 
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_Defect__c"/> 
+                                    </div>
+                                </div>
+                                <br/>
+                                
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="CH_SuspectedDataBreach__c" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </Lightning:recordViewForm>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </aura:set>
+    </aura:if>
+</aura:component>

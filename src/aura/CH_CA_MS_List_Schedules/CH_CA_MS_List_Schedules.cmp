@@ -1,0 +1,75 @@
+<aura:component controller="CH_CA_MS_List_Schedules_Controller" implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:availableForFlowScreens" access="global">
+	<aura:registerEvent name="appEvent" type="c:CH_CA_MS_Child_Event"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="messageboxEvent" event="c:CH_CA_MS_ConfirmationMessagebox_Event" action="{!c.handleMessageboxEvent}"/>
+    <c:CH_Shared_Javascript aura:id="sharedJavaScript"/>
+	<c:CH_CA_MS_ConfirmationMessagebox aura:id="messageBox" />
+    
+    <aura:attribute name="workgroupId" type="String" />
+    <aura:attribute name="userLocale" type="String" />
+	<aura:handler name="change" value="{!v.scheduleId}" action="{!c.navigationClicked}"/>
+    <aura:attribute name="scheduleId" type="String" />
+    
+    <!-- Load dependencies needed for the DataTable -->
+    <ltng:require styles="{!join(',', 
+                          $Resource.datatable + '/DataTables-1.10.16/media/css/jquery.dataTables.min.css',
+                          $Resource.datatable + '/DataTables-1.10.16/extensions/Select/css/select.dataTables.min.css')}"
+                  scripts="{!join(',', 
+                           $Resource.CH_jquery224, 
+                           $Resource.datatable + '/DataTables-1.10.16/media/js/jquery.dataTables.min.js',
+                           $Resource.datatable + '/DataTables-1.10.16/extensions/Select/js/dataTables.select.min.js')}" /> 
+    
+    <!-- Code to display the spinner when searching -->
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    <aura:if isTrue="{!v.Spinner}">
+        <div aura:id="spinnerId" class="slds-spinner_container">
+            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+    
+    <!-- Bread crumbs -->
+    <lightning:layoutItem >
+    	<lightning:breadcrumbs>
+            <lightning:breadcrumb label="All Schedules" href="javascript:void(0)" />
+        </lightning:breadcrumbs>
+    </lightning:layoutItem>
+    <!-- Validation errors -->
+    <lightning:layoutItem >
+        <c:CH_CA_Validate_Schedule aura:id="validateSchedule" />
+    </lightning:layoutItem>
+    <!-- List of schedules -->
+    <lightning:layoutItem >
+        <div class="slds-m-top_xx-small slds-m-bottom_xx-small slds-scrollable" style="height: 22rem;">
+            <table id="{!'schedules-' + v.workgroupId}" style="table-layout: fixed; 
+                                                               width: 100%
+                                                               overflow:hidden; text-overflow: ellipsis;
+                                                               word-wrap:break-word;">
+            </table>
+        </div>
+    </lightning:layoutItem>
+    <lightning:layout horizontalAlign="end">
+        <!-- Display the buttons -->
+        <lightning:layoutItem >
+            <lightning:button label="New Schedule" 
+                              aura:id="newScheduleButton"
+                              class="slds-m-top--medium slds-m-bottom--medium"
+                              variant="brand"
+                              onclick="{!c.navigationClicked}" />
+            <lightning:button label="Delete Schedule"
+                              aura:id="deleteScheduleButton"  
+                              class="slds-m-top--medium slds-m-bottom--medium"
+                              onclick="{!c.confirmDelete}"
+                              disabled="true" />
+            <lightning:button label="Validate"
+                              aura:id="validateButton"  
+                              class="slds-m-top--medium slds-m-bottom--medium"
+                              onclick="{!c.validate}"
+                              disabled="true"/>
+        </lightning:layoutItem>
+    </lightning:layout>
+       
+</aura:component>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>NSW_CSC_Database_AQ</name>
+    <queueMembers>
+        <users>
+            <user>david.marques@singlecrm.nokia.com</user>
+            <user>huiyang.yue@singlecrm.nokia.com</user>
+            <user>jose.3.goncalves@singlecrm.nokia.com</user>
+            <user>maciej.czarnota@singlecrm.nokia.com</user>
+            <user>maksymilian.wardzinski@singlecrm.nokia.com</user>
+            <user>mara.ornelas@singlecrm.nokia.com</user>
+            <user>norbert.domjan@singlecrm.nokia.com</user>
+            <user>chdatamigration.user@singlecrm.nokia.com</user>
+            <user>vitor.mestre@singlecrm.nokia.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>KnowledgeArticleVersion</sobjectType>
+    </queueSobject>
+</Queue>

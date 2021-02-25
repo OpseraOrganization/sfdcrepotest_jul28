@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Tier 1 - EUR</name>
+    <queueMembers>
+        <users>
+            <user>alexandra.flamindu@singlecrm.finance.alcatel-lucent.com</user>
+            <user>alina.serban@singlecrm.finance.alcatel-lucent.com</user>
+            <user>christina.jansson@singlecrm.nokia.com</user>
+            <user>deprecated@deprecated.com</user>
+            <user>eric.fryde@singlecrm.nokia.com</user>
+            <user>herve.maillart@singlecrm.nokia.com</user>
+            <user>marine.chauffin@singlecrm.nokia.com</user>
+            <user>marjan.smouts@singlecrm.nokia.com</user>
+            <user>patricia.oprisor@singlecrm.finance.alcatel-lucent.com</user>
+            <user>veronica.mangiafico@singlecrm.nokia.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

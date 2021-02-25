@@ -1,0 +1,366 @@
+<!--
+    Last Modified By : Rajeshwari Aug 13 2019 - NOKIASC-18141 | ++ NOKIASC-22833
+    -->
+<aura:component controller="CH_CaseField_SideHighlightApex"  implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:availableForFlowScreens,force:lightningQuickAction,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes" access="global"  > 
+
+	<aura:attribute name="disableButtonCreateArt" type="boolean" default="true"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="flowFinished" type="boolean" default="true"/>
+    <aura:attribute name="createProblemFinished" type="boolean" default="true"/>
+    <aura:attribute name="createKnownErrorFinished" type="boolean" default="true"/>
+    <aura:attribute name="openSection" type="String" default="A"/>
+    <aura:attribute name="activeSections" type="List" default="['A','B']" />
+    <!-- Attributes to show EDIT or READ access-->
+    <aura:attribute name="edit" type="boolean" />
+    <lightning:quickActionAPI aura:id="quickActionAPI" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="force:refreshView" action="{!c.doInit}" />
+    
+   <!-- Commented for BUG 24074 Multiple Auto Refresh of Report TCS Partha
+    <aura:handler event="force:refreshView" action="{!c.isRefreshed}" />
+    <aura:handler name="init" value="{!this}" action="{!c.refreshPage}"/> -->
+    <lightning:workspaceAPI aura:id="workspace"/>
+    <aura:attribute name="closeProblem" type="Boolean" default="false" />
+    
+    <!--loading spinner start... style=Brand Medium (blue dots) -->
+  <!-- Commented for BUG 24074 Multiple Auto Refresh of Report TCS Partha
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>-->
+    
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    
+    
+     <aura:if isTrue="{!v.Spinner}">
+        <div>
+            <lightning:spinner aura:id="spinner" variant="brand" alternativeText="Loading..."/>
+        </div>
+        </aura:if>
+    <!-- Loading spinner end-->
+    
+    <!-- Loading spinner end-->    
+    <aura:if isTrue="{!v.flowFinished}">
+        <div class="flowFinished">
+            <lightning:flow aura:id="flowData" onstatuschange="{!c.handleStatusChange}"/>
+        </div> 
+    </aura:if>
+    <aura:if isTrue="{!v.createProblemFinished}">
+        <div class="createProblemFinished">
+            <lightning:flow aura:id="createProblemFinished" onstatuschange="{!c.handleCreateProblemFinished}"/>
+        </div> 
+    </aura:if>
+    <aura:if isTrue="{!v.createKnownErrorFinished}">
+        <div class="createKnownErrorFinished">
+            <lightning:flow aura:id="createKnownError" onstatuschange="{!c.handleCreateKnownErrorChange}"/>
+        </div> 
+    </aura:if>
+    <tbody aura:id="myComponent" >
+        
+    </tbody>
+    <aura:if isTrue="{!v.edit }">
+        <lightning:layout horizontalAlign="Left">
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <Lightning:recordEditForm aura:id="recordEditForm" 
+                                          recordId="{!v.recordId}"
+                                          objectApiName="Case"
+                                          onsuccess="{!c.handleSuccess}" 
+                                          onload="{!c.handleOnLoad}" >
+                    <Lightning:messages />
+                    <lightning:accordion aura:id="accordion"
+                                         allowMultipleSectionsOpen="true"
+                                         onsectiontoggle="{! c.handleSectionToggle }"
+                                         activeSectionName="{! v.activeSections }">
+                        <aura:if isTrue="{!v.closeProblem}">
+                            <div class="closeProblemDiv">
+                                <div class="slds-text"><b>Close Problem</b></div> 
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField aura:id="cReason" fieldName="CH_Closure_Reason__c" />
+                                    </div>                        
+                                    <div class="slds-form-element__control">
+                                        <lightning:button class="slds-m-top_small" aura:id="disablebuttonid" variant="brand" type="button" name="update" label="Save" 
+                                                          onclick="{!c.saveCloseProblem}"/>
+                                    </div>
+                                </div>
+                            </div> <br/>
+                        </aura:if>
+                        <lightning:accordionSection name="A" label="Problem Assessment">
+                            <aura:set attribute="body">
+                                <div class="slds-text" ><b>Description</b></div> 
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:outputField fieldName="Subject" />
+                                    </div>
+                                </div>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">                             
+                                        <label class="slds-form-element__label" for="cdesc">Description</label> 
+                                        <lightning:outputField aura:id="cdesc" variant="label-hidden" fieldName="CH_IssueDescription__c" />
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="slds-form-element">
+                                    <lightning:layout multipleRows="true">
+                                        <lightning:layoutItem size="4"><Lightning:inputField fieldName="CH_Reported_By__c" /> </lightning:layoutItem>
+                                        <lightning:layoutItem size="4"><Lightning:inputField fieldName="CH_Discovered_in__c" /></lightning:layoutItem>
+                                        <lightning:layoutItem size="4"><Lightning:inputField fieldName="CH_Discovered_During__c" /></lightning:layoutItem>
+                                    </lightning:layout>
+                                </div>
+                                
+                                <div class="slds-form-element">
+                                    <lightning:layout multipleRows="true">
+                                        <lightning:layoutItem size="4"><Lightning:inputField fieldName="CH_Repeatability__c" /></lightning:layoutItem>
+                                    </lightning:layout>
+                                </div>
+                                <div class="slds-text"><b>Categorization</b></div>
+                                <lightning:layout multipleRows="true">
+                                    <lightning:layoutItem size="4"><Lightning:inputField fieldName="CH_Problem_Category__c" /> </lightning:layoutItem>
+                                    <lightning:layoutItem size="4"><Lightning:inputField fieldName="CH_Problem_Type__c" /></lightning:layoutItem>
+                                    <lightning:layoutItem size="4"><Lightning:inputField fieldName="CH_Problems__c" /></lightning:layoutItem>
+                                </lightning:layout>
+                                <div class="slds-text"><b>Prioritization</b></div>
+                                <lightning:layout multipleRows="true">
+                                    <lightning:layoutItem size="4"><Lightning:inputField fieldName="Severity__c" /> </lightning:layoutItem>
+                                    <lightning:layoutItem size="4"><Lightning:inputField fieldName="CH_Urgency__c" /></lightning:layoutItem>
+                                    <lightning:layoutItem size="4"><Lightning:inputField fieldName="Priority" label="Priority"/></lightning:layoutItem>
+				<!--Partha Roy-TCS changed Priority to Assessed Priority-->
+				    </lightning:layout>
+                            </aura:set>
+                        </lightning:accordionSection>
+                        
+                        <lightning:accordionSection name="B" label="Problem Analysis" >
+                            <aura:set attribute="body">
+                                <div class="slds-text"><b>Problem</b></div> 
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField aura:id="ps" fieldName="CH_ProblemStatement__c" />
+                                    </div>
+                                </div>
+                                
+                                <div class="slds-text"><b>Technical Cause</b></div> 
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField fieldName="Steps_to_Reproduce_Issue__c" class="wordwrap"/>
+                                    </div>
+                                </div>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField fieldName="CH_CauseoftheIncident__c" />
+                                    </div>
+                                </div>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField fieldName="CH_ListofContributingCauses__c" />
+                                    </div>
+                                </div>
+                                <div class="slds-text"><b>Root Cause</b></div> 
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField fieldName="CH_SummaryofAnalysis__c" class="wordwrap"/>
+                                    </div>
+                                </div>
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField fieldName="CH_Root_Cause_Description__c" class="wordwrap"/>
+                                    </div>
+                                </div>
+								<div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField fieldName="CH_ValidationofRootCause__c" aura:id="ValidationofRootCause" />
+                                    </div>
+                                </div>
+                                <lightning:layout multipleRows="true">
+                                    <lightning:layoutItem size="4"><Lightning:inputField fieldName="CH_Caused_By__c" /> </lightning:layoutItem>
+                                    <lightning:layoutItem size="4"><Lightning:inputField fieldName="CH_Cause_Type__c" /></lightning:layoutItem>
+                                    <lightning:layoutItem size="4"><Lightning:inputField fieldName="CH_Root_Cause__c" /></lightning:layoutItem>
+                                </lightning:layout>
+                            </aura:set>
+                        </lightning:accordionSection>
+						
+                        <!-- Add below section as per NOKIASC-26018 Start-->
+                        <lightning:accordionSection name="C" label="Corrective Actions" >
+                            <aura:set attribute="body">
+                                <div class="slds-text"><b>Suggested Actions</b></div> 
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField fieldName="CH_ActionTaken__c" aura:id="ActionTaken"  />
+                                    </div>                            
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField fieldName="CH_PreventiveActions__c"  aura:id="PreventiveActions"  />
+                                    </div>                               
+                                    <div class="slds-form-element__control">
+                                        <Lightning:inputField fieldName="CH_CorrectiveActions__c"  aura:id="CorrectiveActions"  />
+                                    </div>
+                                </div>
+                                
+                            </aura:set>
+                        </lightning:accordionSection>
+                        <!-- End -->
+                        
+                    </lightning:accordion>
+                </Lightning:recordEditForm>
+            </lightning:layoutItem>
+        </lightning:layout>
+        <div>
+        <div class="slds-docked-form-footer">  
+            <div class="slds-col slds-align_absolute-center">
+            	<div class="slds-form-element">
+                <div class="slds-form-element__control">
+                <lightning:button class="slds-m-top_small" variant="brand" type="button" name="update" label="Save" onclick="{!c.update}" />
+             	</div>
+            	</div>
+        	</div>
+            <div class="slds-col slds-align_absolute-center">
+            	<div class="slds-form-element">
+                <div class="slds-form-element__control">
+      			<lightning:button class="slds-m-top_small" variant="brand" type="button" name="update" label="Create Article" onclick="{!c.createKnownError}" disabled="{!v.disableButtonCreateArt}"/>
+				</div>
+            	</div>
+        	</div>
+            <div class="slds-col slds-align_absolute-center">
+            	<div class="slds-form-element">
+                <div class="slds-form-element__control">
+				<lightning:button class="slds-m-top_small" aura:id="disablebuttonid" variant="brand" type="button" name="update" label="Share Update" onclick="{!c.launchOutageStatusUpdate}" />
+                </div>
+            	</div>
+        	</div>
+            <div class="slds-col slds-align_absolute-center">
+            <div class="slds-form-element">
+                <div class="slds-form-element__control">
+                    <lightning:button class="slds-m-top_small" variant="brand" type="button" name="update" label="Close Problem" onclick="{!c.openTab}" />
+				</div>
+                </div>
+        	</div>
+          </div>
+ </div>
+        <!-- Display an editing form -->
+        
+        <aura:set attribute="else">
+            <lightning:layout horizontalAlign="Left">
+                <lightning:layoutItem flexibility="auto" padding="around-small">
+                    <Lightning:recordViewForm aura:id="recordViewForm" 
+                                              recordId="{!v.recordId}"
+                                              objectApiName="Case">
+                        <Lightning:messages />
+                        <lightning:accordion aura:id="accordion"
+                                             allowMultipleSectionsOpen="true"
+                                             onsectiontoggle="{! c.handleSectionToggle }"
+                                             activeSectionName="{! v.activeSections }">
+                            
+                            <lightning:accordionSection name="A" label="Problem Assessment">
+                                <aura:set attribute="body">
+                                    <div class="slds-text"><b>Description</b></div> 
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="Subject" />
+                                        </div>
+                                    </div>
+                                    <br/>
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">                             
+                                        <label class="slds-form-element__label" for="cdesc">Description</label> 
+                                        <lightning:outputField aura:id="cdesc" variant="label-hidden" fieldName="CH_IssueDescription__c" />
+                                    </div>
+                                    </div>
+                                    
+                                    <div class="slds-form-element">
+                                        <lightning:layout multipleRows="true">
+                                            <lightning:layoutItem size="4"><Lightning:outputField fieldName="CH_Reported_By__c" /> </lightning:layoutItem>
+                                            <lightning:layoutItem size="4"><Lightning:outputField fieldName="CH_Discovered_in__c" /></lightning:layoutItem>
+                                            <lightning:layoutItem size="4"><Lightning:outputField fieldName="CH_Discovered_During__c" /></lightning:layoutItem>
+                                        </lightning:layout>
+                                    </div>
+                                    
+                                    <div class="slds-form-element">
+                                        <lightning:layout multipleRows="true">
+                                            <lightning:layoutItem size="4"><Lightning:outputField fieldName="CH_Repeatability__c" /></lightning:layoutItem>
+                                        </lightning:layout>
+                                    </div>
+                                    <div class="slds-text"><b>Categorization</b></div>
+                                    <lightning:layout multipleRows="true">
+                                        <lightning:layoutItem size="4"><Lightning:outputField fieldName="CH_Problem_Category__c" /> </lightning:layoutItem>
+                                        <lightning:layoutItem size="4"><Lightning:outputField fieldName="CH_Problem_Type__c" /></lightning:layoutItem>
+                                        <lightning:layoutItem size="4"><Lightning:outputField fieldName="CH_Problems__c" /></lightning:layoutItem>
+                                    </lightning:layout>
+                                    <div class="slds-text"><b>Prioritization</b></div>
+                                    <lightning:layout multipleRows="true">
+                                        <lightning:layoutItem size="4"><Lightning:outputField fieldName="Severity__c" /> </lightning:layoutItem>
+                                        <lightning:layoutItem size="4"><Lightning:outputField fieldName="CH_Urgency__c" /></lightning:layoutItem>
+                                        <lightning:layoutItem size="4"> <span class="helpid" for="priority" >Priority</span> 
+                                        <lightning:outputField aura:id="priority" variant="label-hidden" fieldName="Priority" />
+                                    </lightning:layoutItem>
+                                    </lightning:layout>
+                                </aura:set>
+                            </lightning:accordionSection>
+                            
+                            <lightning:accordionSection name="B" label="Problem Analysis" >
+                                <aura:set attribute="body">
+                                    <div class="slds-text"><b>Problem</b></div> 
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_ProblemStatement__c" />
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="slds-text"><b>Technical Cause</b></div> 
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="Steps_to_Reproduce_Issue__c" />
+                                        </div>
+                                    </div>
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_CauseoftheIncident__c" />
+                                        </div>
+                                    </div>
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_ListofContributingCauses__c" />
+                                        </div>
+                                    </div>
+                                    <div class="slds-text"><b>Root Cause</b></div> 
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_SummaryofAnalysis__c" />
+                                        </div>
+                                    </div>
+									<div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_ValidationofRootCause__c" />
+                                        </div>
+                                    </div>
+                                    <lightning:layout multipleRows="true">
+                                        <lightning:layoutItem size="4"><Lightning:outputField fieldName="CH_Caused_By__c" /> </lightning:layoutItem>
+                                        <lightning:layoutItem size="4"><Lightning:outputField fieldName="CH_Cause_Type__c" /></lightning:layoutItem>
+                                        <lightning:layoutItem size="4"><Lightning:outputField fieldName="CH_Root_Cause__c" /></lightning:layoutItem>
+                                    </lightning:layout>
+                                </aura:set>
+                            </lightning:accordionSection>
+                            <!-- Add below section as per NOKIASC-26018 Start-->
+                            <lightning:accordionSection name="C" label="Corrective Actions" >
+                                <aura:set attribute="body">
+                                    <div class="slds-text"><b>Suggested Actions</b></div> 
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_ActionTaken__c" />
+                                        </div>
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_PreventiveActions__c" />
+                                        </div>                         
+                                        <div class="slds-form-element__control">
+                                            <Lightning:outputField fieldName="CH_CorrectiveActions__c" />
+                                        </div>
+                                    </div>
+                                    
+                                </aura:set>
+                            </lightning:accordionSection>
+                            <!-- End -->
+                        </lightning:accordion>
+                    </Lightning:recordViewForm>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </aura:set>
+    </aura:if>
+   
+
+</aura:component>

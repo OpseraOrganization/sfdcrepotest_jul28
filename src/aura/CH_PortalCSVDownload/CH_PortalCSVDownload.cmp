@@ -1,0 +1,15 @@
+<aura:component controller="CH_csvDownloadCtrl" implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global"  >
+ <!--aura init handler , call js "loadCaseList" function on component load, and display Case data on table-->   
+    <aura:handler name="init" value="{!this}" action="{!c.loadCaseList}"/> 
+    
+    <!--Declare Attribute for store Contact Records List-->  
+    <aura:attribute name="ListOfCase" type="Case[]"/> 
+    
+ <!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component--> 
+  <div>   
+    <button class="slds-button slds-button--brand" onclick="{!c.downloadCsv}">Download My Tickets</button> <br/><br/>
+ 
+<!--HTML tabel for display Contact Records-->
+
+   </div>	
+</aura:component>

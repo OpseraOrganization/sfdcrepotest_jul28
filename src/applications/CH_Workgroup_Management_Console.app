@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>App for managing the workgroups</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>true</isNavPersonalizationDisabled>
+    <label>Workgroup Management Console</label>
+    <navType>Console</navType>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>EDUT_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>EDU Ticketing</profile>
+    </profileActionOverrides>
+    <setupExperience>all</setupExperience>
+    <tabs>CH_Workgroup__c</tabs>
+    <tabs>CH_Workgroup_Member__c</tabs>
+    <tabs>CH_Workgroup_Rule__c</tabs>
+    <tabs>CH_Workgroup_Event__c</tabs>
+    <tabs>Workgroup_Rota</tabs>
+    <tabs>Workgroup_Rules</tabs>
+    <tabs>Search_Workgroup_by_User</tabs>
+    <tabs>CH_ProductGrouping__c</tabs>
+    <tabs>CH_CustomerGrouping__c</tabs>
+    <tabs>Search_Schedule_per_User</tabs>
+    <uiType>Lightning</uiType>
+    <workspaceConfig>
+        <mappings>
+            <tab>CH_CustomerGrouping__c</tab>
+        </mappings>
+        <mappings>
+            <tab>CH_ProductGrouping__c</tab>
+        </mappings>
+        <mappings>
+            <tab>CH_Workgroup_Event__c</tab>
+        </mappings>
+        <mappings>
+            <fieldName>CH_Workgroup__c</fieldName>
+            <tab>CH_Workgroup_Member__c</tab>
+        </mappings>
+        <mappings>
+            <fieldName>CH_Workgroup__c</fieldName>
+            <tab>CH_Workgroup_Rule__c</tab>
+        </mappings>
+        <mappings>
+            <tab>CH_Workgroup__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Search_Schedule_per_User</tab>
+        </mappings>
+        <mappings>
+            <tab>Search_Workgroup_by_User</tab>
+        </mappings>
+        <mappings>
+            <tab>Workgroup_Rota</tab>
+        </mappings>
+        <mappings>
+            <tab>Workgroup_Rules</tab>
+        </mappings>
+    </workspaceConfig>
+</CustomApplication>

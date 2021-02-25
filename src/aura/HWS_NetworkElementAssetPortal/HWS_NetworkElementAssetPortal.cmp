@@ -1,0 +1,83 @@
+<aura:component controller ="HWS_CreateSupportTicketportal" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="assetRec" type="Object[]"/>
+    <aura:attribute name="searchCriteria" type="String" default="Part Code"/> 
+    <aura:attribute name="selectedAccount" type="String" />
+    <aura:attribute name="neaColumns" type="List"/>
+    <aura:attribute name="allAssets" type="Object[]" />
+    <aura:attribute name="netElemAssets" type="Object[]"/>
+    <aura:attribute name="maxRowSelection" type="String" default="1"/>
+    <aura:attribute name="selectedContractLineItem" type="Object[]"/>
+	<aura:attribute name="selectedNEA" type="Object[]" /> 
+    <aura:attribute name="NEAFilterText" type="String" description="Used to filter NEA from table" />
+    <aura:attribute name="showAllNEA" type="Object[]"/>
+    <aura:attribute name="allCLIS" type="Object[]"/>
+	<aura:attribute name="clearNEACheck" type="Boolean" default="false"/>
+    <aura:method name="init" action="{!c.doInit}" access="PUBLIC" />
+	<aura:method name="componentRefresh" action="{!c.componentRefresh}" access="PUBLIC"/>
+    <aura:registerEvent name="HWS_CaseFlowEventPortal" type="c:HWS_CaseFlowEventPortal"/> 
+	<!--Spinnner start-->	
+    <aura:attribute name="IsSpinner" type="Boolean"/>	
+    <aura:if isTrue="{!v.IsSpinner}">	
+        <lightning:spinner variant="brand"  size="medium" />	
+    </aura:if>
+    <article class="slds-card slds-is-relative">
+    <div class="slds-grid slds-wrap slds-size_12-of-12 slds-is-relative">
+        <article class="slds-card slds-size_12-of-12">
+            <div class="slds-page-header slds-border_fix">
+                <div class="slds-page-header__row">
+                    <div class="slds-page-header__col-title">
+                        <div class="slds-media">
+                            <div class="slds-media__body">
+                                <div class="slds-page-header__name">
+                                    <div class="slds-page-header__name-title">
+                                        <h1><span class="slds-page-header__title slds-truncate" title="Select a Network Element Asset">Select a Network Element Asset</span></h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-page-header__col-actions">
+                        <div class="slds-page-header__controls">
+                            <div class="slds-page-header__control">
+                                <lightning:button label="Clear Selection" title="Clear Selection" onclick="{! c.clearSelection }"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-page-header__row">
+                    <div class="slds-page-header__col-meta">
+                        <p class="slds-page-header__meta-text">
+                            <aura:if isTrue="{!v.netElemAssets.length > 0}">
+                                <p class="has-results">
+                                    <aura:if isTrue="{!v.netElemAssets.length==1}">
+                                        {!v.netElemAssets.length} record 
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.netElemAssets.length>1}">
+                                        {!v.netElemAssets.length} records
+                                    </aura:if>
+                                </p>
+                                <aura:set attribute="else">
+                                    <p class="no-results"> 0 records</p>
+                                </aura:set>
+                            </aura:if>
+                        </p>
+                    </div>
+                    <div class="slds-page-header__col-controls">
+                        <div class="slds-page-header__controls">
+                            <lightning:input aura:id="NEAFilterText" 
+                                             type="search" variant="label-hidden"
+                                             placeholder="Search this list..."
+                                             onchange="{! c.filterNEA }"
+                                             value="{! v.NEAFilterText }"
+                                             label="Filter NEA" />			                             
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>                    
+        <div style="{! 'height: '+v.height+'; width:'+(v.filterVisible?'calc(100% - 320px)':'100%')+';'}">                    
+            <lightning:datatable aura:id="neaTable" columns="{!v.neaColumns}" data="{!v.netElemAssets}" keyField="Id"  maxRowSelection="{!v.maxRowSelection}" onrowselection="{!c.processSelectedNEA}"/>   
+        </div>
+    </div>
+    </article>
+</aura:component>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <processMetadataValues>
+            <name>postTargetUserType</name>
+            <value>
+                <stringValue>REFERENCE</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>textJson</name>
+            <value>
+                <stringValue>{&quot;mentions&quot;:[],&quot;message&quot;:&quot;Dear {![Offer_Team__c].Name__r.FirstName} {![Offer_Team__c].Name__r.LastName},\n\nYou have been assigned to the Offer Team as {![Offer_Team__c].Team_Member_Role__c}.\n\n•\tOffer Name: {![Offer_Team__c].Offer__r.Name}\n•\tOffer Number: {![Offer_Team__c].Offer__r.Offer_Number__c}\n•\tOpportunity Number: {![Offer_Team__c].Offer__r.Opportunity__r.Opportunity_ID__c}\n•\tOpportunity Name: {![Offer_Team__c].Offer__r.Opportunity__r.Name}\n•\tCustomer: {![Offer_Team__c].Offer__r.Opportunity__r.Account.Name}\n•\tLead BG (Opportunity): {![Offer_Team__c].Offer__r.Opportunity__r.Lead_BG__c}\n•\tSupporting BGs: {![Offer_Team__c].Offer__r.Opportunity__r.Supporting_BG_AA__c} {![Offer_Team__c].Offer__r.Opportunity__r.Supporting_BG_FN__c} {![Offer_Team__c].Offer__r.Opportunity__r.Supporting_BG_ION__c} {![Offer_Team__c].Offer__r.Opportunity__r.Supporting_BG_MN__c} {![Offer_Team__c].Offer__r.Opportunity__r.Supporting_BG_GS__c}  {![Offer_Team__c].Offer__r.Opportunity__r.Supporting_BG_NEN__c}\n\nRegards,\nNokia Salesforce CRM\n\nOffer Link: https://nokia.lightning.force.com/{![Offer_Team__c].Offer__r.Id}&quot;}</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_1_A1</name>
+        <label>chatter to added user</label>
+        <locationX>100</locationX>
+        <locationY>200</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <stringValue>Dear {!myVariable_current.Name__r.FirstName} {!myVariable_current.Name__r.LastName},
+
+You have been assigned to the Offer Team as {!myVariable_current.Team_Member_Role__c}.
+
+•	Offer Name: {!myVariable_current.Offer__r.Name}
+•	Offer Number: {!myVariable_current.Offer__r.Offer_Number__c}
+•	Opportunity Number: {!myVariable_current.Offer__r.Opportunity__r.Opportunity_ID__c}
+•	Opportunity Name: {!myVariable_current.Offer__r.Opportunity__r.Name}
+•	Customer: {!myVariable_current.Offer__r.Opportunity__r.Account.Name}
+•	Lead BG (Opportunity): {!myVariable_current.Offer__r.Opportunity__r.Lead_BG__c}
+•	Supporting BGs: {!myVariable_current.Offer__r.Opportunity__r.Supporting_BG_AA__c} {!myVariable_current.Offer__r.Opportunity__r.Supporting_BG_FN__c} {!myVariable_current.Offer__r.Opportunity__r.Supporting_BG_ION__c} {!myVariable_current.Offer__r.Opportunity__r.Supporting_BG_MN__c} {!myVariable_current.Offer__r.Opportunity__r.Supporting_BG_GS__c}  {!myVariable_current.Offer__r.Opportunity__r.Supporting_BG_NEN__c}
+
+Regards,
+Nokia Salesforce CRM
+
+Offer Link: https://nokia.lightning.force.com/{!myVariable_current.Offer__r.Id}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>type</name>
+            <value>
+                <stringValue>USER</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <elementReference>myVariable_current.Name__r.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>49.0</apiVersion>
+    <assignments>
+        <name>myVariable_waitStartTimeAssignment</name>
+        <label>myVariable_waitStartTimeAssignment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myVariable_waitStartTimeVariable</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myDecision</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision</name>
+        <label>myDecision</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_1</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_1_A1</targetReference>
+            </connector>
+            <label>Offer Team Member Addition</label>
+        </rules>
+    </decisions>
+    <description>Req 5075 - Team Member Notifications, 5546 - Modify content of email/chatter notifications for AP2019 changes - Sales process</description>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+$Profile.Name  &lt;&gt; $Label.Data_Loader_Profile_Name,
+[Offer_Team__c].Offer__c.ActiveOffer__c ,
+[Offer_Team__c].Name__c.Id &lt;&gt; Null,
+[Offer_Team__c].Offer__c.Opportunity__c.SWx_Upsell_Proposal__c == Null,
+[Offer_Team__c].Name__c.Profile.Id &lt;&gt; $Label.PRM_Partner_Profile_Id,
+[Offer_Team__c].Name__c.Profile.Id &lt;&gt; $Label.PRM_Partner_Relationship_Manager_Login_ID
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_1</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!$Profile.Name}  &lt;&gt; {!$Label.Data_Loader_Profile_Name},
+{!myVariable_current.Offer__r.ActiveOffer__c} ,
+{!myVariable_current.Name__r.Id} &lt;&gt; Null,
+{!myVariable_current.Offer__r.Opportunity__r.SWx_Upsell_Proposal__c} == Null,
+{!myVariable_current.Name__r.Profile.Id} &lt;&gt; {!$Label.PRM_Partner_Profile_Id},
+{!myVariable_current.Name__r.Profile.Id} &lt;&gt; {!$Label.PRM_Partner_Relationship_Manager_Login_ID}
+)</expression>
+    </formulas>
+    <interviewLabel>New_Offer_Team_Member_Addition-11_InterviewLabel</interviewLabel>
+    <label>New Offer Team Member Addition</label>
+    <processMetadataValues>
+        <name>ObjectType</name>
+        <value>
+            <stringValue>Offer_Team__c</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>ObjectVariable</name>
+        <value>
+            <elementReference>myVariable_current</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OldObjectVariable</name>
+        <value>
+            <elementReference>myVariable_old</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>TriggerType</name>
+        <value>
+            <stringValue>onCreateOnly</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Workflow</processType>
+    <startElementReference>myVariable_waitStartTimeAssignment</startElementReference>
+    <status>Active</status>
+    <variables>
+        <name>myVariable_current</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Offer_Team__c</objectType>
+    </variables>
+    <variables>
+        <name>myVariable_old</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Offer_Team__c</objectType>
+    </variables>
+    <variables>
+        <name>myVariable_waitStartTimeVariable</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>$Flow.CurrentDateTime</elementReference>
+        </value>
+    </variables>
+</Flow>

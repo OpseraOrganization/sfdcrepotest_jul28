@@ -1,0 +1,88 @@
+<apex:component controller="PSR_Approval_ApprovalNotification_Comp" access="global">
+<apex:attribute name="Opp_Id" type="Id" description="Opportunity Id" assignTo="{!OppId}"  />
+<style>
+ 
+th{
+background-color:#33C9FF;
+}
+table#t01 {
+    width: 100%;    
+    background-color: #f1f1c1;
+}
+
+</style>
+     <div id="main">
+     <p><u>Value of related Sales Opportunity:</u></p>  
+       <table border="0" >
+            <tr>
+              <td>{!$ObjectType.Opportunity.Fields.Opportunity_ID__c.Label} / {!$ObjectType.Opportunity.Fields.Name.Label} </td>
+              <td>{!Opp.PSR_Reference_Opportunity__r.Opportunity_ID__c} / {!Opp.PSR_Reference_Opportunity__r.Name}</td>
+            </tr>
+            <tr>
+              <td>{!$ObjectType.Opportunity.Fields.StageName.Label} / {!$ObjectType.Opportunity.Fields.Phase_Status__c.Label}</td>
+              <td>{!Opp.PSR_Reference_Opportunity__r.StageName} / {!Opp.PSR_Reference_Opportunity__r.Phase_Status__c}</td>
+            </tr>
+            <tr>
+              <td>{!$ObjectType.Opportunity.Fields.Amount.Label}</td>
+              <td>
+                <apex:outputText value="{0, number, ###,###,##0.00}">
+                  <apex:param value="{!ROUND(Opp.PSR_Reference_Opportunity__r.Amount,2)}" />
+                </apex:outputText> 
+                {!Opp.CurrencyIsoCode}
+              </td>
+            </tr>
+            <tr>
+              <td>{!$ObjectType.Opportunity.Fields.Contract_Signing_Entity__c.Label}</td>
+              <td>{!Opp.PSR_Reference_Opportunity__r.Contract_Signing_Entity__c}</td>
+            </tr>
+            <tr>
+                <td>Opportunity Value<br/>(LoA Base Case)<br/>Note: Values are shown only when a G4 LoA is uploaded to an active sCRM offer</td>
+                <td>
+                <table border="2">
+                <tr>
+                <th>Total </th>
+                 <th> MN BG</th>
+                  <th> ION BG</th>
+                   <th>FN BG </th>
+                    <th>NSW BG </th>
+                     <th>GS BG </th>
+                     </tr>
+                     
+                     <tr>
+                      <td>
+                        <apex:outputText value="{0, number, ###,###,##0.00}">
+                          <apex:param value="{!ROUND(Off.Net_Sales_LoA_Base_Case__c,2)}" />
+                        </apex:outputText>  
+                      </td> 
+                      <td>
+                        <apex:outputText value="{0, number, ###,###,##0.00}">
+                          <apex:param value="{!ROUND(Off.Net_Sales_LoA_Base_Case_BG_MN__c,2)}" />
+                        </apex:outputText>  
+                      </td> 
+                      <td>
+                        <apex:outputText value="{0, number, ###,###,##0.00}">
+                          <apex:param value="{!ROUND(Off.Net_Sales_LoA_Base_Case_BG_ION__c,2)}" />
+                        </apex:outputText>  
+                      </td> 
+                      <td>
+                        <apex:outputText value="{0, number, ###,###,##0.00}">
+                          <apex:param value="{!ROUND(Off.Net_Sales_LoA_Base_Case_BG_FN__c,2)}" />
+                        </apex:outputText>  
+                      </td> 
+                      <td>
+                        <apex:outputText value="{0, number, ###,###,##0.00}">
+                          <apex:param value="{!ROUND(Off.Net_Sales_LoA_Base_Case_BG_AA__c,2)}" />
+                        </apex:outputText>  
+                      </td> 
+                      <td>
+                        <apex:outputText value="{0, number, ###,###,##0.00}">
+                          <apex:param value="{!ROUND(Off.Net_Sales_LoA_Base_Case_BG_GS__c,2)}" />
+                        </apex:outputText>  
+                      </td>                    
+                    </tr>
+                </table>   
+          </td>
+          </tr>
+      </table>    
+     </div>
+</apex:component>

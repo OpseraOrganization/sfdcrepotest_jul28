@@ -1,0 +1,121 @@
+<aura:component controller="CH_CaseField_SideHighlightApex" implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:availableForFlowActions" access="global"> 
+    
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="outageStatusFinished" type="boolean" default="true"/>
+    <aura:attribute name="edit" type="boolean" />
+    <aura:attribute name="isButtonActive" type="Boolean" default="true" />
+    <aura:attribute name="runflow" type="Boolean" default="false" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+  
+    <aura:if isTrue="{!v.outageStatusFinished}">
+        <div class="outageStatusFinished">
+            <lightning:flow aura:id="outageStatus" onstatuschange="{!c.handleOutageStatusChange}"/>
+        </div> 
+    </aura:if>
+    
+    <aura:if isTrue="{!v.edit}">
+        <lightning:layout horizontalAlign="Left">
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <Lightning:recordEditForm aura:id="recordEditForm" 
+                                          recordId="{!v.recordId}"
+                                          objectApiName="Case"
+                                          onsuccess="{!c.handleSuccess}" >
+                    <Lightning:messages />
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <Lightning:inputField label="Restore Action" fieldName="CH_RestoreAction__c" />
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <Lightning:inputField label="Restoration Method" fieldName="CH_RestorationMethod__c" />
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <Lightning:inputField label="Sequence of Events" fieldName="CH_SequenceOfEvents__c" />
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <Lightning:inputField label="Summary for Customer" fieldName="CH_Summary__c" /> 
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <Lightning:inputField aura:id="incomment" label="Comment" fieldName="Comment__c" onchange = "{!c.activeButton}" /> 
+                        </div>
+                    </div>
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <Lightning:inputField disabled="true" fieldName="CH_Code_Red_Status__c" />  
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <lightning:button class="slds-m-top_small" variant="brand" type="button" name="update" label="Save" onclick="{!c.update}" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-col">
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <lightning:button class="slds-m-top_small" variant="brand" type="button" name="update" label="Distribute Comment Update" onclick="{!c.launchOutageStatusUpdate}" disabled= "{!v.isButtonActive}" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Lightning:recordEditForm>
+            </lightning:layoutItem>
+        </lightning:layout>
+        <aura:set attribute="else">
+            <lightning:layout horizontalAlign="Left">
+                <lightning:layoutItem flexibility="auto" padding="around-small">
+                    <Lightning:recordViewForm aura:id="recordViewForm" 
+                                              recordId="{!v.recordId}"
+                                              objectApiName="Case" >
+                        <Lightning:messages />
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <Lightning:outputField label="Restore Action" fieldName="CH_RestoreAction__c" />
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <Lightning:outputField label="Restoration Method" fieldName="CH_RestorationMethod__c" />
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <Lightning:outputField label="Sequence of Events" fieldName="CH_SequenceOfEvents__c" />
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <Lightning:outputField label="Summary for Customer" fieldName="CH_Summary__c" /> 
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <Lightning:outputField label="Comment" fieldName="Comment__c" /> 
+                            </div>
+                        </div>
+                    </Lightning:recordViewForm>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </aura:set>
+    </aura:if>
+      
+</aura:component>
