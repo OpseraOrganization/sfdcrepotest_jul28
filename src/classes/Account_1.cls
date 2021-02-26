@@ -1,13 +1,9 @@
-public class Account_1 {
+public class Account_3 {
  public string name;
- public string city;
+ 
  public void CallMe(){
   name='Satish';
-  city='Hyd';
-  }
-  Public void invoke(){
-  name='Ravi';
-  city='Banglr';
+ 
   }
 
 }
