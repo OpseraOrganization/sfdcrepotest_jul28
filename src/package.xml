@@ -12,11 +12,6 @@
 <members>LightningSelfRegisterControllerTest</members>
 <members>SampleSecurityPolicyApexEventCondition</members>
 </types>
-<types>
-<name>AppMenu</name>
-<members>AppSwitcher</members>
-<members>Salesforce1</members>
-</types>
 <version>51.0</version>
 </Package>
 
