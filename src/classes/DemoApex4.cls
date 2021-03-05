@@ -4,10 +4,10 @@ private Integer num;
     
     @isTest
  	public static void helloMethod() {
-        System.debug('Change Hello DemoApexClass4');
+        System.debug('Change Hello DemoApexClass4Test1702');
     }
     
     public static testMethod void testNewMethod() {
-        System.debug('testNewMethod system debug console');
+        System.debug('Change Hello DemoApexClass4');
     }
 }
