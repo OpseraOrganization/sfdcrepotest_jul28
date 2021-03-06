@@ -3,13 +3,6 @@
 <name>ApexClass</name>
 <members>Account_1</members>
 <members>DemoApex4</members>
-<members>LightningForgotPasswordController</members>
-<members>LightningForgotPasswordControllerTest</members>
-<members>LightningLoginFormController</members>
-<members>LightningLoginFormControllerTest</members>
-<members>LightningSelfRegisterController</members>
-<members>LightningSelfRegisterControllerTest</members>
-<members>SampleSecurityPolicyApexEventCondition</members>
 </types>
 <version>51.0</version>
 </Package>
