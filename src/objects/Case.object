@@ -1,2433 +1,445 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
-    <recordTypes>
-        <fullName>CH_NokiaIncidentWithRestoration</fullName>
-        <active>true</active>
-        <businessProcess>CH_Nokia Incident With Restore Support Process</businessProcess>
-        <compactLayoutAssignment>CH_Nokia_Restoration_Compact_Layout</compactLayoutAssignment>
-        <description>This is created for Case Handling</description>
-        <label>Nokia Incident with Restoration</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nokia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Portal</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>Emergency</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Minor</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>Incident</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Information Request</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>CH_NokiaInformationRequest</fullName>
-        <active>true</active>
-        <businessProcess>CH_Nokia Information Request Support Process</businessProcess>
-        <compactLayoutAssignment>CH_Nokia_Standard_Case_Compact_Layout</compactLayoutAssignment>
-        <description>This is created for Case Handling</description>
-        <label>Nokia Information Request</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nokia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Portal</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>Emergency</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Minor</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>Incident</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Information Request</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>CH_NokiaStandardCase</fullName>
-        <active>true</active>
-        <businessProcess>CH_Nokia Standard Case Support Process</businessProcess>
-        <compactLayoutAssignment>CH_Nokia_Standard_Case_Compact_Layout</compactLayoutAssignment>
-        <label>Nokia Standard Case</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nokia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Portal</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>Emergency</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planned</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>Incident</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Information Request</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>CH_Problem</fullName>
-        <active>true</active>
-        <businessProcess>CH_Problem Support Process</businessProcess>
-        <compactLayoutAssignment>CH_Nokia_Problem_Compact_Layout</compactLayoutAssignment>
-        <label>Problem</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nokia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Portal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S2S</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>Emergency</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planned</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>Incident</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Information Request</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>Customer_General_Security_Request_SIMPLE</fullName>
+    <validationRules>
+        <fullName>CH_AllowedChangesNew</fullName>
         <active>false</active>
-        <businessProcess>Customer Security Request process</businessProcess>
-        <compactLayoutAssignment>Customer_Security_Request</compactLayoutAssignment>
-        <description>For General Security Requests by Sales</description>
-        <label>Customer General Security Request by Sales</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Contract negotiation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>General question</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nokia Security Whitepaper</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RFP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RFQ</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>Customer Security Request</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>Customer_Security_Request</fullName>
+        <description>Allowed changes on severity and outage feilds</description>
+        <errorConditionFormula>OR(RecordType.DeveloperName = &apos;CH_NokiaStandardCase&apos; ,
+    RecordType.DeveloperName = &apos;CH_NokiaIncidentWithRestoration&apos;,
+    RecordType.DeveloperName = &apos;CH_NokiaInformationRequest&apos;,
+    RecordType.DeveloperName = &apos;CH_Problem&apos;) &amp;&amp;
+( $User.Id  =  Owner:User.Id ) &amp;&amp;
+((ISPICKVAL( PRIORVALUE( Severity__c ) , &apos;Critical&apos;) &amp;&amp; 
+ ISPICKVAL( PRIORVALUE( CH_Outage__c ) , &apos;No&apos;)) &amp;&amp; NOT(ISPICKVAL( Severity__c , &apos;Major&apos;) &amp;&amp;   ISPICKVAL(  CH_Outage__c , &apos;Yes&apos;) || ISPICKVAL( Severity__c , &apos;Critical&apos;) &amp;&amp;   ISPICKVAL(  CH_Outage__c , &apos;Yes&apos;) || ISPICKVAL( Severity__c , &apos;Major&apos;) &amp;&amp;   ISPICKVAL(  CH_Outage__c , &apos;No&apos;) || ISPICKVAL( Severity__c , &apos;Minor&apos;) &amp;&amp;   ISPICKVAL(  CH_Outage__c , &apos;No&apos;) || 
+ISPICKVAL( Severity__c ,&apos;Critical&apos;) &amp;&amp;   ISPICKVAL(  CH_Outage__c , &apos;No&apos;) ))</errorConditionFormula>
+        <errorMessage>You are not allowed to change the Severity and outage fields based on your prior values</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_BlockingStatusTransitions</fullName>
         <active>true</active>
-        <businessProcess>Customer Security Request process</businessProcess>
-        <compactLayoutAssignment>Customer_Security_Request</compactLayoutAssignment>
-        <description>This record type is intended for general security related questions from Nokia customer during Sales process.</description>
-        <label>Customer General Security Request</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Contract negotiation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>General question</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nokia Security Whitepaper</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RFP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RFQ</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>Customer Security Request</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>EDU_Ticketing</fullName>
+        <description>Incorrect transition of status.</description>
+        <errorConditionFormula>OR(
+AND( CH_Record_Type_Check_Condition__c,ISPICKVAL(PRIORVALUE(Status),&quot;Draft&quot;),
+OR(
+ISPICKVAL(Status,&quot;Assigned&quot;),
+ISPICKVAL(Status,&quot;Responded in Progress&quot;),
+ISPICKVAL(Status,&quot;Pending Customer&quot;),
+ISPICKVAL(Status,&quot;Restoration Provided&quot;),
+ISPICKVAL(Status,&quot;Temp Sol. Provided&quot;),
+ISPICKVAL(Status,&quot;Solution Provided&quot;),
+ISPICKVAL(Status,&quot;Closed&quot;),
+ISPICKVAL(Status,&quot;Completed&quot;))),
+AND( 
+CH_Record_Type_Check_Condition__c ,ISPICKVAL(PRIORVALUE(Status ),&quot;Created&quot;),
+OR(
+ISPICKVAL(Status,&quot;Draft&quot;),
+ISPICKVAL(Status,&quot;Responded in Progress&quot;),
+ISPICKVAL(Status,&quot;Pending Customer&quot;),
+ISPICKVAL(Status,&quot;Restoration Provided&quot;),
+ISPICKVAL(Status,&quot;Temp Sol. Provided&quot;),
+ISPICKVAL(Status,&quot;Solution Provided&quot;),
+ISPICKVAL(Status,&quot;Closed&quot;),
+ISPICKVAL(Status,&quot;Completed&quot;))),
+AND( 
+CH_Record_Type_Check_Condition__c,ISPICKVAL(PRIORVALUE(Status),&quot;Cancelled&quot;),
+OR(
+ISPICKVAL(Status,&quot;Draft&quot;),
+ISPICKVAL(Status,&quot;Responded in Progress&quot;),
+ISPICKVAL(Status,&quot;Pending Customer&quot;),
+ISPICKVAL(Status,&quot;Restoration Provided&quot;),
+ISPICKVAL(Status,&quot;Temp Sol. Provided&quot;),
+ISPICKVAL(Status,&quot;Solution Provided&quot;),
+ISPICKVAL(Status,&quot;Closed&quot;),
+ISPICKVAL(Status,&quot;Assigned&quot;),
+ISPICKVAL(Status,&quot;Created&quot;),
+ISPICKVAL(Status,&quot;Completed&quot;))),
+AND(
+CH_Record_Type_Check_Condition__c,ISPICKVAL(PRIORVALUE(Status),&quot;Assigned&quot;),
+OR(
+ISPICKVAL(Status,&quot;Draft&quot;),
+ISPICKVAL(Status,&quot;Created&quot;),
+ISPICKVAL(Status,&quot;Pending Customer&quot;),
+ISPICKVAL(Status,&quot;Restoration Provided&quot;),
+ISPICKVAL(Status,&quot;Temp Sol. Provided&quot;),
+ISPICKVAL(Status,&quot;Solution Provided&quot;),
+ISPICKVAL(Status,&quot;Closed&quot;),
+ISPICKVAL(Status,&quot;Completed&quot;))),
+AND(
+CH_Record_Type_Check_Condition__c,ISPICKVAL(PRIORVALUE(Status),&quot;Responded in Progress&quot;),
+OR(
+ISPICKVAL(Status,&quot;Draft&quot;),
+ISPICKVAL(Status,&quot;Created&quot;),
+ISPICKVAL(Status,&quot;Cancelled&quot;),
+ISPICKVAL(Status,&quot;Assigned&quot;),
+ISPICKVAL(Status,&quot;Completed&quot;))),
+AND( 
+CH_Record_Type_Check_Condition__c,ISPICKVAL(PRIORVALUE(Status),&quot;Pending Customer&quot;),
+OR(
+ISPICKVAL(Status,&quot;Draft&quot;),
+ISPICKVAL(Status,&quot;Created&quot;),
+ISPICKVAL(Status,&quot;Cancelled&quot;),
+ISPICKVAL(Status,&quot;Assigned&quot;),
+ISPICKVAL(Status,&quot;Completed&quot;))),
+AND( 
+CH_Record_Type_Check_Condition__c ,ISPICKVAL(PRIORVALUE(Status),&quot;Restoration Provided&quot;),
+OR(
+ISPICKVAL(Status,&quot;Draft&quot;),
+ISPICKVAL(Status,&quot;Created&quot;),
+ISPICKVAL(Status,&quot;Cancelled&quot;),
+ISPICKVAL(Status,&quot;Assigned&quot;),
+ISPICKVAL(Status,&quot;Completed&quot;))),
+AND( 
+CH_Record_Type_Check_Condition__c ,ISPICKVAL(PRIORVALUE(Status ),&quot;Temp Sol. Provided&quot;),
+OR(
+ISPICKVAL(Status,&quot;Draft&quot;),
+ISPICKVAL(Status,&quot;Created&quot;),
+ISPICKVAL(Status,&quot;Cancelled&quot;),
+ISPICKVAL(Status,&quot;Assigned&quot;),
+ISPICKVAL(Status,&quot;Completed&quot;))),
+AND( 
+CH_Record_Type_Check_Condition__c ,ISPICKVAL(PRIORVALUE(Status ),&quot;Solution Provided&quot;),
+OR(
+ISPICKVAL(Status,&quot;Draft&quot;),
+ISPICKVAL(Status,&quot;Created&quot;),
+ISPICKVAL(Status,&quot;Cancelled&quot;),
+ISPICKVAL(Status,&quot;Assigned&quot;),
+ISPICKVAL(Status,&quot;Pending Customer&quot;),
+ISPICKVAL(Status,&quot;Completed&quot;))),
+AND( 
+CH_Record_Type_Check_Condition__c ,ISPICKVAL(PRIORVALUE(Status ),&quot;Closed&quot;),
+OR(
+ISPICKVAL(Status,&quot;Draft&quot;),
+ISPICKVAL(Status,&quot;Created&quot;),
+ISPICKVAL(Status,&quot;Cancelled&quot;),
+ISPICKVAL(Status,&quot;Assigned&quot;),
+ISPICKVAL(Status,&quot;Pending Customer&quot;))),
+AND(
+NOT(RecordType.Name = &quot;Nokia Incident with Restoration&quot;),
+ISPICKVAL(PRIORVALUE(Status),&quot;Responded in Progress&quot;),
+ISPICKVAL(Status,&quot;Restoration Provided&quot;)),
+AND(
+RecordType.Name = &quot;Nokia Incident with Restoration&quot;,
+ISPICKVAL(PRIORVALUE(Status),&quot;Responded in Progress&quot;),
+ISPICKVAL(Status,&quot;Temp Sol. Provided&quot;))
+)</errorConditionFormula>
+        <errorDisplayField>Status</errorDisplayField>
+        <errorMessage>Incorrect transition of status.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_BlockingStatusTransitions2</fullName>
         <active>true</active>
-        <businessProcess>EDU Ticketing</businessProcess>
-        <compactLayoutAssignment>EDUT_Compact_Layout</compactLayoutAssignment>
-        <description>For EDU Ticketing System.</description>
-        <label>EDU Ticketing</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Created by Expert</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Created by GCC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E-Ticket External Site</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E-Ticket Internal Site</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E-Ticket Partner Site</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>5G Certification</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Achievement Center Questions %28Internal%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Channel Partner Issue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Channel Partner Profile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Content Issue On-Line %2F Certifications %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Content Issue On-Line %2F Certifications %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email Notice of Inactive Course %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email Notice of Inactive Course %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Enrollments %28Channel Partner%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Enrollments %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Enrollments %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ExamStudio Issues %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ExamStudio Issues %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GS Certification</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LOI Request %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LOI Request %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Learning Solution Consultation %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Learning Solution Consultation %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Learning Store %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Learning Store %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Login Access Issues %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Login Access Issues %28Internal%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mandatory Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mark Completions %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mark Completions %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Merge Profile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NLDH Admin Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nokia Learn App%2E Issues</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Assigned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Questions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outside Course Request %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PDP Issues</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Permission Issues</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reports</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reset Attempts %28External%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reset Attempts %28Internal%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Standard Quotation Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Subscription Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Support Portal Crowd Source</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Support Portal Profile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Training Request %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Training Request %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Virtual Class Logistics %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Virtual Class Logistics %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>HWS_Advance_Exchange_In_Days</fullName>
+        <description>Incorrect transition of status.</description>
+        <errorConditionFormula>OR(
+AND( 
+RecordType.Name = &quot;Nokia Incident with Restoration&quot;, 
+ISPICKVAL(PRIORVALUE(Status),&quot;Responded in Progress&quot;), 
+ISPICKVAL(Status,&quot;Solution Provided&quot;)),
+AND( 
+NOT(CH_IsCompleteTemporarySolution__c),
+ISPICKVAL(PRIORVALUE(Status),&quot;Restoration Provided&quot;), 
+ISPICKVAL(Status,&quot;Temp Sol. Provided&quot;)),
+AND( 
+NOT(RecordType.Name = &quot;Nokia Incident with Restoration&quot;), 
+ISPICKVAL(PRIORVALUE(Status),&quot;Temp Sol. Provided&quot;), 
+ISPICKVAL(Status,&quot;Restoration Provided&quot;)),
+AND( 
+RecordType.Name = &quot;Nokia Incident with Restoration&quot;, 
+ISPICKVAL(PRIORVALUE(Status),&quot;Solution Provided&quot;), 
+ISPICKVAL(Status,&quot;Responded in Progress&quot;)),
+AND( 
+NOT(RecordType.Name = &quot;Nokia Incident with Restoration&quot;), 
+ISPICKVAL(PRIORVALUE(Status),&quot;Solution Provided&quot;), 
+ISPICKVAL(Status,&quot;Restoration Provided&quot;)),
+AND( 
+NOT(CH_IsCompleteTemporarySolution__c), 
+ISPICKVAL(PRIORVALUE(Status),&quot;Solution Provided&quot;), 
+ISPICKVAL(Status,&quot;Temp Sol. Provided&quot;))
+)</errorConditionFormula>
+        <errorDisplayField>Status</errorDisplayField>
+        <errorMessage>Incorrect transition of status.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_CaseMilestoneChronologicalOrderCheck</fullName>
+        <active>false</active>
+        <description>It is used to check case milestone date/time values are in chronological order.</description>
+        <errorConditionFormula>AND(
+CH_RecordTypeCheck__c, 
+OR(
+CH_InitialResponse__c &gt; CH_SystemRestored__c,
+CH_InitialResponse__c &gt; CH_TemporarySolutionProvided__c,
+CH_InitialResponse__c &gt; CH_ServiceDisruptionReportProvided__c,
+CH_InitialResponse__c &gt; CH_SolutionProvided__c,
+CH_SystemRestored__c &gt; CH_TemporarySolutionProvided__c,
+CH_SystemRestored__c &gt; CH_ServiceDisruptionReportProvided__c,
+CH_SystemRestored__c &gt; CH_SolutionProvided__c,
+CH_TemporarySolutionProvided__c &gt; CH_ServiceDisruptionReportProvided__c,
+CH_TemporarySolutionProvided__c &gt; CH_SolutionProvided__c,
+CH_ServiceDisruptionReportProvided__c &gt; CH_SolutionProvided__c
+)
+)</errorConditionFormula>
+        <errorMessage>Case Milestone Date/Time values are not in chronological order. Please provide appropriate values in the &quot;Entitlement Management&quot; section.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_CheckOutageDurationCoverage</fullName>
         <active>true</active>
-        <businessProcess>HWS Child Case Process</businessProcess>
-        <compactLayoutAssignment>HWS_Child_Case_Compact_Layout</compactLayoutAssignment>
-        <description>This is for child case</description>
-        <label>HWS Advance Exchange In Days</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>CPQ Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Digital Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PRM Related</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>HWS_Advance_Exchange_In_Hours</fullName>
+        <description>Checks if the sum of distinct ODRs and total outage duration on Case are equal</description>
+        <errorConditionFormula>AND(OR(ISCHANGED( CH_OutageEndDate__c), ISCHANGED(CH_OutageStartDate__c)), PRIORVALUE(Outage_Duration_Check__c) != 0,  FLOOR(Outage_Duration_Check__c) !=  FLOOR(CH_TotalOutageDuration__c),
+ISPICKVAL( CH_Stage__c , &apos;Close&apos;))</errorConditionFormula>
+        <errorMessage>Total Outage duration on Case must equal outage duration coverage by distinct Outage Duration Records</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_ClassifyCaseAsDefectOrOther</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND( 
+OR( 
+$RecordType.Name= &quot;Nokia Standard Case&quot;, 
+$RecordType.Name=&quot;Nokia Incident with Restoration&quot; 
+), 
+TODAY() &gt; DATEVALUE(CreatedDate) +30)</errorConditionFormula>
+        <errorMessage>You are not allowed to set the &quot;Suspected Defect Flag&quot; on cases that are older then 30 days</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_ModifyDependingOnStatus</fullName>
+        <active>false</active>
+        <description>Outage flag can only be modified before the ticket is in status &quot;Responded in Progress&quot;.</description>
+        <errorConditionFormula>AND(CH_RecordTypeCheck__c , 
+ISCHANGED(CH_Outage__c), 
+NOT(ISPICKVAL(Status , &apos;Created&apos;)), 
+NOT(ISPICKVAL(Status , &apos;Draft&apos;)), 
+NOT(ISPICKVAL(Status , &apos;Assigned&apos;)), 
+NOT((NOT(ISPICKVAL(PRIORVALUE(Status), &apos;Responded in Progress&apos;)) &amp;&amp; ISPICKVAL(Status,&apos;Responded in Progress&apos;))))</errorConditionFormula>
+        <errorDisplayField>CH_Outage__c</errorDisplayField>
+        <errorMessage>Outage flag can only be modified prior to or at the same time the case is moving to the Status &quot;Responded In Progress&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_OpenChildCase</fullName>
+        <active>false</active>
+        <description>The case cannot be closed If there is an open child case linked to the case</description>
+        <errorConditionFormula>AND(CH_RecordTypeCheck__c ,
+NOT(ISBLANK( CH_Problem__c )),
+NOT(ISPICKVAL(CH_Problem__r.Status, &apos;Closed&apos;)),
+ISPICKVAL( Status , &apos;Closed&apos;)
+)</errorConditionFormula>
+        <errorDisplayField>CH_Problem__c</errorDisplayField>
+        <errorMessage>Case cannot be closed if there is an open child case linked to the case.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_ProblemStatementMandatory</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(  
+OR( 
+$RecordType.Name= &quot;Problem&quot;,
+$RecordType.Name= &quot;Nokia Incident with Restoration&quot;,
+$RecordType.Name= &quot;Nokia Standard Case&quot;,
+$RecordType.Name= &quot;Nokia Information Request&quot;
+),
+ISBLANK(CH_ProblemStatement__c),
+OR(AND(ISPICKVAL( PRIORVALUE(CH_Stage__c),&quot;Register&quot;),OR(ISPICKVAL(CH_Stage__c,&quot;Route&quot;),ISPICKVAL(CH_Stage__c,&quot;Assess &amp; Respond&quot;),ISPICKVAL(CH_Stage__c,&quot;Investigate &amp; Restore&quot;),ISPICKVAL(CH_Stage__c,&quot;Diagnosis &amp; Technical Analysis&quot;),ISPICKVAL(CH_Stage__c,&quot;Resolve&quot;),ISPICKVAL(CH_Stage__c,&quot;Close&quot;))),
+AND(ISPICKVAL( PRIORVALUE(CH_Stage__c),&quot;Route&quot;),OR(ISPICKVAL(CH_Stage__c,&quot;Assess &amp; Respond&quot;),ISPICKVAL(CH_Stage__c,&quot;Investigate &amp; Restore&quot;),ISPICKVAL(CH_Stage__c,&quot;Diagnosis &amp; Technical Analysis&quot;),ISPICKVAL(CH_Stage__c,&quot;Resolve&quot;),ISPICKVAL(CH_Stage__c,&quot;Close&quot;))),
+AND(ISPICKVAL( PRIORVALUE(CH_Stage__c),&quot;Assess &amp; Respond&quot;),OR(ISPICKVAL(CH_Stage__c,&quot;Investigate &amp; Restore&quot;),ISPICKVAL(CH_Stage__c,&quot;Diagnosis &amp; Technical Analysis&quot;),ISPICKVAL(CH_Stage__c,&quot;Resolve&quot;),ISPICKVAL(CH_Stage__c,&quot;Close&quot;))),
+AND(ISPICKVAL( PRIORVALUE(CH_Stage__c),&quot;Investigate &amp; Restore&quot;),OR(ISPICKVAL(CH_Stage__c,&quot;Diagnosis &amp; Technical Analysis&quot;),ISPICKVAL(CH_Stage__c,&quot;Resolve&quot;),ISPICKVAL(CH_Stage__c,&quot;Close&quot;))),
+AND(ISPICKVAL( PRIORVALUE(CH_Stage__c),&quot;Diagnosis &amp; Technical Analysis&quot;),OR(ISPICKVAL(CH_Stage__c,&quot;Resolve&quot;),ISPICKVAL(CH_Stage__c,&quot;Close&quot;))),
+AND(ISPICKVAL( PRIORVALUE(CH_Stage__c),&quot;Resolve&quot;),ISPICKVAL(CH_Stage__c,&quot;Close&quot;))))</errorConditionFormula>
+        <errorMessage>Cannot modify stage when problem statement is blank.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_RuleForRestoreAndTemporarySolution</fullName>
         <active>true</active>
-        <businessProcess>HWS Child Case Process</businessProcess>
-        <compactLayoutAssignment>HWS_Child_Case_Compact_Layout</compactLayoutAssignment>
-        <description>This is for child case</description>
-        <label>HWS Advance Exchange In Hours</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>CPQ Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Digital Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PRM Related</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>HWS_Case_Escalation</fullName>
+        <description>Restored Date should be less than or equal to Temporary Solution Provided Date.</description>
+        <errorConditionFormula>AND(CH_RecordTypeCheck__c, 
+NOT(ISNULL(CH_SystemRestored__c)), 
+NOT(ISNULL(CH_TemporarySolutionProvided__c)), 
+CH_SystemRestored__c &gt;  CH_TemporarySolutionProvided__c )</errorConditionFormula>
+        <errorDisplayField>CH_SystemRestored__c</errorDisplayField>
+        <errorMessage>Restored Date should be less than or equal to Temporary Solution Provided Date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_SolutionProvidedDate</fullName>
         <active>true</active>
-        <businessProcess>HWS Escalation Case Process</businessProcess>
-        <description>This is used only for cases that are escalated and put on hold when any of the information is missing</description>
-        <label>HWS Case Escalation</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Contract negotiation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>General question</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nokia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nokia Security Whitepaper</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Portal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RFP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RFQ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S2S</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Emergency</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planned</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>CPQ Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CPQ%2FDS Data update</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Case Handling</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer Security Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Digital Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ERM Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Enhancement Requests</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Incident</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Information Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Integration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PRM Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales Support Requested</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>HWS_Child_Case_Read_Only</fullName>
+        <description>&quot;Solution Provided Date cannot be set directly. Instead you must accept the corresponding deliverable i.e. Solution Provided.&quot;</description>
+        <errorConditionFormula>AND(CH_RecordTypeCheck__c, 
+NOT(CH_IsCompleteSolutionProvided__c), 
+NOT(ISNULL(CH_SolutionProvided__c)))</errorConditionFormula>
+        <errorDisplayField>CH_SolutionProvided__c</errorDisplayField>
+        <errorMessage>&quot;Solution Provided Date cannot be set directly. Instead you must accept the corresponding deliverable i.e. Solution Provided.&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_StageValidationWhenNotDiagnosis</fullName>
+        <active>false</active>
+        <errorConditionFormula>($Profile.Name  = &apos;Engineer&apos; ||  $Profile.Name = &apos;System Administrator&apos;) &amp;&amp;
+( $User.Id = Owner:User.Id ) &amp;&amp; 
+(ISPICKVAL( CH_Stage__c , &apos;Diagnosis &amp; Technical Analysis&apos;) 
+|| ISPICKVAL( CH_Stage__c , &apos;Resolve&apos;) || ISPICKVAL( CH_Stage__c , &apos;Close&apos;)) &amp;&amp; 
+((ISPICKVAL(PRIORVALUE(Severity__c) , &apos;Critical&apos;) &amp;&amp;  TEXT( Severity__c ) = &apos;Information Request&apos; ) || (ISPICKVAL(PRIORVALUE(Severity__c) , &apos;Information Request&apos;) &amp;&amp;  TEXT( Severity__c ) = &apos;Critical&apos; )) &amp;&amp;
+OR(RecordType.DeveloperName = &apos;CH_NokiaStandardCase&apos; ,
+RecordType.DeveloperName =&apos;CH_NokiaIncidentWithRestoration&apos;,
+RecordType.DeveloperName = &apos;CH_NokiaInformationRequest&apos;,
+RecordType.DeveloperName = &apos;CH_Problem&apos;)</errorConditionFormula>
+        <errorMessage>You cannot edit some values of severity when stage in Diagnosis &amp; Technical Analysis OR Resolve OR Close</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_StatusRespondedInProgress</fullName>
         <active>true</active>
-        <businessProcess>HWS Child Case Process</businessProcess>
-        <compactLayoutAssignment>HWS_Child_Case_Compact_Layout</compactLayoutAssignment>
-        <label>HWS Child Case Read Only</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>CPQ Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Digital Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PRM Related</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>HWS_Parent_Case</fullName>
+        <description>Case Status transition is not valid or Status field has been manually updated which is not supported.</description>
+        <errorConditionFormula>AND(OR(RecordType.Name=&apos;Nokia Incident with Restoration&apos;,      RecordType.Name=&apos;Nokia Information Request&apos;,      RecordType.Name=&apos;Nokia Standard Case&apos;), ISPICKVAL(Status,&apos;Responded in Progress&apos;) ,OR(NOT( CH_IsCompleteInitialResponse__c ), CH_IsCompleteSolutionProvided__c, CH_IsCompleteTemporarySolution__c, 
+CH_IsCompleteRestore__c ))</errorConditionFormula>
+        <errorDisplayField>Status</errorDisplayField>
+        <errorMessage>Case Status transition is not valid or Status field has been manually updated which is not supported.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_UserCannotEditManually2</fullName>
+        <active>false</active>
+        <description>User cannot clear a value for date/time fields based on conditions.</description>
+        <errorConditionFormula>AND(CH_RecordTypeCheck__c, 
+OR(
+AND(CH_IsCompleteInitialResponse__c, 
+ISNULL(CH_InitialResponse__c)), 
+AND(CH_IsCompleteRestore__c,  
+ISNULL(CH_SystemRestored__c)), 
+AND(CH_IsCompleteTemporarySolution__c, 
+ISNULL(CH_TemporarySolutionProvided__c)), 
+AND(CH_IsCompleteServiceDisruptionReport__c, 
+ISNULL(CH_ServiceDisruptionReportProvided__c)), 
+AND(CH_IsCompleteSolutionProvided__c, 
+ISNULL(CH_SolutionProvided__c))
+))</errorConditionFormula>
+        <errorDisplayField>of_Employees_to_represent_Nokia_CP__c</errorDisplayField>
+        <errorMessage>&quot;Date and Time fields cannot be cleared directly. Instead you must reject corresponding deliverable (e.g. Solution Provided).&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_ValidateBasedOnStage</fullName>
+        <active>false</active>
+        <errorConditionFormula>(ISPICKVAL( CH_Stage__c , &apos;Diagnosis &amp; Technical Analysis&apos;) 
+|| ISPICKVAL( CH_Stage__c , &apos;Resolve&apos;) || ISPICKVAL( CH_Stage__c , &apos;Close&apos;)) &amp;&amp; 
+(ISCHANGED( CH_Outage__c )) &amp;&amp; 
+OR(RecordType.DeveloperName = &apos;CH_NokiaStandardCase&apos; , 
+RecordType.DeveloperName =&apos;CH_NokiaIncidentWithRestoration&apos;, 
+RecordType.DeveloperName = &apos;CH_NokiaInformationRequest&apos;, 
+RecordType.DeveloperName = &apos;CH_Problem&apos;)</errorConditionFormula>
+        <errorMessage>You cannot  edit outage for Stage in Diagnosis &amp; Technical Analysis OR Resolve OR Close</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_ValidateStatusValueRespondedInProgres</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND( CH_RecordTypeCheck__c ,
+ISPICKVAL(Status,&apos;Responded in Progress&apos;),
+OR
+(((ISPICKVAL(PRIORVALUE(Severity__c), &apos;Critical&apos;) &amp;&amp;
+ISPICKVAL(PRIORVALUE(CH_Outage__c), &apos;Yes&apos;)) &amp;&amp;
+NOT((ISPICKVAL(Severity__c, &apos;Major&apos;) &amp;&amp;
+ISPICKVAL(CH_Outage__c, &apos;Yes&apos;))) &amp;&amp; ISCHANGED(Severity__c)),
+((ISPICKVAL(PRIORVALUE(Severity__c), &apos;Major&apos;) &amp;&amp;
+ISPICKVAL(PRIORVALUE(CH_Outage__c), &apos;Yes&apos;)) &amp;&amp;
+NOT((ISPICKVAL(Severity__c, &apos;Critical&apos;) &amp;&amp;
+ISPICKVAL(CH_Outage__c, &apos;Yes&apos;))) &amp;&amp; ISCHANGED(Severity__c))
+))</errorConditionFormula>
+        <errorMessage>Severity can not be changed when status is &apos;Responded in Progress&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_ValidationRuleForStatus</fullName>
         <active>true</active>
-        <businessProcess>Hws Parent Support process</businessProcess>
-        <description>This is for Parent case</description>
-        <label>HWS Parent Case</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>CPQ Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Digital Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PRM Related</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>HWS_Parent_Case_Ready_Only</fullName>
+        <description>Validation rule to prevent user from updating the status to &quot;Canceled&quot; when Status &lt;&gt;Draft, Created, Assigned or when the &quot;Reason for cancellation&quot; is empty. This will prevent user from doing updates</description>
+        <errorConditionFormula>AND(OR(ISPICKVAL(PRIORVALUE(Status),&quot;Draft&quot;),
+ISPICKVAL(PRIORVALUE(Status),&quot;Assigned&quot;),
+ISPICKVAL(PRIORVALUE(Status),&quot;Created&quot;)),
+ISBLANK(CH_ReasonForCancellation__c),
+ISPICKVAL(Status,&quot;Cancelled&quot;),
+CH_RecordTypeCheck__c )</errorConditionFormula>
+        <errorMessage>Can not Cancel Case when Initial Response milestone is not completed</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_Assign_tickets_to_SFDC_queue</fullName>
         <active>true</active>
-        <businessProcess>Hws Parent Support process</businessProcess>
-        <label>HWS_Parent Case Ready Only</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>CPQ Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Digital Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PRM Related</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>HWS_Return_For_Repair</fullName>
+        <description>Restrict users to select Tier 3 -Salesforce.</description>
+        <errorConditionFormula>AND( 
+ISCHANGED(OwnerId), 
+OwnerId = &quot;00G41000001MFb1&quot;, 
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;)</errorConditionFormula>
+        <errorMessage>You are restricted to select Tier 3- Salesforce as an owner. 
+Please contact your Tier 2 for help.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>EDUT_Division</fullName>
         <active>true</active>
-        <businessProcess>HWS Child Case Process</businessProcess>
-        <compactLayoutAssignment>HWS_Child_Case_Compact_Layout</compactLayoutAssignment>
-        <label>HWS_Return For Repair</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>CPQ Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Digital Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PRM Related</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>HWS_Spare_Part_Sales</fullName>
+        <description>When the Ticket Origin is &quot;E-Ticket Internal Site&quot;, the Division must be filled in.</description>
+        <errorConditionFormula>AND (
+            RecordType.DeveloperName = &quot;EDU_Ticketing&quot; ,
+            ISPICKVAL ( EDUT_Division__c , &quot;&quot; ) ,
+            ISPICKVAL ( Origin , &quot;E-Ticket Internal Site&quot; ) ,
+            NOT ( ISPICKVAL ( Status , &quot;New&quot; ) ) ,
+            NOT ( ISPICKVAL ( Status , &quot;Assigned&quot; ) ) 
+)</errorConditionFormula>
+        <errorDisplayField>EDUT_Division__c</errorDisplayField>
+        <errorMessage>When the Ticket Origin is &quot;E-Ticket Internal Site&quot;, the Division must be filled in.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>EDUT_External_Company_Name</fullName>
         <active>true</active>
-        <businessProcess>HWS_SPS Support Process</businessProcess>
-        <compactLayoutAssignment>HWS_Child_Case_Compact_Layout</compactLayoutAssignment>
-        <label>HWS_Spare Part Sales</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>CPQ Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Digital Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PRM Related</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>HWS_Spare_Part_Sales_Read_only</fullName>
+        <description>When the Ticket Origin is either &quot;E-Ticket External Site&quot; or &quot;E-Ticket Partner Site&quot;, the External Company Name must be filled in.</description>
+        <errorConditionFormula>AND (
+            RecordType.DeveloperName = &quot;EDU_Ticketing&quot; , 
+            ISBLANK ( EDUT_External_Company_Name__c ) , 
+            OR ( 
+                            ISPICKVAL ( Origin , &quot;E-Ticket External Site&quot; ) , 
+                            ISPICKVAL ( Origin , &quot;E-Ticket Partner Site&quot; ) 
+            ) ,
+            NOT ( ISPICKVAL ( Status , &quot;New&quot; ) ) ,
+            NOT ( ISPICKVAL ( Status , &quot;Assigned&quot; ) ) 
+)</errorConditionFormula>
+        <errorDisplayField>EDUT_External_Company_Name__c</errorDisplayField>
+        <errorMessage>When the Ticket Origin is either &quot;E-Ticket External Site&quot; or &quot;E-Ticket Partner Site&quot;, the External Company Name must be filled in.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>EDUT_Prevent_Loop</fullName>
         <active>true</active>
-        <businessProcess>HWS_SPS Support Process</businessProcess>
-        <compactLayoutAssignment>HWS_Child_Case_Compact_Layout</compactLayoutAssignment>
-        <label>HWS_Spare Part Sales Read only</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>CPQ Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Digital Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PRM Related</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>IR_NIRA_Sales_to_Country</fullName>
+        <errorConditionFormula>AND(
+				RecordType.DeveloperName = &apos;EDU_Ticketing&apos; , 
+				CONTAINS ( $Label.EDUT_Dont_Create_Tickets , SuppliedEmail )
+)</errorConditionFormula>
+        <errorDisplayField>SuppliedEmail</errorDisplayField>
+        <errorMessage>You can&apos;t create a Support Ticket from this Email.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>EDUT_Type</fullName>
         <active>true</active>
-        <businessProcess>IR%2FNIRA Sales to Country</businessProcess>
-        <label>IR/NIRA Sales to Country</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Contract negotiation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>General question</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nokia Security Whitepaper</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RFP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RFQ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>CPQ Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CPQ%2FDS Data update</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer Security Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ERM Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Enhancement Requests</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Integration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PRM Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales Support Requested</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>Indirect_Reseller_Application</fullName>
+        <description>When the Ticket Status is changing from &quot;Assigned&quot; to &quot;Escalated&quot;, there must be a Type.</description>
+        <errorConditionFormula>AND (
+RecordType.DeveloperName = &quot;EDU_Ticketing&quot; ,
+ISPICKVAL ( Type , &quot;&quot; ) ,
+NOT ( ISPICKVAL ( Status , &quot;New&quot; ) ) ,
+NOT ( ISPICKVAL ( Status , &quot;Assigned&quot; ) ) ,
+NOT ( ISPICKVAL ( Status , &quot;Invalid&quot; ) )
+)</errorConditionFormula>
+        <errorDisplayField>Type</errorDisplayField>
+        <errorMessage>You must typify the ticket first.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Justification_needed_for_Critical_Ticket</fullName>
         <active>true</active>
-        <businessProcess>Indirect Reseller Application</businessProcess>
-        <compactLayoutAssignment>IR_Application_Compact_Layout</compactLayoutAssignment>
-        <description>Internal record type for Reseller</description>
-        <label>Indirect Reseller Application</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>Enhancement Requests</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>NCP_SSO_Account_Change</fullName>
+        <description>Justification_needed_for_Critical_Ticket</description>
+        <errorConditionFormula>AND( RecordTypeId =&apos;01241000000v9mH&apos;, 
+ISPICKVAL(Priority,&quot;Critical&quot;), 
+ISBLANK(Justification_for_Critical_Priority__c) 
+)</errorConditionFormula>
+        <errorMessage>Please enter business justification for critical priority tickets.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Priority_is_required_when_ER_is_Selected</fullName>
         <active>true</active>
-        <businessProcess>NCP SSO Account Change</businessProcess>
-        <label>NCP SSO Account Change</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Contract negotiation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Created by Expert</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Created by GCC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E-Ticket External Site</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E-Ticket Internal Site</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E-Ticket Partner Site</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>General question</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nokia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nokia Security Whitepaper</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Portal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RFP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RFQ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S2S</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Emergency</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planned</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>Access%2FVisibility Issue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Achievement Center Questions %28Internal%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CPQ Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CPQ%2FDS Data update</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Case Handling</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Channel Partner Issue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Channel Partner Profile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Content Issue On-Line %2F Certifications %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Content Issue On-Line %2F Certifications %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer Security Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Digital Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ERM Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email Notice of Inactive Course %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email Notice of Inactive Course %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Enhancement Requests</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Enrollments %28Channel Partner%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Enrollments %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Enrollments %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ExamStudio Issues %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ExamStudio Issues %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Executive Review Meetings</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GS Certification</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Incident</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Information Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Integration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Issue with Data</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Issue with Gates</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Issue with Reporting%2FAnalytics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Issue with System</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LOI Request %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LOI Request %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Learning Solution Consultation %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Learning Solution Consultation %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Learning Store %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Learning Store %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Login Access Issues %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Login Access Issues %28Internal%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mandatory Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mark Completions %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mark Completions %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mass Update Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Merge Profile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NLDH Admin Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Assigned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Questions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outside Course Request %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PDP Issues</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PRM Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Permission Issues</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reports</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reset Attempts %28External%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reset Attempts %28Internal%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales Support Requested</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Standard Quotation Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Support Portal Crowd Source</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Support Portal Profile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Training Request %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Training Request %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Virtual Class Logistics %28Customer%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Virtual Class Logistics %28Employee%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>sCRM Problem</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>NCP_Upgrade_Customer_Entitlements</fullName>
+        <description>When Type is &apos;Enhancement requests&apos;, priority is required to be filled in.</description>
+        <errorConditionFormula>AND( 
+ISPICKVAL(Type,&apos;Enhancement Requests&apos;), 
+ISBLANK (TEXT(Priority)) 
+)</errorConditionFormula>
+        <errorMessage>When Type is &apos;Enhancement requests&apos;, priority is required to be filled in.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Service_now_is_required</fullName>
         <active>true</active>
-        <businessProcess>NCP Customer Entitlements</businessProcess>
-        <description>To Upgrade Services Request</description>
-        <label>Upgrade Customer Entitlements</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Contract negotiation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>General question</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nokia Security Whitepaper</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RFP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RFQ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>CPQ Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer Security Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ERM Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Enhancement Requests</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Integration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PRM Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales Support Requested</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>PRMSales_Support_Requested</fullName>
-        <active>true</active>
-        <businessProcess>Partner Sales Support Request</businessProcess>
-        <description>Internal record type for Customer Portal (PRM)</description>
-        <label>Partner Sales Support Requested</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>Enhancement Requests</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales Support Requested</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>SF_Support</fullName>
-        <active>true</active>
-        <businessProcess>SF Support</businessProcess>
-        <description>For internal Nokia Support tickets</description>
-        <label>SF Support</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>CH or HWS Issue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CPQ Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PRM Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>sCRM Problem</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>VAR_Fast_Track_Form</fullName>
-        <active>true</active>
-        <businessProcess>VAR Fast-Track Form</businessProcess>
-        <description>VAR Fast-Track Online Form For Partners</description>
-        <label>VAR Fast-Track Form</label>
-        <picklistValues>
-            <picklist>Origin</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Priority</picklist>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Reason</picklist>
-            <values>
-                <fullName>Complex functionality</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructions not clear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New problem</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User didn%27t attend training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>Enhancement Requests</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
+        <errorConditionFormula>AND( 
+Escalated_to_Tier_3__c =TRUE, 
+ISBLANK(Reference_Number__c) 
+)</errorConditionFormula>
+        <errorMessage>Please enter Reference number  before escalating to Tier 3</errorMessage>
+    </validationRules>
 </CustomObject>

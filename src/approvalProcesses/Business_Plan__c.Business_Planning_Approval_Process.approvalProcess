@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
     <active>true</active>
-    <description>Prod0402</description>
-    <allowRecall>true</allowRecall>    
+    <allowRecall>true</allowRecall>
     <allowedSubmitters>
         <type>creator</type>
     </allowedSubmitters>
@@ -42,6 +41,7 @@
             </action>
         </rejectionActions>
     </approvalStep>
+    <description>Prod0402</description>
     <emailTemplate>Business_Planning/Business_Planning_Notification</emailTemplate>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
