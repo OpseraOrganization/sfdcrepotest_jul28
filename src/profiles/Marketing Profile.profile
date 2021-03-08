@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>Account_1</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DemoApex4</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>true</custom>
     <description>To be used for:
 1. Announcement &amp; Communication Manager
 2. Publisher - user will have permission set assigned to maintain SF Knowledge and manage Communities</description>
+    <loginFlows>
+        <flow>UserLoginFlow_Internal</flow>
+        <flowType>UI</flowType>
+        <friendlyName>Marketing_Profile</friendlyName>
+        <uiLoginFlowType>VisualWorkflow</uiLoginFlowType>
+        <useLightningRuntime>false</useLightningRuntime>
+    </loginFlows>
     <loginIpRanges>
         <endAddress>255.255.255.255</endAddress>
         <startAddress>0.0.0.0</startAddress>

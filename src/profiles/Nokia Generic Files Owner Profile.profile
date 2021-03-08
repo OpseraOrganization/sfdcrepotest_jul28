@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>Account_1</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DemoApex4</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>true</custom>
     <description>This profile is assigned to Generic File Owner user. every uploaded file on Account, Opportunity &amp; Offer will get save as OwnerId = generic file owner user id.</description>
+    <loginFlows>
+        <flow>UserLoginFlow_Internal</flow>
+        <flowType>UI</flowType>
+        <friendlyName>Nokia_Generic_Files_Owner_Profile</friendlyName>
+        <uiLoginFlowType>VisualWorkflow</uiLoginFlowType>
+        <useLightningRuntime>false</useLightningRuntime>
+    </loginFlows>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>

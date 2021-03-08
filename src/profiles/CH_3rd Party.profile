@@ -4,6 +4,14 @@
         <dataCategoryGroup>Case_Handling</dataCategoryGroup>
         <visibility>NONE</visibility>
     </categoryGroupVisibilities>
+    <classAccesses>
+        <apexClass>Account_1</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DemoApex4</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>true</custom>
     <userLicense>Salesforce</userLicense>
     <userPermissions>

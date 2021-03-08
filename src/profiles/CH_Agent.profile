@@ -4,7 +4,23 @@
         <dataCategoryGroup>Case_Handling</dataCategoryGroup>
         <visibility>ALL</visibility>
     </categoryGroupVisibilities>
+    <classAccesses>
+        <apexClass>Account_1</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DemoApex4</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>true</custom>
+    <loginFlows>
+        <flowType>UI</flowType>
+        <friendlyName>Agent Login</friendlyName>
+        <uiLoginFlowType>VisualForce</uiLoginFlowType>
+        <useLightningRuntime>false</useLightningRuntime>
+        <vfFlowPage>CH_TermsAndConditions</vfFlowPage>
+        <vfFlowPageTitle>CH_TermsAndConditions</vfFlowPageTitle>
+    </loginFlows>
     <loginIpRanges>
         <endAddress>255.255.255.255</endAddress>
         <startAddress>0.0.0.0</startAddress>

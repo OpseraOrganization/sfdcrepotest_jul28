@@ -4,7 +4,22 @@
         <dataCategoryGroup>Case_Handling</dataCategoryGroup>
         <visibility>NONE</visibility>
     </categoryGroupVisibilities>
+    <classAccesses>
+        <apexClass>Account_1</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DemoApex4</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>true</custom>
+    <loginFlows>
+        <flow>UserLoginFlow_Internal</flow>
+        <flowType>UI</flowType>
+        <friendlyName>Nokia_Admin_Profile</friendlyName>
+        <uiLoginFlowType>VisualWorkflow</uiLoginFlowType>
+        <useLightningRuntime>false</useLightningRuntime>
+    </loginFlows>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>

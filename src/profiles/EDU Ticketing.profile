@@ -4,6 +4,14 @@
         <dataCategoryGroup>Case_Handling</dataCategoryGroup>
         <visibility>ALL</visibility>
     </categoryGroupVisibilities>
+    <classAccesses>
+        <apexClass>Account_1</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DemoApex4</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>true</custom>
     <description>This is profile is related to EDU Ticketing System.</description>
     <userLicense>Salesforce</userLicense>
