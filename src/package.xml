@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">
 <types>
+<name>ApexClass</name>
+<members>Account_1</members>
+<members>DemoApex4</members>
+<members>LightningForgotPasswordController</members>
+<members>LightningForgotPasswordControllerTest</members>
+<members>LightningLoginFormController</members>
+<members>LightningLoginFormControllerTest</members>
+<members>LightningSelfRegisterController</members>
+<members>LightningSelfRegisterControllerTest</members>
+<members>SampleSecurityPolicyApexEventCondition</members>
+</types>
+<types>
 <name>StandardValueSet</name>
 <members>AccountContactMultiRoles</members>
 <members>AccountContactRole</members>
@@ -78,6 +90,10 @@
 <members>WorkOrderStatus</members>
 <members>WorkTypeDefApptType</members>
 <members>WorkTypeGroupAddInfo</members>
+</types>
+<types>
+<name>UserProvisioningConfig</name>
+<members>Sample_User_Prov_Confg</members>
 </types>
 <version>51.0</version>
 </Package>
