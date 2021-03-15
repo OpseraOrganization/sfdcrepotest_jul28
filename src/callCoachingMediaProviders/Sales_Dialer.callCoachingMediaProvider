@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CallCoachingMediaProvider xmlns="http://soap.sforce.com/2006/04/metadata">
+    <isActive>false</isActive>
+    <providerDescription>Salesforce telephony provider</providerDescription>
+    <providerName>Sales_Dialer</providerName>
+</CallCoachingMediaProvider>
