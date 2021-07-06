@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+  <types>
+    <name>PathAssistant</name>
+    <members>Campaign_Path</members>
+  </types>
+  <types>
+    <name>PermissionSet</name>
+    <members>CARE_DVT_Admin</members>
+  </types>
+  <types>
+    <name>PermissionSetGroup</name>
+    <members>CARE_DVT_Admin_Group</members>
+  </types>
+  <types>
+    <name>PlatformCachePartition</name>
+    <members>PBICachae</members>
+  </types>
+  <types>
+    <name>Profile</name>
+    <members>3rd Party Telemarketing Profile</members>
+  </types>
+<version>52.0</version></Package>
