@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+  <types>
+    <name>ApexClass</name>
+    <members>SWX_CreateUpsellProposal_WebserviceTest</members>
+    <members>winProbabilityQuestionnaireTriggerTest</members>
+    <members>ALCRInboundInterfaceTest</members>
+    <members>AdditionalResourceHelper</members>
+    <members>LightningSelfRegisterController</members>
+    <members>SFDCEAISendQuoteEmailResponse</members>
+    <members>APTSCU_ApprovalActionsController</members>
+    <members>DemoApexClass10</members>
+    <members>Account_1</members>
+    <members>AccountTeamMemberSync</members>
+    <members>DemoApexTest</members>
+    <members>SampleSecurityPolicyApexEventCondition</members>
+    <members>LightningLoginFormController</members>
+    <members>TerritoryTest</members>
+    <members>LightningForgotPasswordControllerTest</members>
+    <members>LightningLoginFormControllerTest</members>
+    <members>ALCRInboundInterface</members>
+    <members>ProductHierarchyTriggerHandler</members>
+    <members>Test_AccountMovementFromTerritory</members>
+    <members>LightningForgotPasswordController</members>
+    <members>LightningSelfRegisterControllerTest</members>
+    <members>ViewQueueMemberControllerTest2</members>
+  </types>
+<version>52.0</version></Package>
