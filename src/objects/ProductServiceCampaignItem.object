@@ -165,7 +165,7 @@
     </listViews>
     <listViews>
         <fullName>My_ProductServiceCampaignItems</fullName>
-        <filterScope>Everything</filterScope>
+        <filterScope>Mine</filterScope>
         <label>My Product Service Campaign Items</label>
     </listViews>
     <listViews>

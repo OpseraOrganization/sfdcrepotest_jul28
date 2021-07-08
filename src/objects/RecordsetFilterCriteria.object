@@ -120,6 +120,10 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>FilteredObject</fullName>
+        <inlineHelpText>Choose the object that stores the attributes you want to use in the filter conditions.</inlineHelpText>
+    </fields>
+    <fields>
         <fullName>IsActive</fullName>
         <trackHistory>false</trackHistory>
     </fields>
@@ -132,10 +136,20 @@
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
+    <fields>
+        <fullName>SourceObject</fullName>
+        <inlineHelpText>The filter criteria is added to records in the source object.</inlineHelpText>
+    </fields>
     <searchLayouts>
         <customTabListAdditionalFields>IsActive</customTabListAdditionalFields>
         <customTabListAdditionalFields>LastModifiedBy</customTabListAdditionalFields>
         <customTabListAdditionalFields>CreatedBy</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>IsActive</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>LastModifiedBy</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CreatedBy</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>IsActive</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>LastModifiedBy</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CreatedBy</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>IsActive</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>LastModifiedBy</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CreatedBy</searchResultsAdditionalFields>

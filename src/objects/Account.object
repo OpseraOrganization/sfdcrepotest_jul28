@@ -5957,6 +5957,7 @@ Initially 2017 only used for data migration upsert capability.</description>
         <description>Related to US: 3322 and 13733. This copies the Legal Entity L4 ID from a formula field into a text field so it can be used by a sharing rule.</description>
         <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
+        <inlineHelpText>test1</inlineHelpText>
         <label>DELETE CH LE L4 ID</label>
         <length>42</length>
         <required>false</required>
@@ -40561,7 +40562,7 @@ OR($Profile.Name = &quot;Nokia Sales Profile&quot;,$Profile.Name = &quot;Sales O
     <webLinks>
         <fullName>Clone</fullName>
         <availability>online</availability>
-        <description>Button to clone Accounts</description>
+        <description>Button to clone Accounts- test0507_SFDXGIT</description>
         <displayType>button</displayType>
         <encodingKey>UTF-8</encodingKey>
         <linkType>url</linkType>

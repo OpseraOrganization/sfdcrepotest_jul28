@@ -312,6 +312,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Assigned - Inside Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Closed - Competitor</fullName>
             <default>false</default>
         </values>
@@ -1902,6 +1906,7 @@ Req #1312. Required for Marketo Sync</description>
     </fields>
     <fields>
         <fullName>CampaignId</fullName>
+        <inlineHelpText>Campaign Details</inlineHelpText>
         <type>Lookup</type>
     </fields>
     <fields>

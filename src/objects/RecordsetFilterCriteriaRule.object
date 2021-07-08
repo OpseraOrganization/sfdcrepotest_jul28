@@ -133,6 +133,9 @@
         <fullName>CriteriaField</fullName>
     </fields>
     <fields>
+        <fullName>Operator</fullName>
+    </fields>
+    <fields>
         <fullName>RecordsetFilterCriteriaId</fullName>
         <type>MasterDetail</type>
     </fields>
@@ -141,9 +144,13 @@
     </fields>
     <searchLayouts>
         <customTabListAdditionalFields>RecordsetFilterCriteria</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Operator</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>RecordsetFilterCriteria</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Operator</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>RecordsetFilterCriteria</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Operator</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>RecordsetFilterCriteria</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Operator</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

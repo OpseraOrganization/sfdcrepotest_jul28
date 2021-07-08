@@ -173,7 +173,6 @@
         <externalId>false</externalId>
         <label>3P Vendor Case ID</label>
         <referenceTo>CH_3PVendorCase__c</referenceTo>
-        <relationshipLabel>3P Vendor Interactions</relationshipLabel>
         <relationshipName>CH_3PVendorInteractions</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
@@ -334,7 +333,7 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
-    <label>3P Vendor Interaction</label>
+    <label>3P Vendor Interaction1</label>
     <nameField>
         <displayFormat>3PVI-{0000}</displayFormat>
         <label>3P Vendor Interaction</label>
