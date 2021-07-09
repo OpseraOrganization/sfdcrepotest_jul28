@@ -173,7 +173,7 @@
     </fields>
     <fields>
         <fullName>Accreditation_Date__c</fullName>
-        <description>To be able to maintain Partner&apos;s accreditation information in the portal so that the accreditation status is accurately reflected in the system and partners are able to work on completing their training program.</description>
+        <description>To be able to maintain Partners Accreditation Date in the portal so that the accreditation status is accurately reflected in the system and partners are able to work on completing their training program.</description>
         <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Accreditation Date</label>
@@ -184,8 +184,23 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Accreditation_Grade__c</fullName>
+        <description>To be able to maintain Partners Accreditation Grade in the portal so that the accreditation status is accurately reflected in the system and partners are able to work on completing their training program.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Define the vendor portfolios that complement the Nokia portfolio</inlineHelpText>
+        <label>Accreditation Grade</label>
+        <length>150</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Accreditation_Level__c</fullName>
-        <description>To be able to maintain Partner&apos;s Accreditation information in the portal so that the accreditation status is accurately reflected in the system and partners are able to work on completing their training program.</description>
+        <description>To be able to maintain Partners Accreditation Level in the portal so that the accreditation status is accurately reflected in the system and partners are able to work on completing their training program.</description>
         <externalId>false</externalId>
         <label>Accreditation Level</label>
         <required>false</required>
@@ -315,6 +330,12 @@
                     <fullName>Service Provider</fullName>
                     <default>false</default>
                     <label>Service Provider</label>
+                </value>
+                <value>
+                    <fullName>Super Advanced</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Super Advanced</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -617,6 +638,7 @@
         <defaultValue>$RecordType.Id</defaultValue>
         <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
+        <inlineHelpText>1</inlineHelpText>
         <label>Actual pricing level</label>
         <length>150</length>
         <required>false</required>
@@ -997,6 +1019,7 @@ HYPERLINK( Nokia_Env_URL__c &amp; &apos;/apex/Apttus_XApps__EditInExcelLaunch?se
     </fields>
     <fields>
         <fullName>NokiaCPQ_Account_Address__c</fullName>
+        <description>1</description>
         <externalId>false</externalId>
         <formula>Partner__r.BillingState +&quot; &quot;+ Partner__r.BillingCity +&quot; &quot;+ NokiaCPQ_Account_Country__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -1735,7 +1758,7 @@ Pricing_Override_Expiration__c &gt;= today()),Text(Pricing_Level_Override__c), t
 HYPERLINK(&apos;/NokiaPartners/apex/Apttus_XApps__EditInExcelLaunch?SelectedRecordId=&apos;+Id+&apos;&amp;appName=ValidateProd&amp;mode=touchless&amp;outputType=EXCEL&apos;,&apos;Export&apos;), 
 HYPERLINK(&apos;/apex/Apttus_XApps__EditInExcelLaunch?SelectedRecordId=&apos;+Id+&apos;&amp;appName=ValidateProd&amp;mode=touchless&amp;outputType=EXCEL&apos;,&apos;Export&apos;))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>ValidateProd</label>
+        <label>Validate Prod</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1756,7 +1779,7 @@ HYPERLINK(&apos;/apex/Apttus_XApps__EditInExcelLaunch?SelectedRecordId=&apos;+Id
     <recordTypes>
         <fullName>Distributor_GPP_0_0</fullName>
         <active>true</active>
-        <label>Distributor GPP 0.0</label>
+        <label>Distributor GPP 0.0 Record</label>
         <picklistValues>
             <picklist>Accreditation_Level__c</picklist>
             <values>
@@ -2292,7 +2315,7 @@ HYPERLINK(&apos;/apex/Apttus_XApps__EditInExcelLaunch?SelectedRecordId=&apos;+Id
     <recordTypes>
         <fullName>Distributor_GPP_1_0</fullName>
         <active>true</active>
-        <label>Distributor GPP 1.0</label>
+        <label>Distributor GPP 1.0 Record</label>
         <picklistValues>
             <picklist>Accreditation_Level__c</picklist>
             <values>
@@ -3432,7 +3455,7 @@ HYPERLINK(&apos;/apex/Apttus_XApps__EditInExcelLaunch?SelectedRecordId=&apos;+Id
     <recordTypes>
         <fullName>Global_Alliance</fullName>
         <active>true</active>
-        <label>Global Alliance</label>
+        <label>Global Alliance Record</label>
         <picklistValues>
             <picklist>Accreditation_Level__c</picklist>
             <values>
@@ -3987,10 +4010,6 @@ HYPERLINK(&apos;/apex/Apttus_XApps__EditInExcelLaunch?SelectedRecordId=&apos;+Id
         <label>Indirect Reseller GPP 2.0</label>
         <picklistValues>
             <picklist>Accreditation_Level__c</picklist>
-            <values>
-                <fullName>Advanced</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Basic</fullName>
                 <default>false</default>
@@ -4555,10 +4574,6 @@ HYPERLINK(&apos;/apex/Apttus_XApps__EditInExcelLaunch?SelectedRecordId=&apos;+Id
         <label>Indirect Reseller GPP 3.0</label>
         <picklistValues>
             <picklist>Accreditation_Level__c</picklist>
-            <values>
-                <fullName>Advanced</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Authorized</fullName>
                 <default>false</default>
@@ -5168,10 +5183,6 @@ HYPERLINK(&apos;/apex/Apttus_XApps__EditInExcelLaunch?SelectedRecordId=&apos;+Id
         <picklistValues>
             <picklist>Accreditation_Level__c</picklist>
             <values>
-                <fullName>Advanced</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Expert</fullName>
                 <default>false</default>
             </values>
@@ -5720,10 +5731,6 @@ HYPERLINK(&apos;/apex/Apttus_XApps__EditInExcelLaunch?SelectedRecordId=&apos;+Id
         <picklistValues>
             <picklist>Accreditation_Level__c</picklist>
             <values>
-                <fullName>Advanced</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Expert</fullName>
                 <default>false</default>
             </values>
@@ -6271,10 +6278,6 @@ HYPERLINK(&apos;/apex/Apttus_XApps__EditInExcelLaunch?SelectedRecordId=&apos;+Id
         <label>Reseller GPP 2.0</label>
         <picklistValues>
             <picklist>Accreditation_Level__c</picklist>
-            <values>
-                <fullName>Advanced</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Basic</fullName>
                 <default>false</default>
@@ -6839,10 +6842,6 @@ HYPERLINK(&apos;/apex/Apttus_XApps__EditInExcelLaunch?SelectedRecordId=&apos;+Id
         <label>Reseller GPP 3.0</label>
         <picklistValues>
             <picklist>Accreditation_Level__c</picklist>
-            <values>
-                <fullName>Advanced</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Authorized</fullName>
                 <default>false</default>
@@ -7992,10 +7991,6 @@ HYPERLINK(&apos;/apex/Apttus_XApps__EditInExcelLaunch?SelectedRecordId=&apos;+Id
         <picklistValues>
             <picklist>Accreditation_Level__c</picklist>
             <values>
-                <fullName>Advanced</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Authorized</fullName>
                 <default>false</default>
             </values>
@@ -8029,14 +8024,14 @@ HYPERLINK(&apos;/apex/Apttus_XApps__EditInExcelLaunch?SelectedRecordId=&apos;+Id
             </values>
             <values>
                 <fullName>Professional</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Accreditation_Type__c</picklist>
             <values>
                 <fullName>Maintenance</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Product</fullName>
@@ -8610,13 +8605,13 @@ NOT(AND(ISCHANGED(RecordTypeId),
 ISPICKVAL(Reason_for_Level_Change__c, &apos;Change in Partner Program&apos;))),
 NOT(ISPICKVAL(Reason_for_Level_Change__c, &apos;Automated Level Change&apos;)))</errorConditionFormula>
         <errorDisplayField>Reason_for_Level_Change__c</errorDisplayField>
-        <errorMessage>Provide Reason for Level Change</errorMessage>
+        <errorMessage>Provide Reason for Accreditation Level Change</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Accreditation_Partner_Program_Blank_Rule</fullName>
         <active>true</active>
         <errorConditionFormula>AND(ISBLANK( TEXT(  Partner__r.Partner_Program__c  ) ),ISNEW(  ))</errorConditionFormula>
-        <errorMessage>A Partner Program is required for Accreditation. Please update the Partner Program on the Partner Account page</errorMessage>
+        <errorMessage>A Partner Program is needed for Accreditation Level. Please update the Partner Program on the Partner Account page</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Incoterm_Error_Maintenance</fullName>

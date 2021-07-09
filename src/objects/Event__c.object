@@ -5506,7 +5506,7 @@ https://sharenet-ims.inside.nokiasiemensnetworks.com/Guest/Open/D509490038</inli
     <sharingModel>Private</sharingModel>
     <sharingReasons>
         <fullName>Share_Event_with_Participants__c</fullName>
-        <label>Share Event with Participants</label>
+        <label>Share Event with the Participants</label>
     </sharingReasons>
     <validationRules>
         <fullName>Cancelation_reason_as_mandatory</fullName>

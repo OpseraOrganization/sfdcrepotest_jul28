@@ -170,6 +170,11 @@
         <fields>EndDate</fields>
         <label>Default</label>
     </compactLayouts>
+    <compactLayouts>
+        <fullName>test1</fullName>
+        <fields>CurrencyIsoCode</fields>
+        <label>test1</label>
+    </compactLayouts>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <externalSharingModel>FullAccess</externalSharingModel>

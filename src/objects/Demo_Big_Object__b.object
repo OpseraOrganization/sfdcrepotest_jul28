@@ -19,6 +19,16 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Test__c</fullName>
+        <description>test</description>
+        <externalId>false</externalId>
+        <label>TestQA</label>
+        <length>10</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <indexes>
         <fullName>Index1</fullName>
         <fields>
