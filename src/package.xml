@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Business_Plan__c.Business_Plan_Compact_Layout</members>
+        <name>CompactLayout</name>
+    </types>
+    <types>
+        <members>Accreditation__c.Accreditation_Date__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Accreditation__c.Reseller_GPP_3_0</members>
+        <name>RecordType</name>
+    </types>
+    <types>
+        <members>Accreditation__c.Valid_Level_Reseller_GPP_2_0_Maintenance</members>
+        <name>ValidationRule</name>
+    </types>
+    <version>52.0</version>
+</Package>
