@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Case.Indirect Reseller Application Assignment</members>
+        <members>Lead.Telemarketing Lead Assignment</members>
+        <name>AssignmentRule</name>
+    </types>
+    <types>
+        <members>Case.CH_Portal_customer case creation</members>
+        <members>Lead.SampleAuto Response Rule</members>
+        <name>AutoResponseRule</name>
+    </types>
+    <types>
+        <members>ACC_MANAGER_TRICON_SCO</members>
+        <members>CH_CA_Permission_Set</members>
+        <name>CustomLabel</name>
+    </types>
+    <types>
+        <members>Accreditation__c</members>
+        <members>Case</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Account.TestQA</members>
+        <members>Lead.CustomLeadEmailMatchRule</members>
+        <name>MatchingRule</name>
+    </types>
+    <types>
+        <members>Case.CH_720MinutesNotification</members>
+        <name>WorkflowAlert</name>
+    </types>
+    <types>
+        <members>Accreditation__c.PRM Set for accreditation level Change Evaluation - downgrade</members>
+        <name>WorkflowRule</name>
+    </types>
+    <version>52.0</version>
+</Package>
