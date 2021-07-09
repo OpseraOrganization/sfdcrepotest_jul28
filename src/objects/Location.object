@@ -114,120 +114,27 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Location_Record_Page</content>
         <formFactor>Large</formFactor>
-        <type>Default</type>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Location_Record_Page</content>
         <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
-    <compactLayouts>
-        <fullName>CH_Location</fullName>
-        <fields>Name</fields>
-        <fields>CH_AccountName__c</fields>
-        <label>CH_Location</label>
-    </compactLayouts>
     <enableFeeds>false</enableFeeds>
-    <externalSharingModel>ReadWrite</externalSharingModel>
-    <fields>
-        <fullName>CH_AccountCustomerCompliance__c</fullName>
-        <description>NOKIASC-24719: To get Customer Compliance of the Account linked to Location.</description>
-        <externalId>false</externalId>
-        <label>Account Customer Compliance</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>US_ALTICE</fullName>
-                    <default>false</default>
-                    <label>US_ALTICE</label>
-                </value>
-                <value>
-                    <fullName>US_AT&amp;T</fullName>
-                    <default>false</default>
-                    <label>US_AT&amp;T</label>
-                </value>
-                <value>
-                    <fullName>US_Company</fullName>
-                    <default>false</default>
-                    <label>US_Company</label>
-                </value>
-                <value>
-                    <fullName>US_Cox</fullName>
-                    <default>false</default>
-                    <label>US_Cox</label>
-                </value>
-                <value>
-                    <fullName>US_Govern</fullName>
-                    <default>false</default>
-                    <label>US_Govern</label>
-                </value>
-                <value>
-                    <fullName>US_SCEC</fullName>
-                    <default>false</default>
-                    <label>US_SCEC</label>
-                </value>
-                <value>
-                    <fullName>US_Sprint</fullName>
-                    <default>false</default>
-                    <label>US_Sprint</label>
-                </value>
-                <value>
-                    <fullName>US_T-Mobile</fullName>
-                    <default>false</default>
-                    <label>US_T-Mobile</label>
-                </value>
-                <value>
-                    <fullName>US_VWireless</fullName>
-                    <default>false</default>
-                    <label>US_VWireless</label>
-                </value>
-                <value>
-                    <fullName>US_VWireline</fullName>
-                    <default>false</default>
-                    <label>US_VWireline</label>
-                </value>
-                <value>
-                    <fullName>NATO</fullName>
-                    <default>false</default>
-                    <label>NATO</label>
-                </value>
-                <value>
-                    <fullName>Unassigned</fullName>
-                    <default>false</default>
-                    <label>Unassigned</label>
-                </value>
-                <value>
-                    <fullName>unassign</fullName>
-                    <default>false</default>
-                    <label>unassign</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>CH_AccountName__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>NOKIASC-24719: To link an Account to the Location.</description>
-        <externalId>false</externalId>
-        <label>Account Name</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Locations</relationshipLabel>
-        <relationshipName>Locations_Account</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>CloseDate</fullName>
         <trackHistory>false</trackHistory>
@@ -253,6 +160,328 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>GDMFSLLocation_Address__c</fullName>
+        <externalId>false</externalId>
+        <formula>GDMFSL_Address__r.Street &amp; &quot;,&quot; &amp;  GDMFSL_Address__r.City &amp; &quot;,&quot; &amp; TEXT(GDMFSL_Address__r.StateCode) &amp; &quot; &quot; &amp; GDMFSL_Address__r.PostalCode</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Location Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_AKA_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>AKA Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Address__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Address</label>
+        <referenceTo>Address</referenceTo>
+        <relationshipLabel>Locations</relationshipLabel>
+        <relationshipName>Locations</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Auth_Repair_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Auth Repair Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Classified_Address__c</fullName>
+        <description>DTXFSL-6944</description>
+        <externalId>false</externalId>
+        <formula>IF(GDMFSL_Is_Classified__c  = FALSE, 
+(GDMFSL_Address__r.Street &amp; &quot;,&quot; &amp; GDMFSL_Address__r.City &amp; &quot;,&quot; &amp; TEXT(GDMFSL_Address__r.StateCode) &amp; &quot; &quot; &amp; GDMFSL_Address__r.PostalCode),
+ &quot;Undisclosed Location&quot;)</formula>
+        <inlineHelpText>Formula based on the address of the location to obscure the location address for classified locations for service reports.</inlineHelpText>
+        <label>Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Default_Dead_Man_Switch_Timer__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Measures the period (in hours) after which the FSP is required to report &apos;Safe&apos; from a Location.  If the value is 0 or null, no Dead Man Switch will be triggered</inlineHelpText>
+        <label>Default Dead Man Switch Timer</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_External_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>External ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Extra_Travel_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Extra Travel Time (minutes)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Is_Classified__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Checkbox to indicate if this location is considered classified.</description>
+        <externalId>false</externalId>
+        <label>Classified Location</label>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Language__c</fullName>
+        <externalId>false</externalId>
+        <label>Language</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Language</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Location_Manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Location Manager</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Locations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Location_is_Active__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>If the Location is no longer Active, the Checkbox will be unchecked</description>
+        <externalId>false</externalId>
+        <label>Location is Active</label>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Need_Auth_Caller__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Need Auth Caller?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Prevailing_Wage__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Prevailing Wage</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Region__c</fullName>
+        <description>Region field will be used for Sharing Rules, and derived from Shipping Account or Service Location.</description>
+        <externalId>false</externalId>
+        <label>Region</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Region</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Remote__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Remote?</label>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_SAP_Customer_Number__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>SAP Customer Number</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Service_Territory__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>WorkOrders with this Location will have this specified Service Territory derived.</description>
+        <externalId>false</externalId>
+        <label>Service Territory</label>
+        <referenceTo>ServiceTerritory</referenceTo>
+        <relationshipLabel>Locations</relationshipLabel>
+        <relationshipName>Locations</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Ship_To_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Ship To Account</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.SAP_Account_Types__c</field>
+                <operation>contains</operation>
+                <value>ShipTo</value>
+            </filterItems>
+            <infoMessage>Select a ShipTo Account</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Locations (Ship To Account)</relationshipLabel>
+        <relationshipName>ShipToLocations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Site_License__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Identify License/Clearance required by the Location</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identify License/Clearance required by the Location</inlineHelpText>
+        <label>Site License</label>
+        <referenceTo>GDMFSL_Site_License__c</referenceTo>
+        <relationshipLabel>Locations</relationshipLabel>
+        <relationshipName>Locations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Site_PO_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Site PO Required?</label>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Site_Rank__c</fullName>
+        <externalId>false</externalId>
+        <label>Site Rank</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Bronze</fullName>
+                    <default>false</default>
+                    <label>Bronze</label>
+                </value>
+                <value>
+                    <fullName>Silver</fullName>
+                    <default>false</default>
+                    <label>Silver</label>
+                </value>
+                <value>
+                    <fullName>Gold</fullName>
+                    <default>false</default>
+                    <label>Gold</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Special_Handling_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Special Handling Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Vertical__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Environment Vertical</label>
+        <referenceTo>GDMFSL_Vertical__c</referenceTo>
+        <relationshipLabel>Locations</relationshipLabel>
+        <relationshipName>Locations</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_Working_Hours__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Visiting Hours</label>
+        <referenceTo>OperatingHours</referenceTo>
+        <relationshipLabel>Locations</relationshipLabel>
+        <relationshipName>Locations</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_forge_locationId__c</fullName>
+        <externalId>true</externalId>
+        <label>Forge Location ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GDMFSL_forge_siteId__c</fullName>
+        <externalId>true</externalId>
+        <label>Forge Site ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>IsInventoryLocation</fullName>
         <trackHistory>false</trackHistory>
     </fields>
@@ -262,7 +491,7 @@
     </fields>
     <fields>
         <fullName>Location</fullName>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>LocationLevel</fullName>
@@ -270,7 +499,7 @@
     </fields>
     <fields>
         <fullName>LocationType</fullName>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -280,7 +509,7 @@
     </fields>
     <fields>
         <fullName>Name</fullName>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>OpenDate</fullName>
@@ -319,27 +548,32 @@
     </fields>
     <fields>
         <fullName>VisitorAddressId</fullName>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Lookup</type>
     </fields>
-    <fields>
-        <fullName>test__c</fullName>
-        <encryptionScheme>None</encryptionScheme>
-        <externalId>false</externalId>
-        <label>test</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
     <listViews>
-        <fullName>All_Locations</fullName>
+        <fullName>Account_Locations</fullName>
+        <columns>Name</columns>
+        <columns>GDMFSL_Address__c</columns>
+        <columns>GDMFSL_Need_Auth_Caller__c</columns>
+        <columns>LocationType</columns>
+        <columns>GDMFSL_Working_Hours__c</columns>
+        <columns>GDMFSL_Location_Manager__c</columns>
+        <columns>GDMFSL_Site_PO_Required__c</columns>
         <filterScope>Everything</filterScope>
-        <label>All Locations</label>
+        <label>My Account Locations</label>
+        <sharedTo>
+            <allCustomerPortalUsers></allCustomerPortalUsers>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_Locations</fullName>
+        <columns>GDMFSL_SAP_Customer_Number__c</columns>
+        <columns>Name</columns>
+        <columns>GDMFSL_Classified_Address__c</columns>
+        <columns>LocationType</columns>
+        <columns>GDMFSL_Service_Territory__c</columns>
+        <columns>CreatedBy</columns>
         <filterScope>Everything</filterScope>
         <label>All Locations</label>
     </listViews>
@@ -348,96 +582,6 @@
         <filterScope>Mine</filterScope>
         <label>My Locations</label>
     </listViews>
-    <listViews>
-        <fullName>My_Locations</fullName>
-        <filterScope>Mine</filterScope>
-        <label>My Locations</label>
-    </listViews>
-    <recordTypeTrackHistory>false</recordTypeTrackHistory>
-    <recordTypes>
-        <fullName>CH_Location</fullName>
-        <active>true</active>
-        <compactLayoutAssignment>CH_Location</compactLayoutAssignment>
-        <label>CH_Location</label>
-        <picklistValues>
-            <picklist>CH_AccountCustomerCompliance__c</picklist>
-            <values>
-                <fullName>NATO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>US_ALTICE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>US_AT%26T</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>US_Company</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>US_Cox</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>US_Govern</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>US_SCEC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>US_Sprint</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>US_T-Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>US_VWireless</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>US_VWireline</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unassigned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>unassign</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>LocationType</picklist>
-            <values>
-                <fullName>Plant</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Van</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Virtual</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Warehouse</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>LocationType</customTabListAdditionalFields>
         <customTabListAdditionalFields>VisitorAddress</customTabListAdditionalFields>
@@ -448,5 +592,19 @@
         <searchResultsAdditionalFields>LocationType</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>VisitorAddress</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>GDMFSL_Integrated_Location_Not_Editable</fullName>
+        <active>true</active>
+        <description>6/4/21 9464 - Data specialist needs edit access to these fields at all times. Sharing settings has this object as read only for all other personas</description>
+        <errorConditionFormula>AND((NOT($Profile.Name=&apos;Data Load API Only&apos;)&amp;&amp; NOT($Profile.Name=&apos;System Admin API Only&apos;)),(NOT(CONTAINS($User.Full_Name__c,&apos;Interface User&apos;))&amp;&amp; NOT(CONTAINS($User.Full_Name__c,&apos;HBT API Integration&apos;))),(CONTAINS(CreatedBy.Full_Name__c,&apos;Interface User&apos;) || CONTAINS(CreatedBy.Full_Name__c,&apos;HBT API Integration&apos;)), ISCHANGED(Name))</errorConditionFormula>
+        <errorMessage>Cannot update a Record which is created from Integration</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>GDMFSL_Positive_Default_Dead_Man_Switch</fullName>
+        <active>true</active>
+        <errorConditionFormula>GDMFSL_Default_Dead_Man_Switch_Timer__c &lt; 0</errorConditionFormula>
+        <errorDisplayField>GDMFSL_Default_Dead_Man_Switch_Timer__c</errorDisplayField>
+        <errorMessage>The Default Dead Man Switch Value cannot be negative.</errorMessage>
+    </validationRules>
 </CustomObject>
