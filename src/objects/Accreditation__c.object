@@ -173,7 +173,7 @@
     </fields>
     <fields>
         <fullName>Accreditation_Date__c</fullName>
-        <description>To be able to maintain Partners Accreditation Date in the portal so that the accreditation status is accurately reflected in the system and partners are able to work on completing their training program.</description>
+        <description>Test_To be able to maintain Partners Accreditation Date in the portal so that the accreditation status is accurately reflected in the system and partners are able to work on completing their training program.</description>
         <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Accreditation Date</label>
@@ -6839,7 +6839,7 @@ HYPERLINK(&apos;/apex/Apttus_XApps__EditInExcelLaunch?SelectedRecordId=&apos;+Id
     <recordTypes>
         <fullName>Reseller_GPP_3_0</fullName>
         <active>true</active>
-        <label>Reseller GPP 3.0</label>
+        <label>Reseller GPP 3.0_test</label>
         <picklistValues>
             <picklist>Accreditation_Level__c</picklist>
             <values>
@@ -8834,7 +8834,7 @@ Text(Pricing_Level_Override__c) = &apos;&apos;
 	Text(Pricing_Level_Override__c) = &apos;&apos;
 	) ) )
 )</errorConditionFormula>
-        <errorMessage>Only the following values are allowed: No Accreditation,Nokia Brand of Service, Basic, Premium, Professional</errorMessage>
+        <errorMessage>Only the following values are allowed: No Accreditation,Nokia Brand of Service, Basic, Premium, Professional_test</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Valid_Level_Reseller_GPP_3_0_Maintenance</fullName>
