@@ -2,7 +2,7 @@
 <ModerationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <action>Review</action>
     <active>false</active>
-    <description>Community moderators review the first post or comment from new members</description>
+    <description>Community moderators to review the first post or comment from new members</description>
     <entitiesAndFields>
         <entityName>FeedItem</entityName>
     </entitiesAndFields>
