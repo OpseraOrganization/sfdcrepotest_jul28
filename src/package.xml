@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Case.Indirect Reseller Application Assignment</members>
+        <members>Lead.Telemarketing Lead Assignment</members>
+        <name>AssignmentRule</name>
+    </types>
+    <types>
+        <members>Case.CH_Portal_customer case creation</members>
+        <name>AutoResponseRule</name>
+    </types>
+    <types>
+        <members>Account.Account_Compact_Layout</members>
+        <name>CompactLayout</name>
+    </types>
+    <types>
+        <members>Account.ABM_Target_Account__c</members>
+        <members>Account.ALCR_Created_Date__c</members>
+        <members>Account_L4_percentage__mdt.Account_L4__c</members>
+        <members>Certification__c.Cert_Name__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>AccessDeniedWhenParentOptyClosed</members>
+        <members>AccountProsepectRecordType</members>
+        <name>CustomLabel</name>
+    </types>
+    <types>
+        <members>PRM_Admins</members>
+        <name>DelegateGroup</name>
+    </types>
+    <types>
+        <members>Case.Case Escalation</members>
+        <name>EscalationRule</name>
+    </types>
+    <types>
+        <members>Nokia Partner Portal.Banned</members>
+        <name>KeywordList</name>
+    </types>
+    <types>
+        <members>Nokia Partner Portal</members>
+        <name>ManagedTopics</name>
+    </types>
+    <types>
+        <members>cbCollaboration</members>
+        <members>cbDigital_Sales_Customer_Portal</members>
+        <name>NetworkBranding</name>
+    </types>
+    <types>
+        <members>Account.Account_Cross_Share_With_ALTRON_NEXUS_Group</members>
+        <members>Account.Vendor_Accounts_Tier2</members>
+        <members>Session__c.Share_Session_with_ERM_Team</members>
+        <members>Session__c.Share_all_Sessions_with_EEC_team</members>
+        <name>SharingCriteriaRule</name>
+    </types>
+    <types>
+        <members>Certification__c.Synnex_Cert_Access_to_Internal_Users</members>
+        <name>SharingOwnerRule</name>
+    </types>
+    <types>
+        <members>Nokia_Partner_Portal1</members>
+        <name>SiteDotCom</name>
+    </types>
+    <types>
+        <members>Nokia Partner Portal.Partner_and_Customer_members</members>
+        <name>UserCriteria</name>
+    </types>
+    <types>
+        <members>Certification__c.Certification_Owner_NSA</members>
+        <members>Certification__c.Certification_validation_CSOD_record</members>
+        <name>ValidationRule</name>
+    </types>
+    <types>
+        <members>Account.Submit_NIRA</members>
+        <name>WebLink</name>
+    </types>
+    <types>
+        <members>Business_Plan__c.Business_Plan_Submission_Email_Notification</members>
+        <members>Business_Plan__c.Business_Plan_Successful_Cloning_Notification_If_not_Populate_PRM</members>
+        <name>WorkflowAlert</name>
+    </types>
+    <types>
+        <members>Accreditation__c.PRM_Update_Accreditation_Evaluation_Flag</members>
+        <members>Certification__c.Cert_Expired</members>
+        <members>Certification__c.Cert_expires_in_90_days</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>Accreditation__c.Notify on Accreditation Level Change</members>
+        <members>Business_Plan__c.Reminder After Submission of Business Plan Approval</members>
+        <members>Business_Plan__c.Send Review Email</members>
+        <name>WorkflowRule</name>
+    </types>
+    <version>52.0</version>
+</Package>

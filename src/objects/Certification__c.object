@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Cert_Name__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Cert-Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <validationRules>
+        <fullName>Certification_Owner_NSA</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+Owner:User.NSA_Compliant__c &lt;&gt; TRUE , 
+ISPICKVAL(Partner__r.Customer_Compliance__c, &apos;US_Govern&apos;), 
+NOT(OR( 
+Owner:User.Profile.Name = &apos;PRM Partner Community User Login&apos;, 
+Owner:User.Profile.Name = &apos;PRM Partner Relationship Manager Login&apos;)))</errorConditionFormula>
+        <errorDisplayField>OwnerId</errorDisplayField>
+        <errorMessage>A non NSA Compliant User cannot own this record</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Certification_validation_CSOD_record</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISPICKVAL( Approvedby_Authority__c , &quot;No&quot;) &amp;&amp; NOT($Profile.Name = &apos;Data Loader Profile&apos; || $Profile.Name = &apos;System Administrator&apos; || $Profile.Name = &apos;Integration API Only Profile&apos; )</errorConditionFormula>
+        <errorMessage>Certifications from CSOD cannot be edited</errorMessage>
+    </validationRules>
+</CustomObject>
