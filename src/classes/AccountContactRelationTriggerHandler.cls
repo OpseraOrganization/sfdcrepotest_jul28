@@ -3,7 +3,7 @@ About
 -----
 Description: This Class is used as handler for AccountContactRelationTrigger Trigger .
 
-Created for: Nokia Customer Portal
+Created for: Nokia Customer Portal Test
 Created: 04 16 2018
 
 Update History

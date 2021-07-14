@@ -4,6 +4,7 @@
     <fields>
         <fullName>Account_L4__c</fullName>
         <externalId>false</externalId>
+        <description>Account_L4 help description </description>
         <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Account L4</label>
         <required>false</required>

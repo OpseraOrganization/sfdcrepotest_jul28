@@ -1,7 +1,7 @@
 /**
 About
 -----
-Description: This Trigger is excuted Whenever
+Description: This Trigger is excuted Whenever Desc
 AccountContactRelation is inserted or updated we have to update field User.CompanyName with the Account Name.
 
 Created for: Nokia Customer Portal
