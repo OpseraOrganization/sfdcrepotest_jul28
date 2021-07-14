@@ -2,7 +2,7 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <customSettingsType>List</customSettingsType>
     <description>Req # 2748, 2411
-limit &quot;Pre-approved pricing List for Account Managers&quot; to market NAM and GCHN</description>
+limit &quot;Pre-approved pricing List for Account Managers&quot; to market NAM and GCHN Desc</description>
     <enableFeeds>false</enableFeeds>
     <label>Account Market</label>
     <visibility>Public</visibility>
