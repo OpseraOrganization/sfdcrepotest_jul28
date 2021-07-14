@@ -4,4 +4,4 @@ Survey:  {!NIA_SurveyResponse__c.SurveyName__c}
 Submitter:  {!NIA_SurveyResponse__c.Name__c} 
 Date of Completion:  {!NIA_SurveyResponse__c.CompletionDateTime__c}  
 
-Thanks,
+Thanks and Regards,
