@@ -8,7 +8,7 @@
     <label>Business Center Admin</label>
     <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>
-    <tabs>Apttus_Config2__PriceList__c</tabs>
+    <tabs>Apttus_Config3__PriceList__c</tabs>
     <tabs>standard-Product2</tabs>
     <tabs>Product_Feature_Junction__c</tabs>
     <tabs>Apttus_Config2__CustomerPurchaseOrder__c</tabs>
