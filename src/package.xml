@@ -5,7 +5,8 @@
         <name>ApexClass</name>
     </types>
     <types>
-        <members>BOM</members>
+        <members>ApprovalScope_ErrorMessage</members>
+        <members>BOM_Upload_QTC_CQ_Id</members>
         <name>CustomLabel</name>
     </types>
     <version>53.0</version>
