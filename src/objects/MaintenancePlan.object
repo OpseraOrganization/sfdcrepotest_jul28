@@ -50,7 +50,7 @@
     </fields>
     <fields>
         <fullName>GenerationTimeframeType</fullName>
-        <description>testingOpl</description>
+        <description>tester</description>
         <inlineHelpText>The unit of frequency for the generation timeframe.</inlineHelpText>
         <trackHistory>false</trackHistory>
     </fields>
