@@ -1406,7 +1406,7 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>Lock_Task_when_Completed</fullName>

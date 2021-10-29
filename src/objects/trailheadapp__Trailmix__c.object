@@ -285,7 +285,7 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Trailmixes</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
     <webLinks>

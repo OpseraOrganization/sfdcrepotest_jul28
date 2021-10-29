@@ -712,99 +712,99 @@ Req #1312. Required for Marketo Sync</description>
                     <label>XLE – BANKS, INSURANCE, CAR COMPANIES</label>
                 </value>
                 <value>
-                    <fullName>PUBLIC SECTOR - GOVERNMENT, LOCAL AUTHORITIES </fullName>
+                    <fullName>PUBLIC SECTOR - GOVERNMENT, LOCAL AUTHORITIES</fullName>
                     <default>false</default>
-                    <label>PUBLIC SECTOR - GOVERNMENT, LOCAL AUTHORITIES </label>
+                    <label>PUBLIC SECTOR - GOVERNMENT, LOCAL AUTHORITIES</label>
                 </value>
                 <value>
-                    <fullName>PUBLIC SECTOR - REAL ESTATE </fullName>
+                    <fullName>PUBLIC SECTOR - REAL ESTATE</fullName>
                     <default>false</default>
-                    <label>PUBLIC SECTOR - REAL ESTATE </label>
+                    <label>PUBLIC SECTOR - REAL ESTATE</label>
                 </value>
                 <value>
-                    <fullName>PUBLIC EDUCATION (NEW) </fullName>
+                    <fullName>PUBLIC EDUCATION (NEW)</fullName>
                     <default>false</default>
-                    <label>PUBLIC EDUCATION (NEW) </label>
+                    <label>PUBLIC EDUCATION (NEW)</label>
                 </value>
                 <value>
-                    <fullName>ENERGY - OIL &amp; GAS COMPANIES </fullName>
+                    <fullName>ENERGY - OIL &amp; GAS COMPANIES</fullName>
                     <default>false</default>
-                    <label>ENERGY - OIL &amp; GAS COMPANIES </label>
+                    <label>ENERGY - OIL &amp; GAS COMPANIES</label>
                 </value>
                 <value>
-                    <fullName>ENERGY - MINING (NEW) </fullName>
+                    <fullName>ENERGY - MINING (NEW)</fullName>
                     <default>false</default>
-                    <label>ENERGY - MINING (NEW) </label>
+                    <label>ENERGY - MINING (NEW)</label>
                 </value>
                 <value>
-                    <fullName>ENERGY - UTILITIES </fullName>
+                    <fullName>ENERGY - UTILITIES</fullName>
                     <default>false</default>
-                    <label>ENERGY - UTILITIES </label>
+                    <label>ENERGY - UTILITIES</label>
                 </value>
                 <value>
-                    <fullName>TRANSPORT - HIGHWAYS (MOVED PORTS &amp; AIRPORTS TO NEW TRAV ACTIVITY SECTOR) </fullName>
+                    <fullName>TRANSPORT - HIGHWAYS (MOVED PORTS &amp; AIRPORTS TO NEW TRAV ACTIVITY SECTOR)</fullName>
                     <default>false</default>
-                    <label>TRANSPORT - HIGHWAYS (MOVED PORTS &amp; AIRPORTS TO NEW TRAV ACTIVITY SECTOR) </label>
+                    <label>TRANSPORT - HIGHWAYS (MOVED PORTS &amp; AIRPORTS TO NEW TRAV ACTIVITY SECTOR)</label>
                 </value>
                 <value>
-                    <fullName>TRANSPORT - URBAN AND MAIN LINE RAIL </fullName>
+                    <fullName>TRANSPORT - URBAN AND MAIN LINE RAIL</fullName>
                     <default>false</default>
-                    <label>TRANSPORT - URBAN AND MAIN LINE RAIL </label>
+                    <label>TRANSPORT - URBAN AND MAIN LINE RAIL</label>
                 </value>
                 <value>
-                    <fullName>TRANSPORT - Aviation and Maritime (NEW) </fullName>
+                    <fullName>TRANSPORT - Aviation and Maritime (NEW)</fullName>
                     <default>false</default>
-                    <label>TRANSPORT - Aviation and Maritime (NEW) </label>
+                    <label>TRANSPORT - Aviation and Maritime (NEW)</label>
                 </value>
                 <value>
-                    <fullName>CAR COMPANIES (RENAME- WAS XLE, MOVED BANKS AND INSURANCE TO FINA) </fullName>
+                    <fullName>CAR COMPANIES (RENAME- WAS XLE, MOVED BANKS AND INSURANCE TO FINA)</fullName>
                     <default>false</default>
-                    <label>CAR COMPANIES (RENAME- WAS XLE, MOVED BANKS AND INSURANCE TO FINA) </label>
+                    <label>CAR COMPANIES (RENAME- WAS XLE, MOVED BANKS AND INSURANCE TO FINA)</label>
                 </value>
                 <value>
-                    <fullName>FINANCIAL SERVICES, BANKS, INSURANCE (ADDED BANKS &amp; INSURANCE) </fullName>
+                    <fullName>FINANCIAL SERVICES, BANKS, INSURANCE (ADDED BANKS &amp; INSURANCE)</fullName>
                     <default>false</default>
-                    <label>FINANCIAL SERVICES, BANKS, INSURANCE (ADDED BANKS &amp; INSURANCE) </label>
+                    <label>FINANCIAL SERVICES, BANKS, INSURANCE (ADDED BANKS &amp; INSURANCE)</label>
                 </value>
                 <value>
-                    <fullName>BROADCAST AND MEDIA (NEW) </fullName>
+                    <fullName>BROADCAST AND MEDIA (NEW)</fullName>
                     <default>false</default>
-                    <label>BROADCAST AND MEDIA (NEW) </label>
+                    <label>BROADCAST AND MEDIA (NEW)</label>
                 </value>
                 <value>
-                    <fullName>PRIVATE EDUCATION </fullName>
+                    <fullName>PRIVATE EDUCATION</fullName>
                     <default>false</default>
-                    <label>PRIVATE EDUCATION </label>
+                    <label>PRIVATE EDUCATION</label>
                 </value>
                 <value>
-                    <fullName>WEBSCALE (non-GAM) (NEW) </fullName>
+                    <fullName>WEBSCALE (non-GAM) (NEW)</fullName>
                     <default>false</default>
-                    <label>WEBSCALE (non-GAM) (NEW) </label>
+                    <label>WEBSCALE (non-GAM) (NEW)</label>
                 </value>
                 <value>
-                    <fullName>OTHER </fullName>
+                    <fullName>OTHER</fullName>
                     <default>false</default>
-                    <label>OTHER </label>
+                    <label>OTHER</label>
                 </value>
                 <value>
-                    <fullName>VENUE (STADIUMS, CONCERT HALLS) (NEW) </fullName>
+                    <fullName>VENUE (STADIUMS, CONCERT HALLS) (NEW)</fullName>
                     <default>false</default>
-                    <label>VENUE (STADIUMS, CONCERT HALLS) (NEW) </label>
+                    <label>VENUE (STADIUMS, CONCERT HALLS) (NEW)</label>
                 </value>
                 <value>
-                    <fullName>GOOGLE, AMAZON &amp; MICROSOFT </fullName>
+                    <fullName>GOOGLE, AMAZON &amp; MICROSOFT</fullName>
                     <default>false</default>
-                    <label>GOOGLE, AMAZON &amp; MICROSOFT </label>
+                    <label>GOOGLE, AMAZON &amp; MICROSOFT</label>
                 </value>
                 <value>
-                    <fullName>INTERNAL CUSTOMERS (NOKIA, ALCATEL-LUCENT) </fullName>
+                    <fullName>INTERNAL CUSTOMERS (NOKIA, ALCATEL-LUCENT)</fullName>
                     <default>false</default>
-                    <label>INTERNAL CUSTOMERS (NOKIA, ALCATEL-LUCENT) </label>
+                    <label>INTERNAL CUSTOMERS (NOKIA, ALCATEL-LUCENT)</label>
                 </value>
                 <value>
-                    <fullName>DEACTIVATED/INACTIVE ACCOUNTS </fullName>
+                    <fullName>DEACTIVATED/INACTIVE ACCOUNTS</fullName>
                     <default>false</default>
-                    <label>DEACTIVATED/INACTIVE ACCOUNTS </label>
+                    <label>DEACTIVATED/INACTIVE ACCOUNTS</label>
                 </value>
                 <value>
                     <fullName>UNASSIGNED</fullName>

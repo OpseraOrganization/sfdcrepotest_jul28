@@ -355,7 +355,7 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Workgroup Filters</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>CH_Check_Max_Filters</fullName>

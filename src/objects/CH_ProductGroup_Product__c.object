@@ -242,7 +242,7 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>ProductGroup_Products</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

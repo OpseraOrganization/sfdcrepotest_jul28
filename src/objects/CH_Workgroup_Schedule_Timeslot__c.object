@@ -442,7 +442,7 @@ if(TEXT(CH_Workgroup_Schedule__r.CH_Time_Zone__c) = &quot;UTC +14&quot;,14,0)) *
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Workgroup Schedule Timeslots</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>CH_EndDate_After_StartDate</fullName>

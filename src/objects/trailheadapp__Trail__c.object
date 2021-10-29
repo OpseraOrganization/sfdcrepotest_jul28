@@ -352,7 +352,7 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Trails</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

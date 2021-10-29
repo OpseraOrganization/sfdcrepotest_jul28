@@ -1042,7 +1042,7 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Additional Resource Requests</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>Access_Level_Required</fullName>

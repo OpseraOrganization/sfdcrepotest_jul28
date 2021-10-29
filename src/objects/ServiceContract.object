@@ -314,7 +314,7 @@
         <externalId>false</externalId>
         <formula>TEXT(CH_CDB_ServiceContractType__r.CH_CDB_ContractType__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>CDB Contract Type  </label>
+        <label>CDB Contract Type</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>

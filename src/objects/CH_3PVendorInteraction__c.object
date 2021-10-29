@@ -403,7 +403,7 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>CH_3PVendorInteractionTypeStatusClosed</fullName>

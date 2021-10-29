@@ -3510,7 +3510,7 @@ Req #4286: Change the label of the offer field &quot;Total Credit Limit&quot; to
         <type>Text</type>
     </nameField>
     <pluralLabel>Offers</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <startsWith>Vowel</startsWith>
     <validationRules>

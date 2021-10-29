@@ -19088,10 +19088,10 @@ ISBLANK( CQ_Submitted_to_Customer_Date__c ))
     <validationRules>
         <fullName>CQ_Name_contains_invalid_characters</fullName>
         <active>true</active>
-        <description>This is to prevent failures in the downstream systems, which cannot handle NON-ASCII characters </description>
+        <description>This is to prevent failures in the downstream systems, which cannot handle NON-ASCII characters</description>
         <errorConditionFormula>AND(OR(CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;＋&apos;),CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;－&apos;),CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;—&apos;),CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;　&apos;),CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;”&apos;),CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;×&apos;),CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;／&apos;),CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;＝&apos;),CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;’&apos;),CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;–&apos;)),NOT(ISCHANGED(CQ_No_of_Sales_Orders__c)),Quote_Type__c = &apos;CQ&apos;
 )</errorConditionFormula>
-        <errorMessage>The &quot;CQ Name&quot; contains invalid characters. </errorMessage>
+        <errorMessage>The &quot;CQ Name&quot; contains invalid characters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>CQ_Pricing_Flds_Readonly_after_Approved</fullName>
@@ -19285,7 +19285,7 @@ ISPICKVAL(Apttus_Proposal__Approval_Stage__c,&quot;In Review&quot; ))</errorCond
         <active>true</active>
         <errorConditionFormula>AND(OR(CONTAINS(CQ_Customer_Request_Number__c, &apos;＋&apos;),CONTAINS(CQ_Customer_Request_Number__c, &apos;－&apos;),CONTAINS(CQ_Customer_Request_Number__c, &apos;—&apos;),CONTAINS(CQ_Customer_Request_Number__c, &apos;”&apos;),CONTAINS(CQ_Customer_Request_Number__c, &apos;×&apos;),CONTAINS(CQ_Customer_Request_Number__c, &apos;／&apos;),CONTAINS(CQ_Customer_Request_Number__c, &apos;＝&apos;),CONTAINS(CQ_Customer_Request_Number__c, &apos;’&apos;),CONTAINS(CQ_Customer_Request_Number__c, &apos;–&apos;),CONTAINS(CQ_Customer_Request_Number__c, &apos;　&apos;)),Quote_Type__c=&apos;CQ&apos;
 )</errorConditionFormula>
-        <errorMessage>The &quot;Customer Request Number&quot; contains invalid characters. </errorMessage>
+        <errorMessage>The &quot;Customer Request Number&quot; contains invalid characters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>DS_Check_Contract_Type</fullName>

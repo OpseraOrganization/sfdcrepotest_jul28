@@ -173,7 +173,7 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>GRAX Helpers</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

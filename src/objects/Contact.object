@@ -3705,7 +3705,7 @@ Req #1313. Required for Marketo Sync</description>
         <externalId>false</externalId>
         <formula>Registration_Complete_Date__c  -  Registration_Start_Date__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Days to complete registration </label>
+        <label>Days to complete registration</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>

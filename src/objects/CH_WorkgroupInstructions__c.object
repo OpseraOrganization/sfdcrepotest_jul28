@@ -239,7 +239,7 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Workgroup Instructions</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>CH_SeverityCheck</fullName>

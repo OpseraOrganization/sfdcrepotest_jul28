@@ -330,7 +330,7 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>CH Outbound Logs</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

@@ -2782,9 +2782,9 @@ Expected_Amount_FN_Product_Revenue__c  +  Expected_Amount_FN_Services_Revenue__c
                     <label>Enterprise</label>
                 </value>
                 <value>
-                    <fullName>Federal Government </fullName>
+                    <fullName>Federal Government</fullName>
                     <default>false</default>
-                    <label>Federal Government </label>
+                    <label>Federal Government</label>
                 </value>
                 <value>
                     <fullName>Financial Services</fullName>

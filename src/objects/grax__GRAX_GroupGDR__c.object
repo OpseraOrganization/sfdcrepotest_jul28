@@ -348,7 +348,7 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>GRAX Group GDRs</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

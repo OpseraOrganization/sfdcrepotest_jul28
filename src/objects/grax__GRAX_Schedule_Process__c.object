@@ -1134,7 +1134,7 @@ ISPICKVAL (grax__Status__c, &quot;Starting Archive Process&quot;)</formula>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>GRAX Schedule Processes</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

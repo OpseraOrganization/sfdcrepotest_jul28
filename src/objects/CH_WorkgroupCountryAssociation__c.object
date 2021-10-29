@@ -215,7 +215,7 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Workgroup Country Associations</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

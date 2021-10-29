@@ -8592,7 +8592,7 @@ HYPERLINK(&apos;/apex/Apttus_XApps__EditInExcelLaunch?SelectedRecordId=&apos;+Id
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <startsWith>Vowel</startsWith>
     <validationRules>
