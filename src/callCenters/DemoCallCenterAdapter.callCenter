@@ -12,7 +12,7 @@
         </items>
         <items>
             <label>CTI Connector ProgId</label>
-            <name>reqProgId</name>
+            <name>reqProgNo</name>
             <value>DemoAdapter.DemoAdapter.1</value>
         </items>
         <items>
