@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>APTSCU_ApprovalActionsController</members>
+        <members>APTSCU_PreviewApprovalsController</members>
+        <members>APTSCU_PreviewApprovalsControllerTest</members>
+        <members>APTS_CustomActionCallback</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>APTSCU_ApprovalAction</members>
+        <members>Apttus_Approval__AdhocProcessRuntime</members>
+        <members>Apttus_Approval__AgreementApprovalSummary</members>
+        <members>Apttus_Approval__AgreementApprovalSummarySf1</members>
+        <members>Apttus_Approval__AgreementTermExAdd</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>Account</members>
+        <members>Additional_Resource_Request__c</members>
+        <members>Business_Plan__c</members>
+        <members>CH_Workgroup_Member__c</members>
+        <members>CH_Workgroup__c</members>
+        <name>MatchingRules</name>
+    </types>
+    <types>
+        <members>Additional_Resource_Request__c.Access_Requested_Date_Remove</members>
+        <members>Additional_Resource_Request__c.PRM_ARR_General_Completed</members>
+        <members>Additional_Resource_Request__c.PRM_ARR_NDAC_Notify_Rejected</members>
+        <name>WorkflowAlert</name>
+    </types>
+    <version>53.0</version>
+</Package>
