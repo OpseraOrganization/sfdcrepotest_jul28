@@ -5,7 +5,7 @@
     </fields>
     <fields>
         <fullName>ParentId</fullName>
-        <description>Testing</description>
+        <description>TesterOPL</description>
         <type>Lookup</type>
     </fields>
 </CustomObject>
