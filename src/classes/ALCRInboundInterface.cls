@@ -49,7 +49,7 @@ Requirement: Sales Process 633
 		webservice String marketName;
 		webservice String activityName;
 		webservice String buildingFloor;
-		webservice String postalCode;
+		webservice Stri postalCode;
 		webservice String stateProvinceCountyCode;  
 		//.webservice String accountManagerUPI;	   
 		webservice Date companyEndDate;		
