@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <fullName>AccCurrencyShouldEqualPriceListCurrency</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT( ISBLANK(NokiaCPQ_Contract_Price_List__c) ) , NokiaCPQ_Account_Currency__c &lt;&gt; TEXT(NokiaCPQ_Contract_Price_List__r.CurrencyIsoCode))</errorConditionFormula>
+        <errorDisplayField>NokiaCPQ_Contract_Price_List__c</errorDisplayField>
+        <errorMessage>No Contract PriceList Exists for this Account</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Incoterm_Error_Maintenance</fullName>
+        <active>true</active>
+        <description>For Demo Purpose.</description>
+        <errorConditionFormula>And(
+OR(
+RecordType.DeveloperName = &apos;Distributor_GPP_3_0&apos;,
+RecordType.DeveloperName = &apos;Reseller_GPP_3_0&apos;
+),
+ISPICKVAL(Accreditation_Type__c , &apos;Maintenance&apos;),
+
+
+OR(
+NOT( ISBLANK( NokiaCPQ_Incoterm_Percentage__c) ),
+NOT( ISBLANK( Text(NokiaCPQ_Incoterm__c)) )
+)
+  
+)</errorConditionFormula>
+        <errorMessage>Incoterm can only be filled for Product Type only</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Incoterm_Not_Greated_Than_20</fullName>
+        <active>true</active>
+        <errorConditionFormula>NokiaCPQ_Incoterm_Percentage__c  &gt; 0.50</errorConditionFormula>
+        <errorMessage>Incoterm % should not be greater than 50</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PRM_Display_on_Partner_Locator</fullName>
+        <active>true</active>
+        <description>SFPRM-490</description>
+        <errorConditionFormula>AND(
+    Partner_Type__c = &apos;Indirect Reseller&apos;,
+    ISPICKVAL(PRM_Display_on_Partner_Locator__c, &apos;Yes&apos;)  
+)</errorConditionFormula>
+        <errorDisplayField>PRM_Display_on_Partner_Locator__c</errorDisplayField>
+        <errorMessage>Indirect Reseller Accounts can&apos;t be displayed on the Partner Locator.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PRM_Display_on_Partner_Locator_Aligned</fullName>
+        <active>true</active>
+        <description>SFPRM-492</description>
+        <errorConditionFormula>AND(
+				ISPICKVAL(PRM_Display_on_Partner_Locator__c, &apos;Yes&apos;),
+				NOT(ISPICKVAL(Partner__r.Co_op_Account_Created__c, &apos;Yes&apos;))
+)</errorConditionFormula>
+        <errorDisplayField>PRM_Display_on_Partner_Locator__c</errorDisplayField>
+        <errorMessage>You can only select &apos;Yes&apos; if Display on Partner Locator on the Account is set to &apos;Yes&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Valid_Level_Distributor_GPP_0_0_Product</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+OR(RecordType.Name == &apos;Distributor GPP 0.0&apos;, 
+RecordType.Name == &apos;Distributor GPP 1.0&apos;), 
+$Profile.Name != &apos;Data Loader Profile&apos;, 
+Text(Accreditation_Type__c) == &apos;Product&apos;, 
+OR( 
+Text(Accreditation_Level__c) != &apos;Distributor&apos;, 
+AND( 
+Text( Pricing_Level_Override__c) != &apos;Distributor&apos;, 
+Text( Pricing_Level_Override__c) != &apos;&apos;) 
+) 
+)</errorConditionFormula>
+        <errorMessage>Only the following values are allowed: Distributor</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Valid_Level_Distributor_GPP_3_0_Product</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+$Profile.Name != &apos;Data Loader Profile&apos;, 
+RecordType.Name == &apos;Distributor GPP 3.0&apos;, 
+Text(Accreditation_Type__c) == &apos;Product&apos;, 
+OR( 
+NOT(OR( 
+Text(Accreditation_Level__c) = &apos;Base&apos;,  
+Text(Accreditation_Level__c) = &apos;Premier&apos; 
+) ), 
+NOT(OR( 
+Text( Pricing_Level_Override__c) = &apos;Base&apos;, 
+Text(Pricing_Level_Override__c) = &apos;Interim&apos;, 
+Text(Pricing_Level_Override__c) = &apos;Premier&apos;, 
+Text(Pricing_Level_Override__c) = &apos;Custom&apos;,
+Text(Pricing_Level_Override__c) = &apos;NOT APPLICABLE&apos;,
+Text(Pricing_Level_Override__c) = &apos;&apos; 
+) ) ) 
+)</errorConditionFormula>
+        <errorDisplayField>Accreditation_Level__c</errorDisplayField>
+        <errorMessage>Only the following values are allowed: Base, Premier.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Valid_Level_Global_Alliance_Product</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+$Profile.Name != &apos;Data Loader Profile&apos;, 
+RecordType.Name == &apos;Global Alliance&apos;, 
+Text(Accreditation_Type__c) == &apos;Product&apos;, 
+OR( 
+AND(Text(Accreditation_Level__c) = &apos;Alliance Partner&apos;, 
+NOT( 
+OR(Text(Pricing_Level_Override__c) = &apos;Authorized&apos;, 
+Text(Pricing_Level_Override__c) = &apos;Expert&apos;, 
+Text(Pricing_Level_Override__c) = &apos;&apos;)) ),Text(Accreditation_Level__c) = &apos;No Accreditation&apos;) 
+)</errorConditionFormula>
+        <errorMessage>Only the following values are allowed: Alliance Partner</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Valid_Level_IR_GPP_2_0_Maintenance</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+	$Profile.Name != &apos;Data Loader Profile&apos;,
+	RecordType.Name == &apos;Indirect Reseller GPP 2.0&apos;,
+	Text(Accreditation_Type__c) == &apos;Maintenance&apos;,
+	OR(
+	NOT(OR(
+		Text(Accreditation_Level__c) = &apos;Basic&apos;,
+		Text(Accreditation_Level__c) = &apos;No Accreditation&apos;,
+		Text(Accreditation_Level__c) = &apos;Premium&apos;,
+		Text(Accreditation_Level__c) = &apos;Professional&apos;
+		) ),
+	NOT(OR(
+	Text( Pricing_Level_Override__c) = &apos;Basic&apos;,
+	Text(Pricing_Level_Override__c) = &apos;No Accreditation&apos;,
+	Text(Pricing_Level_Override__c) = &apos;Premium&apos;,
+	Text(Pricing_Level_Override__c) = &apos;Professional&apos;,
+        Text(Pricing_Level_Override__c) = &apos;NBOS&apos;,
+	Text(Pricing_Level_Override__c) = &apos;&apos;
+	) ) )
+	
+)</errorConditionFormula>
+        <errorMessage>Only the following values are allowed: No Accreditation, Nokia Brand of Service, Basic, Premium, Professional</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Valid_Level_IR_GPP_3_0_Maintenance</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+	$Profile.Name != &apos;Data Loader Profile&apos;,
+	RecordType.Name == &apos;Indirect Reseller GPP 3.0&apos;,
+	Text(Accreditation_Type__c) == &apos;Maintenance&apos;,
+	OR(
+	NOT(OR(
+		Text(Accreditation_Level__c) = &apos;Authorized - Accreditation In Progress&apos;,
+		Text(Accreditation_Level__c) = &apos;Nokia Brand of Service&apos;,
+		Text(Accreditation_Level__c) = &apos;Co-Branded&apos;,
+		Text(Accreditation_Level__c) = &apos;Partner Branded&apos;,
+		Text(Accreditation_Level__c) = &apos;Authorized&apos;,
+		Text(Accreditation_Level__c) = &apos;Basic&apos;,
+		Text(Accreditation_Level__c) = &apos;Premium&apos;,
+		Text(Accreditation_Level__c) = &apos;Professional&apos;
+		) ),
+	NOT(OR(
+	Text( Pricing_Level_Override__c) = &apos;Authorized - Accreditation In Progress&apos;,
+	Text( Pricing_Level_Override__c) = &apos;Nokia Brand of Service&apos;,
+	Text( Pricing_Level_Override__c) = &apos;Co-Branded&apos;,
+	Text( Pricing_Level_Override__c) = &apos;Partner Branded&apos;,
+	Text( Pricing_Level_Override__c) = &apos;Authorized&apos;,
+	Text(Pricing_Level_Override__c) = &apos;Basic&apos;,
+	Text(Pricing_Level_Override__c) = &apos;Premium&apos;,
+        Text(Pricing_Level_Override__c) = &apos;Custom&apos;, 
+	Text(Pricing_Level_Override__c) = &apos;Professional&apos;,
+        Text(Pricing_Level_Override__c) = &apos;NBOS&apos;,
+	Text(Pricing_Level_Override__c) = &apos;&apos;
+	) ) )
+	)</errorConditionFormula>
+        <errorDisplayField>Accreditation_Level__c</errorDisplayField>
+        <errorMessage>Only the following values are allowed: Authorized - Accreditation In Progress, Nokia Brand of Service, Co-Branded ,Partner Branded, Authorized, Basic, Professional, Premium,Custom</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Valid_Level_Reseller_GPP_2_0_Maintenance</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+	$Profile.Name != &apos;Data Loader Profile&apos;,
+	RecordType.Name == &apos;Reseller GPP 2.0&apos;,
+	Text(Accreditation_Type__c) == &apos;Maintenance&apos;,
+	OR(
+	NOT(OR(
+		Text(Accreditation_Level__c) = &apos;No Accreditation&apos;,
+		Text(Accreditation_Level__c) = &apos;Basic&apos;,
+		Text(Accreditation_Level__c) = &apos;Premium&apos;,
+		Text(Accreditation_Level__c) = &apos;Professional&apos;
+		) ),
+	NOT(OR(
+	Text( Pricing_Level_Override__c) = &apos;No Accreditation&apos;,
+	Text(Pricing_Level_Override__c) = &apos;Basic&apos;,
+	Text(Pricing_Level_Override__c) = &apos;Premium&apos;,
+	Text(Pricing_Level_Override__c) = &apos;Professional&apos;,
+        Text(Pricing_Level_Override__c) = &apos;NBOS&apos;,
+	Text(Pricing_Level_Override__c) = &apos;&apos;
+	) ) )
+)</errorConditionFormula>
+        <errorMessage>Only the following values are allowed: No Accreditation,Nokia Brand of Service, Basic, Premium, Professional</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Valid_Level_Reseller_GPP_3_0_Maintenance</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+	$Profile.Name != &apos;Data Loader Profile&apos;,
+	RecordType.Name == &apos;Reseller GPP 3.0&apos;,
+	Text(Accreditation_Type__c) == &apos;Maintenance&apos;,
+	OR(
+	NOT(OR(
+		Text(Accreditation_Level__c) = &apos;Authorized - Accreditation In Progress&apos;,
+		Text(Accreditation_Level__c) = &apos;Nokia Brand of Service&apos;,
+		Text(Accreditation_Level__c) = &apos;Co-Branded&apos;,
+		Text(Accreditation_Level__c) = &apos;Partner Branded&apos;,
+		Text(Accreditation_Level__c) = &apos;Authorized&apos;,
+		Text(Accreditation_Level__c) = &apos;Basic&apos;,
+		Text(Accreditation_Level__c) = &apos;Premium&apos;,
+		Text(Accreditation_Level__c) = &apos;Professional&apos;
+		) ),
+	NOT(OR(
+	Text( Pricing_Level_Override__c) = &apos;Authorized - Accreditation In Progress&apos;,
+	Text( Pricing_Level_Override__c) = &apos;Nokia Brand of Service&apos;,
+	Text( Pricing_Level_Override__c) = &apos;Co-Branded&apos;,
+	Text( Pricing_Level_Override__c) = &apos;Partner Branded&apos;,
+	Text( Pricing_Level_Override__c) = &apos;Authorized&apos;,
+	Text(Pricing_Level_Override__c) = &apos;Basic&apos;,
+	Text(Pricing_Level_Override__c) = &apos;Premium&apos;,
+	Text(Pricing_Level_Override__c) = &apos;Professional&apos;,
+        Text(Pricing_Level_Override__c) = &apos;Custom&apos;, 
+        Text(Pricing_Level_Override__c) = &apos;NBOS&apos;,
+        Text(Pricing_Level_Override__c) = &apos;Nokia Brand of Service AED&apos;,
+	Text(Pricing_Level_Override__c) = &apos;&apos;
+	) ) )
+	
+)</errorConditionFormula>
+        <errorDisplayField>Accreditation_Level__c</errorDisplayField>
+        <errorMessage>Only the following values are allowed: Authorized - Accreditation In Progress, Nokia Brand of Service, Co-Branded ,Partner Branded, Authorized, Basic, Professional, Premium,Custom,Nokia Brand of Service AED</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Valid_Level_SP_GPP_3_0_Maintenance</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+	$Profile.Name != &apos;Data Loader Profile&apos;,
+	RecordType.Name == &apos;Service Provider GPP 3.0&apos;,
+	Text(Accreditation_Type__c) == &apos;Maintenance&apos;,
+	
+	OR(
+	NOT(OR(
+		Text(Accreditation_Level__c) = &apos;Authorized - Accreditation In Progress&apos;,
+		Text(Accreditation_Level__c) = &apos;Nokia Brand of Service&apos;,
+		Text(Accreditation_Level__c) = &apos;Co-Branded&apos;,
+		Text(Accreditation_Level__c) = &apos;Partner Branded&apos;,
+		Text(Accreditation_Level__c) = &apos;Authorized&apos;,
+		Text(Accreditation_Level__c) = &apos;Basic&apos;,
+		Text(Accreditation_Level__c) = &apos;Premium&apos;,
+		Text(Accreditation_Level__c) = &apos;Professional&apos;
+		) ),
+	NOT(OR(
+	Text( Pricing_Level_Override__c) = &apos;Authorized - Accreditation In Progress&apos;,
+	Text( Pricing_Level_Override__c) = &apos;Nokia Brand of Service&apos;,
+	Text( Pricing_Level_Override__c) = &apos;Co-Branded&apos;,
+	Text( Pricing_Level_Override__c) = &apos;Partner Branded&apos;,
+	Text( Pricing_Level_Override__c) = &apos;Authorized&apos;,
+	Text(Pricing_Level_Override__c) = &apos;Basic&apos;,
+	Text(Pricing_Level_Override__c) = &apos;Premium&apos;,
+	Text(Pricing_Level_Override__c) = &apos;Professional&apos;,
+        Text(Pricing_Level_Override__c) = &apos;Custom&apos;,
+        Text(Pricing_Level_Override__c) = &apos;NBOS&apos;,
+        Text(Pricing_Level_Override__c) = &apos;Nokia Brand of Service AED&apos;,
+	Text(Pricing_Level_Override__c) = &apos;&apos;
+	) ) )
+)</errorConditionFormula>
+        <errorMessage>Only the following values are allowed: Authorized - Accreditation In Progress, Nokia Brand of Service, Co-Branded ,Partner Branded, Authorized, Basic, Professional, Premium,Custom,Nokia Brand of Service AED</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Valid_Level_SP_Product</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+$Profile.Name != &apos;Data Loader Profile&apos;, 
+RecordType.Name == &apos;Service Provider&apos;, 
+Text(Accreditation_Type__c) == &apos;Product&apos;, 
+OR( 
+Text(Accreditation_Level__c) != &apos;Service Provider&apos;, 
+NOT( 
+OR(Text(Pricing_Level_Override__c) = &apos;Service Provider&apos;, 
+Text(Pricing_Level_Override__c) = &apos;&apos;)) 
+) 
+
+)</errorConditionFormula>
+        <errorMessage>Only the following values are allowed: Service Provider</errorMessage>
+    </validationRules>
+</CustomObject>

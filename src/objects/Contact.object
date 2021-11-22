@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <fullName>CH_Nokia_Email_Validation</fullName>
+        <active>false</active>
+        <description>Requirement NOKIASC-4989. Contact type must be Nokia Employee for nokia email domains.</description>
+        <errorConditionFormula>AND (
+	$Profile.Name&lt;&gt;$Label.Data_Loader_Profile_Name, 
+	NOT(ISBLANK(Email)), 
+	OR(
+		AND(ISPICKVAL(CH_ContactType__c, &apos;Nokia Employee&apos;), 
+			NOT(CONTAINS(LOWER($Setup.Nokia_Employee_Email_Domains__c.Nokia_Valid_Domain__c), 
+				&apos;&quot;&apos; &amp; LOWER(TRIM(RIGHT(Email, LEN(Email) - FIND(&quot;@&quot;, Email)))) &amp; &apos;&quot;&apos;
+			))
+		),
+		AND(NOT(ISPICKVAL(CH_ContactType__c, &apos;Nokia Employee&apos;)), 
+			CONTAINS(LOWER($Setup.Nokia_Employee_Email_Domains__c.Nokia_Invalid_Domain__c), 
+				&apos;&quot;&apos; &amp; LOWER(TRIM(MID(Email, FIND(&quot;@&quot;, Email) + 1, FIND(&quot;.&quot;, RIGHT(Email, LEN(Email) - FIND(&quot;@&quot;, Email))) - 1))) &amp; &apos;&quot;&apos;
+			)
+		)
+	)
+)</errorConditionFormula>
+        <errorMessage>Please enter valid Contact Type or Email.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_Nokia_Employee_Email_Validation</fullName>
+        <active>true</active>
+        <description>Validation Rule to ensure that Contacts that are labelled as Nokia employees have Nokia Email Domains. These domains are stored in a Custom Setting Table: Nokia Employee Email Domains - Defect: NOKIASC-22083</description>
+        <errorConditionFormula>AND(
+    NOT(ISBLANK(Email)),
+    AND(ISPICKVAL(CH_ContactType__c, &apos;Nokia Employee&apos;),
+NOT(CONTAINS(LOWER($Setup.Nokia_Employee_Email_Domains__c.Nokia_Valid_Domain__c),
+            &apos;&quot;&apos; &amp; LOWER(TRIM(RIGHT(Email, LEN(Email) - FIND(&quot;@&quot;, Email)))) &amp; &apos;&quot;&apos;
+        ))
+    )
+)</errorConditionFormula>
+        <errorMessage>A Nokia Employee Contact must have a valid Nokia Email Domain</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_Non_Nokia_Employee_Email_Validation</fullName>
+        <active>true</active>
+        <description>Validation Rule to ensure that Contacts that are labelled as non Nokia employees don&apos;t have Nokia Email Domains. These domains are stored in a Custom Setting Table - Defect: NOKIASC-22083</description>
+        <errorConditionFormula>AND(
+NOT(ISBLANK(Email)),
+AND(NOT(ISPICKVAL(CH_ContactType__c, &apos;Nokia Employee&apos;)), CONTAINS(LOWER($Setup.Nokia_Employee_Email_Domains__c.Nokia_Valid_Domain__c),
+
+&apos;&quot;&apos; &amp; LOWER(TRIM(RIGHT(Email, LEN(Email) - FIND(&quot;@&quot;, Email)))) &amp; &apos;&quot;&apos;)
+)
+)</errorConditionFormula>
+        <errorMessage>A non Nokia Employee Contact Type cannot have an Email Address with a Nokia Domain</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Contact_Status_not_editb_if_Campgn_empty</fullName>
+        <active>false</active>
+        <description>If &quot;Marketing Campaign&quot; field is empty (i.e. not a “Marketing Contact‘), then “Status” field should remain blank and NOT be editable (except Admins)
+If &quot;Marketing Campaign&quot; is populated, then “Status” can be edited (by Contact Owner &amp; Account hierarchy)</description>
+        <errorConditionFormula>AND(ISBLANK(Campaign_Name__c),
+ISCHANGED(Status__c),
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;Global Process Admin Profile&apos;,
+$Profile.Name &lt;&gt; &apos;Nokia Admin Profile&apos;,
+$Profile.Name &lt;&gt; &apos;Data Loader Profile&apos;
+)</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>You are not allowed to edit the &quot;Status&quot; field when the Contact is not linked to a Marketing Campaign (&quot;Marketing Campaign&quot; is empty).</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Do_not_change_Secondary_Account</fullName>
+        <active>true</active>
+        <description>Do not change Secondary Account Contact Type</description>
+        <errorConditionFormula>IF(NCP_Secondary_Account__c, NOT(ISPICKVAL( CH_ContactType__c , &apos;Secondary Account&apos;)), false)</errorConditionFormula>
+        <errorDisplayField>AccountId</errorDisplayField>
+        <errorMessage>You can not change Secondary Account Contact Type!</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Email_Change_need_to_identify_the_Source</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+ ISCHANGED(Email),
+ ISPICKVAL(Email_Change_Source__c ,&quot;&quot;)
+
+    )</errorConditionFormula>
+        <errorMessage>Please select Email Change Source field for your email change reason.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MKT_CannotUpdateSyncToMarketoOnDataload</fullName>
+        <active>true</active>
+        <description>This validation rule will fire on mass contact load using data loader and sync to marketo is true</description>
+        <errorConditionFormula>ISNEW()&amp;&amp; Sync_To_Marketo__c==true &amp;&amp; $Profile.Name==&apos;Data Loader Profile&apos;</errorConditionFormula>
+        <errorMessage>Contact Cannot Be Created With Sync To Marketo Flag True Using Data Loader Profile</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Restrict_Editing_Account_Name_on_Contact</fullName>
+        <active>true</active>
+        <description>This validation rule is in place to restrict users from changing 301 accounts from Contact record.</description>
+        <errorConditionFormula>AND(
+	NOT(ISNEW()),
+		NOT($Setup.Profiles_to_Bypass__c.Bypass_Validation_Rule__c),
+		Account.RecordType.DeveloperName =&quot;Customer&quot;,
+	ISCHANGED( AccountId)
+)</errorConditionFormula>
+        <errorMessage>If a contact is tied to a 3* Account, you cannot change the Account name on Contact</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>grax__Object_Time_Machine</fullName>
+        <availability>online</availability>
+        <description>Button to view records updated via Object Time Machine</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Object Time Machine</masterLabel>
+        <openType>noSidebar</openType>
+        <protected>false</protected>
+        <url>/apex/grax__GRAXTimeMachine?Id={!Contact.Id}&amp;recordName={!Contact.Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>grax__Restore</fullName>
+        <availability>online</availability>
+        <description>Button to be used to view backed up/archived records via GRAX</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Restore</masterLabel>
+        <openType>noSidebar</openType>
+        <protected>false</protected>
+        <url>/apex/grax__GRAXRestore?Id={!Account.Id}&amp;recordName={!Account.Name}</url>
+    </webLinks>
+</CustomObject>

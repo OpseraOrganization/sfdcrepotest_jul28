@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <fullName>End_Date_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+Start_Date__c &gt; End_Date__c,
+
+OR( 
+ISCHANGED( End_Date__c ),
+ ISNEW() ,
+$Profile.Name = &apos;System Administrator&apos;, 
+$Profile.Name = &apos;Data Loader Profile&apos;, 
+$Profile.Name = &apos;Nokia Admin Profile&apos;, 
+$Profile.Name = &apos;Global Process Admin Profile&apos;	
+) 
+
+)</errorConditionFormula>
+        <errorDisplayField>End_Date__c</errorDisplayField>
+        <errorMessage>End Date can&apos;t be Prior to Start Date. Please select a date after the Start Date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Manual_Activity_Path_status_update</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+NOT(bypass_last_claim_validation__c), 
+Text(Activity_Path_Status__c) != &apos;New&apos;, 
+Text(Activity_Path_Status__c) != &apos;Expired/Rejected/Cancelled&apos;, 
+ISCHANGED(Activity_Path_Status__c), 
+( 
+OR( 
+$Profile.Name = &apos;PRM Partner Community User Login&apos;, 
+$Profile.Name = &apos;PRM Partner Relationship Manager Login&apos;,
+$Profile.Name = &apos;Customers&apos;, 
+$Profile.Name = &apos;Customers Login&apos;	
+) 
+) 
+)</errorConditionFormula>
+        <errorMessage>Not Applicable</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PRM_Cancellation_Reason</fullName>
+        <active>true</active>
+        <description>SFPRM-282</description>
+        <errorConditionFormula>AND(
+				ISPICKVAL(Activity_Status__c, &apos;Cancelled&apos;),
+				ISPICKVAL(PRM_Cancellation_Reason__c, &apos;&apos;)
+)</errorConditionFormula>
+        <errorDisplayField>PRM_Cancellation_Reason__c</errorDisplayField>
+        <errorMessage>Please enter the &apos;Cancellation Reason&apos; before cancelling the activity.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PRM_Other_Cancellation_Reason</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+				ISPICKVAL(PRM_Cancellation_Reason__c, &apos;Other&apos;),
+				ISBLANK(PRM_Other_Cancellation_Reason__c)
+)</errorConditionFormula>
+        <errorDisplayField>PRM_Other_Cancellation_Reason__c</errorDisplayField>
+        <errorMessage>Please enter the &apos;Cancellation Reason&apos; before cancelling the activity.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validation_on_Currency</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(ISNEW(),
+(TEXT(CurrencyIsoCode) &lt;&gt;  TEXT(Fund_Id__r.CurrencyIsoCode)))</errorConditionFormula>
+        <errorDisplayField>CurrencyIsoCode</errorDisplayField>
+        <errorMessage>The Currency should be same as of the Account Currency. Please choose the correct currency and save the activity.</errorMessage>
+    </validationRules>
+</CustomObject>

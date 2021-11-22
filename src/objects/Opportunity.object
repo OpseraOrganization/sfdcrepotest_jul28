@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <fullName>AccountRoleMandatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != &quot;Data Loader Profile&quot;,
+ISBLANK(TEXT(Account_Role__c)),
+OR(RecordType.DeveloperName == &apos;Indirect_Record_Type&apos;,
+AND(RecordType.DeveloperName == &apos;Pre_opportunity&apos;,
+End_Customer_LE__c != null
+)
+) ,
+NOT(AND(ISNEW(),Lead_ID__c != null))
+)</errorConditionFormula>
+        <errorDisplayField>Account_Role__c</errorDisplayField>
+        <errorMessage>Account Role is a mandatory field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Amount_should_not_empty_OIF_is_present</fullName>
+        <active>true</active>
+        <description>Req 307: As soon as OIF Lines are created for the Opportunity Amount will be automatically populated restricting manual updation</description>
+        <errorConditionFormula>AND(OIF_Lines__c &gt; 0,ISCHANGED( Amount ), Is_Automated__c = false, $Profile.Name&lt;&gt;$Label.Data_Loader_Profile_Name)</errorConditionFormula>
+        <errorDisplayField>Amount</errorDisplayField>
+        <errorMessage>Amount cannot be edited after the creation of Order Intake Forecast.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BG_BU_FieldsValidation_On_LoA_Upload</fullName>
+        <active>true</active>
+        <description>Lead_BU__c, Lead_BG__c and Supporting_BG_BU__c.
+AP2021 changes for Opportunities (ft-167).</description>
+        <errorConditionFormula>IF(AND($Profile.Name&lt;&gt;$Label.System_Admin_Profile,
+	   $Profile.Name&lt;&gt;$Label.Data_Loader_Profile_Name,
+	   $Profile.Name&lt;&gt;$Label.Excel_Add_In_Profile_Name,
+		  Check_LoA_Level_On_ActiveOffer__c = 1), 
+	IF(OR(ISCHANGED(Lead_BG__c), 
+		  ISCHANGED(Lead_BU__c),
+		  ISCHANGED(Supporting_BGs_BUs__c)), 
+		 true,
+		 false) 
+ ,false)</errorConditionFormula>
+        <errorMessage>Lead BG, Lead BU and Supporting BGs/BUs fields cannot be updated manually.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_Edit_Campaign</fullName>
+        <active>true</active>
+        <description>Influencing Campaign field can&apos;t be edited if Marketing Campaign is populated;
+	Marketing Campaign field can&apos;t be edited if Influencing Campaign is populated.</description>
+        <errorConditionFormula>AND(
+		NOT(ISBLANK(CampaignId)),
+		NOT(ISBLANK(Influencing_Campaign__c))
+	)</errorConditionFormula>
+        <errorMessage>One campaign type allowed on an Opportunity</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_Edit_Gate_3_Bypass</fullName>
+        <active>true</active>
+        <description>Block edition of flag &quot;Gate 3 Bypass (no offer support)&quot; after G3</description>
+        <errorConditionFormula>AND(
+			$Profile.Name != &quot;Data Loader Profile&quot;,
+            OR(
+				RecordType.DeveloperName == &apos;Indirect_Record_Type&apos;,
+                RecordType.DeveloperName == &apos;Direct_Record_Type&apos;
+            ),
+			ISCHANGED( Gate_3_Bypass_no_offer_support__c ),
+			NOT(
+				OR(
+					ISPICKVAL( StageName , &apos;Develop Opportunity&apos;) ,
+					ISPICKVAL( StageName , &apos;Identify Opportunity&apos;)
+				)
+			)
+)</errorConditionFormula>
+        <errorDisplayField>Gate_3_Bypass_no_offer_support__c</errorDisplayField>
+        <errorMessage>Cannot change Gate 3 Bypass (no offer support) after G3</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CloseDate_Modify</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISCHANGED(CloseDate) &amp;&amp;
+            NOT(OR($Profile.Name  = &quot;System Administrator&quot;,
+            $Profile.Name  =	&quot;Global Process Admin Profile&quot;,
+            $Profile.Name  = 	&quot;Data Loader Profile&quot;)) &amp;&amp;
+            NOT(OR(RecordType.DeveloperName = &quot;Pre_Sales_Risk_Opportunity&quot;, RecordType.DeveloperName = &quot;Pre_opportunity&quot;))</errorConditionFormula>
+        <errorDisplayField>CloseDate</errorDisplayField>
+        <errorMessage>Planned/Actual Decision Date is system information and cannot be edited.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Freeze_Account_Name</fullName>
+        <active>true</active>
+        <description>Req 636, 2256: Account Name and End Customer shoudnt be changed after &quot;Develop Opportunity&quot; Sales Phase 
+End Customer removed from VR Jun 21. SF Ticket 15899</description>
+        <errorConditionFormula>AND ( 
+            SWx_Upsell_Proposal__c == Null, 
+            AND( 
+            $Profile.Name &lt;&gt; $Label.System_Admin_Profile, 
+            $Profile.Name &lt;&gt; $Label.Global_Process_Admin_Profile , 
+            $Profile.Name &lt;&gt; $Label.Nokia_Admin_Profile, 
+            $Profile.Name &lt;&gt; $Label.Data_Loader_Profile_Name , 
+            IF($User.Email &lt;&gt; $Setup.AllowReopenOpptyAndAccountChange__c.Email__c ,true,IF($Setup.AllowReopenOpptyAndAccountChange__c.Allow_Accountname_and_EndCustomer_change__c = True,False,true))) 
+            , 
+            NOT(ISPICKVAL(StageName, &quot;Identify Opportunity&quot;)), 
+
+            ISCHANGED( AccountId ) , 
+
+            OR( 
+            $Profile.Name = &apos;Nokia Sales Profile&apos;, 
+            $Profile.Name = &apos;Sales Ops Profile&apos;, 
+            $Profile.Name = &apos;Non-Sales User Profile&apos; 
+            ) ,
+            NOT(ISCHANGED(RecordTypeId)),
+            NOT(RecordType.DeveloperName = &quot;Pre_opportunity&quot;)
+            )</errorConditionFormula>
+        <errorMessage>Account Name cannot be changed after G2</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Freeze_Opportunity_Phase_after_G5</fullName>
+        <active>true</active>
+        <description>Update Sept2019: clarif = Once Win Declaration is past.
+Requirement 720: Once G5 is approved user will not be able to go to previous stages</description>
+        <errorConditionFormula>AND( 
+now() &gt; G5_Approval_Date__c, 
+OR( 
+ISPICKVAl(StageName,&apos;Win the Case (Negotiate)&apos;), 
+ISPICKVAl(StageName,&apos;Create Offer (Bid)&apos;), 
+ISPICKVAl(StageName,&apos;Develop Opportunity&apos;), 
+ISPICKVAl(StageName,&apos;Identify Opportunity&apos;) 
+), 
+($Profile.Name&lt;&gt;$Label.Data_Loader_Profile_Name) 
+)</errorConditionFormula>
+        <errorMessage>After Win Declaration, it is not allowed to change opportunity &quot;Sales Phase/Phase Status&quot; back to a prior value.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Freeze_Reference_Opportunity</fullName>
+        <active>true</active>
+        <description>Ticket 277324: The &quot;Reference Opportunity&quot; cannot be changed nor removed once Gate 4 has been approved or bypassed (i.e. once Sales Phase is in &quot;Win the Case (Negotiate)&quot; and above).
+(Req 636: Reference Oppty shouldn&apos;t be changed after &quot;Create Offer&quot;)</description>
+        <errorConditionFormula>AND ( 
+OR(  
+ISPICKVAL( StageName , &quot;Win the Case (Negotiate)&quot;), 
+ISPICKVAL( StageName , &quot;Handover (Prepare for Delivery)&quot;),
+ISPICKVAL( StageName , &quot;Execute (Start Delivery)&quot;),
+ISPICKVAL( StageName , &quot;Completed&quot;),
+ISPICKVAL( StageName , &quot;Closed - Cancelled by Customer&quot;),
+ISPICKVAL( StageName , &quot;Closed - Withdrawn by Nokia&quot;),
+ISPICKVAL( StageName , &quot;Closed - Lost to Competitor&quot;),
+ISPICKVAL( StageName , &quot;Closed - Obsolete&quot;)
+), 
+ISCHANGED(   Reference_Opportunity__c  ),
+$Profile.Name&lt;&gt;$Label.Data_Loader_Profile_Name,
+NF_LoA_Bypass__c &gt; 0
+)</errorConditionFormula>
+        <errorDisplayField>Reference_Opportunity__c</errorDisplayField>
+        <errorMessage>This opportunity bypassed Gate 4, therefore the &quot;Reference Opportunity&quot; cannot be changed or removed once the Sales Phase is in &quot;Win the Case (negotiate) and above.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Freeze_Reference_Oppty_WhenLoABypassSet</fullName>
+        <active>true</active>
+        <description>F2130: The Reference Opportunity cannot be changed once “No LoA” or “Pre-approved Price List for AM” bypass has been set in the offer. If appropriate and gate 4 not yet submitted, first remove the LoA bypass in the offer, then update the Ref Opportunity.</description>
+        <errorConditionFormula>AND (
+OR(
+(No_Loa__c = TRUE),
+(Pre_approved_Price_List_for_AM__c = 1)
+),
+ISCHANGED(Reference_Opportunity__c),
+OR(
+										ISPICKVAL( StageName, &apos;Identify Opportunity&apos;),
+										ISPICKVAL( StageName, &apos;Develop Opportunity&apos;),
+										ISPICKVAL( StageName, &apos;Create Offer (Bid)&apos;)
+),
+$Profile.Name&lt;&gt;$Label.Data_Loader_Profile_Name
+)</errorConditionFormula>
+        <errorDisplayField>Reference_Opportunity__c</errorDisplayField>
+        <errorMessage>For changing the Reference Opportunity, first remove the G4/G5 Bypass offer condition, then update the Reference Opportunity and then set G4/G5 bypass again.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Freeze_Unweighted_Amount</fullName>
+        <active>true</active>
+        <description>Req 636: Unweighted Amount shoudnt be changed after &quot;Develop Opportunity&quot; Sales Phase.</description>
+        <errorConditionFormula>AND ( 
+OR(ISPICKVAL( StageName , &quot;Create Offer (Bid)&quot;), 
+ISPICKVAL( StageName , &quot;Win the Case (Negotiate)&quot;), 
+ISPICKVAL( StageName , &quot;Handover (Prepare for Delivery)&quot;)
+), 
+ISCHANGED(    Amount    ),
+ Is_Automated__c=false, 
+
+($Profile.Name&lt;&gt;$Label.Data_Loader_Profile_Name)
+)</errorConditionFormula>
+        <errorDisplayField>Amount</errorDisplayField>
+        <errorMessage>Unweighted Amount cannot be changed after &quot;Develop Opportunity&quot; Sales Phase.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Freeze_Win_Declaration_Plan_Date</fullName>
+        <active>true</active>
+        <description>User cannot edit Win Declaration Plan Date after Win Declaration</description>
+        <errorConditionFormula>!ISNEW() &amp;&amp;
+ISCHANGED( G5_Planned_Date__c ) &amp;&amp;
+NOT(ISBLANK(G5_Approval_Date__c )) &amp;&amp;
+( ISPICKVAL(StageName , &quot;Handover (Prepare for Delivery)&quot;) ||
+  ISPICKVAL(StageName , &quot;Execute (Start Delivery)&quot;) ||
+  ISPICKVAL(StageName , &quot;Completed&quot;)  )  &amp;&amp;
+$Profile.Name&lt;&gt; $Label.Data_Loader_Profile_Name &amp;&amp;
+$Profile.Name&lt;&gt; $Label.System_Admin_Profile  &amp;&amp;
+$Profile.Name&lt;&gt; $Label.Global_Process_Admin_Profile_Name  &amp;&amp;
+( RecordType.DeveloperName == &apos;Direct_Record_Type&apos; ||
+  RecordType.DeveloperName == &apos;Indirect_Record_Type&apos; )</errorConditionFormula>
+        <errorDisplayField>G5_Planned_Date__c</errorDisplayField>
+        <errorMessage>The Win Declaration Plan Date cannot be edited after Win Declaration.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>G4PlannedDate_is_Mandatory_for_G3Bypass</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(				
+    Gate_3_Bypass_no_offer_support__c = TRUE,
+    ISBLANK(G4_Planned_Date__c),
+    $Profile.Name&lt;&gt;$Label.Data_Loader_Profile_Name,
+    OR(
+        RecordType.DeveloperName == &apos;Direct_Record_Type&apos;,
+        RecordType.DeveloperName == &apos;Indirect_Record_Type&apos;,
+        RecordType.DeveloperName == &apos;Read_Only&apos;,
+        RecordType.DeveloperName == &apos;Read_Only_Indirect&apos;
+    )
+)</errorConditionFormula>
+        <errorMessage>Please enter a value for G4 Planned Date before selecting G3 Bypass.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>G5FrozenFields</fullName>
+        <active>true</active>
+        <description>Freeze G5 Trigger and Comments for G5 preparation fields after G5</description>
+        <errorConditionFormula>AND(
+				$Profile.Name != &quot;Data Loader Profile&quot;,
+				OR(
+        AND(
+								    ISPICKVAL(StageName, &apos;Win the Case (Negotiate)&apos;),
+							     ISPICKVAL(Phase_Status__c,&apos;Pending Win/Loss Declaration&apos;)
+				    ),
+        ISPICKVAL(StageName, &apos;Handover (Prepare for Delivery)&apos;),
+							 ISPICKVAL(StageName, &apos;Execute (Start Delivery)&apos;),
+								ISPICKVAL(StageName, &apos;Completed&apos;)
+				),
+				OR(
+								ISCHANGED(G5_Trigger__c),
+								ISCHANGED(Comments_for_G5_preparation__c)
+				)
+)</errorConditionFormula>
+        <errorMessage>Cannot change the G5 Trigger and Comments for G5 Preparation fields after G5 Approval</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Known_End_Customer_validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != &quot;Data Loader Profile&quot;,
+$Profile.Name != &quot;PRM Partner Community User Login&quot;,
+RecordType.DeveloperName == &apos;Indirect_Record_Type&apos;,
+NOT(AND(ISNEW(),Lead_ID__c != null)),
+ISPICKVAL(End_Customer_Information__c,&quot;Known End Customer&quot;),
+OR(ISBLANK(End_Customer_LE__c),
+NOT(ISBLANK(TEXT(Multiple_or_Unknown_EC_Activity_Sector__c))),
+NOT(ISBLANK(TEXT(Multiple_or_Unknown_EC_Country__c))),
+NOT(ISBLANK(TEXT(Multiple_or_Unknown_EC_Market_Segment__c)))
+)
+)</errorConditionFormula>
+        <errorDisplayField>End_Customer_Information__c</errorDisplayField>
+        <errorMessage>&quot;End Customer Legal Entity&quot; is mandatory when &quot;Known End Customer&quot; is selected.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lead_BU_Mandatory</fullName>
+        <active>true</active>
+        <description>Lead BU is mandatory when Lead BG is filled in.</description>
+        <errorConditionFormula>AND($Profile.Name != &quot;Data Loader Profile&quot;,
+				ISBLANK(TEXT(Lead_BU__c)),
+				TEXT(Lead_BG__c)=&apos;NI&apos;,
+				NOT(ISBLANK(TEXT(Lead_BG__c))),
+				OR(RecordType.DeveloperName == &apos;Indirect_Record_Type&apos;,
+				   RecordType.DeveloperName == &apos;Direct_Record_Type&apos;,
+				   RecordType.DeveloperName == &apos;Pre_opportunity&apos;
+ 			) 
+)</errorConditionFormula>
+        <errorDisplayField>Lead_BU__c</errorDisplayField>
+        <errorMessage>Lead BU is mandatory when Lead BG is equal to &quot;NI&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Mandatory_Winning_Competitor_When_Lost</fullName>
+        <active>true</active>
+        <description>When Sales Phase is Closed - Lost to Competitor the field Winning Competitor must be filled in.</description>
+        <errorConditionFormula>ISBLANK(Winning_Competitor__c) &amp;&amp; ISPICKVAL(StageName, &apos;Closed - Lost to Competitor&apos;)</errorConditionFormula>
+        <errorMessage>Please select Winning Competitors from available list. Can be temporarily set to Unknown.
+After closure remember to change Unknown into a real winner from related list of competitors</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>NF_AvoidOppUpdateOnPendingApproval</fullName>
+        <active>true</active>
+        <description>Opportunity should not be saved when it&apos;s on pending approval
+
+NOT(ISCHANGED(NokiaCPQ_Quote_Count__c)) -- Added by CPQ team on 07/10/2017</description>
+        <errorConditionFormula>AND(
+NOT(ISNEW()),
+$Profile.Name&lt;&gt;$Label.Data_Loader_Profile_Name,
+NOT(ISCHANGED(Apttus_Approval__Approval_Status__c)),
+NOT(ISCHANGED( Approval_Cancel_Info__c )),
+NOT(ISCHANGED(NokiaCPQ_Quote_Count__c)),
+NOT(ISCHANGED(CQ_Count__c)),
+Is_Automated__c=False,
+ISPICKVAL(Apttus_Approval__Approval_Status__c , &apos;Pending Approval&apos;), 
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name&lt;&gt;&apos;Global Process Admin Profile&apos;,
+$Profile.Name&lt;&gt;&apos;Integration API Only Profile&apos;,
+$Profile.Name&lt;&gt;&apos;Data Loader Profile&apos;
+)</errorConditionFormula>
+        <errorMessage>You cannot update the opportunity, when it is pending for approval</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>NF_PSRAvoid_Changing_Submission_ExePhase</fullName>
+        <active>true</active>
+        <description>IWA Requirement
+3786
+Sprint 12</description>
+        <errorConditionFormula>AND( 
+$Profile.Name &lt;&gt; $Label.Data_Loader_Profile_Name, 
+OR($RecordType.DeveloperName = &apos;Pre_Sales_Risk_Opportunity&apos;, 
+$RecordType.DeveloperName=&apos;Pre_Sales_Risk_Opportunity_read_only&apos;
+), 
+
+OR(
+AND(
+OR( 
+ISPICKVAL(StageName , &apos;Preparation&apos;), 
+ISPICKVAL(StageName , &apos;In Execution&apos;), 
+ISPICKVAL(StageName , &apos;Completed&apos;), 
+ISPICKVAL(StageName , &apos;Cancelled&apos;) 
+), 
+ISPICKVAL(PRIORVALUE(StageName),&apos;Submitted For Approval&apos;), 
+!OR( 
+
+NF_PRE_Tech_Field__c=&apos;Gate Approved&apos;, 
+NF_PRE_Tech_Field__c=&apos;Gate Rejected&apos; 
+
+)
+),
+AND(
+OR( 
+ISPICKVAL(StageName ,&apos;Submitted For Approval&apos;), 
+ISPICKVAL(StageName ,&apos;Preparation&apos;) 
+
+), 
+ISPICKVAL(PRIORVALUE(StageName),&apos;In Execution&apos;), 
+NOT(ISBLANK(NF_PRE_Tech_Field__c)) 
+)
+)
+)</errorConditionFormula>
+        <errorDisplayField>Legal_Entity__c</errorDisplayField>
+        <errorMessage>You cannot change the Sales Phase manually.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Only_PSM_can_change_Record_Type</fullName>
+        <active>true</active>
+        <description>Req #3287 Opportunity record type change from direct to indirect</description>
+        <errorConditionFormula>AND(
+$RecordType.DeveloperName &lt;&gt; &apos;Pre_opportunity&apos;,
+OR(
+AND(
+ISCHANGED( RecordTypeId ),
+OR(
+AND(
+RecordTypeId = $Label.Indirect_Opportunity,
+PRIORVALUE(RecordTypeId )= $Label.Direct_Opportunity
+) ,
+AND(
+PRIORVALUE(RecordTypeId )= $Label.Indirect_Opportunity,
+RecordTypeId = $Label.Direct_Opportunity
+)
+),
+NOT(
+OR(
+$Profile.Name = &apos;System Administrator&apos;,
+$Profile.Name = &apos;Data Loader Profile&apos;,
+$Profile.Name = &apos;Nokia Admin Profile&apos;,
+$Profile.Name = &apos;Global Process Admin Profile&apos;,
+$Profile.Name = &apos;Sales Ops Profile&apos;,
+$User.Id = OwnerId,
+CONTAINS($UserRole.Name, &apos;Regional Sales Lead&apos;),
+CONTAINS($UserRole.Name, &apos;Partner Sales Manager&apos;)
+)
+)
+),
+AND(
+ISCHANGED( RecordTypeId ),
+NOT(
+OR(RecordTypeId = $Label.Indirect_Opportunity,
+RecordTypeId = $Label.Direct_Opportunity)
+),
+NOT(
+OR(
+$Profile.Name = &apos;System Administrator&apos;,
+$Profile.Name = &apos;Data Loader Profile&apos;,
+$Profile.Name = &apos;Nokia Admin Profile&apos;,
+$Profile.Name = &apos;Global Process Admin Profile&apos;
+)
+)
+),
+AND(
+OR(
+AND(
+PRIORVALUE(RecordTypeId )= $Label.Read_Only_Direct_Opportunity_Record_Type,
+OR(
+RecordTypeId = $Label.Direct_Opportunity,
+RecordTypeId = $Label.Indirect_Opportunity,
+RecordTypeId = $Label.Pre_Sales_Risk_Opportunity
+)
+),
+AND(
+OR(
+RecordTypeId = $Label.Direct_Opportunity,
+RecordTypeId = $Label.Indirect_Opportunity,
+RecordTypeId = $Label.Pre_Sales_Risk_Opportunity
+),
+PRIORVALUE(RecordTypeId )= $Label.Read_Only_InDirect_Opportunity_Record_Type
+)
+),
+
+ISCHANGED( RecordTypeId ),
+NOT( OR(
+
+$Profile.Name = &apos;System Administrator&apos;,
+$Profile.Name = &apos;Data Loader Profile&apos;,
+$Profile.Name = &apos;Nokia Admin Profile&apos;,
+$Profile.Name = &apos;Global Process Admin Profile&apos;))
+
+
+),
+
+AND(
+ISCHANGED( RecordTypeId ), 	 
+OR(
+PRIORVALUE(RecordTypeId) = $Label.Indirect_Opportunity,
+PRIORVALUE(RecordTypeId )= $Label.Direct_Opportunity
+),
+RecordTypeId = $Label.Pre_Sales_Risk_Opportunity,
+NOT(
+OR(
+$Profile.Name = &apos;System Administrator&apos;,
+$Profile.Name = &apos;Data Loader Profile&apos;,
+$Profile.Name = &apos;Nokia Admin Profile&apos;,
+$Profile.Name = &apos;Global Process Admin Profile&apos;
+)
+)
+)
+)
+)</errorConditionFormula>
+        <errorMessage>Only Partner Sales Manager, Regional Sales Lead, Oppty Owner or Sales Ops Profile can change Oppty Record Type. Only Type from Direct to Indirect &amp; Indirect to Direct can be changed, till G3 Facilitator is notified. Otherwise, please create a new oppty.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PSR_Avoid_Creating_PreSales</fullName>
+        <active>true</active>
+        <description>PreSales Requirement: 3459, Sprint 11</description>
+        <errorConditionFormula>AND( 
+AND( 
+ISNEW(), 
+$Profile.Name &lt;&gt; $Label.Data_Loader_Profile_Name, 
+RecordType.DeveloperName = &apos;Pre_Sales_Risk_Opportunity&apos;
+), 
+
+OR( 
+OR( 
+PSR_Reference_Opportunity__r.RecordType.DeveloperName = &apos;Pre_Sales_Risk_Opportunity&apos;, 
+PSR_Reference_Opportunity__r.RecordType.DeveloperName = &apos;Pre_Sales_Risk_Opportunity_read_only&apos;
+), 
+OR( 
+PSR_Reference_Opportunity__r.RecordType.DeveloperName = &apos;Read_Only&apos;, 
+PSR_Reference_Opportunity__r.RecordType.DeveloperName = &apos;Read_Only_Indirect&apos; 
+), 
+OR( 
+ISPICKVAL( PSR_Reference_Opportunity__r.StageName, &apos;Identify Opportunity&apos;), 
+ISPICKVAL( PSR_Reference_Opportunity__r.StageName, &apos;Completed&apos;) 
+) 
+) 
+)</errorConditionFormula>
+        <errorMessage>You cannot create a Pre-Sales Risk Opportunity from another Pre-Sales Risk Opportunity or from a Sales Opportunity, that is either in the Identify, Closed or Cancelled stage.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PSR_PO_Expected_Freeze</fullName>
+        <active>true</active>
+        <description>Block editing Date PO Expected on PSRO when not in &quot;Preparation&quot; and &quot;In Execution&quot; phases</description>
+        <errorConditionFormula>AND (
+							$Profile.Name&lt;&gt;$Label.Data_Loader_Profile_Name, 
+							$Profile.Name&lt;&gt;$Label.System_Admin_Profile,
+       ISCHANGED(PSR_Date_PO_Expected__c),  
+							NOT( ISPICKVAL(StageName, &apos;Preparation&apos;)  ) ,
+							NOT( ISPICKVAL(StageName, &apos;In Execution&apos;)  ),
+								NOT( ISPICKVAL(StageName, &apos;Submitted For Approval&apos;)  )			
+)</errorConditionFormula>
+        <errorDisplayField>PSR_Date_PO_Expected__c</errorDisplayField>
+        <errorMessage>Date PO Expected / Contract Signed can only be edited in &quot;Preparation&quot; and &quot;In Execution&quot; phases.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PSR_Restrict_Entering_Wrong_Information</fullName>
+        <active>true</active>
+        <description>Req: 3740, Pre-Sales Sprint 12. Restrict users to enter data in fields that are not relevant for the type (e.g. entering a Trial Start Date for a Risk Order) to avoid issues when sending data downstream</description>
+        <errorConditionFormula>AND( 
+AND( 
+OR(ISNEW(), NOT(ISNEW())), 
+$Profile.Name &lt;&gt; $Label.Data_Loader_Profile_Name,
+OR( 
+RecordType.DeveloperName = &apos;Pre_Sales_Risk_Opportunity&apos;,
+RecordType.DeveloperName = &apos;Pre_Sales_Risk_Opportunity_read_only&apos;),
+NOT(ISPICKVAL(StageName, &apos;Submitted For Approval&apos;))
+), 
+OR( 
+IF( 
+ISPICKVAL(PSR_Pre_Sales_Risk_Opportunity_Type__c, &apos;Risk Order&apos;), 
+OR( 
+NOT(ISPICKVAL(PSR_Is_Cost_Approved_In_Related_LOA_Opty__c,&apos;&apos;)), 
+NOT(ISPICKVAL(PSR_Trial_Duration__c,&apos;&apos;)),  
+NOT(ISBLANK(PSR_Trial_Start_Date__c)), 
+NOT(ISPICKVAL(PSR_Trial_Agreement_Status__c,&apos;&apos;)), 
+NOT(ISPICKVAL(PSR_Pre_C5_NPI__c,&apos;&apos;)), 
+NOT(PSR_SW_R_D_Justification_Explanation__c = &apos;&apos;)), 
+False), 
+IF( 
+ISPICKVAL(PSR_Pre_Sales_Risk_Opportunity_Type__c, &apos;Free of Charge&apos;), 
+OR(
+NOT(ISPICKVAL(PSR_Is_Rv_Reflected_In_Latest_Estimate__c,&apos;&apos;)), 
+NOT(ISPICKVAL(PSR_Trial_Duration__c,&apos;&apos;)), 
+NOT(ISBLANK(PSR_Trial_Start_Date__c)), 
+NOT(ISPICKVAL(PSR_Trial_Agreement_Status__c,&apos;&apos;)), 
+NOT(ISBLANK(PSR_Date_PO_Expected__c)), 
+NOT(ISPICKVAL(PSR_Pre_C5_NPI__c,&apos;&apos;)), 
+NOT(PSR_SW_R_D_Justification_Explanation__c = &apos;&apos;), 
+NOT(ISBLANK(PSR_Date_PO_Received_Or_Cost_Written_off__c))), 
+False), 
+IF( 
+ISPICKVAL(PSR_Pre_Sales_Risk_Opportunity_Type__c, &apos;Demo&apos;), 
+OR(
+NOT(ISPICKVAL(PSR_Is_Cost_Approved_In_Related_LOA_Opty__c,&apos;&apos;)), 
+NOT(ISPICKVAL(PSR_Is_Rv_Reflected_In_Latest_Estimate__c,&apos;&apos;)), 
+NOT(ISBLANK(PSR_Date_PO_Expected__c)), 
+NOT(ISBLANK(PSR_Date_PO_Received_Or_Cost_Written_off__c)), 
+NOT(PSR_SW_R_D_Justification_Explanation__c = &apos;&apos;),
+NOT(ISPICKVAL(PSR_Trial_Agreement_Status__c,&apos;&apos;))), 
+False) 
+) 
+)</errorConditionFormula>
+        <errorMessage>Some fields being/having been completed do not match the selected Pre-Sales Risk Opportunity Type and need to be removed.
+Please refer to embedded guidance (little arrow in top left corner, Sales Phase panel) to identify the relevant fields by PSRO type.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PSR_Same_Cost_Amounts</fullName>
+        <active>true</active>
+        <description>Validate if there are duplicate cost value at BG level or BU level when introduced manually - March 2021</description>
+        <errorConditionFormula>AND(
+    PSR_Automatically_Calc_Estimated_Cost__c == false,
+    OR(
+				    PSR_Cost_BG_NI__c == PSR_Cost_BG_MN__c,
+				    PSR_Cost_BG_NI__c == PSR_Cost_BG_CNS__c,
+				    PSR_Cost_BG_CNS__c == PSR_Cost_BG_MN__c,
+				    PSR_Cost_BU_NI_FN__c == PSR_Cost_BU_NI_IPRTG__c,
+        PSR_Cost_BU_NI_FN__c == PSR_Cost_BU_NI_OPTICS__c,
+				    PSR_Cost_BU_NI_IPRTG__c == PSR_Cost_BU_NI_OPTICS__c
+				)
+)</errorConditionFormula>
+        <errorMessage>You cannot enter the same amount for costs for different BGs or BUs</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PSR_Same_Cost_by_Sales_Value</fullName>
+        <active>true</active>
+        <description>Validate if there are duplicate values on Costs (at BG level and BU level) if calculated automatically - March 2021</description>
+        <errorConditionFormula>AND(
+PSR_Automatically_Calc_Estimated_Cost__c,
+OR(
+				PSR_Cost_BG_NI__c == PSR_Cost_BG_MN__c,
+				PSR_Cost_BG_NI__c == PSR_Cost_BG_CNS__c,
+				PSR_Cost_BG_CNS__c == PSR_Cost_BG_MN__c,
+				PSR_Cost_BU_NI_FN__c == PSR_Cost_BU_NI_IPRTG__c,
+    PSR_Cost_BU_NI_FN__c == PSR_Cost_BU_NI_OPTICS__c,
+				PSR_Cost_BU_NI_IPRTG__c == PSR_Cost_BU_NI_OPTICS__c
+				)
+)</errorConditionFormula>
+        <errorMessage>The Sales Value BGs/BUs you entered leads to a Double cost</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PTAProductOnlyOfferMutuallyExclusive</fullName>
+        <active>true</active>
+        <description>Opportunity&apos;s PTA_Signed__c and Offer&apos;s Product_Only_Offer__c should be mutually exclusive</description>
+        <errorConditionFormula>AND(
+    $Profile.Name &lt;&gt; $Label.Data_Loader_Profile_Name,
+    PTA_Signed__c = TRUE,
+    Gate_6_Bypass_No_Execute_needed__c = TRUE
+)</errorConditionFormula>
+        <errorMessage>&apos;PTA Signed &apos; and &apos;Gate 6 Bypass (No Execute needed)&apos; should not be checked at the same time.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PreOppty_OppTypeChangeOnlyByAdmins</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(RecordType.DeveloperName == &apos;Pre_opportunity&apos;,
+				ISCHANGED(RecordTypeId),
+    $Profile.Name &lt;&gt; $Label.Data_Loader_Profile_Name,
+    $Profile.Name &lt;&gt; $Label.System_Admin_Profile
+			)</errorConditionFormula>
+        <errorMessage>It is not allowed to revert an opportunity to a pre-opportunity</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PreOppty_PreOppClosure</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($RecordType.DeveloperName = &apos;Pre_opportunity&apos;,
+	$Profile.Name &lt;&gt; $Label.Data_Loader_Profile_Name,
+	OR(AND(ISCHANGED(StageName),
+			TEXT(PRIORVALUE(StageName)) &lt;&gt; &apos;Business Development&apos;,
+			TEXT(StageName) = &apos;Closed&apos;),
+		AND(ISNEW(),
+			TEXT(StageName) &lt;&gt; &apos;Business Development&apos;),
+		AND(TEXT(PRIORVALUE(StageName)) = &apos;Closed&apos;,
+					 $Profile.Name &lt;&gt; $Label.System_Admin_Profile,
+      $Profile.Name &lt;&gt; $Label.Nokia_Admin_Profile,
+      $Profile.Name &lt;&gt; $Label.Global_Process_Admin_Profile_Name,
+     	ISBLANK(PRIORVALUE(NF_PRE_Tech_Field__c)))
+	)
+)</errorConditionFormula>
+        <errorMessage>Pre-opportunities can only be closed and open from Business Development Stage. Once closed they cannot be edited.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PreOppty_PreventStageNameChange</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name &lt;&gt; $Label.Data_Loader_Profile_Name,
+    $Profile.Name &lt;&gt; $Label.System_Admin_Profile,
+				$RecordType.DeveloperName = &apos;Pre_opportunity&apos;,
+				ISCHANGED(StageName),
+				ISBLANK(NF_PRE_Tech_Field__c))</errorConditionFormula>
+        <errorMessage>Pre-opportunities sales phase can not be manually changed</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PreOppty_RequiredFieldsConversion</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+				$RecordType.DeveloperName = &apos;Pre_opportunity&apos;,
+				OR(
+     OwnerId = null,
+				 Name = null,
+				 Account_Name__c = null,
+				 Description = null,
+				 ISBLANK(TEXT(Lead_BG__c)),
+				 High_level_Solution_Installed_base__c = null,
+				 CloseDate = null
+					)
+)</errorConditionFormula>
+        <errorMessage>All the required Pre-Opportunity fields must be filled.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PreOppty_ValidateAccountType</fullName>
+        <active>true</active>
+        <description>Checks if associated account is customer or prospect</description>
+        <errorConditionFormula>AND(
+				RecordType.DeveloperName == &apos;Pre_opportunity&apos;,
+				Account.RecordType.DeveloperName &lt;&gt; &apos;Customer&apos;,
+				Account.RecordType.DeveloperName &lt;&gt; &apos;Prospect&apos;
+)</errorConditionFormula>
+        <errorDisplayField>AccountId</errorDisplayField>
+        <errorMessage>Pre-opportunities must be linked to a Customer or Prospect account.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prevent_FOC_Creation</fullName>
+        <active>true</active>
+        <description>Pre-Sales &gt; Feb 18&gt; Sprint 19 &gt; Req#5560</description>
+        <errorConditionFormula>AND ($Profile.Name &lt;&gt; $Label.Data_Loader_Profile_Name, 
+ISNEW(),
+ISPICKVAL(PSR_Pre_Sales_Risk_Opportunity_Type__c, &quot;Free of Charge&quot;))</errorConditionFormula>
+        <errorMessage>You cannot use this type of Opportunity. During Sales Phase ‘Free of Charge’ is replaced by Trial and Demo governance. For Execute Phase ‘Free of Charge’ is covered by the value leakage process</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Primary_Competitor_count</fullName>
+        <active>true</active>
+        <errorConditionFormula>Count_primary_competitors__c &gt;1</errorConditionFormula>
+        <errorMessage>You can&apos;t have more than one Primary competitor.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Restrict_Currency_Change_Lightning</fullName>
+        <active>false</active>
+        <description>To restrict currency change in lightning UI post salesforce Winter 19 release
+Issue was fixed Dec 12, turned off Vrule on 12/19/18 by Brenda Sheman.</description>
+        <errorConditionFormula>AND( 
+ISCHANGED(CurrencyIsoCode), 
+$User.UIThemeDisplayed=&quot;Theme4d&quot;, $Profile.Name != &quot;System Administrator&quot;,$Profile.Name != &quot;Data Loader Profile&quot; 
+)</errorConditionFormula>
+        <errorMessage>Due to a temporary issue, you are not allowed to change the currency in Lightning. Please raise a support ticket to have your currency changed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Risk_Details_Check</fullName>
+        <active>true</active>
+        <description>If one field on the Risk section is filled, you need to fill all the Risk fields</description>
+        <errorConditionFormula>AND(
+   OR( ISCHANGED(Risk_Categories__c) , ISCHANGED(Risk_Rating__c) , ISCHANGED(Risk_type__c) ),
+										OR(
+			   AND(
+						   OR( ISPICKVAL(Risk_Categories__c,&apos;&apos;) , ISPICKVAL(Risk_Rating__c,&apos;&apos;) , ISPICKVAL(Risk_type__c,&apos;&apos;)	),
+									NOT( 
+														AND( ISPICKVAL(Risk_Categories__c,&apos;&apos;) , ISPICKVAL(Risk_Rating__c,&apos;&apos;) , ISPICKVAL(Risk_type__c,&apos;&apos;) )
+								  )
+						),
+						AND(
+						   Risk_Subtotal__c  &gt;= VALUE($Label.OIF_Upside_and_Risk_Threshold),
+									ISPICKVAL(Risk_Categories__c,&apos;&apos;),
+									ISPICKVAL(Risk_Rating__c,&apos;&apos;),
+									ISPICKVAL(Risk_type__c,&apos;&apos;)							
+						)
+			),
+			$Profile.Name&lt;&gt;$Label.Data_Loader_Profile_Name,
+		 $Profile.Name&lt;&gt;$Label.System_Admin_Profile 
+)</errorConditionFormula>
+        <errorMessage>Please fill &quot;Risk Type&quot;, &quot;Risk Rating&quot; and &quot;Risk Categories&quot; fields at Risk Details</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Sales_Phase_Phase_Status_Restriction</fullName>
+        <active>true</active>
+        <description>00263766:
+Sales Phase: Win the case (Negotiate)
+Phase Status: Pending Win/Loss Declaration</description>
+        <errorConditionFormula>AND(ISPICKVAL(StageName,&apos;Win the Case (Negotiate)&apos;),
+
+OR(ISPICKVAL(Apttus_Approval__Approval_Status__c,&apos;Not Submitted&apos;),ISPICKVAL(Apttus_Approval__Approval_Status__c,&apos;Rejected&apos;),ISPICKVAL(Apttus_Approval__Approval_Status__c,&apos;Cancelled&apos;)),
+
+ISPICKVAL(Phase_Status__c,&apos;Pending Win/Loss Declaration&apos;),
+
+Approvals_Current_Status__c!=&apos;Approved G5 Contract&apos;,
+
+$Profile.Name&lt;&gt;$Label.Data_Loader_Profile_Name)</errorConditionFormula>
+        <errorMessage>You cannot change the Sales Phase manually. Please submit for approval first.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Unknown_End_Customer_G5_validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != &quot;Data Loader Profile&quot;,
+				RecordType.DeveloperName == &apos;Indirect_Record_Type&apos;,
+				ISPICKVAL(End_Customer_Information__c,&quot;Currently Unknown End Customer&quot;),
+				OR(NOT(ISBLANK(G5_Contract_Approval_Date__c)),
+							ISPICKVAL(Phase_Status__c, &apos;Submitted for G5 Approval&apos;)
+				)
+)</errorConditionFormula>
+        <errorDisplayField>End_Customer_Information__c</errorDisplayField>
+        <errorMessage>After requesting G5 approval End Customer Information field should be &quot;Known End Customer&quot; or &quot;Multiple End Customer&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Unknown_or_Multi_End_Customer_validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != &quot;Data Loader Profile&quot;,
+    $Profile.Name != &quot;PRM Partner Community User Login&quot;,
+				RecordType.DeveloperName == &apos;Indirect_Record_Type&apos;,
+				NOT(ISPICKVAL(End_Customer_Information__c,&quot;Known End Customer&quot;)),
+				OR(NOT(ISBLANK(End_Customer_LE__c)),
+							ISBLANK(TEXT(Multiple_or_Unknown_EC_Activity_Sector__c)),
+							ISBLANK(TEXT(Multiple_or_Unknown_EC_Country__c)),
+							ISBLANK(TEXT(Multiple_or_Unknown_EC_Market_Segment__c))
+						)
+    )</errorConditionFormula>
+        <errorDisplayField>End_Customer_Information__c</errorDisplayField>
+        <errorMessage>When End Customer is Multiple or Currently Unknown: &quot;Multiple or Unknown EC Market Segment&quot;, &quot;Multiple or Unknown EC Activity Sector&quot; and &quot;Multiple or Unknown EC Country&quot; are mandatory, and &quot;End Customer Legal Entity&quot; should be empty.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Upside_Details_Check</fullName>
+        <active>true</active>
+        <description>If one field on the Upside section is filled, you need to fill all the Upside fields</description>
+        <errorConditionFormula>AND(
+   OR( ISCHANGED(Upside_Categories__c) , ISCHANGED(Upside_Rating__c) ),
+  OR(
+			   AND(
+						   OR( ISPICKVAL(Upside_Categories__c,&apos;&apos;), ISPICKVAL(Upside_Rating__c,&apos;&apos;)	),
+									NOT( 
+														AND( ISPICKVAL(Upside_Categories__c,&apos;&apos;), ISPICKVAL(Upside_Rating__c,&apos;&apos;) )
+									)
+						),
+						AND(
+						   Upside_Subtotal__c  &gt;= VALUE($Label.OIF_Upside_and_Risk_Threshold),
+									ISPICKVAL(Upside_Categories__c,&apos;&apos;),
+									ISPICKVAL(Upside_Rating__c,&apos;&apos;)							
+						)
+  ),
+  $Profile.Name&lt;&gt;$Label.Data_Loader_Profile_Name,
+		$Profile.Name&lt;&gt;$Label.System_Admin_Profile 
+)</errorConditionFormula>
+        <errorMessage>Please fill &quot;Upside Rating&quot; and &quot;Upside Categories&quot; fields at Upside Details</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Sharing</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Sharing</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>if(&apos;{!User.Profile}&apos; == &apos;System Administrator&apos;)
+ {
+   window.location.href = &apos;/p/share/OppSharingDetail?parentId={!Opportunity.Id}&apos; ;
+}
+else{
+alert(&apos;Only System Admin can access this button&apos;);
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>grax__Object_Time_Machine</fullName>
+        <availability>online</availability>
+        <description>Button to view records updated via Object Time Machine</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Object Time Machine</masterLabel>
+        <openType>noSidebar</openType>
+        <protected>false</protected>
+        <url>/apex/grax__GRAXTimeMachine?Id={!Opportunity.Id}&amp;recordName={!Opportunity.Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>grax__Restore</fullName>
+        <availability>online</availability>
+        <description>Button to be used to view backed up/archived records via GRAX</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Restore</masterLabel>
+        <openType>noSidebar</openType>
+        <protected>false</protected>
+        <url>/apex/grax__GRAXRestore?Id={!Account.Id}&amp;recordName={!Account.Name}</url>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,1367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>de</members>
+        <members>en_US</members>
+        <members>es</members>
+        <members>es_MX</members>
+        <members>fi</members>
+        <members>fr</members>
+        <members>ja</members>
+        <members>pt_BR</members>
+        <name>Translations</name>
+    </types>
+    <types>
+        <members>Account.Address_is_Required_on_Prospect</members>
+        <members>Account.Check_NSA_Account_owner</members>
+        <members>Account.DS_Address_field_is_mandatory</members>
+        <members>Account.DS_Atleast_one_ERP_ID_is_mandatory</members>
+        <members>Account.End_Customers_must_be_for_geo_markets</members>
+        <members>Account.HWS_StateField_Mandatory_for_Adhoc_Adres</members>
+        <members>Account.Incoterm_Not_Greated_Than_20</members>
+        <members>Account.PRM_Display_on_Partner_Locator</members>
+        <members>Account.PRM_Partner_Terminated</members>
+        <members>Account.StateField_Mandatory_for_Adhoc_Address</members>
+        <members>AccountContactRelation.CH_ValidAccountName</members>
+        <members>AccountContactRelation.Restrict_rels_to_301s_legal_entities</members>
+        <members>Accreditation__c.AccCurrencyShouldEqualPriceListCurrency</members>
+        <members>Accreditation__c.Incoterm_Error_Maintenance</members>
+        <members>Accreditation__c.Incoterm_Not_Greated_Than_20</members>
+        <members>Accreditation__c.PRM_Display_on_Partner_Locator</members>
+        <members>Accreditation__c.PRM_Display_on_Partner_Locator_Aligned</members>
+        <members>Accreditation__c.Valid_Level_Distributor_GPP_0_0_Product</members>
+        <members>Accreditation__c.Valid_Level_Distributor_GPP_3_0_Product</members>
+        <members>Accreditation__c.Valid_Level_Global_Alliance_Product</members>
+        <members>Accreditation__c.Valid_Level_IR_GPP_2_0_Maintenance</members>
+        <members>Accreditation__c.Valid_Level_IR_GPP_3_0_Maintenance</members>
+        <members>Accreditation__c.Valid_Level_Reseller_GPP_2_0_Maintenance</members>
+        <members>Accreditation__c.Valid_Level_Reseller_GPP_3_0_Maintenance</members>
+        <members>Accreditation__c.Valid_Level_SP_GPP_3_0_Maintenance</members>
+        <members>Accreditation__c.Valid_Level_SP_Product</members>
+        <members>Additional_Resource_Request__c.USA_Pricing_Not_Allowed</members>
+        <members>Address.CH_CountryCantChange</members>
+        <members>Application_Inventory__c.Cross_Project_Status_field_Mandatory</members>
+        <members>Apttus_Approval__Approval_Request__c.BlockApprovalCommentAfterOnWeek</members>
+        <members>Apttus_Approval__Approval_Request__c.NF_Validation_Status_Check</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS_EndDate_Check</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS_Term_Zero_Error_Message_CPO</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.Mandatory_field_Check</members>
+        <members>Apttus_Proposal__Proposal__c.CLLI_Validation</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_Account_LE_should_be_8000405_for_VZW</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_Cannot_Edit_Initial_Pricing_Date</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_Cannot_change_accepted_status_verizon</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_Cannot_change_from_rebid_manually</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_Cannot_change_stage_from_DraftAppoved</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_Cannot_select_COS_for_nonVZW_quote</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_Cannot_select_inactive_CQ_Lead</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_Cannot_select_inactive_Sales_Lead</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_Close_Date_less_than_or_equalto_today</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_CusDate_cant_be_blank</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_CustDate_cant_be_greater_than_Today</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_Customer_Org_Segment_Mandatory</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_Customer_Org_Segment_nonVZW_quote</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_Due_Date_cannot_be_in_the_past</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_Mandy_Fields_When_Accepted</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_Name_contains_invalid_characters</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_Pricing_Flds_Readonly_after_Approved</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_Quote_creation_not_allowed_before_G3</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_Value_required_if_Sub_to_Cust_Date</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_Version_atleast_one_shld_be_Active</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_cannot_change_stage_to_rebid_manually</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_value_required_for_Approval_Stages</members>
+        <members>Apttus_Proposal__Proposal__c.Cannot_change_Published_Ready_InProgress</members>
+        <members>Apttus_Proposal__Proposal__c.Cannot_change_from_Draft_To_Published</members>
+        <members>Apttus_Proposal__Proposal__c.Cannot_modify_portfolio</members>
+        <members>Apttus_Proposal__Proposal__c.Cannot_submit_for_G4_Bypass</members>
+        <members>Apttus_Proposal__Proposal__c.Customer_Req_Num_contains_invalid_char</members>
+        <members>Apttus_Proposal__Proposal__c.DS_Check_Contract_Type</members>
+        <members>Apttus_Proposal__Proposal__c.DS_Term_Zero_Error_Message</members>
+        <members>Apttus_Proposal__Proposal__c.DS_check_mandatory_fields_before_Accept</members>
+        <members>Apttus_Proposal__Proposal__c.Expired_CQ_cannot_be_change</members>
+        <members>Apttus_Proposal__Proposal__c.Frame_contract_reference_Mandatory_PM</members>
+        <members>Apttus_Proposal__Proposal__c.ION_Direct_IS_List_Price_only_quote</members>
+        <members>Apttus_Proposal__Proposal__c.Is_Maintenane_Quote_Only_Contract_Date</members>
+        <members>Apttus_Proposal__Proposal__c.Is_Maintenane_Quote_Only_Warranty_credit</members>
+        <members>Apttus_Proposal__Proposal__c.LAB_equipment_quote_not_available_MW</members>
+        <members>Apttus_Proposal__Proposal__c.LOA_Status_Check_On_Publish</members>
+        <members>Apttus_Proposal__Proposal__c.Loa_Status_cannot_be_changed_manually</members>
+        <members>Apttus_Proposal__Proposal__c.MQupdate</members>
+        <members>Apttus_Proposal__Proposal__c.Maintenance_Only_quote_not_available_MW</members>
+        <members>Apttus_Proposal__Proposal__c.Maintenance_Override_Null</members>
+        <members>Apttus_Proposal__Proposal__c.Maintenance_Type_and_Years_cant_be_empty</members>
+        <members>Apttus_Proposal__Proposal__c.Maintenance_type_and_No_of_years</members>
+        <members>Apttus_Proposal__Proposal__c.NokiaCPQ_Maintenance_Type_cant_be_empty</members>
+        <members>Apttus_Proposal__Proposal__c.NokiaCPQ_years_cant_be_empty</members>
+        <members>Apttus_Proposal__Proposal__c.Prevent_Quote_before_G3</members>
+        <members>Apttus_Proposal__Proposal__c.Price_Override_cannot_be_less_than_0</members>
+        <members>Apttus_Proposal__Proposal__c.QTC_CancelQuote_Notallowed</members>
+        <members>Apttus_Proposal__Proposal__c.QTC_Primary_Contact_Validation</members>
+        <members>Apttus_Proposal__Proposal__c.QTC_RecallCancel_Notallowed</members>
+        <members>Apttus_Proposal__Proposal__c.QWM_Disable_for_FN</members>
+        <members>Apttus_Proposal__Proposal__c.Stage_draft_cannot_change_LoA_to_G4</members>
+        <members>Apttus_Proposal__Proposal__c.Validation_on_change_of_opportunity_name</members>
+        <members>Apttus_Proposal__Proposal__c.Validation_when_created_from_Tab</members>
+        <members>Apttus_Proposal__Proposal__c.VzW_expired_quote_cannot_be_changed</members>
+        <members>Apttus_Proposal__Proposal__c.quote_with_maintenance_SSP_SRS</members>
+        <members>Apttus__APTS_Agreement__c.Apttus__End_Date_Check</members>
+        <members>Apttus__APTS_Agreement__c.Apttus__Term_Validation_2</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Confidence_Level_cannot_be_High</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Confidence_Level_to_be_Low</members>
+        <members>Apttus__APTS_Agreement__c.CLM_End_Date_Check</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Mandatory_fieldsWhenERPisBlue_Planet</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Mandatory_fields_When_ERP_is_P20</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Term_Validation_2</members>
+        <members>Apttus__APTS_Agreement__c.ERP_is_a_mandatory_field</members>
+        <members>Asset.Address_Location_Account_does_not_match</members>
+        <members>Asset.CH_AssetUpdateValidation</members>
+        <members>Asset.CH_ServiceClassificationCDBContractType</members>
+        <members>Asset.CH_ValidateAddress</members>
+        <members>Asset.CH_ValidateDifferentCountryOnCLI</members>
+        <members>Asset.CH_ValidateProduct</members>
+        <members>Asset.CH_ValidateProductChange</members>
+        <members>Asset.CH_ValidateProductFields</members>
+        <members>Business_Plan__c.PrimaryPartnerProgramContactsPRMIsEmpty</members>
+        <members>CH_3PVendorCase__c.CH_Other3PVendor_Cannot_Blank</members>
+        <members>CH_3PVendorCase__c.CH_Restrict_to_Create_3P</members>
+        <members>CH_3PVendorInteraction__c.CH_3PVendorInteractionTypeStatusClosed</members>
+        <members>CH_3PVendorInteraction__c.CH_3PVendorInteractionTypeStatusOnHoldPN</members>
+        <members>CH_3PVendorInteraction__c.CH_3PVendorInteractionTypeStatusOnHoldPV</members>
+        <members>CH_3PVendorInteraction__c.CH_3PVendorInteractionTypeStatusPendingN</members>
+        <members>CH_3PVendorInteraction__c.CH_3PVendorInteractionTypeStatusSolRcvd</members>
+        <members>CH_3PVendorInteraction__c.CH_3PVendorInteractionType_StatusCreated</members>
+        <members>CH_3PVendorInteraction__c.CH_3PVendorInteractionType_StatusPV</members>
+        <members>CH_3PVendorInteraction__c.CH_3PVendorInteraction_ReadonlyType</members>
+        <members>CH_3PVendorInteraction__c.CH_3PVendor_ReadonlyOriginType</members>
+        <members>CH_3PVendorInteraction__c.CH_Occurrence_date_should_not_be_future</members>
+        <members>CH_3PVendorInteraction__c.CH_ReminderBeInFuture</members>
+        <members>CH_Attachment__c.Closed_Completed_Case_Attachment</members>
+        <members>CH_AuthorizedAccount__c.CH_ValidAccountName</members>
+        <members>CH_CaseTag__c.CH_DetailsCannotContainDashes</members>
+        <members>CH_CaseTag__c.CH_PreventUpdate</members>
+        <members>CH_CaseTag__c.CH_ProductRequired</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_AssignOnlyCPAManager</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_CancelledFromCreated_Only</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_CancelledOnlyCPAManager</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_ClosedActionStatus</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_ClosedStage_Validation</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_Created_IdentifyCreateNewCPA</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_Created_NewCPA</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_IdentifyStatus_Validation</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_ImplementStatus_Validation</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_ImplementToClose_Validation</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_Implement_Rejected_Validation</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_ManageCancelledStatus_Validation</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_ManageStage_Validation</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_ManageToImplement_Mandatory</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_OnlyOwnerPerformed</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_OwnerRejected_Validation</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_freeTextBox_Mandatory_for_Others</members>
+        <members>CH_CoveredNetworkElementAsset__c.CH_CDBContractTypeInternal</members>
+        <members>CH_CoveredNetworkElementAsset__c.CH_ValidateCLIServiceClassificationOnNEA</members>
+        <members>CH_CoveredNetworkElementAsset__c.CH_ValidationForCLIandNEA</members>
+        <members>CH_CoveredNetworkElementAsset__c.CH_ValidationForCLIandNEAForHWS</members>
+        <members>CH_FIRQuestion__c.MandatoryField</members>
+        <members>CH_Manage_Escalation__c.CH_MEManagerCanEditOnly</members>
+        <members>CH_Manage_Escalation__c.CH_ME_ExitCriteriaReached_Closed</members>
+        <members>CH_Manage_Escalation__c.CH_ME_OnlyManagerCanCloseEscalation</members>
+        <members>CH_Manage_Escalation__c.CH_VR_Manage_Esc_EndDt_Criteria</members>
+        <members>CH_Manage_Escalation__c.CH_VR_Manage_Esc_Level_Set_Time</members>
+        <members>CH_Manage_Escalation__c.CH_VR_Manage_Esc_M_Activate</members>
+        <members>CH_Manage_Escalation__c.CH_VR_Manage_Esc_M_Follow</members>
+        <members>CH_Manage_Escalation__c.CH_VR_Manage_Esc_M_Identify</members>
+        <members>CH_Manage_Escalation__c.CH_VR_Manage_Esc_Rejection</members>
+        <members>CH_Manage_Escalation__c.CH_VR_Manage_Esc_Start_date</members>
+        <members>CH_NotificationSubscription__c.CH_Region_Cannot_Blank</members>
+        <members>CH_OutageDuration__c.CH_CheckODRUnitsAffectedTotalDuringEdit</members>
+        <members>CH_OutageDuration__c.CH_CheckOutageDurationCompliance</members>
+        <members>CH_OutageDuration__c.CH_ODRStartDateAfterEndDate</members>
+        <members>CH_OutageDuration__c.CH_ODRStartDateBeforeOutageStartDateCase</members>
+        <members>CH_OutageDuration__c.CH_ODRStartOrEndDateInFuture</members>
+        <members>CH_PendingTimeSuspension__c.CH_LockRecord</members>
+        <members>CH_TimeRecording__c.CH_StartDate_not_Less_CaseReportedDat</members>
+        <members>CH_TimeRecording__c.CH_Start_Date_Can_Not_in_the_Future</members>
+        <members>CH_TimeRecording__c.owner_cannot_be_Change</members>
+        <members>CH_WorkgroupInstructions__c.CH_SeverityCheck</members>
+        <members>CH_Workgroup_Filter__c.CH_Check_Max_Filters</members>
+        <members>CH_Workgroup_Filter__c.CH_WorkGroupSchedule_Single_region</members>
+        <members>CH_Workgroup_Member_Timeslot_Association__c.CH_Valid_Workgroup_Member</members>
+        <members>CH_Workgroup_Member__c.CH_CA_WorkgroupMember_RecordTypeCheck</members>
+        <members>CH_Workgroup_Member__c.CH_ChangeMember</members>
+        <members>CH_Workgroup_Member__c.CH_KB_WorkgroupMember_RecordTypeCheck</members>
+        <members>CH_Workgroup_Schedule_Timeslot__c.CH_EndDate_After_StartDate</members>
+        <members>CH_Workgroup_Schedule__c.CH_EndDate_After_StartDate</members>
+        <members>CH_Workgroup__c.CH_CAWorkgroupName</members>
+        <members>CH_Workgroup__c.CH_KBWorkgroupLimit</members>
+        <members>CH_Workgroup__c.CH_NoSpecialCharacteresOnWorkgroupName</members>
+        <members>CH_Workgroup__c.CH_Valid_End_Threshold</members>
+        <members>CH_Workgroup__c.CH_Valid_Start_Threshold</members>
+        <members>CLM_Agreement_Invoicing_Milestone__c.Category_not_editable_on_update</members>
+        <members>CLM_Agreement_Invoicing_Milestone__c.Percentage_Validation</members>
+        <members>CLM_Agreement_Invoicing_Milestone__c.Summary_Validation</members>
+        <members>Case.BGs_is_a_required_field</members>
+        <members>Case.CH_AllignedP20Fields</members>
+        <members>Case.CH_AllowedChangesNew</members>
+        <members>Case.CH_AssessedOutage</members>
+        <members>Case.CH_AssignedDate1</members>
+        <members>Case.CH_BlockingStatusTransitions</members>
+        <members>Case.CH_BlockingStatusTransitions2</members>
+        <members>Case.CH_Cancelled_Case_Validation</members>
+        <members>Case.CH_CannotCompleteCaseMilestone</members>
+        <members>Case.CH_CannotEditClosedCase</members>
+        <members>Case.CH_CannotModifyAfterCaseCreated</members>
+        <members>Case.CH_Cannot_Cancel_Problem</members>
+        <members>Case.CH_CaseMilestoneChronologicalOrderCheck</members>
+        <members>Case.CH_CaseStageClosed</members>
+        <members>Case.CH_CaseTypeSeverityValidation</members>
+        <members>Case.CH_Category_is_a_required_field</members>
+        <members>Case.CH_CheckFinalODRCoverage</members>
+        <members>Case.CH_CheckOutageDurationCoverage</members>
+        <members>Case.CH_CheckStatusPriorValue</members>
+        <members>Case.CH_Check_Asset_has_Entitlement</members>
+        <members>Case.CH_ClassifyCaseAsDefectOrOther</members>
+        <members>Case.CH_CollectP20OrderDetailRule</members>
+        <members>Case.CH_DeferralApproveDateLaterThanIR</members>
+        <members>Case.CH_DeferralApprovedDateNotInFuture</members>
+        <members>Case.CH_DeferralLegacyTicketDeferralStatusNA</members>
+        <members>Case.CH_DeferralLegacyTicketDetails</members>
+        <members>Case.CH_DeferralNokiaRestorationCaseCheck</members>
+        <members>Case.CH_DeferralNokiaStandardCaseCheck</members>
+        <members>Case.CH_DeferralSolTarDateLaterDefApproveDate</members>
+        <members>Case.CH_DeferralSolutionDefectMilestoneCheck</members>
+        <members>Case.CH_DeferralStatusIsGoingToBlank</members>
+        <members>Case.CH_Deferral_Approval_Date_must_be_filled</members>
+        <members>Case.CH_Deferral_Block_Date_Update_Active</members>
+        <members>Case.CH_Deferral_Details_Must_be_filled</members>
+        <members>Case.CH_Deferral_Solution_T_Date_must_filled</members>
+        <members>Case.CH_Delete_all_but_one_ODR</members>
+        <members>Case.CH_InactiveMilestoneDateValidationRule</members>
+        <members>Case.CH_InitialResponseDate</members>
+        <members>Case.CH_InitialResponseDate2</members>
+        <members>Case.CH_LimitForProductFields</members>
+        <members>Case.CH_LimitForProductFields_LegacyCases</members>
+        <members>Case.CH_Link_Btw_Ticket_Origin_and_CaseOrigin</members>
+        <members>Case.CH_ModifiedWhenStatusDraft</members>
+        <members>Case.CH_ModifyDependingOnMilestones</members>
+        <members>Case.CH_ModifyDependingOnStatus</members>
+        <members>Case.CH_OpenChildCase</members>
+        <members>Case.CH_OutageHandlingMandatoryOnStatusClosed</members>
+        <members>Case.CH_OutageOnMajorCriticalSeverity</members>
+        <members>Case.CH_OutageStartDate</members>
+        <members>Case.CH_OutageTypeNeedsToBePopulatedIfOutage</members>
+        <members>Case.CH_Outage_Check_is_not_blank</members>
+        <members>Case.CH_PopulateDateTime1</members>
+        <members>Case.CH_PopulateDateTime2</members>
+        <members>Case.CH_PopulateDateTime3</members>
+        <members>Case.CH_PopulateDateTime4</members>
+        <members>Case.CH_PopulateDateTime5</members>
+        <members>Case.CH_PopulateDateTime6</members>
+        <members>Case.CH_PopulateDateTime7</members>
+        <members>Case.CH_PopulateDateTime8</members>
+        <members>Case.CH_PopulateDateTime9</members>
+        <members>Case.CH_Portal_Severity</members>
+        <members>Case.CH_PreventChangesToClosedProblems</members>
+        <members>Case.CH_PreventUserToSaveAsDraft</members>
+        <members>Case.CH_Prevent_Clearing_of_Contact_Name</members>
+        <members>Case.CH_ProblemStatementMandatory</members>
+        <members>Case.CH_ProntoTargetDateField_Validation</members>
+        <members>Case.CH_ProntoTargetFieldUpdate_Validation</members>
+        <members>Case.CH_Read_Only_On_RnDReference</members>
+        <members>Case.CH_ReopenCancelledProblem</members>
+        <members>Case.CH_ReopenClosedProblem</members>
+        <members>Case.CH_RestoredDate</members>
+        <members>Case.CH_RestrictUpdateOnCaseTimestamp</members>
+        <members>Case.CH_RuleBasedOnAsset</members>
+        <members>Case.CH_RuleForInitialResponseAndTemporarySol</members>
+        <members>Case.CH_RuleForIssueOccurence</members>
+        <members>Case.CH_RuleForResponseAndSolutionProvided</members>
+        <members>Case.CH_RuleForRestoreAndSolutionProvided</members>
+        <members>Case.CH_RuleForRestoreAndTemporarySolution</members>
+        <members>Case.CH_SDRPDateLessThanClosedDate</members>
+        <members>Case.CH_SPDateLessThanClosedDate</members>
+        <members>Case.CH_ServiceDisruptionReportProvidedDate</members>
+        <members>Case.CH_ServiceTypeCannotBeBlank</members>
+        <members>Case.CH_Severity_Critical</members>
+        <members>Case.CH_Severity_Information_Request</members>
+        <members>Case.CH_Severity_Major</members>
+        <members>Case.CH_Severity_Minor</members>
+        <members>Case.CH_SolutionProvidedDate</members>
+        <members>Case.CH_StageValidationWhenNotDiagnosis</members>
+        <members>Case.CH_StatusCannotBeClosed</members>
+        <members>Case.CH_StatusCannotbeEdited</members>
+        <members>Case.CH_StatusCompleted</members>
+        <members>Case.CH_StatusCreated</members>
+        <members>Case.CH_StatusPendingCustomer</members>
+        <members>Case.CH_StatusPendingCustomer2</members>
+        <members>Case.CH_StatusRespondedInProgress</members>
+        <members>Case.CH_StatusRestorationProvided</members>
+        <members>Case.CH_StatusSolutionProvided</members>
+        <members>Case.CH_StatusTemporarySolutionProvided</members>
+        <members>Case.CH_TCACheckedClosedTicket</members>
+        <members>Case.CH_TCAChecked_DiagTOResolve</members>
+        <members>Case.CH_TemporarySolutionProvidedDate</members>
+        <members>Case.CH_UserCannotEditManually1</members>
+        <members>Case.CH_UserCannotEditManually2</members>
+        <members>Case.CH_ValidateBasedOnStage</members>
+        <members>Case.CH_ValidateP20OrderDetailRule</members>
+        <members>Case.CH_ValidateStatusValueRespondedInProgres</members>
+        <members>Case.CH_ValidationForReportedDate</members>
+        <members>Case.CH_ValidationRuleForStatus</members>
+        <members>Case.CSR_Opportunity_Mandatory_If_RFP_or_RFQ</members>
+        <members>Case.CSR_SME_response</members>
+        <members>Case.Cannot_Assign_tickets_to_SFDC_queue</members>
+        <members>Case.Check_at_least_1_ODR</members>
+        <members>Case.Due_Date_for_GSS</members>
+        <members>Case.EDUT_Assigned_User</members>
+        <members>Case.EDUT_Assigned_to_Escalated_Queue</members>
+        <members>Case.EDUT_AwaitingOnResponse</members>
+        <members>Case.EDUT_Change_to_New</members>
+        <members>Case.EDUT_Close_Ticket</members>
+        <members>Case.EDUT_Closed_Ticket</members>
+        <members>Case.EDUT_Division</members>
+        <members>Case.EDUT_External_Company_Name</members>
+        <members>Case.EDUT_Invalid_Ticket</members>
+        <members>Case.EDUT_New_to_Closed</members>
+        <members>Case.EDUT_On_Hold_Reason</members>
+        <members>Case.EDUT_Prevent_Loop</members>
+        <members>Case.EDUT_Type</members>
+        <members>Case.GSO_Approval</members>
+        <members>Case.HWS_Additional_Configuration_Details</members>
+        <members>Case.HWS_Child_Read_only_layout_Rule</members>
+        <members>Case.HWS_Draft_ChildCase_Validation_on_Status</members>
+        <members>Case.HWS_Parent_Read_only_layout_Rule</members>
+        <members>Case.HWS_Phone_Validation</members>
+        <members>Case.HWS_Prevent_Sponser_Update</members>
+        <members>Case.HWS_RCA_FMA_Check</members>
+        <members>Case.HWS_RCA_FMA_Field_Restrict_to_Modify</members>
+        <members>Case.Justification_needed_for_Critical_Ticket</members>
+        <members>Case.Prevent_modification_of_submitted_record</members>
+        <members>Case.Priority_is_required_when_ER_is_Selected</members>
+        <members>Case.Service_now_is_required</members>
+        <members>Case.Subject_and_Description_cannot_be_blank</members>
+        <members>Case.Territory_and_Sales_Role</members>
+        <members>Case.Validation_Rule_On_BG_Approval</members>
+        <members>Case.Validation_to_changing_status_manually</members>
+        <members>Claim__c.Allowable_claims</members>
+        <members>Claim__c.Avoid_to_Resubmission_of_claim</members>
+        <members>Claim__c.PoP_Checkbox_mandatory_on_Submit</members>
+        <members>Claim__c.PoP_Validate_Claim_Amount</members>
+        <members>Co_Op_Activity__c.End_Date_Validation</members>
+        <members>Co_Op_Activity__c.Manual_Activity_Path_status_update</members>
+        <members>Co_Op_Activity__c.PRM_Cancellation_Reason</members>
+        <members>Co_Op_Activity__c.PRM_Other_Cancellation_Reason</members>
+        <members>Co_Op_Activity__c.Validation_on_Currency</members>
+        <members>Co_Op_Invoice__c.PoP_Validate_Invoice_Amount</members>
+        <members>Co_op_Allocation_Transfer__c.PRM_BG_Amount_Check</members>
+        <members>Co_op_Allocation_Transfer__c.PRM_BG_Amount_Sum</members>
+        <members>Co_op_Allocation_Transfer__c.Transfer_amount_can_not_exceed_balance</members>
+        <members>Co_op_Allocation_Transfer__c.Transfer_should_be_only_in_same_period</members>
+        <members>Competitor__c.Lock_Competitor_For_PendingApprovalOppty</members>
+        <members>Competitor__c.Won_Share_Allocation_Field_Validation</members>
+        <members>Contact.CH_Nokia_Email_Validation</members>
+        <members>Contact.CH_Nokia_Employee_Email_Validation</members>
+        <members>Contact.CH_Non_Nokia_Employee_Email_Validation</members>
+        <members>Contact.Contact_Status_not_editb_if_Campgn_empty</members>
+        <members>Contact.Do_not_change_Secondary_Account</members>
+        <members>Contact.Email_Change_need_to_identify_the_Source</members>
+        <members>Contact.MKT_CannotUpdateSyncToMarketoOnDataload</members>
+        <members>Contact.Restrict_Editing_Account_Name_on_Contact</members>
+        <members>ContentVersion.CH_Default_Sharing_to_Freeze</members>
+        <members>ContentVersion.CQ_DocTypeUpdate_Restrict</members>
+        <members>ContentVersion.Restrict_Document_Type_Update</members>
+        <members>ContentVersion.Restrict_Offer_G4_G5_template_Upload</members>
+        <members>ContractLineItem.CH_LineItemEndDateRule</members>
+        <members>ContractLineItem.CH_Rstrict_Chnge_in_Prev_Entitl_ID_field</members>
+        <members>Customer_Document_Junction__c.DS_Cannot_edit_Quote_association</members>
+        <members>Customer_Document__c.ALU_Unit_Code_Validation</members>
+        <members>Customer_Document__c.GDC_cannot_edit_in_InRegistration_phase</members>
+        <members>Customer_Document__c.GDC_users_can_only_set_Closed_from_draft</members>
+        <members>Customer_Document__c.NONOMusers_can_only_change_closecancell</members>
+        <members>Customer_Document__c.Non_OM_users_cannot_edit_after_creation</members>
+        <members>Customer_Document__c.Subclassification_required_on_Classifyin</members>
+        <members>Customer_Document__c.change_status_based_on_subclassification</members>
+        <members>Customer_facing_Attribute__c.Update_Stage_only_to_Published</members>
+        <members>Defect__c.Root_Cause_Mandatory</members>
+        <members>ERM_Stakeholder__c.CannotUpdateEventOnStakeholder</members>
+        <members>ERM_Stakeholder__c.Cannot_remove_stakeholder</members>
+        <members>ERM_Stakeholder__c.Content_Stakehoder_cant_answer_events</members>
+        <members>EmailMessage.CH_CIR</members>
+        <members>EmailMessage.CH_CIRwhenDeferralStatusIsActive</members>
+        <members>EmailMessage.CH_CIRwhenSolutionProvided</members>
+        <members>EmailMessage.CH_Casehastobeassigned</members>
+        <members>EmailMessage.CH_DontAllowRestorewhenNotIncident</members>
+        <members>EmailMessage.CH_Email_NeedsType</members>
+        <members>EmailMessage.CH_FirstQualifyCIR</members>
+        <members>EmailMessage.CH_IRbeforeCIR</members>
+        <members>EmailMessage.CH_IRbeforeRestore</members>
+        <members>EmailMessage.CH_IRbeforeSDR</members>
+        <members>EmailMessage.CH_IRbeforeSolution</members>
+        <members>EmailMessage.CH_IRbeforeTemporarySolution</members>
+        <members>EmailMessage.CH_PreventCIR</members>
+        <members>EmailMessage.CH_Restoration_Method_Provided</members>
+        <members>EmailMessage.CH_Restore</members>
+        <members>EmailMessage.CH_RestorebeforeSDR</members>
+        <members>EmailMessage.CH_SDR_Provided</members>
+        <members>EmailMessage.CH_SolutionEmpty</members>
+        <members>EmailMessage.CH_Solution_Provided</members>
+        <members>EmailMessage.CH_SolutionbeforeRestore</members>
+        <members>EmailMessage.CH_SupportEmailAddressinTO</members>
+        <members>EmailMessage.CH_TempSolApplicable</members>
+        <members>EmailMessage.CH_TemporarySolutionEmpty</members>
+        <members>EmailMessage.CH_TemporarySolutionbeforeRestore</members>
+        <members>EmailMessage.CH_Temporary_Solution</members>
+        <members>Event_Registration__c.CannotUpdateEventOnParticipant</members>
+        <members>Event_Registration__c.Cannot_change_record_type</members>
+        <members>Event_Registration__c.Content_Participant_cant_answer_events</members>
+        <members>Event__c.CannotUpdateEventHost</members>
+        <members>Event__c.Cannot_Change_Cancellation_Reason</members>
+        <members>Event__c.Cannot_change_record_type</members>
+        <members>Event__c.EEC_EndDate</members>
+        <members>Event__c.EEC_StartDate</members>
+        <members>Event__c.EEC_Venue</members>
+        <members>Knowledge__kav.CH_CandidateExternalCheck</members>
+        <members>Knowledge__kav.CH_Candidate_for_External</members>
+        <members>Knowledge__kav.CH_KBWorkgroup</members>
+        <members>Knowledge__kav.CH_Mandatory_of_Reviewer</members>
+        <members>Knowledge__kav.CH_NoMinorChangeWhenCreating</members>
+        <members>Knowledge__kav.CH_PreventSourceCaseFieldFromBeingEdited</members>
+        <members>Knowledge__kav.CH_ProblemDescriptionRequired</members>
+        <members>Knowledge__kav.CH_ProcedureRequired</members>
+        <members>Knowledge__kav.CH_PurposeRequired</members>
+        <members>Knowledge__kav.CH_Reviewer_field_non_editable</members>
+        <members>Knowledge__kav.CH_StandardAnsOrResolRequired</members>
+        <members>Knowledge__kav.CH_StandardQuesOrProductRequired</members>
+        <members>Knowledge__kav.CH_ValidationStatusToWrkInProgress</members>
+        <members>Lead.Lead_Status_Read_Only</members>
+        <members>Lead.Lead_Status_cannot_be_changd_to_Approved</members>
+        <members>Lead.Manual_Change_Lead_Status_to_Convert</members>
+        <members>Lead.Mkt_Queue_owned_leads_cannot_in_Progress</members>
+        <members>Lead.PRM_Restrict_Deal_Reg_Reassignment</members>
+        <members>Lead.mkt_CannotBeConvertedToContactWithOpp</members>
+        <members>NCP_Authorised_Entitlement__c.Service_Contract_Filled</members>
+        <members>Offer__c.Add_In_Versioning_Of_Uploaded_Document</members>
+        <members>Offer__c.Customer_Offer_Due_Date_Validation</members>
+        <members>Offer__c.Edit_No_LoA</members>
+        <members>Offer__c.Freeze_AppScope_After_G5</members>
+        <members>Offer__c.Freeze_Description_After_G5</members>
+        <members>Offer__c.Freeze_G4ApprovalDate_and_LoABypassOffer</members>
+        <members>Offer__c.Freeze_NPI_C5_After_Successful_G4</members>
+        <members>Offer__c.LoA_mutually_exclusive_check</members>
+        <members>Offer__c.Offer_locked_at_Pending_Win_Loss</members>
+        <members>Offer__c.Versioning_Of_Uploaded_Document</members>
+        <members>Opportunity.AccountRoleMandatory</members>
+        <members>Opportunity.Amount_should_not_empty_OIF_is_present</members>
+        <members>Opportunity.BG_BU_FieldsValidation_On_LoA_Upload</members>
+        <members>Opportunity.Cannot_Edit_Campaign</members>
+        <members>Opportunity.Cannot_Edit_Gate_3_Bypass</members>
+        <members>Opportunity.CloseDate_Modify</members>
+        <members>Opportunity.Freeze_Account_Name</members>
+        <members>Opportunity.Freeze_Opportunity_Phase_after_G5</members>
+        <members>Opportunity.Freeze_Reference_Opportunity</members>
+        <members>Opportunity.Freeze_Reference_Oppty_WhenLoABypassSet</members>
+        <members>Opportunity.Freeze_Unweighted_Amount</members>
+        <members>Opportunity.Freeze_Win_Declaration_Plan_Date</members>
+        <members>Opportunity.G4PlannedDate_is_Mandatory_for_G3Bypass</members>
+        <members>Opportunity.G5FrozenFields</members>
+        <members>Opportunity.Known_End_Customer_validation</members>
+        <members>Opportunity.Lead_BU_Mandatory</members>
+        <members>Opportunity.Mandatory_Winning_Competitor_When_Lost</members>
+        <members>Opportunity.NF_AvoidOppUpdateOnPendingApproval</members>
+        <members>Opportunity.NF_PSRAvoid_Changing_Submission_ExePhase</members>
+        <members>Opportunity.Only_PSM_can_change_Record_Type</members>
+        <members>Opportunity.PSR_Avoid_Creating_PreSales</members>
+        <members>Opportunity.PSR_PO_Expected_Freeze</members>
+        <members>Opportunity.PSR_Restrict_Entering_Wrong_Information</members>
+        <members>Opportunity.PSR_Same_Cost_Amounts</members>
+        <members>Opportunity.PSR_Same_Cost_by_Sales_Value</members>
+        <members>Opportunity.PTAProductOnlyOfferMutuallyExclusive</members>
+        <members>Opportunity.PreOppty_OppTypeChangeOnlyByAdmins</members>
+        <members>Opportunity.PreOppty_PreOppClosure</members>
+        <members>Opportunity.PreOppty_PreventStageNameChange</members>
+        <members>Opportunity.PreOppty_RequiredFieldsConversion</members>
+        <members>Opportunity.PreOppty_ValidateAccountType</members>
+        <members>Opportunity.Prevent_FOC_Creation</members>
+        <members>Opportunity.Primary_Competitor_count</members>
+        <members>Opportunity.Restrict_Currency_Change_Lightning</members>
+        <members>Opportunity.Risk_Details_Check</members>
+        <members>Opportunity.Sales_Phase_Phase_Status_Restriction</members>
+        <members>Opportunity.Unknown_End_Customer_G5_validation</members>
+        <members>Opportunity.Unknown_or_Multi_End_Customer_validation</members>
+        <members>Opportunity.Upside_Details_Check</members>
+        <members>Opportunity_Group__c.LockOpptyGroupForPendingApprovalOppty</members>
+        <members>Opportunity_Group__c.RestrictUpsellOpptyAsMasterOpptyToDeal</members>
+        <members>Order_Intake_Forecast__c.Choose_Past_Periods</members>
+        <members>Order_Intake_Forecast__c.Compare_the_Rev_Rec_Plan_and_Po_Plan</members>
+        <members>Order_Intake_Forecast__c.Do_not_update_OIF</members>
+        <members>Order_Intake_Forecast__c.Opportunity_Competitor_Check</members>
+        <members>Order_Intake_Forecast__c.Sales_Phase_Validation</members>
+        <members>Order_Intake_Forecast__c.Upsell_Oppty_Forecast_on_OIF_Creation</members>
+        <members>Order_Intake_Forecast__c.Upsell_Oppty_Forecast_on_OIF_Updation</members>
+        <members>Release__c.Release_Actual_End_Date_Validation</members>
+        <members>Request__c.Cross_Project_Impact_Mandatory</members>
+        <members>Request__c.Cross_project_impact_summary_required</members>
+        <members>Request__c.Scoped_Reqt_Cant_be_Edited</members>
+        <members>SWx_Upsell_Items__c.DS_Validating_Delivery_completed_field</members>
+        <members>SWx_Upsell_Proposal__c.DS_CSC_Profile_Cannot_edit_Sold_to_party</members>
+        <members>SWx_Upsell_Proposal__c.Reference_Opportunity_Mandatory_For_SWX</members>
+        <members>SWx_Upsell_Proposal__c.SWMP_proposals_publish_check</members>
+        <members>SWx_Upsell_Proposal__c.SWX_Expected_LOA_level_Removed_on_CXM</members>
+        <members>ServiceContract.CH_PreventContractNameUpdate</members>
+        <members>ServiceContract.CH_PreventRecordTypeUpdate</members>
+        <members>ServiceContract.CH_PreventServiceContractCreation</members>
+        <members>ServiceContract.CH_ValidatePaidToEndDate</members>
+        <members>ServiceContract.CH_ValidateRenegotiationStartDate</members>
+        <members>ServiceContract.CH_ValidateStartDate</members>
+        <members>ServiceContract.CH_ValidateVendorAccount</members>
+        <members>ServiceContract.NCP_Parent_SC_must_have_Account</members>
+        <members>Session__c.End_date_smaller_than_start_date</members>
+        <members>Session__c.Session_date_check</members>
+        <members>Session__c.Start_and_End_Date</members>
+        <members>Task.Lock_Task_when_Completed</members>
+        <members>User.NSA_User_if_Role_is_NSA</members>
+        <members>User.Nokia_Id_Number_only</members>
+        <members>User.Not_editable_user_name_fields</members>
+        <members>User.Prevent_EMAIL_change_on_User_record</members>
+        <members>User.Users_Deactivation_Reason</members>
+        <members>trailheadapp__User_Badge__c.trailheadapp__User_Is_Required</members>
+        <members>trailheadapp__User_Badge__c.trailheadapp__Validate_Status</members>
+        <name>ValidationRule</name>
+    </types>
+    <types>
+        <members>Account.Clone</members>
+        <members>Account.LeanData__Reassign_Account</members>
+        <members>Account.Partner_User_Report</members>
+        <members>Account.grax__Object_Time_Machine</members>
+        <members>Account.grax__Restore</members>
+        <members>Apttus_Approval__Approval_Request__c.Apttus_QPApprov__CancelQuoteApprovals</members>
+        <members>Apttus_Approval__Approval_Request__c.Apttus_QPApprov__CancelQuoteLineItemApprovals</members>
+        <members>Apttus_Approval__Approval_Request__c.Apttus_QPApprov__PreviewQuoteApprovals</members>
+        <members>Apttus_Approval__Approval_Request__c.Apttus_QPApprov__PreviewQuoteLineItemApprovals</members>
+        <members>Apttus_Approval__Approval_Request__c.Apttus_QPApprov__SubmitQuoteApprovals</members>
+        <members>Apttus_Approval__Approval_Request__c.Apttus_QPApprov__SubmitQuoteApprovalsWithAttachments</members>
+        <members>Apttus_Approval__Approval_Request__c.Apttus_QPApprov__SubmitQuoteLineItemApprovals</members>
+        <members>Apttus_Config2__OrderWorkflowRuleEntry__c.Apttus_Config2__ItemCriteria</members>
+        <members>Apttus_Config2__OrderWorkflowRuleEntry__c.Apttus_Config2__ItemInput</members>
+        <members>Apttus_Config2__OrderWorkflowRuleset__c.Apttus_Config2__Criteria</members>
+        <members>Apttus_Config2__PriceListItem__c.Apttus_Edit</members>
+        <members>Apttus_Proposal__Proposal__c.Apttus_CQApprov__Approvals</members>
+        <members>Apttus_Proposal__Proposal__c.Apttus_CQApprov__MyApprovals</members>
+        <members>Apttus_Proposal__Proposal__c.Apttus_QPConfig__AbandonQuote</members>
+        <members>Apttus_Proposal__Proposal__c.CPQ_Clone_Proposal</members>
+        <members>Apttus_Proposal__Proposal__c.CPQ_My_Approvals</members>
+        <members>Apttus_Proposal__Proposal__c.EPT_Upload</members>
+        <members>Apttus_Proposal__Proposal__c.New_Quote_VF</members>
+        <members>Apttus_Proposal__Proposal__c.NokiaCPQ_Quote_Reprice</members>
+        <members>Apttus_Proposal__Proposal__c.Reprice_Quote_TP</members>
+        <members>Apttus_Proposal__Proposal__c.Upload_Jarvis</members>
+        <members>Apttus__APTS_Agreement__c.Apttus__AgreementHierarchy</members>
+        <members>Apttus__APTS_Agreement__c.Apttus__CreateImportOffline</members>
+        <members>Apttus__APTS_Agreement__c.Apttus__EmailAgreementDocuments</members>
+        <members>Apttus__APTS_Agreement__c.Apttus__UploadReviewedDocument</members>
+        <members>Apttus__APTS_Agreement__c.Apttus__ViewInEffect</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Store_Executed_Agreement</members>
+        <members>Apttus__APTS_Agreement__c.New</members>
+        <members>Apttus__APTS_Agreement__c.New_Contract</members>
+        <members>Apttus__Agreement_Clause__c.CLM_Report</members>
+        <members>CH_Case_PA_InterfaceMapping__c.Export_ALL</members>
+        <members>CLM_Agreement_Team__c.Search_CM_User</members>
+        <members>Campaign.LeanData__Campaign_Influence</members>
+        <members>Case.CH_GotoCaseTeam</members>
+        <members>Case.CH_ME_Manage_Escalation</members>
+        <members>Case.CH_Portal_Add_comments</members>
+        <members>Case.grax__Object_Time_Machine</members>
+        <members>Case.grax__Restore</members>
+        <members>Contact.grax__Object_Time_Machine</members>
+        <members>Contact.grax__Restore</members>
+        <members>Field_Trip__Object_Analysis__c.Field_Trip__Analyze</members>
+        <members>Offer_Team__c.Edit</members>
+        <members>Opportunity.Sharing</members>
+        <members>Opportunity.grax__Object_Time_Machine</members>
+        <members>Opportunity.grax__Restore</members>
+        <members>OpportunityTeamMember.Search_CM_User</members>
+        <members>PRM_PFAContract__c.PRM_SendEmail</members>
+        <members>User.Account_Ownership</members>
+        <members>User.Act_As_User</members>
+        <members>User.Contact_Ownership</members>
+        <members>User.Lead_Ownership</members>
+        <members>User.Opportunity_Ownership</members>
+        <members>grax__GRAX_Schedule_Process__c.grax__Refresh_Bulk_API_Job</members>
+        <members>trailheadapp__Trailmix__c.trailheadapp__Assign_Users</members>
+        <members>trailheadapp__Trailmix__c.trailheadapp__Unassign_Users</members>
+        <name>WebLink</name>
+    </types>
+    <types>
+        <members>Account.Email_notification_to_be_sent_out_if_the_Partner_Status_is_Customer_Terminated_o</members>
+        <members>Account.Notification_to_Icare</members>
+        <members>Additional_Resource_Request__c.Access_Requested_Date_Remove</members>
+        <members>Additional_Resource_Request__c.Access_Requested_Date_Request</members>
+        <members>Additional_Resource_Request__c.PRM_ARR_General_Completed</members>
+        <members>Additional_Resource_Request__c.PRM_ARR_General_Rejected</members>
+        <members>Additional_Resource_Request__c.PRM_ARR_NDAC_Notify_Completed</members>
+        <members>Additional_Resource_Request__c.PRM_ARR_NDAC_Notify_Rejected</members>
+        <members>Additional_Resource_Request__c.PRM_ARR_NDAC_Offer_and_Order_Completed</members>
+        <members>Additional_Resource_Request__c.PRM_ARR_NDAC_Offer_and_Order_Rejected</members>
+        <members>Additional_Resource_Request__c.Send_Notification_to_Partner_user</members>
+        <members>Apttus_Approval__Approval_Request__c.Approval_Request_Comments_updates</members>
+        <members>Apttus_Approval__Approval_Request__c.CPQ_EBG_Add_Comment_Notification</members>
+        <members>Apttus_Approval__Approval_Request__c.CPQ_EBG_Cancellation_mail_for_Recall</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS_CPO_Confirmation_to_Customer</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS_CPO_Email_Notification_Invoice_Trigger</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS_CPO_Enrichment_Email_Alert_To_Account_Manager</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS_CPO_Enrichment_Email_Alert_To_CDM</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS_CPO_Ready_Routing_Email_Alert_To_CDM</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS_CPO_Ready_for_Execution_Email_Alert_To_AM</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS_CPO_Ready_for_Execution_Email_Alert_To_CDM</members>
+        <members>Apttus_Config2__ProductConfiguration__c.CPQ_ApprovalCompletionEmail</members>
+        <members>Apttus_Proposal__Proposal__c.CPQ_Send_Email_to_Submitted_for_Approval_Status_Change</members>
+        <members>Apttus_Proposal__Proposal__c.CPQ_Send_Email_to_Submitter_for_Rejected_Stage</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_SendNotificationToCQSender</members>
+        <members>Apttus_Proposal__Proposal__c.DS_Email_Alert_for_Quote_Approved_Stage</members>
+        <members>Apttus_Proposal__Proposal__c.DS_Email_Alert_for_Quote_Draft_Stage</members>
+        <members>Apttus_Proposal__Proposal__c.Email_to_AM</members>
+        <members>Apttus_Proposal__Proposal__c.Notification_to_GDC_user_when_quote_is_publised</members>
+        <members>Apttus_Proposal__Proposal__c.Send_Email_To_Partner_For_LEO_Quote</members>
+        <members>Apttus_Proposal__Proposal__c.Send_Email_for_Recalled_Quotes</members>
+        <members>Apttus_Proposal__Proposal__c.Send_Email_to_PSM_for_Approval_Status_Change</members>
+        <members>Apttus_Proposal__Proposal__c.Send_Email_to_PSM_for_Rejected_Approval_Stage</members>
+        <members>Apttus__APTS_Agreement__c.CLM_AM_and_CM_receives_contract_expired_notification</members>
+        <members>Apttus__APTS_Agreement__c.CLM_AM_and_CM_receives_reminder_notification</members>
+        <members>Apttus__APTS_Agreement__c.CLM_AM_and_CM_receives_reminder_notification_1</members>
+        <members>Apttus__APTS_Agreement__c.CLM_AM_and_CM_receives_reminder_notification_2</members>
+        <members>Apttus__APTS_Agreement__c.CLM_AM_and_CM_receives_reminder_notification_3</members>
+        <members>Apttus__APTS_Agreement__c.CLM_AM_and_CM_receives_reminder_notification_4</members>
+        <members>Apttus__APTS_Agreement__c.CLM_AM_receives_reminder_before_six_months</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Agreement_Returned_to_Requestor</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Agreement_Submission_alert_to_Individual_CM</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Agreement_Termination</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Contract_Request_is_created_but_not_submitted_to_L_C</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Individual_Ownership_of_CM_Queue</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Notification_when_an_agreement_is_Fully_signed</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Ready_for_Review</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Ready_for_Signatures</members>
+        <members>Apttus__DocumentVersion__c.CLM_Notification_for_Parallel_Review</members>
+        <members>Business_Plan__c.Business_Plan_Submission_Email_Notification</members>
+        <members>Business_Plan__c.Business_Plan_Successful_Cloning_Notification</members>
+        <members>Business_Plan__c.Business_Plan_Successful_Cloning_Notification_If_not_Populate_PRM</members>
+        <members>Business_Plan__c.Business_Plan_Successful_Cloning_Notification_PSM</members>
+        <members>Business_Plan__c.Business_Planning_Successful_Creation_Notification</members>
+        <members>Business_Plan__c.Business_Planning_Successful_cloning_Notification_PRM_PSM</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_Assignment_Email_Sent</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_Creation_Email_Notification_Managers</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_Creation_Notification</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_EmailToManagerGroup</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_Rejection_Notification</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_TargetDateApproachingEmail</members>
+        <members>CH_EmailAlert__c.CH_NotificationAlertOnEmailLimit</members>
+        <members>CH_EmailAlert__c.CH_Send_Email_Notifications</members>
+        <members>CH_EmailAlert__c.CH_Update_contact_details_Alert</members>
+        <members>CH_EmailAlert__c.CH_Workgroup_Queue_Email_Alert</members>
+        <members>CH_EmailAlert__c.HWS_Pending_Order_Summary_Auto_split</members>
+        <members>CH_EmailAlert__c.HWS_Pending_Order_Summary_Manual_Split_Email_Alert</members>
+        <members>CH_EmailAlert__c.HWS_Pending_Referral_Instructions_Alert</members>
+        <members>CH_EmailAlert__c.HWS_Request_HW_FMA_RCA_Sharepoint_Alert</members>
+        <members>CH_EmailAlert__c.HWS_WARRANTY_WORKGROUP_EMAIL_4</members>
+        <members>CH_EmailAlert__c.HWS_Warranty_Check_Exception_Alert</members>
+        <members>CH_EmailAlert__c.HWS_Workgroup_Email_Reassignment_Alert</members>
+        <members>CH_EmailAlert__c.QUOTATION_WORKGROUP_EMAIL_Alert_1</members>
+        <members>CH_EmailAlert__c.QUOTATION_WORKGROUP_EMAIL_Alert_for_BOTH_WORKGROUP_TYPES_2</members>
+        <members>CH_EmailAlert__c.WARRANTY_QUOTATION_WORKGROUP_EMAIL_3</members>
+        <members>CH_Manage_Escalation__c.CH_RequestRejectRequestEmail</members>
+        <members>CH_Manage_Escalation__c.CH_RequestSupportToAllPartners</members>
+        <members>CH_Manage_Escalation__c.CH_SendClosureEmailToAllPartners</members>
+        <members>CH_Manage_Escalation__c.CH_SendEscalationRequestEmail</members>
+        <members>CH_Manage_Escalation__c.CH_Send_to_Requester</members>
+        <members>CQ_Quote_Team__c.EmailAlertToQuoteTeamMembersOn_NewQuoteTeamCreation</members>
+        <members>CSecR_Support_Team__c.CSR_support_team_notification</members>
+        <members>Case.Access_Visibility_Issue</members>
+        <members>Case.Access_Visibility_Issue_MEA</members>
+        <members>Case.All_Issue_GCHN</members>
+        <members>Case.All_Issues_APJ</members>
+        <members>Case.All_Issues_Europe</members>
+        <members>Case.CH_720MinutesNotification</members>
+        <members>Case.CH_AlertForCSDNotRestored</members>
+        <members>Case.CH_AlertForOutageUpdate</members>
+        <members>Case.CH_CA_Notify_Queue_Members</members>
+        <members>Case.CH_CSDNotRestoredin1440minutes</members>
+        <members>Case.CH_CaseClosureEmailNotification</members>
+        <members>Case.CH_CaseCreationOutboundAllNokia</members>
+        <members>Case.CH_Case_Cancellation_Email_Notification_Alert</members>
+        <members>Case.CH_Case_Closure_Email_Notification_with_Public_Survey</members>
+        <members>Case.CH_Case_Closure_Email_Notification_with_Survey</members>
+        <members>Case.CH_CommunicationEmailAlert</members>
+        <members>Case.CH_CommunicationToCustomer</members>
+        <members>Case.CH_CriticalServiceDisruptionNotRestored</members>
+        <members>Case.CH_CriticalServiceDisruptionNotRestoredin1080Minutes</members>
+        <members>Case.CH_EmailAlert</members>
+        <members>Case.CH_InitialResponseNotification</members>
+        <members>Case.CH_InitialResponseNotificationforMobileApp</members>
+        <members>Case.CH_NonCriticalCase</members>
+        <members>Case.CH_NotificationOfInitialResponseMilestoneViolatedDue</members>
+        <members>Case.CH_NotificationOfNewDataBreach</members>
+        <members>Case.CH_NotificationOfSolutionProvidedMilestoneViolatedDue</members>
+        <members>Case.CH_NotificationOfSystemRestoredMilestoneViolatedDue</members>
+        <members>Case.CH_NotificationOfTemporarySolutionMilestoneViolatedDue</members>
+        <members>Case.CH_NotificationOnCaseAssignment</members>
+        <members>Case.CH_NotificationOnCaseAssignmentIncident</members>
+        <members>Case.CH_Notify_CCM_in_case_of_critical_case_opened_on_TR_TQ_Entitlement</members>
+        <members>Case.CH_ShareCustomerSummary</members>
+        <members>Case.CH_SolutionProvidedDefectMilestoneViolationEmailAlert</members>
+        <members>Case.CH_Solution_Provided_Deferred_Milestone_Violation_Email_Alert</members>
+        <members>Case.CH_SuccessNotificationOfSystemRestoredMilestone</members>
+        <members>Case.CH_System_Restored_To_Customer</members>
+        <members>Case.CH_TemporarySolutionProvidedOutboundAllChannel</members>
+        <members>Case.CH_WarningNotificationOfInitialResponseMilestoneNearDue</members>
+        <members>Case.CH_WarningNotificationOfServiceDisruptionReportProvidedMilestoneNearDue</members>
+        <members>Case.CH_WarningNotificationOfSolutionProvidedMilestoneNearDue</members>
+        <members>Case.CH_WarningNotificationOfSystemRestoredMilestoneNearDue</members>
+        <members>Case.CH_WarningNotificationOfTemporarySolutionMilestoneNearDue</members>
+        <members>Case.CMD_Issues</members>
+        <members>Case.CSR_SME_response_available</members>
+        <members>Case.CSR_on_hold_notification</members>
+        <members>Case.Data_Load_Reqest</members>
+        <members>Case.EDUT_Close_Ticket_With_Survey_Contact_Email_Email_Alert</members>
+        <members>Case.EDUT_Close_Ticket_With_Survey_Web_Email_Email_Alert</members>
+        <members>Case.EDUT_Close_Ticket_Without_Survey_Contact_Email_Email_Alert</members>
+        <members>Case.EDUT_Close_Ticket_Without_Survey_Web_Email_Email_Alert</members>
+        <members>Case.EDUT_Queue_Ticket_Assignment_Email_Alert</members>
+        <members>Case.EDUT_Queue_Ticket_Escalation_Email_Alert</members>
+        <members>Case.EDUT_Register_Ticket_No_Doc_Contact_Email_Email_Alert</members>
+        <members>Case.EDUT_Register_Ticket_No_Doc_Web_Email_Email_Alert</members>
+        <members>Case.EDUT_Register_Ticket_Outside_Course_Request_Employee_Contact_Email_Email_Alert</members>
+        <members>Case.EDUT_Register_Ticket_Outside_Course_Request_Employee_Web_Email_Email_Alert</members>
+        <members>Case.EDUT_Register_Ticket_Training_Request_Customer_Contact_Email_Email_Alert</members>
+        <members>Case.EDUT_Register_Ticket_Training_Request_Customer_Web_Email_Email_Alert</members>
+        <members>Case.EDUT_Register_Ticket_Training_Request_Employee_Contact_Email_Email_Alert</members>
+        <members>Case.EDUT_Register_Ticket_Training_Request_Employee_Web_Email_Email_Alert</members>
+        <members>Case.EDUT_Ticket_SLA_Violated_Escalated_Queue_for_1_Day_Email_Alert</members>
+        <members>Case.EDUT_Ticket_SLA_Violated_New_or_Assigned_for_1_Day_Email_Alert</members>
+        <members>Case.EDUT_Ticket_SLA_Violated_Resolution_Email_Alert</members>
+        <members>Case.EDUT_Ticket_SLA_Violated_Typification_Email_Alert</members>
+        <members>Case.EDUT_Ticket_SLA_Violation_Escalated_CPLS_Email_Alert</members>
+        <members>Case.EDUT_Ticket_SLA_Violation_Escalated_ELD_Email_Alert</members>
+        <members>Case.EDUT_Ticket_SLA_Violation_Escalated_GCC_Email_Alert</members>
+        <members>Case.EDUT_User_Ticket_Assignment_Email_Alert</members>
+        <members>Case.EDUT_User_Ticket_Escalation_Email_Alert</members>
+        <members>Case.Email_Alert</members>
+        <members>Case.Email_Alert2</members>
+        <members>Case.Email_Alert_for_CH_and_HWS</members>
+        <members>Case.Email_Alert_for_India</members>
+        <members>Case.Email_Alert_for_PRM</members>
+        <members>Case.Email_Notification</members>
+        <members>Case.Email_alert_MEA</members>
+        <members>Case.Email_alert_for_NA</members>
+        <members>Case.Email_for_LA</members>
+        <members>Case.HWS_Case_Interface_Error_Notification</members>
+        <members>Case.HWS_ETA_UPDATE_FROM_SALESFORCE_Email_Alert</members>
+        <members>Case.HWS_Escalation_Case_Resolution</members>
+        <members>Case.HWS_Faulty_Reminder_Email_Alert</members>
+        <members>Case.HWS_Non_SPS_Shipped_Cases_Email_Alert</members>
+        <members>Case.HWS_SPS_partial_shipped_cases_Email_Alert</members>
+        <members>Case.HWS_SPS_shipped_cases_Email_Alert</members>
+        <members>Case.Issue_with_Reporting</members>
+        <members>Case.Issue_with_Reporting_India</members>
+        <members>Case.Issue_with_Reporting_MEA</members>
+        <members>Case.Marketing</members>
+        <members>Case.NCP_CARES_Customer_notification_for_approved_Services</members>
+        <members>Case.NCP_Customer_notification_for_Contact_Lead_Duplicate_problem</members>
+        <members>Case.NCP_Customer_notification_for_approved_Services</members>
+        <members>Case.NCP_Customer_notification_for_rejected_Services</members>
+        <members>Case.NCP_Customer_notification_for_requested_Services</members>
+        <members>Case.NCP_Customer_notification_for_resolved_Contact_Lead_Duplicate_problem</members>
+        <members>Case.NCP_Mail_Notification_AMS_Group</members>
+        <members>Case.New_Case_Notificaon_email</members>
+        <members>Case.New_Case_Notification_email</members>
+        <members>Case.PRM_NIRA_15_Day_Draft_Notification</members>
+        <members>Case.PRM_NIRA_25_Day_Draft_Notification</members>
+        <members>Case.PRM_Notify_NDAC_Approvers</members>
+        <members>Case.Quote_to_Order</members>
+        <members>Case.Reports_Dash</members>
+        <members>Case.Send_1st_reminder_email_to_queue_after_24_hours_if_nobody_picks_up_the_form</members>
+        <members>Case.Send_1st_reminder_email_to_queue_after_72_hours_if_nobody_picks_up_the_form</members>
+        <members>Case.Send_Email_to_Account_Owner_when_Case_is_On_Hold</members>
+        <members>Case.Send_email_to_New_Case_Owner</members>
+        <members>Case.Send_notification_to_BG_for_approval</members>
+        <members>Case.System_Process_Issue_India</members>
+        <members>Case.Ticket_to_Case_Handling</members>
+        <members>Case.User_Management_New_User_Information</members>
+        <members>Claim__c.Notification_to_Partner_user_on_claim_rejection</members>
+        <members>Claim__c.Notification_to_Partner_user_when_claim_is_expired</members>
+        <members>Claim__c.Send_notication_to_Partner_user_when_escalated</members>
+        <members>Claim__c.Send_notification_when_15_days_remains_to_expire</members>
+        <members>Claim__c.Send_notification_when_30_days_remains_to_expire</members>
+        <members>Claim__c.Send_notification_when_Partner_User_submitted_the_claim</members>
+        <members>Claim__c.Send_notification_when_claim_is_approved</members>
+        <members>Claim__c.Send_notification_when_claim_is_in_HFLOF</members>
+        <members>Claim__c.Send_notification_when_claim_is_incomplete</members>
+        <members>Co_Op_Activity__c.Notification_for_approval_2_for_submission</members>
+        <members>Co_Op_Activity__c.Notification_to_approver_1_for_reminder</members>
+        <members>Co_Op_Activity__c.Notification_to_approver_3_for_reminder</members>
+        <members>Co_Op_Activity__c.Notification_when_Activity_is_put_on_hold</members>
+        <members>Co_Op_Activity__c.Notification_when_Activity_is_put_on_hold_approver1</members>
+        <members>Co_Op_Activity__c.Notification_when_Activity_is_put_on_hold_approver2</members>
+        <members>Co_Op_Activity__c.Notification_when_Activity_is_put_on_hold_approver3</members>
+        <members>Co_Op_Activity__c.PRM_coop_activity_claimable</members>
+        <members>Co_Op_Activity__c.Send_notification_when_activity_is_rejected</members>
+        <members>Co_Op_Activity__c.When_Activity_is_approved_After_last_level</members>
+        <members>Co_Op_Activity__c.When_Activity_is_submitted_for_approval</members>
+        <members>Contact.Contact_Inactive_Mail</members>
+        <members>Customer_Document__c.send_email_on_status_change</members>
+        <members>Customer_Document__c.send_email_on_status_change_to_Registered</members>
+        <members>DS_Staging__c.Sent_an_Email_To_Proposal_Manager_Distribution_List</members>
+        <members>Event_Registration__c.EEC_Participant_Confirm_Presence</members>
+        <members>Event_Registration__c.ERM_Event_Notification_Content_Participant_Alert</members>
+        <members>Event__c.EEC_Cancellation_Notify</members>
+        <members>Event__c.EEC_Event_Cancellation</members>
+        <members>Event__c.EEC_Event_Request</members>
+        <members>Event__c.EEC_Request</members>
+        <members>Event__c.ERM_Event_Cancellation</members>
+        <members>Event__c.ERM_Notification_When_new_ERM_is_created_CF</members>
+        <members>Field_Trip__Object_Analysis__c.Field_Trip__Send_Processing_Complete_Notification2</members>
+        <members>Interface_Log__c.Email_Alert_to_notify_users_of_a_failed_record_in_the_Interface_Log_CPQ</members>
+        <members>Knowledge__kav.CH_KB_Author_Notification_Approved</members>
+        <members>Knowledge__kav.CH_KB_Author_Notification_Rejected</members>
+        <members>NIA_SurveyResponse__c.NIA_SurveyResponseEmailAlert</members>
+        <members>Opportunity.Pre_Opportunity_AM_Notification</members>
+        <members>Opportunity.Pre_Opportunity_CTHead_Notification</members>
+        <members>Opportunity.Pre_Opportunity_Owner_Notification</members>
+        <members>Opportunity.Send_Email_to_pricing_pricing</members>
+        <members>Opportunity.Stalling_Opp_Close</members>
+        <members>PRM_PFAContract__c.PRM_PFAEmailAlert</members>
+        <members>SWx_Upsell_Proposal__c.DS_Email_Notification_to_AM_on_SWMP_Failure</members>
+        <members>SWx_Upsell_Proposal__c.DS_Nokia_ScratchOrderDPStatusEntitled</members>
+        <members>ServiceContract.CH_Renegotiation_Start_Date_Reminder</members>
+        <members>Session__c.EEC_Session_Ready_for_Approval</members>
+        <members>Session__c.ERM_Content_Approval_by_Event_host</members>
+        <members>Session__c.ERM_Notify_content_owner_5_days_earlier</members>
+        <members>Surround_CQ_Reporting__c.CQRep_EmailAlert_to_CQ_Lead_if_CQDueDate_is_equal_to_today_and_stage_is_in_draft</members>
+        <members>Surround_CQ_Reporting__c.CQRep_Email_Alert_to_CQ_Lead_if_CQ_Due_Date_is_Approaching_and_stage_is_in_draft</members>
+        <members>Surround_CQ_Reporting__c.CQ_expired_email_alert</members>
+        <members>Surround_CQ_Reporting__c.CQ_expiring_soon</members>
+        <members>SurveyInvitation.CH_Case_Closure_Email_Notification_Alert</members>
+        <members>Task.DS_New_Task_Email_Alert</members>
+        <members>Task.DS_New_Task_Email_Alert_SFR_Logistics</members>
+        <members>Task.DS_New_Task_Email_Alert_SFR_Wipro</members>
+        <members>Task.DS_Task_reassigned_Email_Alert</members>
+        <members>Task.DS_Task_reassigned_Email_Alert_SFR_Logistics</members>
+        <members>Task.DS_Task_reassigned_Email_Alert_SFR_Wipro</members>
+        <members>User.X90_Days_User_Deactivation_Notification1</members>
+        <members>User_Story__c.Kanban_Status_Change_Email_Alert</members>
+        <members>grax__GRAX_Schedule_Process__c.grax__Notify_GRAX_Schedule_Process_Completed</members>
+        <name>WorkflowAlert</name>
+    </types>
+    <types>
+        <members>Account.PRM_Terminate_Display_on_Partner_Locator</members>
+        <members>Account.Update_Disable_Partner_Field_to_False</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DSUpdateStartDateBasedOnEndDateTermsCPO</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS_Update_Business_Category</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS_Update_Business_Category_to_blank</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS_Update_Contract_End_Date_on_CPO</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS_Update_End_Date_on_CPO</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS_Update_Reporting</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS_Update_Reporting_to_blank</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS_Update_Terms_on_CPO</members>
+        <members>Apttus_Config2__LineItem__c.Account_Market_Update</members>
+        <members>Apttus_Config2__LineItem__c.CPQ_LI_ApprovalStatus_Update</members>
+        <members>Apttus_Config2__LineItem__c.List_Price</members>
+        <members>Apttus_Config2__LineItem__c.Quan_Update</members>
+        <members>Apttus_Config2__LineItem__c.Quan_Update_FBA</members>
+        <members>Apttus_Config2__PriceList__c.Update_Contract_Name</members>
+        <members>Apttus_Config2__SummaryGroup__c.Update_Adjustment_Type_Indirect</members>
+        <members>Apttus_Config2__SummaryGroup__c.Update_Adjustment_Type_NSW_Direct</members>
+        <members>Apttus_Config2__SummaryGroup__c.Update_Adjustment_type_on_summary_group</members>
+        <members>Apttus_Proposal__Proposal__c.Approval_Stage_Update</members>
+        <members>Apttus_Proposal__Proposal__c.Approval_Stage_Update_For_Recall</members>
+        <members>Apttus_Proposal__Proposal__c.Blank_Submitted_date</members>
+        <members>Apttus_Proposal__Proposal__c.CPQ_Application_Code_update</members>
+        <members>Apttus_Proposal__Proposal__c.CPQ_DraftStatus</members>
+        <members>Apttus_Proposal__Proposal__c.Change_record_type_to_editable</members>
+        <members>Apttus_Proposal__Proposal__c.Change_record_type_to_read_only</members>
+        <members>Apttus_Proposal__Proposal__c.DS_Update_End_Date</members>
+        <members>Apttus_Proposal__Proposal__c.DS_Update_StartDate_Based_OnEndDateAndTe</members>
+        <members>Apttus_Proposal__Proposal__c.DS_Update_Term_In_Month</members>
+        <members>Apttus_Proposal__Proposal__c.DS_Update_Terms</members>
+        <members>Apttus_Proposal__Proposal__c.DS_Update_contract_start_date_and_Term</members>
+        <members>Apttus_Proposal__Proposal__c.Make_NCQ_Quote_Read_Only</members>
+        <members>Apttus_Proposal__Proposal__c.Make_New_CQ_Quote_Read_Only</members>
+        <members>Apttus_Proposal__Proposal__c.NCQ_Update_Approval_Stage_to_Approved</members>
+        <members>Apttus_Proposal__Proposal__c.Need_Reprice_update</members>
+        <members>Apttus_Proposal__Proposal__c.Nokia_CPQ_update_shipping_location</members>
+        <members>Apttus_Proposal__Proposal__c.Quote_Status_field_update</members>
+        <members>Apttus_Proposal__Proposal__c.Quote_Status_update2</members>
+        <members>Apttus_Proposal__Proposal__c.Quote_Status_update3</members>
+        <members>Apttus_Proposal__Proposal__c.Quote_Update</members>
+        <members>Apttus_Proposal__Proposal__c.Record_Type_change_to_Quote_Read_Only</members>
+        <members>Apttus_Proposal__Proposal__c.Record_type</members>
+        <members>Apttus_Proposal__Proposal__c.Set_LoA_Status_To_Rejected</members>
+        <members>Apttus_Proposal__Proposal__c.Unchecked_Indirect_Approval_Required</members>
+        <members>Apttus_Proposal__Proposal__c.Update_CQ_Close_date_blank</members>
+        <members>Apttus_Proposal__Proposal__c.Update_Close_Date</members>
+        <members>Apttus_Proposal__Proposal__c.Update_Contract_End_Date</members>
+        <members>Apttus_Proposal__Proposal__c.Update_isRebid_status_to_false</members>
+        <members>Apttus_Proposal__Proposal__c.update_IsCQ</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Agreement_Naming_convention</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Expiry_Status_Catagory_Field_Update</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Expiry_status_Field_update</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Set_nonstd_legal_language_to_False</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Set_nonstd_legal_language_to_true</members>
+        <members>Apttus__APTS_Agreement__c.DS_Populate_Agreement_EPR_to_Blue_Planet</members>
+        <members>Apttus__APTS_Agreement__c.DS_Populate_Agreement_EPR_to_P20</members>
+        <members>Apttus__Agreement_Clause__c.CLM_Reset_Answer_to_Null</members>
+        <members>Apttus__Agreement_Clause__c.CLM_Reset_Level_to_Null</members>
+        <members>Apttus__Agreement_Clause__c.CLM_Update_Pre_Negotiated_Clause_Text</members>
+        <members>CH_CaseTag__c.CH_Update_Tag_ID</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_AutoFill_ADT</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_AutoFill_EDT</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_Autofill_CDT</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_Update_Assigned_Date</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_Update_Cancelled_Date</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_Update_Closed_Date</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_Update_Rejected_Date</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_Update_Status_Field</members>
+        <members>CH_CustomerGroup_Account__c.CH_CA_CustomerGroup_Customer</members>
+        <members>CH_Manage_Escalation__c.CH_End_Date</members>
+        <members>CH_Manage_Escalation__c.CH_ME_EndDAtePopulation</members>
+        <members>CH_Manage_Escalation__c.Rejected_Date</members>
+        <members>CH_OutageDuration__c.CH_UpdateODREndDateOnCase</members>
+        <members>CH_ProductGroup_Product__c.CH_CA_ProductGroup_Product</members>
+        <members>CH_Track_Field_Change__c.CH_CheckDurationOpentoRoutedUpdated</members>
+        <members>CH_Track_Field_Change__c.CalculateDurationOpentToRouted</members>
+        <members>CH_WorkgroupCLISeverityAssociation__c.CH_CA_Save_CLISA_For_Duplication_Check</members>
+        <members>CH_WorkgroupCountryAssociation__c.CH_CA_Save_CA_For_Duplicate_Check</members>
+        <members>CH_WorkgroupCustomerAssociation__c.CH_CA_Save_CA_For_Duplicate_Check</members>
+        <members>CH_WorkgroupServiceContractAssociation__c.CH_CA_Save_SCA_For_Duplication_Check</members>
+        <members>CH_Workgroup_Business_Hours_Association__c.CH_CA_BusinessHours_Duplicate_Check</members>
+        <members>CH_Workgroup_Filter_Customer_Association__c.CH_CA_Customer_Duplication_Check</members>
+        <members>CH_Workgroup_Filter_Product_Association__c.CH_CA_Product_Duplication_Check</members>
+        <members>CH_Workgroup_Member_Timeslot_Association__c.CH_CA_Timeslot_Member_Duplicate_Check</members>
+        <members>CH_Workgroup_Member_Timeslot_Association__c.CH_GridBuddy_Schedule_Id</members>
+        <members>CH_Workgroup_Member_Timeslot_Association__c.CH_GridBuddy_Schedule_Name</members>
+        <members>CH_Workgroup_Member_Timeslot_Association__c.CH_GridBuddy_TimeSlot_Name</members>
+        <members>CH_Workgroup_Member_Timeslot_Association__c.CH_GridBuddy_Workgroup_Id</members>
+        <members>CH_Workgroup_Member_Timeslot_Association__c.CH_GridBuddy_Workgroup_Name</members>
+        <members>CH_Workgroup_Member__c.CH_UpdateWorkgroupMemberUserName</members>
+        <members>CH_Workgroup_Member__c.CH_Update_WorkgroupMember_Hidden_Name</members>
+        <members>CH_Workgroup_Schedule_Timeslot__c.CH_GridBuddy_Schedule_Name</members>
+        <members>CH_Workgroup_Schedule_Timeslot__c.CH_GridBuddy_Workgroup_Id</members>
+        <members>CH_Workgroup_Schedule_Timeslot__c.CH_GridBuddy_Workgroup_Name</members>
+        <members>CQ_Customer_Contact__c.CQ_Update_Clonefield</members>
+        <members>Case.Access_Visiblity_issue_for_Europe</members>
+        <members>Case.Auto_approval_set_to_false</members>
+        <members>Case.Back_To_APJ_KU_Queue</members>
+        <members>Case.Back_To_EUR_KU_Queue</members>
+        <members>Case.Back_To_GCHN_KU_Queue</members>
+        <members>Case.Back_To_India_KU_Queue</members>
+        <members>Case.Back_To_LAT_KU_Queue</members>
+        <members>Case.Back_To_MEA_KU_Queue</members>
+        <members>Case.Back_To_NAM_KU_Queue</members>
+        <members>Case.Back_to_KU_Validation</members>
+        <members>Case.CH_Calculate_Customer_Pending_Time</members>
+        <members>Case.CH_ChangeCaseOwner</members>
+        <members>Case.CH_Clear_Current_Queue_Value_in_Problem</members>
+        <members>Case.CH_ConcatenateValues</members>
+        <members>Case.CH_Concatenate_Problem_Values</members>
+        <members>Case.CH_Concatenate_values</members>
+        <members>Case.CH_EntStatus_Automated</members>
+        <members>Case.CH_EntStatus_EntitledManually</members>
+        <members>Case.CH_EntStatus_NotApplicable</members>
+        <members>Case.CH_EntStatus_Pending</members>
+        <members>Case.CH_EntStatus_PendingCAPM</members>
+        <members>Case.CH_OED_Action</members>
+        <members>Case.CH_OED_NotAutoPopAction</members>
+        <members>Case.CH_OED_StatusChange</members>
+        <members>Case.CH_UpdateDurationOpenToRouted</members>
+        <members>Case.CH_Update_Customer_Pending_Timestamp</members>
+        <members>Case.Case_Owner_Update</members>
+        <members>Case.Close_NIRA_Draft_Case</members>
+        <members>Case.Data_Load_Reqest</members>
+        <members>Case.EDUT_Update_SLA_Violated</members>
+        <members>Case.ERM_Related</members>
+        <members>Case.Field_update_LA</members>
+        <members>Case.Field_update_for_India</members>
+        <members>Case.Field_update_for_MEA</members>
+        <members>Case.Field_update_for_NA</members>
+        <members>Case.GSO_Approval</members>
+        <members>Case.GSO_Approval_Reject</members>
+        <members>Case.New_queue_owner</members>
+        <members>Case.Owner_Team</members>
+        <members>Case.Owner_Update</members>
+        <members>Case.Populate_Submission_date_time</members>
+        <members>Case.Status_Update</members>
+        <members>Case.Status_Update_GSO</members>
+        <members>Case.Status_Update_GSS</members>
+        <members>Case.Status_Update_User_Creation</members>
+        <members>Case.Update_As_Auto_Approve_By_System_False</members>
+        <members>Case.Update_CH_R_D_Flag</members>
+        <members>Case.Update_Owner_to_GSO</members>
+        <members>Case.Update_Owner_to_GSS</members>
+        <members>Case.Update_Severity</members>
+        <members>Case.Update_Status_Old</members>
+        <members>Case.Update_status_to_new</members>
+        <members>Co_Op_Activity__c.Update_Co_Op_Activity_expiration_date</members>
+        <members>Co_Op_Allocation__c.Update_co_opallocation_Days_to_expire</members>
+        <members>Contact.NCP_Update_Sync_To_Marketo_Customer</members>
+        <members>Contact.NCP_Update_Sync_To_Marketo_Supplier</members>
+        <members>ContractLineItem.CH_CA_CLI_Hidden_Name</members>
+        <members>ContractLineItem.CH_Update_Line_Item_Script_Flag</members>
+        <members>ContractLineItem.HWS_Field_update</members>
+        <members>ContractLineItem.HWS_Field_update_MVR_RFR_to_RFR</members>
+        <members>ContractLineItem.HWS_Service_Type_code_MVR_IR_to_IR</members>
+        <members>ContractLineItem.HWS_Update_Service_Item_Description</members>
+        <members>ContractLineItem.HWS_Update_Service_Type_MVR_RFR_to_RFR</members>
+        <members>ContractLineItem.HWS_Update_service_mapping_id_to_RFR</members>
+        <members>ContractLineItem.HWS_update_service_item_code</members>
+        <members>ContractLineItem.HWS_update_service_mapping</members>
+        <members>ContractLineItem.HWS_update_service_mapping_to_IR</members>
+        <members>ContractLineItem.HWS_update_service_type_code</members>
+        <members>ContractLineItem.Hws_service_type</members>
+        <members>Customer_Document_Junction__c.update_unique_field_to_check_duplication</members>
+        <members>Customer_Document__c.Update_Customer_Document_Record_type</members>
+        <members>Entitlement.HWS_Field_update_MVR_RFR_to_RFR</members>
+        <members>Entitlement.HWS_Update_service_mapping_id_to_MVR_IR</members>
+        <members>Entitlement.HWS_update_service_mappingId_RFE_to_RFR</members>
+        <members>Knowledge__kav.CH_Capture_Version_Creator</members>
+        <members>Knowledge__kav.CH_Deselect_Candidate_For_External</members>
+        <members>Knowledge__kav.CH_KB_UpdateValidationStatus</members>
+        <members>Knowledge__kav.CH_Set_Reviewer_to_Null</members>
+        <members>Knowledge__kav.PSP_Update_Validation_Status</members>
+        <members>Knowledge__kav.Set_In_Approval_to_False</members>
+        <members>Knowledge__kav.Set_In_Approval_to_True</members>
+        <members>Knowledge__kav.Update_Validation_Status_External</members>
+        <members>Lead.updatedatetimeinfo</members>
+        <members>Offer__c.Customer_Offer_Due_Date_2</members>
+        <members>Opportunity.G3_Submission_dates_Update</members>
+        <members>Opportunity.G4_Submission_dates_Update</members>
+        <members>Opportunity.G5_Submission_dates_Update</members>
+        <members>Opportunity.NF_G3_Approval_Date_Update</members>
+        <members>Opportunity.NF_G4_Approval_Date_Update</members>
+        <members>Opportunity.NF_G5_Approval_Date_Update</members>
+        <members>Opportunity.NF_G5_Contract_Sign_Date</members>
+        <members>Opportunity.PSR_PO_Expected_Initial</members>
+        <members>Opportunity.Stalling_Opportunity</members>
+        <members>Opportunity.Stalling_Opportunity_false</members>
+        <members>Opportunity.Update_Approval_Current_Status</members>
+        <members>Product_Extension__c.Update_BG_Field_from_Product</members>
+        <members>Project_Feedback__c.Set_Owner_to_Primary_POC</members>
+        <members>ServiceContract.CH_CA_ServiceContractAccount_Hidden_Name</members>
+        <members>ServiceContract.CH_UpdateEntitlementScriptFlag</members>
+        <members>Task.CLM_Update_Task_Comments_Field</members>
+        <members>Task.CLM_Update_Task_Subject_Field</members>
+        <members>User.DCP_Deactivate1</members>
+        <members>User.DCP_deactivate</members>
+        <members>User.Set_Case_Handling_Internal_Contact_True</members>
+        <members>User.Update_Email_Sent_Date</members>
+        <members>User.Update_Old_Email</members>
+        <members>User.update_auto_deactivation</members>
+        <members>jiffle__Invites__c.jiffle__Meeting_Requestor_Update_on_Meeting</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>Interface_Log__c.Workato_Outbound</members>
+        <name>WorkflowOutboundMessage</name>
+    </types>
+    <types>
+        <members>Account.Disable Partner Uncheck on Account Enabled as Partner</members>
+        <members>Account.Email notification to be sent out if the Partner Status is Customer Terminated or Partner Terminated</members>
+        <members>Additional_Resource_Request__c.Access Level Change - Admin</members>
+        <members>Additional_Resource_Request__c.Access Level Change - Relationship Manager</members>
+        <members>Additional_Resource_Request__c.Access Level Change - Training Manager</members>
+        <members>Additional_Resource_Request__c.Access Level Change - Viewer</members>
+        <members>Additional_Resource_Request__c.Notification to user when coop eligible</members>
+        <members>Additional_Resource_Request__c.PRM ARR NDAC - Notify Completed</members>
+        <members>Additional_Resource_Request__c.PRM ARR NDAC - Notify Rejected</members>
+        <members>Additional_Resource_Request__c.Previous value of Access Level</members>
+        <members>Additional_Resource_Request__c.Previous value of request status</members>
+        <members>Additional_Resource_Request__c.Update Access Requested Date</members>
+        <members>Additional_Resource_Request__c.Update Procurement Completed Date</members>
+        <members>Additional_Resource_Request__c.Update Removal Completed Date</members>
+        <members>Additional_Resource_Request__c.Update Removal Requested Date</members>
+        <members>Additional_Resource_Request__c.Update Removal Requested Date with partner type %3DNo%3D _v1</members>
+        <members>Additional_Resource_Request__c.Update Removal Requested Date with partner type %3DYes%3D</members>
+        <members>Apttus_Approval__Approval_Request__c.CPQ_EBG Notifiication for Approval Request Comments</members>
+        <members>Apttus_Approval__Approval_Request__c.NF_G3 Approvers Remainder</members>
+        <members>Apttus_Approval__Approval_Request__c.NF_G3 Validator Reminder</members>
+        <members>Apttus_Approval__Approval_Request__c.NF_G4 Approvers Remainder</members>
+        <members>Apttus_Approval__Approval_Request__c.NF_G4 Validator Reminder</members>
+        <members>Apttus_Approval__Approval_Request__c.NF_G5 Approvers Remainder</members>
+        <members>Apttus_Approval__Approval_Request__c.NF_G5 Validator Reminder</members>
+        <members>Apttus_Approval__Approval_Request__c.NF_RejectPendingLongApprovals</members>
+        <members>Apttus_Approval__Approval_Request__c.NF_StakeHolder Status Update</members>
+        <members>Apttus_Approval__Approval_Request__c.NF_StakeHolder Status Update to Notify</members>
+        <members>Apttus_Approval__Approval_Request__c.Notify PSM for Approval Request Comments</members>
+        <members>Apttus_Approval__Backup_Approver__c.Apttus_Approval__Send Delegation Notification</members>
+        <members>Apttus_Approval__Backup_Approver__c.Apttus_Approval__Send Reassignment Notification</members>
+        <members>Apttus_Approval__Backup_Approver__c.Send Backup notification to Current User</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS Check ERP is P20</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS Check ERP is blank</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS Check if Contract End Date is blank on CPO</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS Check if Contract End Date is not Blank on CPO</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS Check if Terms has changed on CPO</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS_CPOEmailTrigger</members>
+        <members>Apttus_Config2__CustomerPurchaseOrder__c.DS_StartDate Calculation on Term And End Date on CPO</members>
+        <members>Apttus_Config2__LineItem__c.Account Market Update</members>
+        <members>Apttus_Config2__LineItem__c.CPQ_Approval_Check</members>
+        <members>Apttus_Config2__LineItem__c.DS Update Customer Grouping</members>
+        <members>Apttus_Config2__LineItem__c.Enable Manual Adjustment For Options</members>
+        <members>Apttus_Config2__LineItem__c.Is FBA Update</members>
+        <members>Apttus_Config2__LineItem__c.Is P2P Update</members>
+        <members>Apttus_Config2__LineItem__c.ON Quantity Update</members>
+        <members>Apttus_Config2__LineItem__c.ON Quantity Update FBA</members>
+        <members>Apttus_Config2__LineItem__c.Update ONT Qunatity</members>
+        <members>Apttus_Config2__PriceList__c.Update Contract Name</members>
+        <members>Apttus_Config2__ProductConfiguration__c.CPQ_Approval_Completion</members>
+        <members>Apttus_Config2__SummaryGroup__c.Disallow Manual Adjustment on Summary Group</members>
+        <members>Apttus_Config2__SummaryGroup__c.Nokia CPQ update Adjustment Type for Direct</members>
+        <members>Apttus_Config2__SummaryGroup__c.Nokia CPQ update adjustment type for direct quotes</members>
+        <members>Apttus_Config2__SummaryGroup__c.Nokia CPQ update adjustment type for indirect quotes</members>
+        <members>Apttus_Proposal__Proposal_Line_Item__c.DS Update Customer Grouping to Other</members>
+        <members>Apttus_Proposal__Proposal__c.Application_Code_setup</members>
+        <members>Apttus_Proposal__Proposal__c.Auto update the shipping location on quote</members>
+        <members>Apttus_Proposal__Proposal__c.CCRE%2FCXM_Change Quote Record type when Published</members>
+        <members>Apttus_Proposal__Proposal__c.CPQ_Approval_To_Draft</members>
+        <members>Apttus_Proposal__Proposal__c.CPQ_EBG Send Email to Inform about Rejected Stage</members>
+        <members>Apttus_Proposal__Proposal__c.CPQ_EBG_Notification for Quote Approval Status</members>
+        <members>Apttus_Proposal__Proposal__c.CQ - Update isRebid status to false after rebid</members>
+        <members>Apttus_Proposal__Proposal__c.CQ Change record type to editable</members>
+        <members>Apttus_Proposal__Proposal__c.CQ change to Read only</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_ApprovalStage_Accepted</members>
+        <members>Apttus_Proposal__Proposal__c.CQ_SendNotificationUponeQuoteFailure</members>
+        <members>Apttus_Proposal__Proposal__c.Change Quote Record type when Accepted</members>
+        <members>Apttus_Proposal__Proposal__c.Change Quote Status from %27Price%27 to %27Validate%27</members>
+        <members>Apttus_Proposal__Proposal__c.Change Quote status from %27Accept%27 to %27Order%27</members>
+        <members>Apttus_Proposal__Proposal__c.Change Quote status from %27Submit%27 to %27Accept%27</members>
+        <members>Apttus_Proposal__Proposal__c.Change the Approved Stage while recall the Approval Process</members>
+        <members>Apttus_Proposal__Proposal__c.DS Check if Contract End Date is blank</members>
+        <members>Apttus_Proposal__Proposal__c.DS Check if Contract End Date is not Blank</members>
+        <members>Apttus_Proposal__Proposal__c.DS Check if Terms has changed</members>
+        <members>Apttus_Proposal__Proposal__c.DS Send Email Alert To AM when Quote is in Draft</members>
+        <members>Apttus_Proposal__Proposal__c.DS Sent Email To AM when Quote is in Approved</members>
+        <members>Apttus_Proposal__Proposal__c.DS_Change Quote Record type when Accepted For Customer</members>
+        <members>Apttus_Proposal__Proposal__c.DS_Populate Quote Start Date</members>
+        <members>Apttus_Proposal__Proposal__c.DS_Quote_Published_Email_Notification</members>
+        <members>Apttus_Proposal__Proposal__c.DS_StartDate Calculation on Term And End Date</members>
+        <members>Apttus_Proposal__Proposal__c.DirectQuoteStatusOnClone</members>
+        <members>Apttus_Proposal__Proposal__c.NCQ change to Read only</members>
+        <members>Apttus_Proposal__Proposal__c.NCQ-Change the Approval Stage to Approved upon document generation</members>
+        <members>Apttus_Proposal__Proposal__c.Needs Reprice is True</members>
+        <members>Apttus_Proposal__Proposal__c.New CQ change to Read only</members>
+        <members>Apttus_Proposal__Proposal__c.Notification for PSM for Quote Approval Status</members>
+        <members>Apttus_Proposal__Proposal__c.Notification to AM- Approval Required</members>
+        <members>Apttus_Proposal__Proposal__c.Send Email Notification when Contract already in Place</members>
+        <members>Apttus_Proposal__Proposal__c.Send Email to PSM to Inform about Rejected Stage</members>
+        <members>Apttus_Proposal__Proposal__c.Send Mail To Partner User For LEO Quote Certification</members>
+        <members>Apttus_Proposal__Proposal__c.Set_LoAStatus_to_Rejected_when_Quote_is_Rejected</members>
+        <members>Apttus_Proposal__Proposal__c.Update IsCQ on quote on creation</members>
+        <members>Apttus_Proposal__Proposal__c.Update Needs Reprice When Maintenance Changed</members>
+        <members>Apttus__APTS_Agreement__c.CLM Agreement Name Rule</members>
+        <members>Apttus__APTS_Agreement__c.CLM Contract Request is created but not submitted to Legal</members>
+        <members>Apttus__APTS_Agreement__c.CLM Notification to CM AM for Automatic agreement Creation</members>
+        <members>Apttus__APTS_Agreement__c.CLM Renewal Notification</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Set NonStandard Legal Language field</members>
+        <members>Apttus__APTS_Agreement__c.CLM_Set nonstd legal language to False</members>
+        <members>Apttus__APTS_Agreement__c.DS Populate ERP field on agreement_Blue Planet</members>
+        <members>Apttus__APTS_Agreement__c.DS Populate ERP field on agreement_P20</members>
+        <members>Apttus__Agreement_Clause__c.CLM_Reset Answer and Level</members>
+        <members>Apttus__Agreement_Clause__c.CLM_Update Pre-Negotiated Clause Text</members>
+        <members>Business_Plan__c.Business Plan Submission Email PRM equl to PSM</members>
+        <members>Business_Plan__c.Business Plan Submission Email PRM not equl to PSM</members>
+        <members>CH_CaseTag__c.CH Update Case Tag ID</members>
+        <members>CH_Corrective_Preventive_Action__c.CH CPA Creation Notification</members>
+        <members>CH_Corrective_Preventive_Action__c.CH CPA Rejection Notification</members>
+        <members>CH_Corrective_Preventive_Action__c.CH Update Assigned Date When CPA owner is Assigned</members>
+        <members>CH_Corrective_Preventive_Action__c.CH Update Cancelled Date When CPA owner Cancel the Action</members>
+        <members>CH_Corrective_Preventive_Action__c.CH Update Closed Date When CPA owner Closes the Action</members>
+        <members>CH_Corrective_Preventive_Action__c.CH Update Rejected Date When CPA owner Rejects the Action</members>
+        <members>CH_Corrective_Preventive_Action__c.CH Update Status as Created</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_Assignment Notification</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_Creation Notification</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_Creation_Email_Notification_Managers</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_ExecutedDateTime</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_Rejection Notification</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_RejectionEmailNot</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_Update Assigned Date When CPA owner is Assigned</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_Update Cancelled Date When CPA owner Cancel the Action</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_Update Closed Date When CPA owner Closes the Action</members>
+        <members>CH_Corrective_Preventive_Action__c.CH_CPA_Update Rejected Date When CPA owner Rejects the Action</members>
+        <members>CH_CustomerGroup_Account__c.CH_CA_CustomerGroup_Duplication_Check</members>
+        <members>CH_Manage_Escalation__c.CH_EscalationEndDateAutoFill</members>
+        <members>CH_Manage_Escalation__c.CH_MEClosureEmailNotificationToPartners</members>
+        <members>CH_Manage_Escalation__c.CH_MEResourcesRequested</members>
+        <members>CH_Manage_Escalation__c.CH_WF_ME_Escalation End date</members>
+        <members>CH_Manage_Escalation__c.CH_WF_ME_Escalation Rejection date</members>
+        <members>CH_OutageDuration__c.CH_UpdateODREndDate</members>
+        <members>CH_ProductGroup_Product__c.CH_CA_ProductGroup_Duplication_Check</members>
+        <members>CH_Track_Field_Change__c.CH_PopulateDurationOpenToRouted</members>
+        <members>CH_WorkgroupCLISeverityAssociation__c.CH_CA_Save_ContractLineIemSeverityAssociation_For_Duplication_Check</members>
+        <members>CH_WorkgroupCountryAssociation__c.CH_CA_Save_CountryAssociation_For_Duplication_Check</members>
+        <members>CH_WorkgroupCustomerAssociation__c.CH_CA_Save_CustomerAssociation_For_Duplication_Check</members>
+        <members>CH_WorkgroupServiceContractAssociation__c.CH_CA_Save_ServiceContractAssociation_For_Duplicate_Check</members>
+        <members>CH_Workgroup_Business_Hours_Association__c.CH_CA_Save_Business_Hours_For_Duplication_Check</members>
+        <members>CH_Workgroup_Filter_Customer_Association__c.CH_CA_Save_Customer_For_Duplication_Check</members>
+        <members>CH_Workgroup_Filter_Product_Association__c.CH_CA_Save_Product_For_Duplication_Check</members>
+        <members>CH_Workgroup_Member_Timeslot_Association__c.CH_CA_Save_WorkgroupMemberId_For_Duplication_Check</members>
+        <members>CH_Workgroup_Member_Timeslot_Association__c.CH_CA_WGMTA</members>
+        <members>CH_Workgroup_Member__c.CH WorkgroupMember</members>
+        <members>CH_Workgroup_Member__c.CH_UpdateWorkgroupMemberUserName</members>
+        <members>CH_Workgroup_Schedule_Timeslot__c.CH_CA_WGSTS</members>
+        <members>CQ_Customer_Contact__c.CQ_Update_Cloneflag</members>
+        <members>CQ_Quote_Team__c.CQ_Quote team member assignment</members>
+        <members>Case.Access%2FVisibility Issue- Europe</members>
+        <members>Case.Access%2FVisibility Issue- India</members>
+        <members>Case.Access%2FVisibility Issue- LAT</members>
+        <members>Case.Access%2FVisibility Issue- MEA</members>
+        <members>Case.Access%2FVisibility issue- NAM</members>
+        <members>Case.All Issue- APJ</members>
+        <members>Case.All Issue-Europe %28excluding Access%2FVisibility%29</members>
+        <members>Case.All Issues-Greater China</members>
+        <members>Case.Assign Case To GSO Queue</members>
+        <members>Case.Assign Case To GSS Queue</members>
+        <members>Case.CH Calculate Customer Pending Time</members>
+        <members>Case.CH Populate Customer Pending Timestamp</members>
+        <members>Case.CH_ Security Group Issue</members>
+        <members>Case.CH_ User Access Issue</members>
+        <members>Case.CH_Assign_Value_to_ReportedDate</members>
+        <members>Case.CH_CA_Assigned_To_Queue</members>
+        <members>Case.CH_Concatenate Search Relevant Fields in Description</members>
+        <members>Case.CH_ConcatenateSearch</members>
+        <members>Case.CH_ConcatenateSearchProblem</members>
+        <members>Case.CH_Current Queue Removal When Problem Owner Changes</members>
+        <members>Case.CH_EntException_NoException</members>
+        <members>Case.CH_EntException_NotApplicable</members>
+        <members>Case.CH_EntException_NotListed</members>
+        <members>Case.CH_EntException_VerificationNotRequired</members>
+        <members>Case.CH_EntException_VerificationRequired</members>
+        <members>Case.CH_General Issues %28 NAM and LAT%29</members>
+        <members>Case.CH_General Issues %28China%2FIndia%2FAPJ%29</members>
+        <members>Case.CH_General Issues %28Europe and MEA%29</members>
+        <members>Case.CH_Move_To_Completed</members>
+        <members>Case.CH_OED_AutoPopulated</members>
+        <members>Case.CH_OED_NotAutoPopulated</members>
+        <members>Case.CH_OED_StatusChangedForSeverity</members>
+        <members>Case.CH_R%26DReference_ReadOnly</members>
+        <members>Case.CH_SetPriorityOnCritical</members>
+        <members>Case.CH_SetPriorityOnMajor</members>
+        <members>Case.CH_SetPriorityOnMinorOrInformationRequest</members>
+        <members>Case.CH_Set_Reported_Date</members>
+        <members>Case.CH_UpdateAssessedOutageNo</members>
+        <members>Case.CH_UpdateAssessedOutageYes</members>
+        <members>Case.CH_UpdateDurationOpenToRouted</members>
+        <members>Case.CH_Update_Field_Severity_Old</members>
+        <members>Case.CH_Update_Field_Status_Old</members>
+        <members>Case.CLM Related Support Ticket</members>
+        <members>Case.CPQ Related</members>
+        <members>Case.CSR - Cancelled</members>
+        <members>Case.CSR - GSS SPOC contact</members>
+        <members>Case.CSR - GSS SPOC queue assignment</members>
+        <members>Case.CSR - On Hold</members>
+        <members>Case.CSR - Reopened</members>
+        <members>Case.CSR - SME escalation</members>
+        <members>Case.CSR - SME response</members>
+        <members>Case.CSR - SME response available</members>
+        <members>Case.CSR - SME start</members>
+        <members>Case.CSR - SPOC response</members>
+        <members>Case.Case Handling Tickets</members>
+        <members>Case.ERM Related</members>
+        <members>Case.HWS_CaseEscalation_ResolvedEmail</members>
+        <members>Case.IR Application Notification</members>
+        <members>Case.Issue with Data- India</members>
+        <members>Case.Issue with Data- MEA</members>
+        <members>Case.Issue with Data- NAM</members>
+        <members>Case.Issue with Data-LAT</members>
+        <members>Case.Issue with Gates- India</members>
+        <members>Case.Issue with Gates- LAT</members>
+        <members>Case.Issue with Gates- MEA</members>
+        <members>Case.Issue with Reporting- India</members>
+        <members>Case.Issue with Reporting- LAT</members>
+        <members>Case.Issue with Reporting- MEA</members>
+        <members>Case.Issue with Reporting- NAM</members>
+        <members>Case.Issue with System- India</members>
+        <members>Case.Issue with System- LAT</members>
+        <members>Case.Issue with System- MEA</members>
+        <members>Case.Marketing- Case Management</members>
+        <members>Case.Mass Update Request- Case Management</members>
+        <members>Case.NCP Approve Customer Entitlements Case</members>
+        <members>Case.NCP CARES Approve Customer Entitlements Case</members>
+        <members>Case.NCP Contact Lead Duplicate case created</members>
+        <members>Case.NCP Contact Lead Duplicate case resolved</members>
+        <members>Case.PRM Manage NIRA Applications</members>
+        <members>Case.PRM Manage NIRA Child Applications</members>
+        <members>Case.PRM Notify NDAC Approvers</members>
+        <members>Case.Quote-to-Order ticket Routing</members>
+        <members>Case.Reminder After Submission of IR Approval</members>
+        <members>Case.Reminder After Submission of IR Approval Updated</members>
+        <members>Case.Reminder for BG Approval on creation</members>
+        <members>Case.Send CaPM Email to Account Owner</members>
+        <members>Case.Send IR Application Acceptance Email</members>
+        <members>Case.SetAsAutoApproveBySystem_False</members>
+        <members>Case.sCRM General Issue- Latin America</members>
+        <members>Case.sCRM General Issue- MEA</members>
+        <members>Case.sCRM General Issue- North America</members>
+        <members>Case.sCRM General Issue-India</members>
+        <members>Claim__c.Update Claim to Expired</members>
+        <members>Co_Op_Activity__c.PRM Coop activity claimable</members>
+        <members>Co_Op_Activity__c.Update CoOp Activity Expiry Date</members>
+        <members>Co_Op_Allocation__c.Update co-opallocation Days to expire</members>
+        <members>Contact.Contact Inactive Mail</members>
+        <members>Contact.Contact Marketo check for Customer Type</members>
+        <members>Contact.NCP Sync To Marketo%28Customer%29</members>
+        <members>Contact.NCP Sync To Marketo%28Supplier%29</members>
+        <members>ContractLineItem.CH_CA_CLI</members>
+        <members>ContractLineItem.CH_Check Line Item Script</members>
+        <members>ContractLineItem.HWS Update Service Item Description</members>
+        <members>ContractLineItem.HWS Update Service Type</members>
+        <members>ContractLineItem.HWS Update Service Type MVR IR to IR</members>
+        <members>ContractLineItem.HWS Update Service Type MVR RFR to RFR</members>
+        <members>Customer_Document_Junction__c.Check for duplicate association of Quote Proposal</members>
+        <members>Customer_Document__c.Send email when status of CDR is changed</members>
+        <members>Customer_Document__c.Send email when status of CDR is changed to Registered</members>
+        <members>Customer_Document__c.Update Record type to ReadOnly</members>
+        <members>Dated_Exchange_Rates__c.CLF_Currency_ConversionRule</members>
+        <members>Entitlement.Update service mapping Id for MVR IR</members>
+        <members>Entitlement.Update service mapping Id for MVR RFR</members>
+        <members>Entitlement.Update service mapping Id for RFE</members>
+        <members>Field_Trip__Object_Analysis__c.Field_Trip__Processing Complete</members>
+        <members>Interface_Log__c.InterfaceLogErrorNotification</members>
+        <members>Interface_Log__c.InterfaceLogErrorNotification_CPQ</members>
+        <members>Interface_Log__c.Workato_Outbound</members>
+        <members>Knowledge__kav.CH_ApproverChecksMinorChangesFalse</members>
+        <members>Knowledge__kav.CH_ApproverChecksMinorChangesTrue</members>
+        <members>Knowledge__kav.CH_ArchivedArticles</members>
+        <members>Knowledge__kav.Update Validation Status - External</members>
+        <members>Knowledge__kav.Update Validation Status - Internal</members>
+        <members>Lead.Lead Ownership change to Sales</members>
+        <members>NIA_SurveyResponse__c.NIA_SurveyResponseNotification</members>
+        <members>Offer__c.Update Customer Offer Due Date1</members>
+        <members>Opportunity.G2 to G6 Submission dates</members>
+        <members>Opportunity.NF_ByPassApprovalG3</members>
+        <members>Opportunity.NF_ByPassApprovalG5</members>
+        <members>Opportunity.NF_ByPassApprovalG6</members>
+        <members>Opportunity.Noki 2</members>
+        <members>Opportunity.PSR_In_Execution</members>
+        <members>Opportunity.Reset Approval Current Status</members>
+        <members>Opportunity.Update on Last Modified Risk Section</members>
+        <members>Opportunity.Update on Last Modified Upside Section</members>
+        <members>Opportunity.Update_Opportunity_ID</members>
+        <members>Opportunity.When PSP Selected at Opportunity</members>
+        <members>Product2.NokiaCPQ_ProductStatus</members>
+        <members>Product_Extension__c.Update BG Field from Product to ProductExtension</members>
+        <members>SWx_Upsell_Proposal__c.Change Upsell Stage to Replaced</members>
+        <members>SWx_Upsell_Proposal__c.DS SWX Record Type Assignment on Reject</members>
+        <members>SWx_Upsell_Proposal__c.SWX Digital Proposal</members>
+        <members>ServiceContract.CH_CA_SC</members>
+        <members>ServiceContract.CH_CheckEntitlementScript</members>
+        <members>ServiceContract.CH_RenegotiationStartDateReminder</members>
+        <members>Surround_CQ_Reporting__c.CQ expired</members>
+        <members>Surround_CQ_Reporting__c.CQ expiring in in 5 days</members>
+        <members>Surround_CQ_Reporting__c.CQ_Rep_DueDate_is_Approaching</members>
+        <members>Surround_CQ_Reporting__c.CQ_Rep_DueDate_is_Today</members>
+        <members>Task.CLM Update Task Subject on Agreement</members>
+        <members>User.Auto Deactivation DCP Internal Portal User</members>
+        <members>User.DCP Internal Portal User%3A Field Update</members>
+        <members>User.Set Case Handling Internal Contact to true</members>
+        <members>User.Update old email value on User record</members>
+        <members>User.User Deactivation not logged in %3E 90 Days Email Notification</members>
+        <members>grax__GRAX_Schedule_Process__c.grax__GRAX Schedule Process Finished</members>
+        <members>jiffle__Invites__c.jiffle__Meeting Requestor Update</members>
+        <name>WorkflowRule</name>
+    </types>
+    <version>53.0</version>
+</Package>
