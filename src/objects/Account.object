@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <fullName>Address_is_Required_on_Prospect</fullName>
+        <active>true</active>
+        <description>Address related fields needs to be mandatory during prospect creation.
+Requirement# 585
+Defect# D-0179</description>
+        <errorConditionFormula>RecordType.Name  = &quot;Prospect&quot; &amp;&amp; ( ISBLANK( BillingCity ) || ISBLANK(  BillingCountry )|| ISBLANK(  BillingStreet ))</errorConditionFormula>
+        <errorMessage>Address related fields needs to be mandatory during prospect creation.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Check_NSA_Account_owner</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISCHANGED(OwnerId),
+ISPICKVAL(Customer_Compliance__c ,&apos;US_Govern&apos;),(Owner.NSA_Compliant__c &lt;&gt; True),
+NOT(OR(
+Owner.Profile.Name = &apos;Integration API Only Profile&apos;,
+Owner.Profile.Name = &apos;System Administrator&apos;)))</errorConditionFormula>
+        <errorMessage>Only NSA Compliant user can work on NSA Accounts</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_Address_field_is_mandatory</fullName>
+        <active>true</active>
+        <description>Address field is mandatory for Logistic accounts</description>
+        <errorConditionFormula>AND(
+
+RecordType.DeveloperName = &apos;Logistic_Account&apos;,
+OR(
+ISBLANK(BillingCountry) ,
+ISBLANK(BillingStreet),
+ISBLANK(BillingCity),
+ISBLANK(BillingPostalCode) 
+)  
+)</errorConditionFormula>
+        <errorMessage>Please fill all required address fields.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_Atleast_one_ERP_ID_is_mandatory</fullName>
+        <active>true</active>
+        <description>User should fill atleast one ERP ID field out of available 4 fields (P20 Logistic ID,Blue Planet ID,QTC ID,ngERP ID)</description>
+        <errorConditionFormula>AND(
+NOT(ISPICKVAL(HWS_Address_Status__c, &apos;&apos;)),
+NOT(ISPICKVAL(HWS_Address_Status__c, &apos;Temporary Address&apos;)),
+RecordType.DeveloperName = &apos;Logistic_Account&apos;,
+ISBLANK(P20_Logistic_ID__c  ),
+ISBLANK(Blue_Planet_ID__c),
+ISBLANK(ngERP__c),
+ISBLANK(QTC_ID__c)  
+)</errorConditionFormula>
+        <errorMessage>Please fill atleast one ERP ID</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>End_Customers_must_be_for_geo_markets</fullName>
+        <active>true</active>
+        <description>SF TIcket 00018673.  If Business Partner Role=End Customer, CMD requires a geographical Market assignment</description>
+        <errorConditionFormula>AND(
+    $Profile.Name&lt;&gt;$Label.Data_Loader_Profile_Name , 
+    RecordType.Name = &apos;Prospect&apos; ,
+    ISPICKVAL(BusinessPartnerRole__c , &quot;End Customer&quot;),
+    OR(
+             ISPICKVAL(Market__c, &quot;Market Other&quot;)  
+      )
+)</errorConditionFormula>
+        <errorDisplayField>Market__c</errorDisplayField>
+        <errorMessage>For End Customer prospects, please select the appropriate geographical Market  (any subsequent CBT Code is acceptable, as CMD will reassign the appropriate geographical CBT)</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>HWS_StateField_Mandatory_for_Adhoc_Adres</fullName>
+        <active>true</active>
+        <description>State/Province field is mandatory when adhoc address for  country is US , Canada or India.</description>
+        <errorConditionFormula>AND(
+    RecordType.DeveloperName = &apos;Logistic_Account&apos;, 
+    ISBLANK( BillingState ),
+    ISPICKVAL( HWS_Address_Status__c , &apos;Temporary Address&apos;) ,   
+     CONTAINS($Label.HWS_Adhoc_Country_Field,BillingCountry)
+ )</errorConditionFormula>
+        <errorDisplayField>BillingState</errorDisplayField>
+        <errorMessage>State/Province field is mandatory.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Incoterm_Not_Greated_Than_20</fullName>
+        <active>true</active>
+        <errorConditionFormula>NokiaCPQ_Incoterm__c &gt; 0.50</errorConditionFormula>
+        <errorMessage>Incoterm % should not be greater than 50</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PRM_Display_on_Partner_Locator</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+				NOT($Profile.Name = &apos;System Administrator&apos; || $Profile.Name = &apos;Data Loader Profile&apos;),
+				ISPICKVAL(Partner_Type__c, &apos;Indirect Reseller&apos;),
+			 ISPICKVAL(Co_op_Account_Created__c, &apos;Yes&apos;)
+)</errorConditionFormula>
+        <errorDisplayField>Co_op_Account_Created__c</errorDisplayField>
+        <errorMessage>Indirect Reseller Accounts can&apos;t be displayed on the Partner Locator</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PRM_Partner_Terminated</fullName>
+        <active>true</active>
+        <description>SFPRM-490</description>
+        <errorConditionFormula>AND(
+				OR(
+        ISPICKVAL(Partner_Status__c, &apos;Partner Terminated&apos;),
+        ISPICKVAL(Partner_Status__c, &apos;Customer Terminated&apos;)
+				),
+				ISPICKVAL(Co_op_Account_Created__c, &apos;Yes&apos;),
+				ISCHANGED(Co_op_Account_Created__c)
+)</errorConditionFormula>
+        <errorDisplayField>Co_op_Account_Created__c</errorDisplayField>
+        <errorMessage>Partner/Customer Terminated Accounts can&apos;t be displayed on the Partner Locator</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>StateField_Mandatory_for_Adhoc_Address</fullName>
+        <active>true</active>
+        <description>State/Province field is mandatory when adhoc address for  country is US , Canada or India.</description>
+        <errorConditionFormula>AND(
+    RecordType.DeveloperName = &apos;Logistic_Account&apos;, 
+    ISBLANK( BillingState ),
+    ISPICKVAL( HWS_Address_Status__c , &apos;Temporary Address&apos;) ,   
+     CONTAINS($Label.HWS_Adhoc_Country_Field,BillingCountry)
+ )</errorConditionFormula>
+        <errorDisplayField>BillingState</errorDisplayField>
+        <errorMessage>State/Province field is mandatory.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Clone</fullName>
+        <availability>online</availability>
+        <description>Button to clone Accounts</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Clone</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/{!Account.Id}/e?clone=1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LeanData__Reassign_Account</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Reassign Account</masterLabel>
+        <openType>noSidebar</openType>
+        <page>LeanData__ReassignAccountAndChildren</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Partner_User_Report</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Partner User Report</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>{!URLFOR(&apos;/00O4100000857TZ?&apos;,null,[pv0=Account.Id])}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>grax__Object_Time_Machine</fullName>
+        <availability>online</availability>
+        <description>Button to view records updated via Object Time Machine</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Object Time Machine</masterLabel>
+        <openType>noSidebar</openType>
+        <protected>false</protected>
+        <url>/apex/grax__GRAXTimeMachine?Id={!Account.Id}&amp;recordName={!Account.Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>grax__Restore</fullName>
+        <availability>online</availability>
+        <description>Button to be used to view backed up/archived records via GRAX</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Restore</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/apex/grax__GRAXRestore?Id={!Account.Id}&amp;recordName={!Account.Name}</url>
+    </webLinks>
+</CustomObject>

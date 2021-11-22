@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <fullName>Address_Location_Account_does_not_match</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF($RecordType.Name = &quot;Network Element Asset&quot;,Account.AccountNumber != Address__r.Parent.CH_AccountName__r.AccountNumber,false)</errorConditionFormula>
+        <errorMessage>Selected Address Location Account does not match Asset Account</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_AssetUpdateValidation</fullName>
+        <active>true</active>
+        <description>NOKIASC-25553: Prevent Asset update when Profile or Permission Set doesn&apos;t match.</description>
+        <errorConditionFormula>AND ( 
+				NOT ( ISNEW() ) , 
+				NOT ( 
+								OR ( $Profile.Name = &quot;Integration API Only Profile&quot;, 
+												 $Profile.Name = &quot;Integration API Only Profile (basic)&quot; , 
+												 $Profile.Name = &quot;Integration API Only Profile - nonNSA&quot;,
+												 $Profile.Name = &quot;System Administrator&quot;,
+										$Profile.Name = &quot;Data Loader Profile&quot;,												 
+												 AND ( 
+																	CH_AssetRecordTypeName__c == &quot;CH_NetworkElementAsset&quot;, 
+																	$Permission.CH_NE_Asset_Admin
+													)
+											)
+				)
+)</errorConditionFormula>
+        <errorMessage>You don&apos;t have required access to update Asset.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_ServiceClassificationCDBContractType</fullName>
+        <active>true</active>
+        <description>Added for 24906</description>
+        <errorConditionFormula>AND(
+$RecordType.Name = &quot;Network Element Asset&quot;,
+CH_ContractLineItem__c !=null,
+OR(
+CH_ContractLineItem__r.CH_ServiceClassification__c ==null,
+ISBLANK(CH_ContractLineItem__r.CH_ServiceClassification__c ) ,
+ISNULL(CH_ContractLineItem__r.CH_ServiceClassification__c ),
+CONTAINS(CH_ContractLineItem__r.ServiceContract.CH_CDB_ContractType__c, &apos;Internal&apos;)
+)
+)</errorConditionFormula>
+        <errorMessage>Service Classification on Contract Line Item is blank or CDB contract type is Internal. Cannot associate Network Element Asset to CLI.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_ValidateAddress</fullName>
+        <active>true</active>
+        <description>Prevent creating/Editing assets with NEA record type without populating the address field</description>
+        <errorConditionFormula>$RecordType.Name = &quot;Network Element Asset&quot; &amp;&amp; Address__c  = null</errorConditionFormula>
+        <errorDisplayField>Address__c</errorDisplayField>
+        <errorMessage>The address should not be empty.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_ValidateDifferentCountryOnCLI</fullName>
+        <active>true</active>
+        <description>Prevent creating/editing assets with NEA record type that have the field CH_ContractLineItem__c populated when the country of the CLI is different from the country of the asset address</description>
+        <errorConditionFormula>$RecordType.Name = &quot;Network Element Asset&quot; &amp;&amp; 
+CH_ContractLineItem__c!=null &amp;&amp; 
+(LOWER(Address__r.Country) != LOWER(CH_ContractLineItem__r.CH_CountryISOName__c))</errorConditionFormula>
+        <errorMessage>Country on the Contract Line Item is different from the country on the asset address.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_ValidateProduct</fullName>
+        <active>true</active>
+        <description>Prevent creation of standalone NEAs without a product.</description>
+        <errorConditionFormula>AND($RecordType.Name = &quot;Network Element Asset&quot;,ISNEW(),Product2Id=null)</errorConditionFormula>
+        <errorMessage>Network Element Asset cannot be created without a Product.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_ValidateProductChange</fullName>
+        <active>true</active>
+        <description>Prevent users apart from Sys Admins and Data Loaders, to change the products on assets which are not of covered part record type.</description>
+        <errorConditionFormula>AND (
+    NOT (ISNEW()),
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    $Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;,
+    $RecordType.Name &lt;&gt; &quot;Covered Part&quot;,
+    ISCHANGED(Product2Id)
+)</errorConditionFormula>
+        <errorMessage>Product cannot be changed</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_ValidateProductFields</fullName>
+        <active>true</active>
+        <description>When a Network Elemen Asset record is created/editied the fields Product, Product Release, Product Variant and Solution must be the same as the asset of the related Contract Line Item- NOKIASC-24277</description>
+        <errorConditionFormula>OR(	
+		
+		AND($RecordType.Name = &quot;Network Element Asset&quot;,
+		CH_ContractLineItem__c!=null,
+				CH_ContractLineItem__r.CH_ServiceClassification__c ==&apos;HWS Service&apos;,
+		 OR(
+			CH_ContractLineItem__r.ServiceContract.AccountId &lt;&gt; AccountId,
+			CH_ContractLineItem__r.Asset.CH_CountryISOName__c &lt;&gt; CH_CountryISOName__c,
+			CH_ContractLineItem__r.Asset.Product2Id != Product2Id
+			)
+ 
+		)
+		
+		,
+		
+		AND(
+		$RecordType.Name = &quot;Network Element Asset&quot;,
+		CH_ContractLineItem__c!=null,
+		CH_ContractLineItem__r.CH_ServiceClassification__c !=&apos;HWS Service&apos;,
+		 OR(
+			CH_ContractLineItem__r.ServiceContract.AccountId  &lt;&gt; AccountId,
+			CH_ContractLineItem__r.Asset.CH_CountryISOName__c &lt;&gt; CH_CountryISOName__c,
+			CH_ContractLineItem__r.Asset.Product2Id &lt;&gt; Product2Id,
+			AND(
+							CH_ContractLineItem__r.Asset.CH_ProductVariant__c &lt;&gt; CH_ProductVariant__c,
+							CH_ContractLineItem__r.Asset.CH_ProductVariant__c &lt;&gt; null,
+							CH_ProductVariant__c &lt;&gt; null
+			),
+			AND(
+							CH_ContractLineItem__r.Asset.CH_Solution__c &lt;&gt; CH_Solution__c,
+							CH_ContractLineItem__r.Asset.CH_Solution__c &lt;&gt; null,
+							CH_Solution__c &lt;&gt; null
+			),
+			AND(
+							CH_ProductRelease__c !=null,
+				   CH_ContractLineItem__r.Asset.CH_ProductRelease__c &lt;&gt; CH_ProductRelease__c
+				)
+			)
+		)
+	)</errorConditionFormula>
+        <errorMessage>The NEA Product, Release, Variant, Country, Account or solution does not match the asset of the related Contract Line Item</errorMessage>
+    </validationRules>
+</CustomObject>

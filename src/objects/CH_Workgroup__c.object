@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <fullName>CH_CAWorkgroupName</fullName>
+        <active>true</active>
+        <description>NOKIASC-29142: Only DV&amp;T, System Admin and Data Loader can update Name of Workgroup.</description>
+        <errorConditionFormula>AND(
+    ISCHANGED(Name),
+	$RecordType.Name = &quot;CH_CA_Workgroup&quot;,
+    $Profile.Name&lt;&gt;&apos;System Administrator&apos;,
+    $Profile.Name&lt;&gt;&apos;Data Loader Profile&apos;,
+    NOT($Permission.CARE_DVT_Admin),
+    NOT($Permission.CH_DVTAdminstration)          
+
+)</errorConditionFormula>
+        <errorDisplayField>Name</errorDisplayField>
+        <errorMessage>You don&apos;t have permission to update Workgroup Name Field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_KBWorkgroupLimit</fullName>
+        <active>true</active>
+        <description>Validation rule to limit the number of characters of KB workgroups</description>
+        <errorConditionFormula>AND (($RecordType.DeveloperName=&quot;CH_KB_Workgroup&quot;),LEN( Name ) &gt;= 36)</errorConditionFormula>
+        <errorDisplayField>Name</errorDisplayField>
+        <errorMessage>Workgroup name must have up to 36 characters</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_NoSpecialCharacteresOnWorkgroupName</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(!$Setup.ByPassValidationRules__c.CH_Workgroup__c ,  RecordType.DeveloperName == &apos;CH_KB_Workgroup&apos; ,
+NOT(REGEX( Name , &apos;^[^/\\()~!@#=$€µ%¤^§°\&apos;£!&amp;*{«»„““”|….,;`^&quot;&lt;&gt;}+:?®©]*$&apos;)))</errorConditionFormula>
+        <errorDisplayField>Name</errorDisplayField>
+        <errorMessage>You cannot fill in a Workgroup Name with points and special characters</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_Valid_End_Threshold</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR(
+CH_End_of_Business_Hours_Threshold__c &lt; 0, CH_End_of_Business_Hours_Threshold__c &gt; 120
+)</errorConditionFormula>
+        <errorDisplayField>CH_End_of_Business_Hours_Threshold__c</errorDisplayField>
+        <errorMessage>The threshold value is out of the authorized range. the range is [0;120]</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_Valid_Start_Threshold</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR(
+CH_Start_of_Business_Hours_Threshold__c &lt; 0, CH_Start_of_Business_Hours_Threshold__c &gt; 120
+)</errorConditionFormula>
+        <errorDisplayField>CH_Start_of_Business_Hours_Threshold__c</errorDisplayField>
+        <errorMessage>The threshold value is out of the authorized range. the range is [0;120]</errorMessage>
+    </validationRules>
+</CustomObject>

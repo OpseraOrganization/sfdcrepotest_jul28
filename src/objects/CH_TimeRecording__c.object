@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <fullName>CH_StartDate_not_Less_CaseReportedDat</fullName>
+        <active>true</active>
+        <description>NOKIASC-29116:Validate Start date value is later that Reported Date</description>
+        <errorConditionFormula>CH_StartDate__c &lt; CH_SupportTicketNumber__r.CH_ReportedDate__c</errorConditionFormula>
+        <errorMessage>Start Date for time tracking record must be later than reported date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CH_Start_Date_Can_Not_in_the_Future</fullName>
+        <active>true</active>
+        <description>NOKIASC-29116:The Start Date cannot be in the future date</description>
+        <errorConditionFormula>CH_StartDate__c &gt; NOW()</errorConditionFormula>
+        <errorMessage>Start Date can not in the future</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>owner_cannot_be_Change</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+    NOT(
+        ISNEW()),
+    ISCHANGED(OwnerId)
+)</errorConditionFormula>
+        <errorMessage>Owner can not be changed.</errorMessage>
+    </validationRules>
+</CustomObject>

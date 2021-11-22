@@ -1,0 +1,956 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <fullName>CLLI_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(CPQ_CLLI_ID__c  &lt;&gt; null,NOT(ISCHANGED( CPQ_CLLI_ID__c )),OR(ISCHANGED(  CPQ_CLLI_Code__c ),ISCHANGED(CPQ_Site_Number__c),ISCHANGED( CQ_Customer_Project_Site_City__c),ISCHANGED(CQ_Customer_Project_Site_State__c)))</errorConditionFormula>
+        <errorMessage>CLLI values should not be changed</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_Account_LE_should_be_8000405_for_VZW</fullName>
+        <active>true</active>
+        <description>CQ created on a verizon account, but user is changing account legal entity to a LE which is not matching to the QTC number the validation needs to fire. Req #6129</description>
+        <errorConditionFormula>AND( 
+AND( 
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;, 
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;
+),CQ_eQuote__c , 
+Quote_Type__c = &apos;CQ&apos;, 
+NOT( ISNEW() ),
+AND(
+ISCHANGED(Account_Legal_Entity__c),
+Account_Legal_Entity__r.QTC_Sold_To__c &lt;&gt; &apos;8000405&apos;
+)
+)</errorConditionFormula>
+        <errorDisplayField>Account_Legal_Entity__c</errorDisplayField>
+        <errorMessage>The &quot;QTC Sold To&quot; value on the &quot;Account Legal Entity&quot; is required to be &quot;8000405&quot; for Verizon Quotes</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_Cannot_Edit_Initial_Pricing_Date</fullName>
+        <active>true</active>
+        <description>The Initial Pricing Date should not be editable for Verizon accounts.</description>
+        <errorConditionFormula>AND(
+AND(
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;, 
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;,
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+NOT($Permission.CQ_Business_admin)
+),
+Quote_Type__c = &apos;CQ&apos;,
+CQ_eQuote__c ,
+ISCHANGED( CQ_Initial_Pricing_Date__c )
+)</errorConditionFormula>
+        <errorDisplayField>CQ_Initial_Pricing_Date__c</errorDisplayField>
+        <errorMessage>You cannot adjust the &quot;Initial Pricing Date&quot; on a Verizon Quote</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_Cannot_change_accepted_status_verizon</fullName>
+        <active>true</active>
+        <description>Status Accepted cannot be changed  for verizon CQ quotes except for CQ Business admin. Re1. 6129</description>
+        <errorConditionFormula>AND(
+AND( 
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;, 
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;,
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+NOT($Permission.CQ_Business_admin
+),  CQ_eQuote__c , 
+Quote_Type__c = &apos;CQ&apos;,
+ISPICKVAL(PRIORVALUE( Apttus_Proposal__Approval_Stage__c ), &apos;Accepted&apos;), 
+ISCHANGED(Apttus_Proposal__Approval_Stage__c ),
+OR( 
+Text(Apttus_Proposal__Approval_Stage__c) = &apos;Draft&apos;, 
+Text(Apttus_Proposal__Approval_Stage__c) = &apos;Approved&apos;,
+AND(
+Text(Apttus_Proposal__Approval_Stage__c) = &apos;Rebid&apos;,
+CQ_isRebid_Done__c = False),
+Text(Apttus_Proposal__Approval_Stage__c) = &apos;Closed (Won)&apos;)
+)
+)</errorConditionFormula>
+        <errorDisplayField>Apttus_Proposal__Approval_Stage__c</errorDisplayField>
+        <errorMessage>The &quot;Approval Stage&quot; cannot be changed manually from the stage &quot;Accepted&quot; to &quot;Closed (Won)&quot; or &quot;Rebid&quot;  or &quot;Approved&quot; or &quot;Draft&quot; for a Verizon Quote. Please use the &quot;Rebid&quot; button to rebid.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_Cannot_change_from_rebid_manually</fullName>
+        <active>true</active>
+        <description>Cannot change approval stage to Accepted or closed won for VZW quotes. Req # 6129</description>
+        <errorConditionFormula>AND( 
+AND( 
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;, 
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;, 
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+NOT($Permission.CQ_Business_admin) 
+), 
+CQ_eQuote__c , 
+Quote_Type__c = &apos;CQ&apos;, 
+ISPICKVAL(PRIORVALUE( Apttus_Proposal__Approval_Stage__c ), &apos;Rebid&apos;),
+ISCHANGED(Apttus_Proposal__Approval_Stage__c ), 
+OR( 
+Text(Apttus_Proposal__Approval_Stage__c) = &apos;Accepted&apos;, 
+Text(Apttus_Proposal__Approval_Stage__c) = &apos;Closed (Won)&apos;
+) 
+)</errorConditionFormula>
+        <errorDisplayField>Apttus_Proposal__Approval_Stage__c</errorDisplayField>
+        <errorMessage>The &quot;Approval Stage&quot; cannot be changed manually from the stage &quot;Rebid&quot; to &quot;Accepted&quot; or &quot;Closed (Won)&quot; for a Verizon Quote</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_Cannot_change_stage_from_DraftAppoved</fullName>
+        <active>true</active>
+        <description>Cannot change approval change from draft or approved for CQ VZW quotes</description>
+        <errorConditionFormula>AND( 
+AND( 
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;, 
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;, 
+NOT($Permission.CQ_Business_admin)
+),
+CQ_eQuote__c , 
+Quote_Type__c = &apos;CQ&apos;, 
+OR(
+ISPICKVAL(PRIORVALUE( Apttus_Proposal__Approval_Stage__c ), &apos;Draft&apos;), 
+ISPICKVAL(PRIORVALUE( Apttus_Proposal__Approval_Stage__c ), &apos;Approved&apos;)
+),
+ISCHANGED(Apttus_Proposal__Approval_Stage__c ),
+OR( 
+Text(Apttus_Proposal__Approval_Stage__c) = &apos;Accepted&apos;, 
+Text(Apttus_Proposal__Approval_Stage__c) = &apos;Closed (Won)&apos;, 
+AND(Text(Apttus_Proposal__Approval_Stage__c) = &apos;Rebid&apos;, 
+CQ_isRebid_Done__c = false)
+)
+)</errorConditionFormula>
+        <errorDisplayField>Apttus_Proposal__Approval_Stage__c</errorDisplayField>
+        <errorMessage>The &quot;Approval Stage&quot; cannot be changed manually from the stage &quot;Draft&quot; or &quot;Approved&quot; to &quot;Accepted&quot;, &quot;Closed (Won)&quot; or &quot;Rebid&quot; for a Verizon Quote. Please use the &quot;Rebid&quot; button to rebid</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_Cannot_select_COS_for_nonVZW_quote</fullName>
+        <active>true</active>
+        <description>The Customer Organisation should not be allowed to select for Non Verizon Quotes.</description>
+        <errorConditionFormula>AND( 
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;, 
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;, 
+$RecordType.DeveloperName=&apos;Contracted_Quote&apos;, NOT( CQ_eQuote__c ),  NOT(ISPICKVAL( CQ_Customer_Organization_Segment__c , &apos;&apos;)) )</errorConditionFormula>
+        <errorMessage>Customer Organization Segment selection is ONLY applicable for Verizon Wireless Quotes</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_Cannot_select_inactive_CQ_Lead</fullName>
+        <active>false</active>
+        <description>The inactive users should not be selected as CQ Lead</description>
+        <errorConditionFormula>AND( 
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;, 
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;, OR( AND( NOT( CQ_Lead__r.IsActive) , 
+ISNEW() ) , AND( NOT(ISNEW()) ,NOT( CQ_Lead__r.IsActive ) ) ))</errorConditionFormula>
+        <errorDisplayField>CQ_Lead__c</errorDisplayField>
+        <errorMessage>Only active users may be selected as &quot;CQ Lead&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_Cannot_select_inactive_Sales_Lead</fullName>
+        <active>true</active>
+        <description>The inactive users should not be selected as Sales Lead</description>
+        <errorConditionFormula>AND( 
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;, 
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;,  OR( AND( NOT( CQ_Sales_Lead__r.IsActive ) , ISNEW() ) , AND( NOT(ISNEW()) ,NOT( CQ_Sales_Lead__r.IsActive )  ) ))</errorConditionFormula>
+        <errorDisplayField>CQ_Sales_Lead__c</errorDisplayField>
+        <errorMessage>Only active users may be selected as &quot;Sales Lead&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_Close_Date_less_than_or_equalto_today</fullName>
+        <active>true</active>
+        <description>The CQ Close Date must be lower than or equal to today</description>
+        <errorConditionFormula>AND(CQ_Close_Date__c &gt; TODAY(),ISCHANGED( CQ_Close_Date__c ),   CONTAINS(Quote_Type__c, &apos;CQ&apos;), NOT($Permission.CQ_Business_admin),$Profile.Name &lt;&gt; &apos;Data Loader Profile&apos;,$Profile.Name &lt;&gt;	
+&apos;Integration API Only Profile&apos;)</errorConditionFormula>
+        <errorMessage>The &quot;CQ Close Date&quot; cannot be in the future</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_CusDate_cant_be_blank</fullName>
+        <active>true</active>
+        <description>Submitted to Customer Date cannot be blank if Approval Stage is Closed (Won)</description>
+        <errorConditionFormula>AND($Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;, 
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;,NOT($Permission.CQ_Business_admin 
+),ISPICKVAL(Apttus_Proposal__Approval_Stage__c, &apos;Closed (Won)&apos;) , ISNULL(CQ_Submitted_to_Customer_Date__c),Quote_Type__c = &apos;CQ&apos;)</errorConditionFormula>
+        <errorMessage>Submitted to Customer Date is required for the Approval Stage - Closed (Won)</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_CustDate_cant_be_greater_than_Today</fullName>
+        <active>true</active>
+        <description>Submitted to Customer Date cannot be greater than Today.</description>
+        <errorConditionFormula>AND( AND($Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;, 
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;,NOT($Permission.CQ_Business_admin)), 
+CQ_Submitted_to_Customer_Date__c &gt; Today(),  
+Quote_Type__c  = &apos;CQ&apos; 
+)</errorConditionFormula>
+        <errorMessage>The Submitted to Customer Date cannot be in the future.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_Customer_Org_Segment_Mandatory</fullName>
+        <active>true</active>
+        <description>The Customer Organisation field must be mandatory for Verizon.</description>
+        <errorConditionFormula>AND(
+AND(
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;, 
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;
+),
+Quote_Type__c = &apos;CQ&apos;,
+CQ_eQuote__c,
+ISBLANK(TEXT( CQ_Customer_Organization_Segment__c) )
+)</errorConditionFormula>
+        <errorMessage>The Customer Organization Segment is required for Verizon Accounts.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_Customer_Org_Segment_nonVZW_quote</fullName>
+        <active>true</active>
+        <description>The Customer Organisation should not be allowed to select for Non Verizon Quotes.</description>
+        <errorConditionFormula>AND(
+AND(
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;, 
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;
+),
+OR(CPQ_CQ_Check__c,CPQ_NCQ_Check__c),
+NOT(CQ_eQuote__c),
+NOT(ISBLANK(TEXT( CQ_Customer_Organization_Segment__c)) )
+)</errorConditionFormula>
+        <errorMessage>Customer Organization Segment selection is ONLY applicable for Verizon Wireless Quotes</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_Due_Date_cannot_be_in_the_past</fullName>
+        <active>true</active>
+        <description>The CQ Due Date cannot be less than Today.</description>
+        <errorConditionFormula>AND(CQ_Due_Date__c &lt; TODAY(),CONTAINS( Quote_Type__c , &apos;CQ&apos;), NOT($Permission.CQ_Business_admin),$Profile.Name &lt;&gt; &apos;Data Loader Profile&apos;,$Profile.Name &lt;&gt;	
+&apos;Integration API Only Profile&apos;,
+OR(ISNEW(),ISCHANGED(CQ_Due_Date__c)))</errorConditionFormula>
+        <errorMessage>The &quot;CQ Due Date&quot; cannot be in the Past</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_Mandy_Fields_When_Accepted</fullName>
+        <active>true</active>
+        <description>Required fields when Approval Stage = Accepted - Req.#6249</description>
+        <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;,
+Quote_Type__c = &apos;CQ&apos;,
+ISPICKVAL(Apttus_Proposal__Approval_Stage__c, &apos;Accepted&apos;),
+NOT(CQ_eQuote__c ),
+OR(ISNULL(CQ_Submitted_to_Customer_Date__c ),
+ISBLANK( CQ_Submitted_to_Customer_Date__c ))
+)</errorConditionFormula>
+        <errorMessage>&apos;Submitted to Customer Date&apos; need to be populated when Approval stage is Accepted</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_Name_contains_invalid_characters</fullName>
+        <active>true</active>
+        <description>This is to prevent failures in the downstream systems, which cannot handle NON-ASCII characters </description>
+        <errorConditionFormula>AND(OR(CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;＋&apos;),CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;－&apos;),CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;—&apos;),CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;　&apos;),CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;”&apos;),CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;×&apos;),CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;／&apos;),CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;＝&apos;),CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;’&apos;),CONTAINS(Apttus_Proposal__Proposal_Name__c,&apos;–&apos;)),NOT(ISCHANGED(CQ_No_of_Sales_Orders__c)),Quote_Type__c = &apos;CQ&apos;
+)</errorConditionFormula>
+        <errorMessage>The &quot;CQ Name&quot; contains invalid characters. </errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_Pricing_Flds_Readonly_after_Approved</fullName>
+        <active>true</active>
+        <description>Once Surround Pricing fields are populated certain fields are not editable anymore in SFDC</description>
+        <errorConditionFormula>AND( AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;, 
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;,
+NOT($Permission.CQ_Business_admin)),  
+ Quote_Type__c  = &apos;CQ&apos;,
+Surround_Priced_Account__c &lt;&gt; null, 
+OR( ISCHANGED( CQ_Value__c ) , 
+ISCHANGED( CurrencyIsoCode ) , 
+ISCHANGED( CQ_Ready_for_Submission__c ) , 
+ISCHANGED( Apttus_Proposal__Proposal_Expiration_Date__c ) , 
+ISCHANGED( CQ_Initial_Pricing_Date__c ),
+ISCHANGED( CQ_Surround_Master_Quote__c)  
+ ) 
+)</errorConditionFormula>
+        <errorMessage>When Quote is priced following fields are not editable anymore: Currency, Ready for Submission, Quote Expiration Date, Initial Pricing Date, CQ Value.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_Quote_creation_not_allowed_before_G3</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+$Profile.Name&lt;&gt;&apos;Data Loader Profile&apos;,
+ISNEW(), OR(RecordType.DeveloperName = &apos;Contracted_Quote&apos;),
+OR( ISPICKVAL(Apttus_Proposal__Opportunity__r.StageName , &apos;Identify Opportunity&apos;),
+ISPICKVAL(Apttus_Proposal__Opportunity__r.StageName , &apos;Develop Opportunity&apos;),
+ISPICKVAL(Apttus_Proposal__Opportunity__r.StageName , &apos;Closed - Cancelled by Customer&apos;),
+ISPICKVAL(Apttus_Proposal__Opportunity__r.StageName , &apos;Closed - Withdrawn by Nokia&apos;),
+ISPICKVAL(Apttus_Proposal__Opportunity__r.StageName , &apos;Closed - Lost to Competitor&apos;),
+ISPICKVAL(Apttus_Proposal__Opportunity__r.StageName , &apos;Closed - Obsolete&apos;),
+ISPICKVAL(Apttus_Proposal__Opportunity__r.StageName , &apos;Cancelled&apos;),
+ISPICKVAL(Apttus_Proposal__Opportunity__r.StageName , &apos;Completed&apos;)
+)
+)</errorConditionFormula>
+        <errorMessage>Quote creation is not allowed at the current Opportunity Sales Phase.
+Quote creation can be done on open Opportunities from G3 - Create Offer until Completed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_Value_required_if_Sub_to_Cust_Date</fullName>
+        <active>true</active>
+        <description>CQ Value is required if Submitted to Customer Date is populated</description>
+        <errorConditionFormula>AND(CONTAINS(Quote_Type__c, &apos;CQ&apos;),
+NOT($Permission.CQ_Business_admin),
+$Profile.Name &lt;&gt; &apos;Data Loader Profile&apos;,
+$Profile.Name &lt;&gt;&apos;Integration API Only Profile&apos;,
+OR(ISNULL( CQ_Value__c ), CQ_Value__c &lt; 0.0), 
+NOT(ISBLANK(CQ_Submitted_to_Customer_Date__c )),
+CQ_isRebid_Done__c = False)</errorConditionFormula>
+        <errorMessage>The &quot;CQ Value&quot; is required once &quot;Submitted to Customer Date&quot; is populated</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_Version_atleast_one_shld_be_Active</fullName>
+        <active>true</active>
+        <description>Atlest one version of CQ should be active</description>
+        <errorConditionFormula>AND(ISCHANGED(CQ_Active__c), NOT( CQ_Active__c ) , NOT( CQ_isRebid_Done__c ),Quote_Type__c = &apos;CQ&apos;)</errorConditionFormula>
+        <errorMessage>One version of CQ needs to be active</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_cannot_change_stage_to_rebid_manually</fullName>
+        <active>true</active>
+        <description>Users cannot select approval stage rebid manually. Should use only quick action</description>
+        <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;, 
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;,
+IF( CQ_eQuote__c ,IF($Permission.CQ_Business_admin,true,false),true ),
+Quote_Type__c = &apos;CQ&apos;, 
+ISCHANGED(Apttus_Proposal__Approval_Stage__c ), 
+AND( 
+Text(Apttus_Proposal__Approval_Stage__c) = &apos;Rebid&apos;, 
+CQ_isRebid_Done__c = False
+)
+)</errorConditionFormula>
+        <errorDisplayField>Apttus_Proposal__Approval_Stage__c</errorDisplayField>
+        <errorMessage>The &quot;Approval Stage&quot; cannot be changed manually  to &quot;Rebid&quot;. Please use the &quot;Rebid&quot; button to rebid.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CQ_value_required_for_Approval_Stages</fullName>
+        <active>true</active>
+        <description>CQ value required for certain Approval Stages</description>
+        <errorConditionFormula>AND (NOT(ISCHANGED(CQ_No_of_Sales_Orders__c )), 
+OR( ISPICKVAL( Apttus_Proposal__Approval_Stage__c , &apos;Approved&apos;), 
+ISPICKVAL( Apttus_Proposal__Approval_Stage__c , &apos;Accepted&apos;), 
+ISPICKVAL( Apttus_Proposal__Approval_Stage__c , &apos;Closed (Won)&apos;)) , 
+OR(ISNULL( CQ_Value__c ), CQ_Value__c &lt; 0.0 ),
+NOT($Permission.CQ_Business_admin),
+$Profile.Name &lt;&gt; &apos;Data Loader Profile&apos;,
+$Profile.Name &lt;&gt; &apos;Integration API Only Profile&apos;,
+CONTAINS(Quote_Type__c, &apos;CQ&apos;),
+CQ_isRebid_Done__c = False )</errorConditionFormula>
+        <errorMessage>The &quot;CQ Value&quot; is required if &quot;Approval Stage&quot; = &quot;Approved&quot;, &quot;Accepted&quot;, or &quot;Closed (Won)&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_change_Published_Ready_InProgress</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR
+(
+AND(
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;,
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;,
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;Global Process Admin Profile&quot;,
+$Profile.Name &lt;&gt; &quot;Digital Sales Customer Profile&quot;,
+NOT($Permission.DS_Business_Center_Admin),
+NOT($Permission.DS_GDC),
+NOT($Permission.SWX_CCRE_Account_manager),
+CONTAINS(Quote_Type__c, &quot;Direct DS&quot;),
+ISCHANGED(Apttus_Proposal__Approval_Stage__c ),
+OR(
+Text(Apttus_Proposal__Approval_Stage__c) = &apos;Published - Ready&apos;,
+Text(Apttus_Proposal__Approval_Stage__c) = &apos;Published - In progress&apos;
+)
+),
+AND
+(
+OR
+(
+$Profile.Name = &quot;Digital Sales Customer Profile&quot;,
+AND(
+$Permission.DS_GDC,
+NOT($Permission.SWX_CCRE_Account_manager)
+)
+),
+ISCHANGED(Apttus_Proposal__Approval_Stage__c ),
+OR
+(
+ISPICKVAL(PRIORVALUE( Apttus_Proposal__Approval_Stage__c ), &apos;Approved&apos;),
+ISPICKVAL(PRIORVALUE( Apttus_Proposal__Approval_Stage__c ), &apos;Published - Ready&apos;),
+ISPICKVAL(PRIORVALUE( Apttus_Proposal__Approval_Stage__c ), &apos;Published - In progress&apos;)
+),
+NOT(Text(Apttus_Proposal__Approval_Stage__c) = &apos;Approved&apos;),
+NOT(Text(Apttus_Proposal__Approval_Stage__c) = &apos;Published - Ready&apos;),
+NOT(Text(Apttus_Proposal__Approval_Stage__c) = &apos;Published - In progress&apos;),
+NOT(Text(Apttus_Proposal__Approval_Stage__c) = &apos;Call-off Ready&apos;),
+NOT(Text(Apttus_Proposal__Approval_Stage__c) = &apos;Accepted&apos;),
+NOT(Text(Apttus_Proposal__Approval_Stage__c) = &apos;Rejected&apos;)
+)
+)</errorConditionFormula>
+        <errorMessage>You are not allowed to change the Approval Stage to the requested value. Please modify it only among &quot;Approved&quot;, &quot;Published - In Progress&quot;, &quot;Published - Ready&quot;, &quot;Call-off Ready&quot;, &quot;&apos;Accepted&quot;, &quot;Rejected&quot;. In case of any issues, please contact Administrator</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_change_from_Draft_To_Published</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+RecordTypeId = $Label.DS_QuoteEditRecordTypeId, 
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;,
+OR(ISPICKVAL( LOA_Status__c , &quot;G4 Submission&quot;),ISPICKVAL( LOA_Status__c , &quot;Approved&quot;)), 
+Prices_Aligned__c =FALSE, 
+ISPICKVAL(Apttus_Proposal__Approval_Stage__c,&quot;In Review&quot; ))</errorConditionFormula>
+        <errorMessage>Cannot change Approval Stage from &quot;Draft&quot; to &quot;Approved&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_modify_portfolio</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+ISCHANGED(NokiaCPQ_Portfolio__c),
+CONTAINS(Quote_Type__c , &apos;CPQ&apos;)
+)</errorConditionFormula>
+        <errorMessage>Portfolio cannot be modified</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_submit_for_G4_Bypass</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+RecordTypeId = $Label.DS_QuoteEditRecordTypeId,
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;, 
+OR(ISPICKVAL( LOA_Status__c , &quot;G4 Submission&quot;),ISPICKVAL( LOA_Status__c , &quot;Approved&quot;)), 
+Prices_Aligned__c =FALSE, 
+ISPICKVAL(Apttus_Proposal__Approval_Stage__c,&quot;In Review&quot; ))</errorConditionFormula>
+        <errorMessage>You can not submit for G4 Bypass unless you confirm that prices are kept in alignment with signed valid LOA approved contract</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Customer_Req_Num_contains_invalid_char</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(CONTAINS(CQ_Customer_Request_Number__c, &apos;＋&apos;),CONTAINS(CQ_Customer_Request_Number__c, &apos;－&apos;),CONTAINS(CQ_Customer_Request_Number__c, &apos;—&apos;),CONTAINS(CQ_Customer_Request_Number__c, &apos;”&apos;),CONTAINS(CQ_Customer_Request_Number__c, &apos;×&apos;),CONTAINS(CQ_Customer_Request_Number__c, &apos;／&apos;),CONTAINS(CQ_Customer_Request_Number__c, &apos;＝&apos;),CONTAINS(CQ_Customer_Request_Number__c, &apos;’&apos;),CONTAINS(CQ_Customer_Request_Number__c, &apos;–&apos;),CONTAINS(CQ_Customer_Request_Number__c, &apos;　&apos;)),Quote_Type__c=&apos;CQ&apos;
+)</errorConditionFormula>
+        <errorMessage>The &quot;Customer Request Number&quot; contains invalid characters. </errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_Check_Contract_Type</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+CONTAINS(Quote_Type__c, &quot;Direct DS&quot;),  
+ISPICKVAL(Contract_Type_Name__c , &quot;Contract mode&quot;), 
+ISBLANK(Contract_Start_Date__c ),   
+OR( 
+ISPICKVAL(Apttus_Proposal__Approval_Stage__c , &quot;Approved&quot;), 
+ISPICKVAL(LOA_Status__c , &quot;G4 Submission&quot;)
+) 
+)</errorConditionFormula>
+        <errorDisplayField>Contract_Start_Date__c</errorDisplayField>
+        <errorMessage>Mandatory fields missing.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_Term_Zero_Error_Message</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+RecordTypeId = $Label.DS_QuoteEditRecordTypeId,
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;, 
+OR(
+AND(ISCHANGED(Terms_Month__c ), Terms_Month__c &lt;= 0),
+
+AND(OR(ISCHANGED(Contract_Start_Date__c) ,ISCHANGED(Contract_End_Date__c)),IF(MOD(Contract_End_Date__c- Contract_Start_Date__c,30) =0 , (Contract_End_Date__c- Contract_Start_Date__c) /30 , 
+
+IF(MOD(Contract_End_Date__c- Contract_Start_Date__c,30) &gt;=15, FLOOR(((Contract_End_Date__c- Contract_Start_Date__c) /30)) +1, 
+
+Floor( (Contract_End_Date__c- Contract_Start_Date__c)/ 30 )))&lt;=0)
+
+)
+ 
+)</errorConditionFormula>
+        <errorDisplayField>Terms_Month__c</errorDisplayField>
+        <errorMessage>Term cannot be 0 or negative</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_check_mandatory_fields_before_Accept</fullName>
+        <active>true</active>
+        <description>A DS Quote/Proposal cannot be accepted without having PO Number, PO date and - only in case of Project mode - Nokia Customer Document ID fields filled.</description>
+        <errorConditionFormula>AND(
+				Quote_Type__c = &apos;Direct DS&apos;,
+				ISPICKVAL(Apttus_Proposal__Approval_Stage__c, &apos;Accepted&apos;),
+				ISCHANGED(Apttus_Proposal__Approval_Stage__c),
+				OR(
+								ISBLANK(Apttus_QPConfig__PONumber__c),
+								ISBLANK(Apttus_QPConfig__PODate__c),
+								IF(
+												ISPICKVAL(Contract_Type_Name__c, &apos;Project&apos;),
+												ISBLANK(Nokia_Customer_Document_ID__c),
+												False
+								)
+				)
+)</errorConditionFormula>
+        <errorMessage>Mandatory fields are missing (PO Number, PO Date or Nokia Customer Document ID)</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Expired_CQ_cannot_be_change</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;, 
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;, 
+NOT($Permission.CQ_Business_admin ), 
+Apttus_Proposal__Opportunity__r.Legal_Entity__r.QTC_Sold_To__c  != &apos;8000405&apos; , 
+Quote_Type__c = &apos;CQ&apos;, 
+Apttus_Proposal__Proposal_Expiration_Date__c &lt; Today(), 
+NOT(ISNEW()),
+CQ_isRebid_Done__c = False,
+Surround_Priced_Account__c = null,
+OR(NOT(ISPICKVAL(Apttus_Proposal__Approval_Stage__c,&apos;Closed(not won)&apos;)),AND(ISPICKVAL(Apttus_Proposal__Approval_Stage__c,&apos;Closed(not won)&apos;),
+OR(ISCHANGED(Apttus_Proposal__Proposal_Name__c ),
+ISCHANGED(Apttus_Proposal__Description__c ),
+ISCHANGED(CQ_Lead__c ),
+ISCHANGED(CQ_Sales_Lead__c ),
+ISCHANGED(CQ_Servies_components__c ),
+ISCHANGED(CQ_Notes__c ),
+ISCHANGED(CQ_Active__c ),
+ISCHANGED(CQ_Value__c ),
+ISCHANGED(Apttus_Proposal__Proposal_Expiration_Date__c ),
+ISCHANGED(CQ_Master_Quote__c ),
+ISCHANGED(CQ_Master_Quote_Quantity__c ),
+ISCHANGED(Account_Legal_Entity__c ),
+ISCHANGED(CQ_Customer_Organization_Segment__c ),
+ISCHANGED(CQ_Customer_Project_Code__c ),
+ISCHANGED(CQ_Customer_Project_Site_City__c ),
+ISCHANGED(CQ_Customer_Project_Site_State__c ),
+ISCHANGED(CQ_Customer_Request_Number__c ),
+ISCHANGED(CQ_Initial_Pricing_Date__c ),
+ISCHANGED(CQ_Due_Date__c ),
+ISCHANGED(CQ_Submitted_to_Customer_Date__c ))))
+)</errorConditionFormula>
+        <errorMessage>Quote Expiration Date is in the past, please update Expiration date or Rebid</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Frame_contract_reference_Mandatory_PM</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+ISPICKVAL( Apttus_Proposal__Approval_Stage__c , &apos;In Review&apos;),
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;,
+RecordTypeId = $Label.DS_QuoteEditRecordTypeId, 
+ISBLANK(Agreement_Lookup__c ),
+$Profile.Name = &quot;Non-Sales User Profile&quot;,
+NOT(ISBLANK(SWx_Upsell_Proposal__c)) 
+
+)</errorConditionFormula>
+        <errorDisplayField>Frame_contract_reference__c</errorDisplayField>
+        <errorMessage>Mandatory Fields can not be Empty.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ION_Direct_IS_List_Price_only_quote</fullName>
+        <active>true</active>
+        <description>This field can be checked only for ION Direct</description>
+        <errorConditionFormula>AND( 
+OR(
+ISPICKVAL( NokiaCPQ_Portfolio__c , &apos;Airscale Wifi&apos;),
+ISPICKVAL( NokiaCPQ_Portfolio__c , &apos;Nokia Software&apos;)
+) ,
+ Is_List_Price_Only__c=True ,
+ RecordType.Name=&apos;Direct Quote&apos;)</errorConditionFormula>
+        <errorDisplayField>Is_List_Price_Only__c</errorDisplayField>
+        <errorMessage>Please select &apos;IP Routing&apos;, &apos;Optics&apos; or &apos;Nuage&apos;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Is_Maintenane_Quote_Only_Contract_Date</fullName>
+        <active>true</active>
+        <errorConditionFormula>((NokiaCPQ_Is_Maintenance_Quote__c) &amp;&amp; ISBLANK(NokiaCPQ_Contract_Start_Date__c ) &amp;&amp; NOT( ISPICKVAL( NokiaCPQ_Portfolio__c , &apos;Microwave&apos;) ))</errorConditionFormula>
+        <errorDisplayField>NokiaCPQ_Contract_Start_Date__c</errorDisplayField>
+        <errorMessage>Please Select Contract Start Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Is_Maintenane_Quote_Only_Warranty_credit</fullName>
+        <active>true</active>
+        <errorConditionFormula>((NokiaCPQ_Is_Maintenance_Quote__c) &amp;&amp;  ISBLANK(TEXt(Warranty_credit__c))  )</errorConditionFormula>
+        <errorDisplayField>Warranty_credit__c</errorDisplayField>
+        <errorMessage>Please Select Warranty Credit</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>LAB_equipment_quote_not_available_MW</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF( AND( NokiaCPQ_LEO_Discount__c=True, ISPICKVAL(NokiaCPQ_Portfolio__c, &apos;Microwave&apos;)) ,true ,false)</errorConditionFormula>
+        <errorMessage>Lab equipment quote is not available for the Microwave Portfolio.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>LOA_Status_Check_On_Publish</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;,
+RecordTypeId = $Label.DS_QuoteEditRecordTypeId,
+OR(ISPICKVAL(LOA_Status__c, &apos;Rejected&apos;),ISPICKVAL(LOA_Status__c, &apos;&apos;)) ,  ISPICKVAL(Apttus_Proposal__Approval_Stage__c , &apos;Approved&apos; )
+)</errorConditionFormula>
+        <errorMessage>Quote can not be Approved if LoA is not approved or LoA Status is blank</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Loa_Status_cannot_be_changed_manually</fullName>
+        <active>true</active>
+        <description>Account Manager cannot change the Loa Status manually to approved and rejected.</description>
+        <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;,
+OR(
+ISPICKVAL(Apttus_Proposal__Opportunity__r.Phase_Status__c  ,&quot;Offer in Progress&quot;),
+ISPICKVAL(Apttus_Proposal__Opportunity__r.StageName  ,&quot;Create Offer (Bid)&quot;)
+),
+OR(
+ISPICKVAL(LOA_Status__c,&quot;Approved&quot;),
+ISPICKVAL(LOA_Status__c,&quot;Rejected&quot;)
+),
+OR(RecordTypeId = $Label.DS_QuoteEditRecordTypeId,RecordTypeId = $Label.DS_QuoteReadRecordTypeId))</errorConditionFormula>
+        <errorMessage>You don&apos;t have permission to select Approved/Rejected</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MQupdate</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(Apttus_QPConfig__ConfigurationFinalizedDate__c )), PRIORVALUE( CQ_Master_Quote__c ), NOT(CQ_Master_Quote__c ) )</errorConditionFormula>
+        <errorDisplayField>CQ_Master_Quote__c</errorDisplayField>
+        <errorMessage>Master Quote Can&apos;t be updated once finalized.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Maintenance_Only_quote_not_available_MW</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF( AND( NokiaCPQ_Is_Maintenance_Quote__c =True,  ISPICKVAL(NokiaCPQ_Portfolio__c, &apos;Microwave&apos;)) ,true ,false)</errorConditionFormula>
+        <errorMessage>Maintenance Only quote is not available for the Microwave Portfolio.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Maintenance_Override_Null</fullName>
+        <active>true</active>
+        <errorConditionFormula>! ISNEW() &amp;&amp; NokiaCPQ_Quote_With_Maintenance_SSP_SRS__c = false &amp;&amp; Quote_Type__c = &apos;Direct CPQ&apos; 
+&amp;&amp; (!ISBLANK(Maintenance_Y1__c) || !ISBLANK(Maintenance_Y2__c) || !ISBLANK(SSP__c) || !ISBLANK(SRS__c))</errorConditionFormula>
+        <errorMessage>Maintenance Year1,Maintenance Year2+,SSP and SRS fields should be null if Quote With Maintenance/SSP/SRS is not checked.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Maintenance_Type_and_Years_cant_be_empty</fullName>
+        <active>true</active>
+        <description>For Direct MN , Airscale Wifi Portfolio - Maintenance Type Or Years cant be Null.</description>
+        <errorConditionFormula>AND(
+OR(
+ISPICKVAL( NokiaCPQ_Portfolio__c , &apos;Airscale Wifi&apos;),ISPICKVAL( NokiaCPQ_Portfolio__c , &apos;Fixed Network&apos;),
+AND(ISPICKVAL( NokiaCPQ_Portfolio__c , &apos;IP Routing&apos;) ,Is_List_Price_Only__c = FALSE)
+),
+Quote_Type__c = &apos;Direct CPQ&apos;,NokiaCPQ_Quote_With_Maintenance_SSP_SRS__c = TRUE,
+OR(
+ISPICKVAL(NokiaCPQ_Maintenance_Type__c , &apos;&apos;),
+ISPICKVAL(NokiaCPQ_No_of_Years__c , &apos;&apos;)
+)
+)</errorConditionFormula>
+        <errorMessage>Please select values for fields: Maintenance Type, Number of Years of Maintenance.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Maintenance_type_and_No_of_years</fullName>
+        <active>false</active>
+        <errorConditionFormula>(NokiaCPQ_Quote_With_Maintenance_SSP_SRS__c  = true &amp;&amp; 
+((TEXT( NokiaCPQ_Maintenance_Type__c ) = NULL) || 
+(TEXT( NokiaCPQ_No_of_Years__c ) = NULL)))</errorConditionFormula>
+        <errorDisplayField>Apttus_QPConfig__ABOType__c</errorDisplayField>
+        <errorMessage>Please select values for Maintenance Type and No. of Years for Maintenance.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>NokiaCPQ_Maintenance_Type_cant_be_empty</fullName>
+        <active>false</active>
+        <description>For Direct MN , Airscale Wifi Portfolio - Maintenance Type Or Years cant be Null.</description>
+        <errorConditionFormula>AND(
+OR(
+ISPICKVAL( NokiaCPQ_Portfolio__c , &apos;Airscale Wifi&apos;),
+AND(OR(ISPICKVAL( NokiaCPQ_Portfolio__c , &apos;IP Routing&apos;),ISPICKVAL( NokiaCPQ_Portfolio__c , &apos;Fixed Network&apos;) ) ,Is_List_Price_Only__c = FALSE)),
+Quote_Type__c = &apos;Direct CPQ&apos;,
+ISPICKVAL(NokiaCPQ_Maintenance_Type__c, &apos;&apos;), NokiaCPQ_Quote_With_Maintenance_SSP_SRS__c = true
+)</errorConditionFormula>
+        <errorMessage>Please select a value for the field - &apos;Maintenance Type&apos;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>NokiaCPQ_years_cant_be_empty</fullName>
+        <active>true</active>
+        <description>For Direct MN , Airscale Wifi &amp; IP routing Portfolio  -Years cant be Null.</description>
+        <errorConditionFormula>AND(
+OR(
+ISPICKVAL( NokiaCPQ_Portfolio__c , &apos;Airscale Wifi&apos;),
+AND(OR(ISPICKVAL( NokiaCPQ_Portfolio__c , &apos;IP Routing&apos;),ISPICKVAL( NokiaCPQ_Portfolio__c , &apos;Fixed Network&apos;) )  ,Is_List_Price_Only__c = FALSE)),
+Quote_Type__c = &apos;Direct CPQ&apos;,
+ISPICKVAL(NokiaCPQ_No_of_Years__c, &apos;&apos;), NokiaCPQ_Quote_With_Maintenance_SSP_SRS__c = true
+)</errorConditionFormula>
+        <errorMessage>Please select a value for the field - No. of years of Maintenance</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prevent_Quote_before_G3</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND 
+(
+ISNEW(),
+Quote_Type__c = &apos;Indirect CPQ&apos;, 
+OR(
+TEXT(Apttus_Proposal__Opportunity__r.StageName) = &apos;Identify Opportunity&apos;,
+TEXT(Apttus_Proposal__Opportunity__r.StageName) = &apos;Develop Opportunity&apos;)
+
+)</errorConditionFormula>
+        <errorMessage>The quote cannot be created until the opportunity has reached the Create offer (Bid) stage.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Price_Override_cannot_be_less_than_0</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR(
+Maintenance_Y1__c  &lt; 0,
+Maintenance_Y2__c  &lt; 0,
+SSP__c &lt; 0,
+SRS__c &lt; 0
+
+)</errorConditionFormula>
+        <errorMessage>Negative values can not be entered in Maintenance Year 1, Year 2+, SSP or SRS fields.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>QTC_CancelQuote_Notallowed</fullName>
+        <active>true</active>
+        <description>The Cancel Quote action is not used for QTC Quotes.</description>
+        <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;,
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;,
+TEXT( NokiaCPQ_Portfolio__c ) = &apos;QTC&apos;,
+OR(TEXT( PRIORVALUE( Apttus_Proposal__Approval_Stage__c ) ) = &apos;Approved&apos;,TEXT( PRIORVALUE( Apttus_Proposal__Approval_Stage__c ) ) = &apos;Accepted&apos;),
+NokiaCPQ_Capture_Cancel_Recall_Action__c = &apos;Cancel Action&apos;,
+TEXT(Apttus_Proposal__Approval_Stage__c ) = &apos;Draft&apos; )</errorConditionFormula>
+        <errorMessage>The Cancel Quote action is not used for QTC Quotes.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>QTC_Primary_Contact_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;,
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;,OR( RecordTypeId = $Label.NokiaCPQ_DirectQuoteID,RecordTypeId = $Label.NokiaCPQ_DirectReadOnlyQuoteID), ISPICKVAL( NokiaCPQ_Portfolio__c , &apos;QTC&apos;),OR( ISNEW() , 
+ISCHANGED( Apttus_Proposal__Primary_Contact__c ) ) ,NOT(ISBLANK(Apttus_Proposal__Primary_Contact__c))&amp;&amp;NOT(ISBLANK(Apttus_Proposal__Primary_Contact__r.AccountId)) , Apttus_Proposal__Account__c  &lt;&gt;  Apttus_Proposal__Primary_Contact__r.AccountId )</errorConditionFormula>
+        <errorDisplayField>Apttus_Proposal__Primary_Contact__c</errorDisplayField>
+        <errorMessage>Please select Contact assigned to Account of this Quote</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>QTC_RecallCancel_Notallowed</fullName>
+        <active>true</active>
+        <description>QTC Quotes cannot be recalled as they donot have quote approvals, since it will have LoA bypass for all quotes</description>
+        <errorConditionFormula>AND( 
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;,
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;,
+TEXT( NokiaCPQ_Portfolio__c ) = &apos;QTC&apos;,
+ TEXT( PRIORVALUE( Apttus_Proposal__Approval_Stage__c ) ) = &apos;In Review&apos;,
+TEXT( Apttus_QPApprov__Approval_Status__c) = &apos;Pending Approval&apos;,
+ISCHANGED(Apttus_Proposal__Approval_Stage__c )  )</errorConditionFormula>
+        <errorDisplayField>Apttus_Proposal__Approval_Stage__c</errorDisplayField>
+        <errorMessage>The Recall Quote action is not used for QTC Quotes. Please use the Recall Approvals from the Approvals quick action menu item.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>QWM_Disable_for_FN</fullName>
+        <active>true</active>
+        <errorConditionFormula>(Quote_Type__c = &apos;Direct CPQ&apos; &amp;&amp; ISPICKVAL( NokiaCPQ_Portfolio__c , &apos;Fixed Network&apos;) &amp;&amp;  ISCHANGED(NokiaCPQ_Quote_With_Maintenance_SSP_SRS__c))</errorConditionFormula>
+        <errorMessage>Quote with maintenance SSP/SRS is not included for Fixed Network portfolio.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Stage_draft_cannot_change_LoA_to_G4</fullName>
+        <active>true</active>
+        <description>LoA Status cannot be changed to G4 Submission if Approval Stage is Draft</description>
+        <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;,
+OR(
+ISPICKVAL(
+Apttus_Proposal__Opportunity__r.Phase_Status__c, &quot;Offer in Progress&quot;
+),
+ISPICKVAL(
+Apttus_Proposal__Opportunity__r.StageName, &quot;Create Offer (Bid)&quot;
+) 
+),
+RecordTypeId = $Label.DS_QuoteEditRecordTypeId,
+ISPICKVAL(Apttus_Proposal__Approval_Stage__c, &quot;Draft&quot;),
+ISPICKVAL(LOA_Status__c, &quot;G4 Submission&quot;)  
+)</errorConditionFormula>
+        <errorMessage>“G4 Bypass” can only be set after shopping cart finalization, Pricing Alignment flag has been set, proposal has been place “In Review”</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validation_on_change_of_opportunity_name</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+Quote_Type__c = &apos;Direct CPQ&apos;,
+ISCHANGED( Apttus_Proposal__Opportunity__c ))</errorConditionFormula>
+        <errorMessage>Opportunity can not be changed across quotes.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validation_when_created_from_Tab</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR(
+AND( 
+ISNEW(),
+RecordType.Name = &apos;Proposal&apos;,
+NOT(RecordType.DeveloperName = &apos;CPQ_QTC_NCQ_Quote&apos;),
+NOT(Quote_Type__c = &apos;Indirect CPQ&apos;)
+),
+AND( 
+ISNEW(),
+RecordType.Name = &apos;Direct Quote&apos;,
+NOT(RecordType.DeveloperName = &apos;CPQ_QTC_NCQ_Quote&apos;),
+NOT(Quote_Type__c = &apos;Direct CPQ&apos;)
+)
+)</errorConditionFormula>
+        <errorMessage>Please select a correct opportunity according to the selected quote type (Direct/Indirect).</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>VzW_expired_quote_cannot_be_changed</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(  
+$Profile.Name &lt;&gt; &quot;Data Loader Profile&quot;, 
+$Profile.Name &lt;&gt; &quot;Integration API Only Profile&quot;, 
+NOT($Permission.CQ_Business_admin ),  
+Surround_Priced_Account__c &lt;&gt; null , 
+Quote_Type__c = &apos;CQ&apos;, 
+OR(Apttus_Proposal__Proposal_Expiration_Date__c &lt; Today(),
+PRIORVALUE(Apttus_Proposal__Proposal_Expiration_Date__c) &lt; Today()),
+NOT(ISNEW()),
+CQ_isRebid_Done__c = false,
+OR(AND(NOT(ISPICKVAL(Apttus_Proposal__Approval_Stage__c,&apos;Closed(not won)&apos;)),
+NOT(ISPICKVAL(Apttus_Proposal__Approval_Stage__c,&apos;Draft&apos;))),
+AND(ISPICKVAL(Apttus_Proposal__Approval_Stage__c,&apos;Closed(not won)&apos;), 
+OR(ISCHANGED(Apttus_Proposal__Proposal_Name__c ), 
+ISCHANGED(Apttus_Proposal__Description__c ), 
+ISCHANGED(CQ_Lead__c ), 
+ISCHANGED(CQ_Sales_Lead__c ), 
+ISCHANGED(CQ_Servies_components__c ), 
+ISCHANGED(CQ_Notes__c ), 
+ISCHANGED(CQ_Active__c ), 
+ISCHANGED(CQ_Value__c ), 
+ISCHANGED(Apttus_Proposal__Proposal_Expiration_Date__c ), 
+ISCHANGED(CQ_Master_Quote__c ), 
+ISCHANGED(CQ_Master_Quote_Quantity__c ), 
+ISCHANGED(Account_Legal_Entity__c ), 
+ISCHANGED(CQ_Customer_Organization_Segment__c ), 
+ISCHANGED(CQ_Customer_Project_Code__c ), 
+ISCHANGED(CQ_Customer_Project_Site_City__c ), 
+ISCHANGED(CQ_Customer_Project_Site_State__c ), 
+ISCHANGED(CQ_Customer_Request_Number__c ), 
+ISCHANGED(CQ_Initial_Pricing_Date__c ), 
+ISCHANGED(CQ_Due_Date__c ), 
+ISCHANGED(CQ_Submitted_to_Customer_Date__c ))))
+)</errorConditionFormula>
+        <errorMessage>Quote Expiration Date is in the past, please Rebid</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>quote_with_maintenance_SSP_SRS</fullName>
+        <active>true</active>
+        <errorConditionFormula>(NokiaCPQ_Quote_With_Maintenance_SSP_SRS__c = false &amp;&amp; Quote_Type__c = &apos;Direct CPQ&apos; &amp;&amp; (ISPICKVAL( NokiaCPQ_Portfolio__c , &apos;IP Routing&apos;) || ISPICKVAL( NokiaCPQ_Portfolio__c , &apos;Airscale Wifi&apos;) || ISPICKVAL( NokiaCPQ_Portfolio__c , &apos;Fixed Network&apos;) )&amp;&amp;
+((TEXT(NokiaCPQ_Maintenance_Type__c) &lt;&gt; NULL ||
+TEXT(NokiaCPQ_No_of_Years__c) &lt;&gt; NULL || TEXT(NokiaCPQ_Existing_IONMaint_Contract__c)&lt;&gt;NULL)))</errorConditionFormula>
+        <errorMessage>If Quote with maintenance/SSP/SRS is not checked then Maintenance Type, Existing Maintenance Contract? and No. of Years for Maintenance fields values should be none and not editable.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Apttus_CQApprov__Approvals</fullName>
+        <availability>online</availability>
+        <description>Launch cart header approvals page</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Approvals</masterLabel>
+        <openType>sidebar</openType>
+        <page>Apttus_CQApprov__CartApprovalsLaunch</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Apttus_CQApprov__MyApprovals</fullName>
+        <availability>online</availability>
+        <description>My Approvals</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>My Approvals</masterLabel>
+        <openType>sidebar</openType>
+        <page>Apttus_CQApprov__MyCartApprovalsLaunch</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Apttus_QPConfig__AbandonQuote</fullName>
+        <availability>online</availability>
+        <description>Abandon the quote/proposal</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Abandon Quote</masterLabel>
+        <openType>sidebar</openType>
+        <page>Apttus_QPConfig__ProposalAbandon</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>CPQ_Clone_Proposal</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Deep Clone Quote</masterLabel>
+        <openType>sidebar</openType>
+        <page>Apttus_QPConfig__ProposalClone</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>CPQ_My_Approvals</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>My Approvals</masterLabel>
+        <openType>newWindow</openType>
+        <page>Apttus_CQApprov__MyCartApprovalsLaunch</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
+        <fullName>EPT_Upload</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Design Tool Upload</masterLabel>
+        <openType>sidebar</openType>
+        <page>EPT_UploadProducts</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Quote_VF</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>New Quote</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/apex/NokiaCPQ_newQuoteVF?id={!Opportunity.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>NokiaCPQ_Quote_Reprice</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Reprice Quote</masterLabel>
+        <openType>newWindow</openType>
+        <page>QuoteRepriceVF</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
+        <fullName>Reprice_Quote_TP</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Reprice Quote TP</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/apex/Reprice_Quote_TP?quoteId={!Apttus_Proposal__Proposal__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Upload_Jarvis</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Upload Jarvis</masterLabel>
+        <openType>sidebar</openType>
+        <page>Jarvis_Upload_VF</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

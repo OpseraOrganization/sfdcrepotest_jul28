@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <fullName>DS_CSC_Profile_Cannot_edit_Sold_to_party</fullName>
+        <active>true</active>
+        <description>User with DS CSC profie will not be able to edit sold to party field on DP.</description>
+        <errorConditionFormula>AND(
+$Permission.DS_CSC ,  
+OR(
+ISCHANGED( Sold_To_Party__c ),
+ISCHANGED( Analytics_Source__c ))
+)</errorConditionFormula>
+        <errorMessage>Cannot edit Sold To Party field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Reference_Opportunity_Mandatory_For_SWX</fullName>
+        <active>true</active>
+        <description>Validation for before converting a SWX DP . Reference Opportunity is mandatory.</description>
+        <errorConditionFormula>AND(
+ISPICKVAL(Upsell_Status__c, &apos;Convert&apos;), 
+SWX_Reference_Opportunity__c = Null,
+$Profile.Name&lt;&gt;$Label.Data_Loader_Profile_Name)</errorConditionFormula>
+        <errorDisplayField>SWX_Reference_Opportunity__c</errorDisplayField>
+        <errorMessage>Reference Opportunity is mandatory for all SWX Digital Proposals.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>SWMP_proposals_publish_check</fullName>
+        <active>false</active>
+        <description>Cannot change status to ready for review if Ready to convert field is Red and PO, frame Contract fields are not populated (For SWMP Proposals)</description>
+        <errorConditionFormula>AND(
+ ISPICKVAL( Upsell_Status__c , &apos;Ready For Review&apos;), 
+  RecordType.DeveloperName  = &apos;DS_SWMP_Proposals&apos; ,
+
+OR(
+ PO__c  = null,
+ Frame_Contract__c = null,
+ ISPICKVAL(Business_Rules_Check__c, &apos;Red&apos;) 
+)
+)</errorConditionFormula>
+        <errorMessage>Missing information: In order to move this Digital Proposal to Ready for Review, the following information is required: the Ready to Convert flag must be True, the CPO reference field needs to be populated, and the Agreement needs to be populated</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>SWX_Expected_LOA_level_Removed_on_CXM</fullName>
+        <active>true</active>
+        <description>validation for before converting a CXM DP . If expected LOA is removed.</description>
+        <errorConditionFormula>AND( 
+ISPICKVAL(Upsell_Status__c , &apos;Convert&apos;),
+ISPICKVAL(PRIORVALUE(Expected_LoA_Level__c) ,&apos;LoA Bypass&apos;),ISPICKVAL(Expected_LoA_Level__c, &apos;&apos;),
+$Profile.Name&lt;&gt;$Label.Data_Loader_Profile_Name)</errorConditionFormula>
+        <errorMessage>&apos;Expected LoA&apos; is mandatory field. Please add value.</errorMessage>
+    </validationRules>
+</CustomObject>
