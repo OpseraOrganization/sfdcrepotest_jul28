@@ -3,7 +3,7 @@
     <types>
         <members>Case</members>
         <members>Lead</members>
-        <name>AssignmentRules</name>
+        <name>AutoResponseRules</name>
     </types>
     <version>53.0</version>
 </Package>
