@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
-        <members>ALCRInboundInterface</members>
-        <members>ALCRInboundInterfaceTest</members>
-        <members>APTSCU_ApprovalActionsController</members>
-        <members>AccountTeamMemberSync</members>
-        <members>Account_1</members>
-        <members>AccreditationLevelChange</members>
-        <members>AccreditationLevelChangeSchedulerTest</members>
-        <members>AccreditationTriggerHelperTest</members>
-        <members>Batch_EDPSuppliersToAccount</members>
-        <members>Batch_EDPSuppliersToAccountTest</members>
-        <members>LightningForgotPasswordController</members>
-        <members>LightningLoginFormController</members>
-        <members>TerritoryTest</members>
-        <name>ApexClass</name>
-    </types>
-    <version>52.0</version>
-</Package>
+  <types>
+    <name>ApexPage</name>
+    <members>Apttus_Approval__AgreementApprovalSummarySf1</members>
+    <members>Apttus__AgreementExplorerExport</members>
+    <members>grax__GRAXTimeMachine</members>
+    <members>Apttus__AgreementExpire</members>
+    <members>Apttus__SendInternalReview</members>
+    <members>nokiaCPQ_SitePhaseAssignment</members>
+    <members>trailheadapp__Unassign_Users</members>
+    <members>APTSCU_ApprovalAction</members>
+    <members>Apttus_Approval__AgreementTermExAdd</members>
+    <members>Apttus__TeamMemberSelection</members>
+    <members>Apttus__SendForTeamReview</members>
+  </types>
+<version>54.0</version></Package>
