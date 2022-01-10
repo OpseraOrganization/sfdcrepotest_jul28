@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>APTSCU_ApprovalAction</members>
+        <members>Apttus_Approval__AgreementApprovalSummarySf1</members>
+        <members>Apttus_Approval__AgreementTermExAdd</members>
+        <members>Apttus__AgreementExpire</members>
+        <members>Apttus__AgreementExplorerExport</members>
+        <members>Apttus__SendForTeamReview</members>
+        <members>Apttus__SendInternalReview</members>
+        <members>Apttus__TeamMemberSelection</members>
+        <members>grax__GRAXTimeMachine</members>
+        <members>nokiaCPQ_SitePhaseAssignment</members>
+        <members>trailheadapp__Unassign_Users</members>
+        <name>ApexPage</name>
+    </types>
+    <version>54.0</version>
+</Package>
