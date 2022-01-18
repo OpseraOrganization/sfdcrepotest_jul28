@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IPAddressRange xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Filter emails from google.comTestingFromGit</description>
+    <endIpAddress>221.224.222.158</endIpAddress>
+    <ipAddressFeature>EmailIpFiltering</ipAddressFeature>
+    <ipAddressUsageScope>Exclusion</ipAddressUsageScope>
+    <masterLabel>MasterLabelValue</masterLabel>
+    <startIpAddress>221.224.0.158</startIpAddress>
+</IPAddressRange>
