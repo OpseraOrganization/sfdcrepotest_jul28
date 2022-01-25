@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>APTSCU_ApprovalActionsController</members>
-        <name>ApexClass</name>
+        <members>ALU_Data_Source</members>
+        <members>ALU_Data_Source_New</members>
+        <members>ExternalDS_MIKA</members>
+        <members>Quip</members>
+        <members>Sharepoint_CO_E2E_CS</members>
+        <members>Sharepoint_OneStore</members>
+        <members>Sharepoint_Sales_Center</members>
+        <name>ExternalDataSource</name>
     </types>
-    <types>
-        <members>CAPS_Default_Priority</members>
-        <members>CH_Archived_Case_No_Owner</members>
-        <name>CustomLabel</name>
-    </types>
-    <version>53.0</version>
+    <version>50.0</version>
 </Package>
