@@ -1,0 +1,36 @@
+<template>
+<div class="slds-p-around_medium lgc-bg">
+    <div class="slds-m-bottom_small">
+        <lightning-button class="slds-m-right_small"
+            label="Collapse All"
+            variant="Brand"
+            onclick={clickToCollapseAll}>
+        </lightning-button>
+        <lightning-button class="slds-p-left_large"
+            label="Expand All"
+            variant="Brand"
+            onclick={clickToExpandAll}>
+        </lightning-button>
+    </div>
+    <div class="slds-scrollable_y" style="height:20rem;width:80rem">
+<template if:true={showPrimary}>
+    <lightning-tree-grid columns = {gridColumns}
+                            data = {gridData}
+                            key-field = "Id"
+                            hide-checkbox-column = true
+                            onrowaction={handleRowAction}
+                            >
+    </lightning-tree-grid>
+   </template>
+  <template if:true={hidePrimary}>
+   <lightning-tree-grid columns = {gridColumns1}
+                            data = {gridData}
+                            key-field = "Id"
+                            hide-checkbox-column = true
+                            onrowaction={handleRowAction}
+                            >
+    </lightning-tree-grid>
+    </template>
+    </div>
+</div>
+</template>
