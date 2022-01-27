@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Case_Handling</members>
+        <members>Markets</members>
+        <members>Partner_Types</members>
+        <members>Product_del</members>
+        <members>User_Roles</members>
+        <name>DataCategoryGroup</name>
+    </types>
+    <version>50.0</version>
+</Package>
