@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">
-<types>
-<name>ActionLinkGroupTemplate</name>
-<members>Sample_Action_Template</members>
-</types>
-<types>
-<name>AppMenu</name>
-<members>AppSwitcher</members>
-<members>Salesforce1</members>
-</types>
-<version>51.0</version>
-</Package>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+  <types>
+    <name>ApexClass</name>
+    <members>DemoApex4</members>
+    <members>DemoApex4</members>
+  </types>
+  <types>
+    <name>ApexEmailNotifications</name>
+    <members>apexEmailNotifications</members>
+  </types>
+<version>54.0</version></Package>
