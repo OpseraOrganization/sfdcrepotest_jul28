@@ -10,7 +10,7 @@ public without sharing class AccountMemberHanlderPRM
 
 
 /**
-* Description : sharePSM 
+* Description : sharePSMtest
 * @param accTeamList
 * @return NA
 * @throws NA
