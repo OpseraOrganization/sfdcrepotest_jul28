@@ -8,6 +8,6 @@ private Integer num;
     }
     
     public static testMethod void testNew() {
-        System.debug('Change Hello DemoApex4');
+        System.debug('Change Hello DemoApex4 testing');
     }
 }
