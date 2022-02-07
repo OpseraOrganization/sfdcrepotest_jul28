@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AAA_Custom_Field_Test</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AAA Custom Field Test 1234tester</shortDescription>
+        <value>Test the Custom Label</value>
+    </labels>
+</CustomLabels>
