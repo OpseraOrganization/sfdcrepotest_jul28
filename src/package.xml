@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Certification__c.Synnex_Cert_Access_to_Internal_Users</members>
+        <name>SharingOwnerRule</name>
+    </types>
+    <types>
+        <members>Apttus_Approval__AdhocApprovalProcess__c</members>
+        <name>SharingRules</name>
+    </types>
+    <version>54.0</version>
+</Package>
