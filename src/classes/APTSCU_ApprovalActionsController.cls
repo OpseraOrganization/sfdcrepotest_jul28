@@ -2,7 +2,7 @@
 @Name: APTSCU_ApprovalActionsController
 @Author:  Jigar Naik
 @CreateDate: 21 Feb 2016
-@Description: Controller class for custom approval actions page_test.
+@Description: Controller class for custom approval actions page.
 ******************************************************************/
 public with sharing class APTSCU_ApprovalActionsController{
 	public String sObjectType {get; set;}
@@ -20,17 +20,20 @@ public with sharing class APTSCU_ApprovalActionsController{
 	public String redirectURL {get;set;}
 	public String pageMode {get;set;}
 	public string userJSON{get; set;}
+	public string endCustomerName{get; set;}
 	
 	public String stepName {get;set;}
+    public String stepCustName {get;set;}
+    public String receiverName {get;set;}
 	public String stepEntryCriteria {get;set;}
 	public Set<String> profilesList = new Set<String>{'Nokia Read Only','Nokia Sales Profile','Non-Sales User Profile','Sales Ops Profile','System Administrator','Global Process Admin','Nokia Admin Profile'};
-	
-	public APTSCU_ApprovalActionsController() {
-		approvalRequestId = ApexPages.currentPage().getParameters().get('approvalRequestId');
-		pageMode = ApexPages.currentPage().getParameters().get('pageMode');
-		redirectURL=ApexPages.currentPage().getHeaders().get('Referer');
-
-	}
+		
+		public APTSCU_ApprovalActionsController() {
+			approvalRequestId = ApexPages.currentPage().getParameters().get('approvalRequestId');
+			pageMode = ApexPages.currentPage().getParameters().get('pageMode');
+			redirectURL=ApexPages.currentPage().getHeaders().get('Referer');
+			
+		}
 	
 	public void queryApprovalRequest(){
 		try{
@@ -41,28 +44,28 @@ public with sharing class APTSCU_ApprovalActionsController{
 			sObjectType = approvalRequest.Apttus_Approval__Object_Type__c;
 			//heema start
 			if('Apttus_Proposal__Proposal__c'.equalsIgnoreCase(sObjectType)){
-			sObjectName = 'Quote';
+				sObjectName = 'Quote';
 			}
 			else{
-			sObjectName = 'opportunity';
+				sObjectName = 'opportunity';
 			}
 			//heema end
 			set<id> userIdset = new set<id>();
 			
 			userIdset.add(approvalRequest.Apttus_Approval__Initial_Submitter__c);
 			userIdset.add(approvalRequest.Apttus_Approval__Assigned_To_Id__c);
-
-		 
+			
+			
 			queryApprovalHeaderInformation();
 			saveApprovalDisplayInformation(approvalRequest.Apttus_Approval__Approval_Process__c, approvalRequest.Apttus_Approval__Step_Name__c);
 			setUserInformation(approvalRequest.Apttus_Approval__Initial_Submitter__c, approvalRequest.Apttus_Approval__Assigned_To_Id__c);
-		
+			
 			List<user> userlist = new List<user>();
 			userlist = [select id,name from user where isactive=true and Id Not In:userIdset AND Profile.Name IN : profilesList];
 			System.debug(userlist.size());
 			userJSON = JSON.serialize(userlist);
-
- 
+			
+			
 			approvalRequestJSON=JSON.serialize(approvalRequest);
 		}catch(Exception exp){
 			//return exp.getMessage();
@@ -71,7 +74,7 @@ public with sharing class APTSCU_ApprovalActionsController{
 	@RemoteAction
 	public static String approveRequest(String approvalRequestId,String comment){
 		Savepoint sp = Database.setSavepoint();
-		try{	   
+		try{	
 			Apttus_Approval.ApprovalsWebService.approveRequest(approvalRequestId,comment);
 			return 'approved';
 		}catch(Exception exp){
@@ -151,8 +154,8 @@ public with sharing class APTSCU_ApprovalActionsController{
 			return errorMsg;
 		}
 	}  
-
-
+	
+	
 	private void queryApprovalHeaderInformation(){
 		List<Schema.FieldSetMember> fields = Schema.getGlobalDescribe().get(sObjectType).getDescribe().fieldSets.getMap().get('APTSCU_Approval_Header_Fields').getFields(); 
 		
@@ -163,7 +166,17 @@ public with sharing class APTSCU_ApprovalActionsController{
 		
 		String soqlQuery = getAllFieldsSOQL(sObjectType,'Id = :sObjectId');
 		SObject sObjectData = Database.query(soqlQuery);
-		
+		System.debug('sObjectData = ' + sObjectData);
+		//ft-223 Substitute LE Id for Name INI
+		if(sObjectName == 'opportunity'){
+			Id legalEntityId = (Id)sObjectData.get('End_Customer_LE__c');
+			endCustomerName = '';
+			List<Account> accountLE = [SELECT Name FROM Account where ID =:legalEntityId LIMIT 1];
+			if(accountLE != null && !accountLE.isEmpty()){
+				endCustomerName = accountLE[0].Name;
+			}
+		}
+		// END
 		sObjectFieldSetJSON = JSON.serialize(fldVsLabelMap);
 		sObjectDataJSON = JSON.serialize(sObjectData);
 	}
@@ -185,21 +198,37 @@ public with sharing class APTSCU_ApprovalActionsController{
 				displayFields.add(displayField.toLowerCase());
 			}
 		}
+		//ft-223 New oppotunity fields to display INI
+		if(sObjectType == 'opportunity'){
+			displayFields.add('supporting_bgs_bus__c');
+			displayFields.add('lead_bu__c');
+			displayFields.add('lead_bg__c');
+			displayFields.add('country__c');
+			displayFields.add('end_customer_name');
+			displayFields.add('account_name__c');
+			displayFields.add('name');
+		}
+		//ft-223 END
 		
 		if(displayFields.isEmpty()){
 			displayFields.add('name');
-		}
-		
+		}		
 		Map<String, Schema.SObjectField> fMap = Schema.getGlobalDescribe().get(sObjectType).getDescribe().fields.getMap(); 
-		
 		Map<String,String> fldVsLabelMap = new Map<String,String>();
 		Map<String,String> fldVsLabelMapAll = new Map<String,String>();
-		for (Schema.SObjectField ft : fMap.values()){ // loop through all field tokens (ft)
-			Schema.DescribeFieldResult fd = ft.getDescribe(); // describe each field (fd)
-			if(displayFields.contains(fd.getName().toLowerCase())){
-				fldVsLabelMap.put(fd.getName(), fd.getLabel());
+		for(String field : displayFields	){
+			if(fMap.containsKey(field)){
+				Schema.SObjectField ft= fMap.get(field);
+				Schema.DescribeFieldResult fd = ft.getDescribe();
+				String label = fd.getLabel();
+				if(field == 'account_name__c') label = 'Customer';
+				if(field == 'name') label = 'Opportunity Name';
+				fldVsLabelMap.put(fd.getName(), label);
+				fldVsLabelMapAll.put(fd.getName(), fd.getLabel());
 			}
-			fldVsLabelMapAll.put(fd.getName(), fd.getLabel());
+			if(field == 'end_customer_name') {
+				fldVsLabelMap.put('End_Customer_LE_Name', 'End Customer');
+			}
 		}
 		
 		for(Integer index = 0; index < entryCriteriaList.size(); index++){
@@ -209,6 +238,33 @@ public with sharing class APTSCU_ApprovalActionsController{
 				stepEntryCriteria += ' ' + entryCriteria.Apttus_Approval__Step_Filter_BoolOper__c + ' ';
 			}
 		}
+		/*
+		//ft-223 Change display and sort values to display INI
+		if(sObjectType == 'opportunity'){
+			String tempOppName = 'Name';
+			String tempCustomer = 'Account_Name__c';
+			String tempEndCustomer = 'Override_Reason__c';
+			String tempCountry = 'Country__c';
+			String tempBG = 'Lead_BG__c';
+			String tempBU = 'Lead_BU__c';
+			String tempSupBGBU = 'Supporting_BGs_BUs__c';
+			fldVsLabelMap.remove(tempOppName);
+			fldVsLabelMap.remove(tempCustomer);
+			fldVsLabelMap.remove(tempEndCustomer);
+			fldVsLabelMap.remove(tempCountry);
+			fldVsLabelMap.remove(tempBG);
+			fldVsLabelMap.remove(tempBU);
+			fldVsLabelMap.remove(tempSupBGBU);
+			fldVsLabelMap.put(tempSupBGBU,'Supporting BGs/BUs');
+			fldVsLabelMap.put(tempBU,'Lead BU');
+			fldVsLabelMap.put(tempBG,'Lead BG');
+			fldVsLabelMap.put(tempCountry,'Country');
+			fldVsLabelMap.put(tempEndCustomer,'End Customer');
+			fldVsLabelMap.put(tempCustomer,'Customer');
+			fldVsLabelMap.put(tempOppName,'Opportunity Name');
+			
+		}
+		//ft-223 END */
 		
 		sObjectDisplayFieldsJSON = JSON.serialize(fldVsLabelMap);
 	}
@@ -248,33 +304,33 @@ public with sharing class APTSCU_ApprovalActionsController{
 	}
 	
 	private String getAllFieldsSOQL(String objectName, String whereClause){
-		 
+		
 		String selects = '';
-		 
+		
 		if (whereClause == null || whereClause == ''){ return null; }
-		 
+		
 		// Get a map of field name and field token
 		Map<String, Schema.SObjectField> fMap = Schema.getGlobalDescribe().get(objectName.toLowerCase()).getDescribe().Fields.getMap();
 		list<string> selectFields = new list<string>();
-		 
+		
 		if (fMap != null){
 			for (Schema.SObjectField ft : fMap.values()){ // loop through all field tokens (ft)
 				Schema.DescribeFieldResult fd = ft.getDescribe(); // describe each field (fd)
 				selectFields.add(fd.getName());
 			}
 		}
-		 
+		
 		if (!selectFields.isEmpty()){
 			for (string s:selectFields){
 				selects += s + ',';
 			}
 			if (selects.endsWith(',')){selects = selects.substring(0,selects.lastIndexOf(','));}
-			 
+			
 		}
-		 
+		
 		return 'SELECT ' + selects + ' FROM ' + objectName + ' WHERE ' + whereClause;
-		 
+		
 	}
 	
-  
+	
 }
