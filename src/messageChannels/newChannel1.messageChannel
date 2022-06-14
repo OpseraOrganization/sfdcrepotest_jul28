@@ -3,7 +3,7 @@
     <description>This is a sample Lightning Message Channel.</description>
     <isExposed>true</isExposed>
     <lightningMessageFields>
-        <description>This is data parameter that you want to send through LMS testing</description>
+        <description>This is data parameter that you want to send through LMS tester</description>
         <fieldName>recordId</fieldName>
     </lightningMessageFields>
     <lightningMessageFields>
