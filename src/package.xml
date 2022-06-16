@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>ALCRInboundInterface</members>
+        <members>ALCRInboundInterfaceTest</members>
+        <members>APTSCU_ApprovalActionsController</members>
+        <members>APTSCU_PreviewApprovalsController</members>
+        <members>BulkUploadCustomProducts_Controller</members>
+        <members>CH_AccountContactRelationTriggerHelper</members>
+        <members>CH_AccountContactRelationTriggerTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Account</members>
+        <members>Additional_Resource_Request__c</members>
+        <members>ApptBundlePropagatePolicy</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>3rd Party Telemarketing Profile</members>
+        <members>Admin</members>
+        <members>Analytics Cloud Integration User</members>
+        <members>Analytics Cloud Security User</members>
+        <members>CH_Basic Case Handling</members>
+        <name>Profile</name>
+    </types>
+    <version>55.0</version>
+</Package>
