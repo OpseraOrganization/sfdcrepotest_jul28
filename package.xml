@@ -8,5 +8,9 @@
     <name>ApexClass</name>
     <members>DemoApex4</members>
   </types>
+  <types>
+    <name>MilestoneType</name>
+    <members>Tester Org</members>
+  </types>
   <version>55.0</version>
 </Package>
