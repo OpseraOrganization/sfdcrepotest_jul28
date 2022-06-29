@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Adjustment_Type__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Adjustment Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Uplift (%)</fullName>
+                    <default>false</default>
+                    <label>Uplift (%)</label>
+                </value>
+                <value>
+                    <fullName>Discount (%)</fullName>
+                    <default>false</default>
+                    <label>Discount (%)</label>
+                </value>
+                <value>
+                    <fullName>Uplift Amount</fullName>
+                    <default>false</default>
+                    <label>Uplift Amount</label>
+                </value>
+                <value>
+                    <fullName>Discount Amount</fullName>
+                    <default>false</default>
+                    <label>Discount Amount</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Adjustment__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Adjustment (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Type__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Partner Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Alliance Partner</fullName>
+                    <default>true</default>
+                    <label>Alliance Partner</label>
+                </value>
+                <value>
+                    <fullName>Industrial Partner / System Integrator</fullName>
+                    <default>false</default>
+                    <label>Industrial Partner / System Integrator</label>
+                </value>
+                <value>
+                    <fullName>Distributor</fullName>
+                    <default>false</default>
+                    <label>Distributor</label>
+                </value>
+                <value>
+                    <fullName>Indirect Reseller</fullName>
+                    <default>false</default>
+                    <label>Indirect Reseller</label>
+                </value>
+                <value>
+                    <fullName>Value Added Reseller</fullName>
+                    <default>false</default>
+                    <label>Value Added Reseller</label>
+                </value>
+                <value>
+                    <fullName>Service Provider</fullName>
+                    <default>false</default>
+                    <label>Service Provider</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Portfolio__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Portfolio</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>FastMile</fullName>
+                    <default>false</default>
+                    <label>FastMile</label>
+                </value>
+                <value>
+                    <fullName>Fixed Access - FBA</fullName>
+                    <default>false</default>
+                    <label>Fixed Access - FBA</label>
+                </value>
+                <value>
+                    <fullName>Fixed Access - POL</fullName>
+                    <default>false</default>
+                    <label>Fixed Access - POL</label>
+                </value>
+                <value>
+                    <fullName>Fixed Network</fullName>
+                    <default>false</default>
+                    <label>Fixed Network</label>
+                </value>
+                <value>
+                    <fullName>Global Services</fullName>
+                    <default>false</default>
+                    <label>Global Services</label>
+                </value>
+                <value>
+                    <fullName>IP Routing</fullName>
+                    <default>false</default>
+                    <label>IP Routing</label>
+                </value>
+                <value>
+                    <fullName>Microwave</fullName>
+                    <default>false</default>
+                    <label>Microwave</label>
+                </value>
+                <value>
+                    <fullName>Modular Private Wireless Solution</fullName>
+                    <default>false</default>
+                    <label>Modular Private Wireless Solution</label>
+                </value>
+                <value>
+                    <fullName>Nokia Software</fullName>
+                    <default>false</default>
+                    <label>Nokia Software</label>
+                </value>
+                <value>
+                    <fullName>Nuage</fullName>
+                    <default>false</default>
+                    <label>Nuage</label>
+                </value>
+                <value>
+                    <fullName>Optics</fullName>
+                    <default>false</default>
+                    <label>Optics</label>
+                </value>
+                <value>
+                    <fullName>Optics - Wavelite</fullName>
+                    <default>false</default>
+                    <label>Optics - Wavelite</label>
+                </value>
+                <value>
+                    <fullName>QTC</fullName>
+                    <default>false</default>
+                    <label>QTC</label>
+                </value>
+                <value>
+                    <fullName>Wireless PON</fullName>
+                    <default>false</default>
+                    <label>Wireless PON</label>
+                </value>
+                <value>
+                    <fullName>Airscale Wifi</fullName>
+                    <default>false</default>
+                    <label>Airscale Wifi</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Scope__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Scope</label>
+        <length>254</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Partner Config</label>
+    <pluralLabel>Partner Configs</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>
