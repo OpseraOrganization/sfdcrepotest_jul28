@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>DE_API_Metadata</description>
+    <fields>
+        <fullName>DE_API_Metadata_Name__c</fullName>
+        <defaultValue>&quot;DE_API&quot;</defaultValue>
+        <description>DE_API_Metadata Name</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>DE_API_Metadata Name</inlineHelpText>
+        <label>DE_API_Metadata Name</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DE_Password__c</fullName>
+        <defaultValue>&quot;nok@123#&quot;</defaultValue>
+        <description>Password</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Password</inlineHelpText>
+        <label>Password</label>
+        <length>15</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DE_URL__c</fullName>
+        <defaultValue>&quot;https://cso30.dev.decisionengines.ai/authserver/auth&quot;</defaultValue>
+        <description>URL</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>URL</inlineHelpText>
+        <label>URL</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DE_Username__c</fullName>
+        <defaultValue>&quot;nokia5&quot;</defaultValue>
+        <description>Username</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Username</inlineHelpText>
+        <label>Username</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>DE_API_Metadata</label>
+    <pluralLabel>DE_API_Metadata</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

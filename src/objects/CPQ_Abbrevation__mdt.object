@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>CPQ_Abbrevation__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Abbrevation</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Abbrevation</label>
+    <listViews>
+        <fullName>All_1</fullName>
+        <columns>CPQ_Abbrevation__c</columns>
+        <columns>MasterLabel</columns>
+        <columns>DeveloperName</columns>
+        <filterScope>Everything</filterScope>
+        <label>Show All</label>
+        <language>en_US</language>
+    </listViews>
+    <pluralLabel>Abbrevations</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>
