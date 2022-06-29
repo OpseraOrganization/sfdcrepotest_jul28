@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Customer_Document_Status__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Customer Document Status</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Exception-Association</fullName>
+                    <default>true</default>
+                    <label>Exception-Association</label>
+                </value>
+                <value>
+                    <fullName>Exception-Header-Mismatch</fullName>
+                    <default>false</default>
+                    <label>Exception-Header-Mismatch</label>
+                </value>
+                <value>
+                    <fullName>Exception-Data-Enrichment</fullName>
+                    <default>false</default>
+                    <label>Exception-Data-Enrichment</label>
+                </value>
+                <value>
+                    <fullName>Exception-Enrichment(Lines)</fullName>
+                    <default>false</default>
+                    <label>Exception-Enrichment(Lines)</label>
+                </value>
+                <value>
+                    <fullName>Exception-Association(Lines)</fullName>
+                    <default>false</default>
+                    <label>Exception-Association(Lines)</label>
+                </value>
+                <value>
+                    <fullName>Exception-Matching(Lines)</fullName>
+                    <default>false</default>
+                    <label>Exception-Matching(Lines)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Maturity_Value__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Maturity Value</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>true</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>5</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>QTO_Line_Item_Association_Comment__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>QTO Line Item Association Comment</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Done Due to Exception-Association Header</fullName>
+                    <default>true</default>
+                    <label>Not Done Due to Exception-Association Header</label>
+                </value>
+                <value>
+                    <fullName>Not Done Due to Exception-Header-Mismatch</fullName>
+                    <default>false</default>
+                    <label>Not Done Due to Exception-Header-Mismatch</label>
+                </value>
+                <value>
+                    <fullName>Not Done Due to Exception-Data-Enrichment</fullName>
+                    <default>false</default>
+                    <label>Not Done Due to Exception-Data-Enrichment</label>
+                </value>
+                <value>
+                    <fullName>Not Done Due to Exception-Matching Header</fullName>
+                    <default>false</default>
+                    <label>Not Done Due to Exception-Matching Header</label>
+                </value>
+                <value>
+                    <fullName>Not Done Due to Exception-Enrichment(Lines)</fullName>
+                    <default>false</default>
+                    <label>Not Done Due to Exception-Enrichment(Lines)</label>
+                </value>
+                <value>
+                    <fullName>Not Done Due to Exception-Association(Lines)</fullName>
+                    <default>false</default>
+                    <label>Not Done Due to Exception-Association(Lines)</label>
+                </value>
+                <value>
+                    <fullName>Done Successful</fullName>
+                    <default>false</default>
+                    <label>Done Successful</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>QTO_Line_Item_Matching_Comment__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>QTO Line Item Matching Comment</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Done Due to Exception-Association Header</fullName>
+                    <default>true</default>
+                    <label>Not Done Due to Exception-Association Header</label>
+                </value>
+                <value>
+                    <fullName>Not Done Due to Exception-Header-Mismatch</fullName>
+                    <default>false</default>
+                    <label>Not Done Due to Exception-Header-Mismatch</label>
+                </value>
+                <value>
+                    <fullName>Not Done Due to Exception-Data-Enrichment</fullName>
+                    <default>false</default>
+                    <label>Not Done Due to Exception-Data-Enrichment</label>
+                </value>
+                <value>
+                    <fullName>Not Done Due to Exception-Matching Header</fullName>
+                    <default>false</default>
+                    <label>Not Done Due to Exception-Matching Header</label>
+                </value>
+                <value>
+                    <fullName>Not Done Due to Exception-Enrichment(Lines)</fullName>
+                    <default>false</default>
+                    <label>Not Done Due to Exception-Enrichment(Lines)</label>
+                </value>
+                <value>
+                    <fullName>Not Done Due to Exception-Association(Lines)</fullName>
+                    <default>false</default>
+                    <label>Not Done Due to Exception-Association(Lines)</label>
+                </value>
+                <value>
+                    <fullName>Not Done Due to Exception-Matching(Lines)</fullName>
+                    <default>false</default>
+                    <label>Not Done Due to Exception-Matching(Lines)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>QTO CDMaturityMetadata</label>
+    <pluralLabel>QTO CDMaturityMetadatas</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>
