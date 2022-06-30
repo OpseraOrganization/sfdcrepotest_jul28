@@ -9,6 +9,52 @@
   </types>
   <types>
     <name>WorkflowAlert</name>
+    <members>Case.User_Management_New_User_Information</members>
+    <members>Case.HWS_ETA_UPDATE_FROM_SALESFORCE_Email_Alert</members>
+    <members>Case.PRM_Notify_NDAC_Approvers</members>
+    <members>Case.PRM_NIRA_15_Day_Draft_Notification</members>
+    <members>Additional_Resource_Request__c.PRM_ARR_NDAC_Offer_and_Order_Rejected</members>
+    <members>Additional_Resource_Request__c.PRM_ARR_General_Rejected</members>
+    <members>Apttus_Proposal__Proposal__c.CPQ_Send_Email_to_Submitted_for_Approval_Status_Change</members>
+    <members>Customer_Document__c.send_email_on_status_change_to_Registered</members>
+    <members>Additional_Resource_Request__c.PRM_ARR_NDAC_Offer_and_Order_Completed</members>
+    <members>Apttus_Proposal__Proposal__c.CPQ_Send_Email_to_Submitter_for_Rejected_Stage</members>
+    <members>CH_Corrective_Preventive_Action__c.CH_CPA_Rejection_Notification</members>
+    <members>Task.DS_Task_reassigned_Email_Alert_SFR_Logistics</members>
+    <members>Additional_Resource_Request__c.PRM_ARR_General_Completed</members>
+    <members>Opportunity.Stalling_Opp_Close</members>
+    <members>Task.DS_New_Task_Email_Alert_SFR_Logistics</members>
+    <members>Apttus_Proposal__Proposal__c.Send_Email_To_Partner_For_LEO_Quote</members>
+    <members>Case.HWS_Non_SPS_Shipped_Cases_Email_Alert</members>
+    <members>Apttus_Proposal__Proposal__c.Email_to_AM</members>
+    <members>Case.NCP_Mail_Notification_AMS_Group</members>
+    <members>CH_EmailAlert__c.CH_Workgroup_Queue_Email_Alert</members>
+    <members>Apttus_Approval__Approval_Request__c.CPQ_EBG_Add_Comment_Notification</members>
+    <members>Apttus__APTS_Agreement__c.CLM_Agreement_Returned_to_Requestor</members>
+    <members>Apttus_Approval__Approval_Request__c.CPQ_EBG_Cancellation_mail_for_Recall</members>
+    <members>Case.PRM_NIRA_25_Day_Draft_Notification</members>
+    <members>Case.HWS_SPS_partial_shipped_cases_Email_Alert</members>
+    <members>Case.HWS_SPS_shipped_cases_Email_Alert</members>
+    <members>Opportunity.Pre_Opportunity_Owner_Notification</members>
+    <members>Additional_Resource_Request__c.PRM_ARR_NDAC_Notify_Rejected</members>
+    <members>Task.DS_Task_reassigned_Email_Alert_SFR_Wipro</members>
+    <members>Additional_Resource_Request__c.PRM_ARR_NDAC_Notify_Completed</members>
+    <members>Customer_Document__c.send_email_on_status_change</members>
+    <members>CH_EmailAlert__c.HWS_Warranty_Check_Exception_Alert</members>
+    <members>ServiceContract.CH_Renegotiation_Start_Date_Reminder</members>
+    <members>Case.CH_CriticalServiceDisruptionNotRestored</members>
+    <members>CH_EmailAlert__c.CH_Update_contact_details_Alert</members>
+    <members>Opportunity.Pre_Opportunity_CTHead_Notification</members>
+    <members>Opportunity.Pre_Opportunity_AM_Notification</members>
+    <members>Apttus_Proposal__Proposal__c.Send_Email_to_PSM_for_Approval_Status_Change</members>
+    <members>CH_EmailAlert__c.HWS_Pending_Referral_Instructions_Alert</members>
+    <members>Case.Quote_to_Order</members>
+    <members>Case.Email_Alert_for_CH_and_HWS</members>
+    <members>User.X90_Days_User_Deactivation_Notification1</members>
+    <members>Case.CH_Solution_Provided_Deferred_Milestone_Violation_Email_Alert</members>
+    <members>PRM_PFAContract__c.PRM_PFAEmailAlert</members>
+    <members>Task.DS_New_Task_Email_Alert_SFR_Wipro</members>
+    <members>Case.HWS_Faulty_Reminder_Email_Alert</members>
     <members>Claim__c.Send_notification_when_30_days_remains_to_expire</members>
     <members>Case.CH_WarningNotificationOfTemporarySolutionMilestoneNearDue</members>
     <members>CH_EmailAlert__c.WARRANTY_QUOTATION_WORKGROUP_EMAIL_3</members>
