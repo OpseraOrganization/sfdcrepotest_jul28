@@ -49,7 +49,7 @@ public with sharing class AccountTeamMemberSync {
 		List<AccountTeamMember> accountTeamMembersToDelete = new List<AccountTeamMember>();
 		for (AccountTeamMember accountTeamMember : accountTeamMembers) {
 
-			Strin	 accountId = accountTeamMember.AccountId;
+			String accountId = accountTeamMember.AccountId;
 			String userId = accountTeamMember.UserId;
 			if (userIdsByAccountIds.get(accountId).contains(userId)) {
 				accountTeamMembersToDelete.add(accountTeamMember);
