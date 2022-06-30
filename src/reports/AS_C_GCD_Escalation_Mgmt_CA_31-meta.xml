@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <folderShares>
+        <accessLevel>Manage</accessLevel>
+        <sharedTo>fadzlinahanum.mohammadfadzil@singlecrm.nokia.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>EditAllContents</accessLevel>
+        <sharedTo>kannan.1.thiyagarajan@singlecrm.nokia.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>Manage</accessLevel>
+        <sharedTo>vipul.g.patel@singlecrm.nokia.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <name>AS&amp;C GCD Escalation Mgmt &amp; CA 3</name>
+</ReportFolder>
