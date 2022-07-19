@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__CompletionDueDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date by which the child configuration should be completed and submitted for merging.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date by which the child configuration should be completed and submitted for merging.</inlineHelpText>
+        <label>Completion Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ConfigurationEffectiveDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The configuration effective date</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The configuration effective date</inlineHelpText>
+        <label>Configuration Effective Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The order description</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The order description</inlineHelpText>
+        <label>Description</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__OrderDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The order date</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The order date</inlineHelpText>
+        <label>Order Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__OrderEndDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date at which the order ends</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date at which the order ends</inlineHelpText>
+        <label>Order End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__OrderStartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date at which the order becomes effective</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date at which the order becomes effective</inlineHelpText>
+        <label>Order Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__PODate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The purchase order date</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The purchase order date</inlineHelpText>
+        <label>PO Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__PONumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The purchase order number</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The purchase order number</inlineHelpText>
+        <label>PO Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ParentBusinessObjectId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Id of the parent business object</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Id of the parent business object</inlineHelpText>
+        <label>Parent Business Object</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__PricingDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The pricing date. The product list price is determined based on this date.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The pricing date. The product list price is determined based on this date.</inlineHelpText>
+        <label>Pricing Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__PurchaseId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The default purchase identifier associated with the order</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>true</externalId>
+        <inlineHelpText>The default purchase identifier associated with the order</inlineHelpText>
+        <label>Purchase Identifier</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ReadyForActivationDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date the order is ready for activation. The order is activated on this date.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the order is ready for activation. The order is activated on this date.</inlineHelpText>
+        <label>Ready For Activation Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ReadyForBillingDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date when the order is ready for billing. The billing schedules are created on this date.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date when the order is ready for billing. The billing schedules are created on this date.</inlineHelpText>
+        <label>Ready For Billing Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ReadyForRevRecDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date when the order is ready for revenue recognition. The revenue schedules are created on this date.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date when the order is ready for revenue recognition. The revenue schedules are created on this date.</inlineHelpText>
+        <label>Ready For Revenue Recognition Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Specifications__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Holds any specifications to be passed on to the collaborator.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Holds any specifications to be passed on to the collaborator.</inlineHelpText>
+        <label>Specifications</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__StartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date by which the child configuration should be started.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date by which the child configuration should be started.</inlineHelpText>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+</CustomObject>

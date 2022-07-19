@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__ActionCriteria__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Represents the criteria to search for product or match a product depending on the type of the rule.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Action Criteria</label>
+        <length>8192</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Message__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Message entered in this field is displayed when the rule action requires user attention.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Example: Please select one of the following product {0}.</inlineHelpText>
+        <label>Message</label>
+        <length>2048</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ProductCategory__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Product category should be specified when product scope is set as Product Category</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Product Category (Deprecated)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ProductFamily__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Product family should be specified when the product scope is set as Product Family.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Product Family</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__FilterCriteria__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Cart views filter criteria specification</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Cart views filter criteria specification</inlineHelpText>
+        <label>Filter Criteria</label>
+        <length>2048</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Flow__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Captures the Flow ID for the view settings</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Captures the Flow ID for the view settings</inlineHelpText>
+        <label>Flow</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__GroupBy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Captures the GroupBy field for the view setting record</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Captures the GroupBy field for the view setting record</inlineHelpText>
+        <label>GroupBy</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ProfileId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Used to store profileIds as comma separated values</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to store profileIds as comma separated values</inlineHelpText>
+        <label>ProfileId</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RoleId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Stores userrole ID</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Stores userrole ID</inlineHelpText>
+        <label>RoleId</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Source__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates from which custom object the available columns come from.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates from which custom object the available columns come from.</inlineHelpText>
+        <label>SourceObject</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Used to store the cart view type (Public/Private/Protected)</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to store the cart view type (Public/Private/Protected)</inlineHelpText>
+        <label>Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__UserId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Used to store users ID for the cart view as comma separator values.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to store users ID for the cart view as comma separator values.</inlineHelpText>
+        <label>UserId</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

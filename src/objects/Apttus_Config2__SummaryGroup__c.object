@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__AdHocGroupDescription__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The totaling group description</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Totaling Group Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Comments__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Memo text entered by the user</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>4000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The group description</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__IncentiveCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The incentive code available to customers to identify the incentive</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The incentive code available to customers to identify the incentive</inlineHelpText>
+        <label>Incentive Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RulesetName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of the aggregate ruleset. Only applicable to adjustment line types.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Ruleset Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NokiaCPQ_DOD__c</fullName>
+        <description>Apply DOD discount on the lines which are already priced from PSP.</description>
+        <externalId>false</externalId>
+        <formula>ROUND(IF(TEXT(Apttus_Config2__ConfigurationId__r.Apttus_QPConfig__Proposald__r.Apttus_Proposal__Opportunity__r.PRMDeal_Origination_Discount_Status__c) == &quot;Approved with DOD&quot;
+&amp;&amp; NOT( Apttus_Config2__ConfigurationId__r.Apttus_QPConfig__Proposald__r.NokiaCPQ_LEO_Discount__c)
+&amp;&amp; (Apttus_Config2__ConfigurationId__r.NokiaCPQ_ContractedPrice__c) &gt; Apttus_Config2__AdjustmentAmount__c
+&amp;&amp;(CONTAINS(Name, &apos;Total (One Time)&apos;)),
+((Apttus_Config2__ConfigurationId__r.NokiaCPQ_ContractedPrice__c -Apttus_Config2__AdjustmentAmount__c) *
+Apttus_Config2__ConfigurationId__r.Apttus_QPConfig__Proposald__r.NokiaCPQ_DOD_Per__c ),0),2)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>DOD</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>NokiaCPQ_DPD__c</fullName>
+        <description>Apply DPD discount on the lines which are priced from PSP</description>
+        <externalId>false</externalId>
+        <formula>ROUND(IF(
+TEXT(Apttus_Config2__ConfigurationId__r.Apttus_QPConfig__Proposald__r.Apttus_Proposal__Opportunity__r.PRMDeal_Origination_Discount_Status__c)==&quot;Approved with DOD&quot; &amp;&amp; NOT( Apttus_Config2__ConfigurationId__r.Apttus_QPConfig__Proposald__r.NokiaCPQ_LEO_Discount__c) &amp;&amp; 
+TEXT(Apttus_Config2__ConfigurationId__r.Apttus_QPConfig__Proposald__r.Apttus_Proposal__Opportunity__r.Account.Partner_Type__c) == &quot;Distributor&quot; &amp;&amp; 
+(Apttus_Config2__ConfigurationId__r.NokiaCPQ_ContractedPrice__c) &gt; BLANKVALUE(Apttus_Config2__AdjustmentAmount__c,0) &amp;&amp; 
+CONTAINS(Name, &apos;Total (One Time)&apos;),
+(Apttus_Config2__ConfigurationId__r.NokiaCPQ_ContractedPrice__c -  BLANKVALUE(Apttus_Config2__AdjustmentAmount__c,0)  ) *  Apttus_Config2__ConfigurationId__r.Apttus_QPConfig__Proposald__r.NokiaCPQ_DPD_Per__c ,
+0),2)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>DPD</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+</CustomObject>

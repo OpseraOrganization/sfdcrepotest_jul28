@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__ConfigFlow__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Associated flow for this group of settings</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Associated flow for this group of settings</inlineHelpText>
+        <label>Config Flow</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__DefaultId__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <description>Default Identifier of the Setting Group</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Default Identifier of the Setting Group</inlineHelpText>
+        <label>DefaultId</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ExternalApplicationFeatureId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>External Id pointing to the ApplicationFeature__c original parent record</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>External Id pointing to the ApplicationFeature__c original parent record</inlineHelpText>
+        <label>ExternalApplicationFeatureId</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ExternalId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>External Id pointing to the original SettingGroup__c record</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>External Id pointing to the original SettingGroup__c record</inlineHelpText>
+        <label>ExternalId</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__LimitAppliesToValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the scope the limit should be applied to</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>true</externalId>
+        <inlineHelpText>Indicates the scope the limit should be applied to</inlineHelpText>
+        <label>Limit Applies To Value</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__LimitEndDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The end date of the limit period</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The end date of the limit period</inlineHelpText>
+        <label>Limit End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__LimitStartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The start date of the limit period</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The start date of the limit period</inlineHelpText>
+        <label>Limit Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+</CustomObject>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__AdjustmentValueSource__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The source for dynamic adjustment values</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The source for dynamic adjustment values</inlineHelpText>
+        <label>Adjustment Value Source</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Condition__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The condition specification</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Condition</label>
+        <length>4000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Dimension1ListValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The list of values for the first dimension. Only applicable to List dimensions</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The list of values for the first dimension. Only applicable to List dimensions</inlineHelpText>
+        <label>Dimension 1 List Value</label>
+        <length>5000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Dimension1Value__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The value for the first dimension. Only applicable to Matrix based rules.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Dimension 1 Value</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Dimension2ListValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The list of values for the second dimension. Only applicable to List dimensions</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The list of values for the second dimension. Only applicable to List dimensions</inlineHelpText>
+        <label>Dimension 2 List Value</label>
+        <length>5000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Dimension2Value__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The value for the second dimension. Only applicable to Matrix based rules.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Dimension 2 Value</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Dimension3ListValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The list of values for the third dimension. Only applicable to List dimensions</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The list of values for the third dimension. Only applicable to List dimensions</inlineHelpText>
+        <label>Dimension 3 List Value</label>
+        <length>5000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Dimension3Value__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The value for the third dimension</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Dimension 3 Value</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Dimension4ListValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The list of values for the fourth dimension. Only applicable to List dimensions</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The list of values for the fourth dimension. Only applicable to List dimensions</inlineHelpText>
+        <label>Dimension 4 List Value</label>
+        <length>5000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Dimension4Value__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The value for the fourth dimension. Only applicable to Matrix based rules.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Dimension 4 Value</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Dimension5ListValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The list of values for the fifth dimension. Only applicable to List dimensions</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The list of values for the fifth dimension. Only applicable to List dimensions</inlineHelpText>
+        <label>Dimension 5 List Value</label>
+        <length>5000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Dimension5Value__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The value for the fifth dimension. Only applicable to Matrix based rules.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Dimension 5 Value</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Dimension6ListValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The list of values for the sixth dimension. Only applicable to List dimensions</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The list of values for the sixth dimension. Only applicable to List dimensions</inlineHelpText>
+        <label>Dimension 6 List Value</label>
+        <length>5000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Dimension6Value__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The value for the sixth dimension. Only applicable to Matrix based rules.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Dimension 6 Value</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__LoyaltyLevel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Describes the loyalty level applied when conditions are met.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Loyalty Level</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__PeriodEndDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The period end date. The entry becomes ineffective after this date.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The period end date. The entry becomes ineffective after this date.</inlineHelpText>
+        <label>End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__PeriodStartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The period start date. The entry becomes effective on this date.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The period start date. The entry becomes effective on this date.</inlineHelpText>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ProductCategory__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The product category associated with the rule. Only applicable to Volume based rules.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Product Category</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ProductFamily__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The product family associated with the rule. Only applicable to Volume based rules.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Product Family</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

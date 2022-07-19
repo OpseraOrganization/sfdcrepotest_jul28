@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Additional_NEs_required__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Apttus_Config2__LineItemId__r.Apttus_Config2__ProductId__r.ProductCode == &quot;NSP20&quot;,&apos;Please select if there are other existing network elements (NE), which will be managed by this instance of NSP.&apos;,&apos;Please select if there are other existing network elements (NE), which will be managed by this instance of NFM-P.&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Additional NEs required</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Do_you_have_NFM_P_2__c</fullName>
+        <externalId>false</externalId>
+        <formula>&apos;If you answer &quot;YES&quot; this configurator will calculate license points for your existing configuration only. If you answer &quot;NO&quot; this tool will configure a new instance of either NSP 20 or NSP 21.&apos;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Do you have NSP</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Do_you_have_NFM_P_new__c</fullName>
+        <externalId>false</externalId>
+        <label>Do you have NSP ?</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>true</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Guidance_NFM__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Apttus_Config2__LineItemId__r.Apttus_Config2__ProductId__r.ProductCode == &quot;NSP20&quot;,&apos;License Points are required for each device managed by NSP. You need to buy the right number of License Points to enable management of all devices. This tool will automatically calculate the number of License Points required for the hardware you have already added to the shopping cart (and HA/DR License Points if selected on the Platform Tab.). Please contact Nokia Sales if you are unsure how to calculate additional license points for any other equipment that you would like NSP to manage.&apos;,&apos;License Points are required for each device managed by NFM-P you need to buy the right number of License Points to enable management of all devices. This tool will automatically calculate the number of License Points required for the hardware you have already added to the shopping cart (and HA/DR License Points if selected on the Platform Tab.). Please contact Nokia Sales if you are unsure how to calculate additional license points for any other equipment that you would like NFM-P to manage.&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>License Points</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Guidance__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Apttus_Config2__LineItemId__r.Apttus_Config2__ProductId__r.ProductCode==&apos;7750SRa&apos;,&quot;In the 7750SR-a4 a minimun of one MDA-a is required and a maximum of 4 x MDA-a can be installed.&quot;,IF(Apttus_Config2__LineItemId__r.Apttus_Config2__ProductId__r.ProductCode==&apos;7705SARAAx&apos;,&quot;Please select one of the SAR-A/Ax options and choose the appropriate power supply and plug suitable for the installation location. Please select pluggable optics, software licenses and other accessories on the subsequent tabs.&quot;,IF(Apttus_Config2__LineItemId__r.Apttus_Config2__ProductId__r.ProductCode==&apos;7210SAS-K&apos;,&quot;Please choose the required SAS-K type and whether you require an ETR (Extended Temperature Range) version.Please also decide which combination of power supplies you require and the type of plug appropriate for your implementation.Please select pluggable optics,software licenses and other accessories on the subsequent tabs.&quot;,IF(Apttus_Config2__LineItemId__r.Apttus_Config2__ProductId__r.ProductCode==&apos;ISAMFXP&apos;,&apos;Depending on the SW Package to be used a license is needed.Besides the mandatory licenses already selected,please select the licenses needed&apos;,IF(Apttus_Config2__LineItemId__r.Apttus_Config2__ProductId__r.ProductCode==&apos;7210SAS-R&apos;,&quot;Please select the power and switch/control plane redundancy required.Once complete please choose the line cards,pluggable optics,software licenses and other accessories on the subsequent tabs.&quot;,IF(Apttus_Config2__LineItemId__r.Apttus_Config2__ProductId__r.ProductCode==&apos;7705SARH&apos;,&quot;The user should select if they require the high or low voltage version and whether they require Conformal Coating.&quot;,IF((Apttus_Config2__LineItemId__r.Apttus_Config2__ProductId__r.ProductCode== &apos;POLNAR&apos;||Apttus_Config2__LineItemId__r.Apttus_Config2__ProductId__r.ProductCode==&apos;POL&apos;),&quot;To be able to walk you through a guided configuration please provide: 1. The number of GPON subscribers (ONTs) to be supported, the Tab &apos;ONT&apos; will allow you to split the number of GPON subscribers to be supported in different ONT types and quantities.2. The Split Ratio that will be used in the Outside Plant for splitting the GPON fiber from the Central Office until the end users. 3. If type B Protection is required (Yes/No)4.If Network redundancy is required (Yes/No)&quot;,IF(Apttus_Config2__LineItemId__r.Apttus_Config2__ProductId__r.ProductCode ==&apos;FBANAR&apos;|| Apttus_Config2__LineItemId__r.Apttus_Config2__ProductId__r.ProductCode ==&apos;FBAOUTSIDENAR&apos;,&quot;To be able to walk you through a guided configuration please provide:1.The number of PON subscribers (ONTs) to be supported, the Tab &apos;ONT&apos; will allow you to split the number of PON subscribers to be supported in different ONT types and quantity. 2.The number of PON Ports needed. Depending on the customers input the number of PON ports needed can be calculated using the Split Ratio, or can be provided directly in the number of PON ports input field. 3.the number of Point-2-Point Subscribers to be supported. 4.If type B Protection is required (Yes/No). 5.If Network redundancy is required (Yes/No)&quot;,IF(Apttus_Config2__LineItemId__r.Apttus_Config2__ProductId__r.ProductCode == &apos;7705SARWWx&apos;,&quot;7705 SAR-W and 7705 SAR-Wx are IP/MPLS based, environment- and climate-hardened, routers designed for communications in outdoor locations.&quot;,IF(Apttus_Config2__LineItemId__r.Apttus_Config2__ProductId__r.ProductCode==&apos;7705SARHC&apos;,&quot;SAR-Hc provides industry-leading IP/MPLS communications capabilities in a DIN rail-mountable compact form factor with temperature, electromagnetic,shock and vibration hardening.&quot;,&quot;Guidance text&quot;))))))))))</formula>
+        <label>Guidance</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>License_Keys_2__c</fullName>
+        <externalId>false</externalId>
+        <formula>&apos;Licenses keys are configured with a default of 25 operator positions. Please contact Nokia Sales Team for additional Operator positions&apos;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>License Keys</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NFM_P_10K_AA_MOBILE_SUBS__c</fullName>
+        <externalId>false</externalId>
+        <formula>&apos;Select to receive 10,000 AA Mobile Subscribers for IPDR use only (subscriber level reporting is not supported).&apos;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>NSP 10K AA MOBILE SUBS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NFM_P_10K_AA_RESIDENTIAL_SUBS__c</fullName>
+        <externalId>false</externalId>
+        <formula>&apos;Select to receive 10,000 AA Residential/Wi-Fi Subscriber License for IPDR and/or Reporting use cases.&apos;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>NSP 10K AA RESIDENTIAL SUBS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NFM_P_500_AA_BUSINESS_SUBS__c</fullName>
+        <externalId>false</externalId>
+        <formula>&apos;Select to receive 500 AA Business Subscribers for IPDR use only (subscriber level reporting is not supported).&apos;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>NSP 500 AA BUSINESS SUBS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NFM_P_AUXILARY_DATABASE_1_TB__c</fullName>
+        <externalId>false</externalId>
+        <formula>&apos;4 Tbytes is included with the Standard Package and 5 Tbytes is included with the Premium Package. Multiple licenses can be purchased and are cumulative, e.g. purchasing 5 licenses permits 5 TBs total of storage.&apos;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>NSP AUXILARY DATABASE 1 TB</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Wall_Mount_Bracket__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>7368 ONT field</description>
+        <externalId>false</externalId>
+        <label>Wall Mount Bracket</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>What_is_total_calculated_LP__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Apttus_Config2__LineItemId__r.Apttus_Config2__ProductId__r.ProductCode == &quot;NSP20&quot;,&apos;Sum of Auto calculated LP, Wireless and Additional LPs.&apos;,&apos;The total calculated license points is the sum of the license points required to manage the products in this quote and any additional network elements (NE) added above.&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>What is total calculated LP?</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Which_NMS_is_installed__c</fullName>
+        <externalId>false</externalId>
+        <label>Which Platform do you have?</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>NSP 20</fullName>
+                    <default>false</default>
+                    <label>NSP 20</label>
+                </value>
+                <value>
+                    <fullName>NSP 21</fullName>
+                    <default>false</default>
+                    <label>NSP 21</label>
+                </value>
+                <value>
+                    <fullName>NFMP-18</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>NFMP-18</label>
+                </value>
+                <value>
+                    <fullName>NFMP-19</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>NFMP-19</label>
+                </value>
+                <value>
+                    <fullName>SAM R14</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>SAM R14</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>X3__c</fullName>
+        <externalId>false</externalId>
+        <formula>&apos;Please specify if you have NSP 20, NSP 21  installed. Other systems are not supported by this tool.&apos;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Which NMS is installed</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

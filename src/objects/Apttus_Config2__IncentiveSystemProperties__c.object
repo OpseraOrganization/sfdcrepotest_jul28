@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__ContextType__c</fullName>
+        <defaultValue>&quot;Order Line Item&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The type of context associated with the incentive. Valid values are :
+
+Line Item
+Order Line Item
+External Order Summary Item
+Milestone</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The type of context associated with the incentive. Valid values are :
+
+Line Item
+Order Line Item
+External Order Summary Item
+Milestone</inlineHelpText>
+        <label>Context Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__LoyaltyLevelUpdateFrequency__c</fullName>
+        <defaultValue>&quot;Auto&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates the how updates to loyalty levels should be handled. Valid values are:
+
+Auto
+OnDemand
+
+The default value is Auto</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the how updates to loyalty levels should be handled. Valid values are:
+
+Auto
+OnDemand
+
+The default value is Auto</inlineHelpText>
+        <label>Loyalty Level Update Frequency</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RollupPeriodSource__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the source field in the context object which determines the rollup period</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the source field in the context object which determines the rollup period</inlineHelpText>
+        <label>Rollup Period Source</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__UseType__c</fullName>
+        <defaultValue>&quot;Rebate&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The incentive use type. Valid Values are:
+
+Promotion
+Rebate
+Milestone Incentive</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The incentive use type. Valid Values are:
+
+Promotion
+Rebate
+Milestone Incentive</inlineHelpText>
+        <label>Application Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

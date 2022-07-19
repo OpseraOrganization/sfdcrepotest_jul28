@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__ActionsColumnPosition__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The position of the actions column in the cart page. Actions column are displayed on the left, but may be overridden using this setting.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The position of the actions column in the cart page. 
+
+Valid values are: 
+============= 
+Left 
+Right</inlineHelpText>
+        <label>Actions Column Position</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__AdminUser__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The admin user name (format = first name, last name)</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The admin user is the default owner of activities created by a user who is not allowed to be the owner (for e.g. customer portal user).</inlineHelpText>
+        <label>Admin User</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__BaseProductRelationField__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The API name of the product field that associates a child product with base product.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The API name of the product field that associates a child product with base product.</inlineHelpText>
+        <label>Base Product Relation Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__CMSPublisherUrl__c</fullName>
+        <deprecated>false</deprecated>
+        <description>CMS Publisher Endpoint URL</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>CMS Publisher Endpoint URL.</inlineHelpText>
+        <label>CMS Publisher Endpoint URL</label>
+        <length>128</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__CMSUrl__c</fullName>
+        <deprecated>false</deprecated>
+        <description>CMS Endpoint URL</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>CMS Endpoint URL.</inlineHelpText>
+        <label>CMS Endpoint URL</label>
+        <length>128</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__CSSOverride__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of the static resource to override CSS in catalog, cart, attribute and options pages</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the static resource to override CSS in catalog, cart, attribute and options pages</inlineHelpText>
+        <label>CSS Override</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__CartTheme__c</fullName>
+        <defaultValue>&quot;Classic&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates the theme used in the cart pages</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the theme used in the cart pages 
+
+Valid values(default = &quot;Classic&quot;): 
+======================== 
+Classic 
+Nova</inlineHelpText>
+        <label>Cart Theme</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ConstraintRuleExecutionMode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Mode which Constraint Rules will execute.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Constraint Rule Execution Mode</label>
+        <length>128</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__CustomAssetActionLabelName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of the custom label for the asset action.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The name of the custom label for the asset action.</inlineHelpText>
+        <label>Custom Asset Action Label Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__CustomAssetActionPage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of the custom asset action page</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The name of the custom asset action page</inlineHelpText>
+        <label>Custom Asset Action Page</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__CustomDealGuidancePage__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Custom Deal Guidance Page</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__CustomOptionAttributePage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of the custom attributes page associated with ConfigureBundle and SelectConfigOptionsDetailView pages</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The name of the custom attributes page associated with ConfigureBundle and SelectConfigOptionsDetailView pages</inlineHelpText>
+        <label>Custom Option Attribute Page</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__CustomPrePricingFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter the list of custom fields from the line item object that determine the pre-pricing indicator</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the list of custom fields from the line item object that determine the pre-pricing indicator</inlineHelpText>
+        <label>Custom Pre-Pricing Fields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__CustomPricingFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter the list of custom fields from the line item object used in pricing</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the list of custom fields from the line item object used in pricing</inlineHelpText>
+        <label>Custom Pricing Fields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__DefaultProductsPage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The product selection page.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify the product selection page to be displayed. 
+Valid values are:
+-----------------------
+SelectConfigProducts
+SelectConfigProductsFilterView</inlineHelpText>
+        <label>Default Catalog Page</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__DirectConfigureAssetActions__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Comma separated list of asset actions which will configure products directly.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Comma separated values of Increment, Amend, Renew, Cancel actions. Listed actions will configure products directly.</inlineHelpText>
+        <label>Direct Configure Asset Actions</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__EnhancedSearchURL__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Search URL end point for enhanced search. When it is blank native search is used.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Search URL end point for enhanced product search</inlineHelpText>
+        <label>Enhanced Search URL</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__FavoriteFilters__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Populate comma separated values with API names of fields from the favorite configuration object. These fields will be used as filters in the catalog page</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Populate comma separated values with API names of fields from the favorite configuration object. These fields will be used as filters in the catalog page</inlineHelpText>
+        <label>FavoriteFilters</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__FieldExpressionsExecutionMode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Mode which Field Expressions will execute in.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Valid Values: 
+* Client
+* Server</inlineHelpText>
+        <label>Field Expressions Execution Mode</label>
+        <length>8</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__GroupByFields__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>GroupBy Fields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__GuidePageDefault__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The default guide page for product selection</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The default guide page for product selection</inlineHelpText>
+        <label>Guide Page Default</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__HideAssetActions__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Comma separated list  of asset actions which should be hidden.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Comma separated values of Increment, Amend, Renew, Cancel actions. Listed actions will be hidden from the users.</inlineHelpText>
+        <label>Hide Asset Actions</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__InstanceUrl__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Salesforce instance url</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The url of your Salesforce instance. The instance url will be used to create an absolute url for your custom pages.</inlineHelpText>
+        <label>Instance Url</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__LargeCartSplitCriteriaFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The criteria fields used to split a large cart</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The list of Line item fields to break summarized view of items added during a large cart process. Each field API name separated by a comma or a new line.</inlineHelpText>
+        <label>Large Cart Split Criteria Fields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__MiscChargeTypes__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter the list of miscellaneous charge types. Each charge type should be separated by a new line.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the list of miscellaneous charge types. Each charge type should be separated by a new line.</inlineHelpText>
+        <label>Misc Charge Types</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__MultiCurrencyManagement__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicate the multi-currency management system.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicate which currency management system CPQ will use in a multi-currency environment. 
+Valid values:
+Apttus
+Platform</inlineHelpText>
+        <label>Multi Currency Management</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__OptionLineItemColumns__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter the list of fields from the line item object displayed in the Option Hierarchy page.  Each field API name may be separated either by a coma or by a new line.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the list of fields from the line item object displayed in the Option Hierarchy page.  Each field API name may be separated either by a coma or by a new line.</inlineHelpText>
+        <label>Option Line Item Columns</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__OptionProductColumns__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter the list of fields from the product object displayed in the Option Hierarchy page. Each field API name may be separated either by a coma or by a new line.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the list of fields from the product object displayed in the Option Hierarchy page. Each field API name may be separated either by a coma or by a new line.</inlineHelpText>
+        <label>Option Product Columns</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__OptionsPageDefault__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The default page for configuring product options</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the default options page. On configure command  this page is displayed for selecting options. Valid values are :
+SelectConfigOptions 
+SelectConfigOptionsTabView
+SelectConfigOptionsListView
+SelectConfigOptionsTreeView
+SelectBundleOptions</inlineHelpText>
+        <label>Options Page</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__PricingExecutionMode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The pricing execution mode</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Mode for pricing execution.
+Valid Values:
+* Classic
+* Turbo</inlineHelpText>
+        <label>Pricing Execution Mode</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__PricingProfile__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The default pricing profile. The default value is Advanced
+
+Valid values are:
+=============
+Basic
+Advanced
+External</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The default pricing profile. The default value is Advanced
+
+Valid values are:
+=============
+Basic
+Advanced
+External</inlineHelpText>
+        <label>Pricing Profile</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ProductAttributeDetailPage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The custom page to capture product attribute detail information</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The custom page to capture product attribute detail information</inlineHelpText>
+        <label>Product Attribute Detail Page</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ProductAttributeExtensionLookupFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Contains the names of the Product Attribute Extension tables Lookup Field Names and will be read if the Attribute Extension is enabled</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Comma separated List of values to specify the Product Attribute Extension Objects Lookup Field Names.</inlineHelpText>
+        <label>Product Attribute Extension Tables</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ProductOptionPriceOrder__c</fullName>
+        <defaultValue>&quot;Last&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates the evaluation order of the product option price in the pricing waterfall.
+
+Valid Values (default = &quot;Last&quot;)
+=======================
+First
+Last</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the evaluation order of the product option price in the pricing waterfall.
+
+Valid Values (default = &quot;Last&quot;)
+=======================
+First
+Last</inlineHelpText>
+        <label>Product Option Price Order</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ProductSortingFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter the list of API names of fields from the Product object made available in the Sorting drop down on the Catalog page. User is allowed to select a field from this list to sort the Catalog page content.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the list of API names of fields from the Product object made available in the Sorting drop down on the Catalog page. User is allowed to select a field from this list to sort the Catalog page content.</inlineHelpText>
+        <label>Product Sorting Fields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ProductTotalingHierarchy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter the list of product fields that represent the product totaling hierarchy. Each product field name should be separated by a new line. For Ad-hoc totaling enter the line item fields which represent a totaling group. If empty then Bundle Family will be used by default.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the list of product fields that represent the product totaling hierarchy. Each product field name should be separated by a new line. For Ad-hoc totaling enter the line item fields which represent a totaling group</inlineHelpText>
+        <label>Adhoc/Product Totaling Hierarchy</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ResolveConfigurationPageDefault__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The default page for resolving configuration errors/warnings</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the default Resolve Configure page. On Resolve Configuration Errors\Warnings, this page will be used. Valid values are :
+ResolveConfig
+ResolveConfigProducts</inlineHelpText>
+        <label>Resolve Configuration Page</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RevalidationProductColumns__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter the list of fields from the product object displayed on the revalidation product dialog. Each field API name may be separated either by a comma or by a new line.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the list of fields from the product object displayed on the revalidation product dialog. Each field API name may be separated either by a comma or by a new line.</inlineHelpText>
+        <label>Revalidation Product Columns</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RoundingMode__c</fullName>
+        <defaultValue>&quot;HALF_EVEN&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The custom rounding mode. 
+Valid values (default=&quot;HALF_EVEN&quot;)
+UP
+HALF_UP
+DOWN
+HALF_DOWN
+HALF_EVEN</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The custom rounding mode. 
+Valid values (default=&quot;HALF_EVEN&quot;)
+UP
+HALF_UP
+DOWN
+HALF_DOWN
+HALF_EVEN</inlineHelpText>
+        <label>Rounding Mode</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__SearchAttributeDefaultPage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Field on the line item when checked, skips Constraint check. Enables bypassing constraint and finalize quote even if there are constraint errors.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Field on the line item when checked, skips Constraint check. Enables bypassing constraint and finalize quote even if there are constraint errors.</inlineHelpText>
+        <label>Skip Constraint Decision Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__SearchAttributeValuePage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The scope to look for related items in related pricing. The default value is Cart
+Valid Values are:
+============
+Cart
+Bundle</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The scope to look for related items in related pricing. The default value is Cart
+Valid Values are:
+============
+Cart
+Bundle</inlineHelpText>
+        <label>Related Price Scope</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__SearchCategoryDefault__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The default search category.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The default category to search using the text entered in the search box during product selection.
+
+AllProducts
+AllCategories</inlineHelpText>
+        <label>Search Category Default</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__SellingTermCalculationMethod__c</fullName>
+        <defaultValue>&quot;Calendar&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates the method to calculate the selling term for Line Items.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The method to calculate selling terms. With &quot;Billing Preference&quot;, selling term is calculated as indicated by the billing preference associated with the cart or order.
+
+Valid values (default=&quot;Calendar&quot;):
+Calendar
+Billing Preference</inlineHelpText>
+        <label>Selling Term Calculation Method</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ServiceLineSplitCriteria__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Comma separated list of related line item fields and asset line item fields to be considered for automatic splitting.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Comma separated values of asset line item which define the split criteria for asset related line items.</inlineHelpText>
+        <label>Service Line Split Criteria</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ServicePriceDistributionMethod__c</fullName>
+        <defaultValue>&quot;Allocate&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The service price distribution method.  Methods are Allocate and Rollup. 
+Allocate method distributes the net price of the service to the related lines.  Rollup method rolls up the price for individual related lines and arrives at the service base price. The default value is Allocate.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The service price distribution method. Methods are Allocate and Rollup. 
+Allocate method distributes the net price of the service to the related lines.  Rollup method rolls up the price for individual related lines and arrives at the service base price.</inlineHelpText>
+        <label>Service Price Distribution Method</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__SplitCartCriteriaFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The criteria fields used to split a large cart</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The list of Line item fields to break summarized view of items added during a large cart process. Each field API name separated by a comma or a new line.</inlineHelpText>
+        <label>Split Cart Criteria Fields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__StaticCriteriaFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Constraint Criteria Fields that have static values. Fields whose value do not change after the records are created for a cart.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter comma separated fields used in constraint rule criteria to optimize constraint rule.</inlineHelpText>
+        <label>Static Criteria Fields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__TotalingGroupType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The totaling group preference.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The default value for the summary group type picklist. For Product based totaling, also indicate the fields which form the hierarchy using the Product Hierarchy Fields custom setting.
+Valid values are:
+=============
+Category
+Product
+Ad Hoc</inlineHelpText>
+        <label>Totaling Group Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ViewCartCustomFields2__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter the list of additional custom fields from the line item object displayed in the custom view cart page</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the list of additional custom fields from the line item object displayed in the custom view cart page</inlineHelpText>
+        <label>View Cart Custom Fields 2</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ViewCartCustomFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter the list of custom fields from the line item object displayed in the custom view cart page</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the list of custom fields from the line item object displayed in the custom view cart page. Additional fields may be entered using the View Cart Custom Fields 2 custom setting.</inlineHelpText>
+        <label>View Cart Custom Fields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ViewCartPage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The custom page to view cart information</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>View Cart Page</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ViewCartTotalCustomFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter the list of custom fields from the summary group object displayed in the custom view cart page</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the list of custom fields from the summary group object displayed in the custom view cart page</inlineHelpText>
+        <label>View Cart Total Custom Fields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+</CustomObject>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The description of the rule set</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The description of the rule set</inlineHelpText>
+        <label>Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Message__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The help text message for the source object match criteria</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The help text message for the source object match criteria</inlineHelpText>
+        <label>Message</label>
+        <length>1024</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__SourceAndTargetMatchCriteria__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Criteria that will be used to match source and target data</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Criteria that will be used to match source and target data</inlineHelpText>
+        <label>Source And Target Match Criteria</label>
+        <length>2048</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__TargetObjectFilterCriteria__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Filter criteria to get to the list of the data objects that needs to be validated / enriched</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Filter criteria to get to the list of the data objects that needs to be validated / enriched</inlineHelpText>
+        <label>Target Object Filter Criteria</label>
+        <length>2048</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+</CustomObject>

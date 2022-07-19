@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__AccountName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Account name as received from external system.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The Account name as received from external system.</inlineHelpText>
+        <label>Account Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__AccountRefId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The External account reference</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>true</externalId>
+        <inlineHelpText>The External account reference</inlineHelpText>
+        <label>Account Reference</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__BillToAccountRefId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The External account reference that will be used as bill-to-account for orders generated from the purchase order</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>true</externalId>
+        <inlineHelpText>External account reference that will be used as bill-to-account for orders generated from the purchase order</inlineHelpText>
+        <label>Bill To Account Reference</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__BillToPostalCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The bill to postal or ZIP code</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The bill to postal or ZIP code</inlineHelpText>
+        <label>Bill To Postal Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__BilltoAccountName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Bill To Account name as received from external system</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The Bill To Account name as received from external system</inlineHelpText>
+        <label>Bill to Account Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ContactName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Contact name as received from external system</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The Contact name as received from external system</inlineHelpText>
+        <label>Contact Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ContactPhone__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Contact phone number</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The Contact phone number</inlineHelpText>
+        <label>Contact Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ContactRefId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The External contact reference</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>true</externalId>
+        <inlineHelpText>The External contact reference</inlineHelpText>
+        <label>Contact Reference</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ContractNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Reference number of the contract associated with the purchase order</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>true</externalId>
+        <inlineHelpText>The Reference number of the contract associated with the purchase order</inlineHelpText>
+        <label>Contract Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__OriginalPONumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The order number of the associated original purchase order</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>true</externalId>
+        <inlineHelpText>The PO number that remains constant over the life cycle of the purchase order across versions. During initial creation, Original PO number is the same as PO Number.</inlineHelpText>
+        <label>Original PO Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__PODate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The purchase order date</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which the purchase order was issued</inlineHelpText>
+        <label>PO Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__PriceListName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Price List name as received from external system.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The Price List name as received from external system.</inlineHelpText>
+        <label>Price List Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__QuoteNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Reference number of the quote associated with the purchase order</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The Reference number of the quote associated with the purchase order</inlineHelpText>
+        <label>Quote Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ReferencePONumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Reference PO number from the external system</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>true</externalId>
+        <inlineHelpText>The Reference PO number from the external system</inlineHelpText>
+        <label>Reference PO Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RequestedDeliveryDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date requested to deliver products and services referred to in the purchase order</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date requested to deliver products and services referred to in the purchase order</inlineHelpText>
+        <label>Requested Delivery Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ShipToAccountRefId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The External account reference that will be used as ship-to-account for orders generated from the purchase order</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>true</externalId>
+        <inlineHelpText>The External account reference that will be used as ship-to-account for orders generated from the purchase order</inlineHelpText>
+        <label>Ship To Account Reference</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ShiptoName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Ship To Account name as received from external system</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The Ship To Account name as received from external system</inlineHelpText>
+        <label>Ship to Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ShiptoPostalCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The ship to postal or ZIP code</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The ship to postal or ZIP code</inlineHelpText>
+        <label>Ship to Postal Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_BG__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead BG</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>NSW</fullName>
+                    <default>false</default>
+                    <label>NSW</label>
+                </value>
+                <value>
+                    <fullName>FN</fullName>
+                    <default>false</default>
+                    <label>FN</label>
+                </value>
+                <value>
+                    <fullName>ION</fullName>
+                    <default>false</default>
+                    <label>ION</label>
+                </value>
+                <value>
+                    <fullName>MN</fullName>
+                    <default>false</default>
+                    <label>MN</label>
+                </value>
+                <value>
+                    <fullName>GS</fullName>
+                    <default>false</default>
+                    <label>GS</label>
+                </value>
+                <value>
+                    <fullName>NEN</fullName>
+                    <default>false</default>
+                    <label>NEN</label>
+                </value>
+                <value>
+                    <fullName>Financial Organization</fullName>
+                    <default>false</default>
+                    <label>Financial Organization</label>
+                </value>
+                <value>
+                    <fullName>GCVERT</fullName>
+                    <default>false</default>
+                    <label>GCVERT</label>
+                </value>
+                <value>
+                    <fullName>RB</fullName>
+                    <default>false</default>
+                    <label>RB</label>
+                </value>
+                <value>
+                    <fullName>GCMO</fullName>
+                    <default>false</default>
+                    <label>GCMO</label>
+                </value>
+                <value>
+                    <fullName>GCCTO</fullName>
+                    <default>false</default>
+                    <label>GCCTO</label>
+                </value>
+                <value>
+                    <fullName>NI</fullName>
+                    <default>false</default>
+                    <label>NI</label>
+                </value>
+                <value>
+                    <fullName>CNS</fullName>
+                    <default>false</default>
+                    <label>CNS</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Special_terms__c</fullName>
+        <externalId>false</externalId>
+        <label>Special terms</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Audit rights, incl anti-corrupt</fullName>
+                    <default>false</default>
+                    <label>Audit rights, incl anti-corrupt</label>
+                </value>
+                <value>
+                    <fullName>Auto Renew</fullName>
+                    <default>false</default>
+                    <label>Auto Renew</label>
+                </value>
+                <value>
+                    <fullName>Claim Management Procedure</fullName>
+                    <default>false</default>
+                    <label>Claim Management Procedure</label>
+                </value>
+                <value>
+                    <fullName>Comply w/applicable anti-corrupt law</fullName>
+                    <default>false</default>
+                    <label>Comply w/applicable anti-corrupt law</label>
+                </value>
+                <value>
+                    <fullName>Customer Data Privacy Clause</fullName>
+                    <default>false</default>
+                    <label>Customer Data Privacy Clause</label>
+                </value>
+                <value>
+                    <fullName>Customer Right to Charge Delay Penalties</fullName>
+                    <default>false</default>
+                    <label>Customer Right to Charge Delay Penalties</label>
+                </value>
+                <value>
+                    <fullName>Customer Security Requirement</fullName>
+                    <default>false</default>
+                    <label>Customer Security Requirement</label>
+                </value>
+                <value>
+                    <fullName>Deferred Payment</fullName>
+                    <default>false</default>
+                    <label>Deferred Payment</label>
+                </value>
+                <value>
+                    <fullName>Due Diligence &amp; Post ContractVerifPeriod</fullName>
+                    <default>false</default>
+                    <label>Due Diligence &amp; Post ContractVerifPeriod</label>
+                </value>
+                <value>
+                    <fullName>Early Pay Discount</fullName>
+                    <default>false</default>
+                    <label>Early Pay Discount</label>
+                </value>
+                <value>
+                    <fullName>Escrow (IPR)</fullName>
+                    <default>false</default>
+                    <label>Escrow (IPR)</label>
+                </value>
+                <value>
+                    <fullName>Extended Support</fullName>
+                    <default>false</default>
+                    <label>Extended Support</label>
+                </value>
+                <value>
+                    <fullName>Indirect/Consequential Damages Apply</fullName>
+                    <default>false</default>
+                    <label>Indirect/Consequential Damages Apply</label>
+                </value>
+                <value>
+                    <fullName>Invoice at Acceptance</fullName>
+                    <default>false</default>
+                    <label>Invoice at Acceptance</label>
+                </value>
+                <value>
+                    <fullName>Liquidated Damage Provision</fullName>
+                    <default>false</default>
+                    <label>Liquidated Damage Provision</label>
+                </value>
+                <value>
+                    <fullName>Maintenance</fullName>
+                    <default>false</default>
+                    <label>Maintenance</label>
+                </value>
+                <value>
+                    <fullName>Mandatory training (anti-corrupt)</fullName>
+                    <default>false</default>
+                    <label>Mandatory training (anti-corrupt)</label>
+                </value>
+                <value>
+                    <fullName>Mandatory Upgrades</fullName>
+                    <default>false</default>
+                    <label>Mandatory Upgrades</label>
+                </value>
+                <value>
+                    <fullName>MFC Services</fullName>
+                    <default>false</default>
+                    <label>MFC Services</label>
+                </value>
+                <value>
+                    <fullName>Most Favored Customer (MFC / MFN / MPC)</fullName>
+                    <default>false</default>
+                    <label>Most Favored Customer (MFC / MFN / MPC)</label>
+                </value>
+                <value>
+                    <fullName>NokiaAssignmentRequires Customer Consent</fullName>
+                    <default>false</default>
+                    <label>NokiaAssignmentRequires Customer Consent</label>
+                </value>
+                <value>
+                    <fullName>Nokia Right to Charge Penalty for Delays</fullName>
+                    <default>false</default>
+                    <label>Nokia Right to Charge Penalty for Delays</label>
+                </value>
+                <value>
+                    <fullName>No Late Payment Penalty</fullName>
+                    <default>false</default>
+                    <label>No Late Payment Penalty</label>
+                </value>
+                <value>
+                    <fullName>Non Standard Legal Language</fullName>
+                    <default>false</default>
+                    <label>Non Standard Legal Language</label>
+                </value>
+                <value>
+                    <fullName>Oral Communications Included</fullName>
+                    <default>false</default>
+                    <label>Oral Communications Included</label>
+                </value>
+                <value>
+                    <fullName>Perpetual</fullName>
+                    <default>false</default>
+                    <label>Perpetual</label>
+                </value>
+                <value>
+                    <fullName>Renewal Consent</fullName>
+                    <default>false</default>
+                    <label>Renewal Consent</label>
+                </value>
+                <value>
+                    <fullName>Roadmap Commitment</fullName>
+                    <default>false</default>
+                    <label>Roadmap Commitment</label>
+                </value>
+                <value>
+                    <fullName>Software License (non-standard)</fullName>
+                    <default>false</default>
+                    <label>Software License (non-standard)</label>
+                </value>
+                <value>
+                    <fullName>Software Open Source Reporting Requirement</fullName>
+                    <default>false</default>
+                    <label>Software Open Source Reporting Requirement</label>
+                </value>
+                <value>
+                    <fullName>SOW Required (not incl Maint)</fullName>
+                    <default>false</default>
+                    <label>SOW Required (not incl Maint)</label>
+                </value>
+                <value>
+                    <fullName>Subcontract requires consent</fullName>
+                    <default>false</default>
+                    <label>Subcontract requires consent</label>
+                </value>
+                <value>
+                    <fullName>Termination for Convenience</fullName>
+                    <default>false</default>
+                    <label>Termination for Convenience</label>
+                </value>
+                <value>
+                    <fullName>Termination right for non-compliance</fullName>
+                    <default>false</default>
+                    <label>Termination right for non-compliance</label>
+                </value>
+                <value>
+                    <fullName>Third Party Software Rights</fullName>
+                    <default>false</default>
+                    <label>Third Party Software Rights</label>
+                </value>
+                <value>
+                    <fullName>Unilateral in favor of Customer</fullName>
+                    <default>false</default>
+                    <label>Unilateral in favor of Customer</label>
+                </value>
+                <value>
+                    <fullName>Upgrade Requirement</fullName>
+                    <default>false</default>
+                    <label>Upgrade Requirement</label>
+                </value>
+                <value>
+                    <fullName>Version Aware</fullName>
+                    <default>false</default>
+                    <label>Version Aware</label>
+                </value>
+                <value>
+                    <fullName>Warranty-Non Standard</fullName>
+                    <default>false</default>
+                    <label>Warranty-Non Standard</label>
+                </value>
+                <value>
+                    <fullName>Workflow Trigger Generated Agreement</fullName>
+                    <default>false</default>
+                    <label>Workflow Trigger Generated Agreement</label>
+                </value>
+                <value>
+                    <fullName>Acceptance, NOT Deemed (no backstop)</fullName>
+                    <default>false</default>
+                    <label>Acceptance, NOT Deemed (no backstop)</label>
+                </value>
+                <value>
+                    <fullName>Acceptance, NOT Deemed (no backstop</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Acceptance, NOT Deemed (no backstop</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+</CustomObject>

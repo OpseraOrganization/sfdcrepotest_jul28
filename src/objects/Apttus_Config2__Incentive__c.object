@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__AmendmentEffectiveDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date when the amendment to the incentive takes effect</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date when the amendment to the incentive takes effect</inlineHelpText>
+        <label>Amendment Effective Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__CustomDisplaySetting__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The the name of the custom display setting associated with the incentive. This will be used when an existing incentive record is “Edited”. 
+For a new record, the name will be passed as a URL parameter.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The the name of the custom display setting associated with the incentive. This will be used when an existing incentive record is “Edited”. 
+For a new record, the name will be passed as a URL parameter.</inlineHelpText>
+        <label>Custom Display Setting</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__CycleEndDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The cycle end date. Indicates the end of a loyalty program cycle</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The cycle end date. Indicates the end of a loyalty program cycle</inlineHelpText>
+        <label>Cycle End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__CycleStartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The cycle start date. Indicates the start of a loyalty program cycle.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The cycle start date. Indicates the start of a loyalty program cycle.</inlineHelpText>
+        <label>Cycle Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The incentive description</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The incentive description</inlineHelpText>
+        <label>Description</label>
+        <length>1000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__EffectiveDate__c</fullName>
+        <defaultValue>DATE(2000,01,01)</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The incentive effective date. The incentive becomes effective on this date.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The incentive effective date. The incentive becomes effective on this date.</inlineHelpText>
+        <label>Effective Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ExpirationDate__c</fullName>
+        <defaultValue>DATE(2099,12,31)</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The incentive expiration date. The incentive becomes ineffective after this date.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The incentive expiration date. The incentive becomes ineffective after this date.</inlineHelpText>
+        <label>Expiration Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__IncentiveCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The incentive code available to customers to identify the incentive</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The incentive code available to customers to identify the incentive</inlineHelpText>
+        <label>Incentive Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__IncentiveNumberText__c</fullName>
+        <deprecated>false</deprecated>
+        <description>FOR INTERNAL USE ONLY. DO NOT USE IN SCREENS, REPORTS, ETC.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>FOR INTERNAL USE ONLY. DO NOT USE IN SCREENS, REPORTS, ETC.</inlineHelpText>
+        <label>Incentive Number Text  (INTERNAL)</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__OriginalEffectiveDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The original effective date associated with the incentive</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The original effective date associated with the incentive</inlineHelpText>
+        <label>Original Effective Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RenewalEffectiveDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date when the renewal for the incentive takes effect</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date when the renewal for the incentive takes effect</inlineHelpText>
+        <label>Renewal Effective Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__SearchField__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The incentive search field. This field is used in the side bar search</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>true</externalId>
+        <inlineHelpText>The incentive search field</inlineHelpText>
+        <label>Search Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

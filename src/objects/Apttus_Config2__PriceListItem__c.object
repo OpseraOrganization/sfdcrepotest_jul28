@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__ContractItemNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Unique identifier for the item number as referred to in the quote or contract</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>true</externalId>
+        <inlineHelpText>The Unique identifier for the item number as referred to in the quote or contract</inlineHelpText>
+        <label>Contract Item Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Criteria__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The item criteria specification</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Charge Type Criteria</label>
+        <length>16000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__DefaultPriceDatasource__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The data source which provides the default value for the base price.Only applicable when the default price from is available.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The data source which provides the default value for the base price.Only applicable when the default price from is available.</inlineHelpText>
+        <label>Default Price Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__DefaultQuantityDatasource__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The data source which provides the default value for the quantity.Only applicable when the default quantity from is available.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The data source which provides the default value for the quantity.Only applicable when the default quantity from is available.</inlineHelpText>
+        <label>Default Quantity Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The description of the price list.item</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__EffectiveDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The price effective date. The price becomes effective on this date and time.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Effective Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ExpirationDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The price expiration date. The price becomes ineffective after this date and time.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Expiration Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+</CustomObject>

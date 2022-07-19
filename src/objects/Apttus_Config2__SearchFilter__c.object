@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__CriteriaFieldNames__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The list of field names used in the filter criteria</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The list of field names used in the filter criteria</inlineHelpText>
+        <label>Criteria Field Names</label>
+        <length>1024</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Criteria__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The filter criteria specification</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The filter criteria specification</inlineHelpText>
+        <label>Criteria</label>
+        <length>16000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The description for the filter</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The description for the filter</inlineHelpText>
+        <label>Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__GroupByMapTo__c</fullName>
+        <deprecated>false</deprecated>
+        <description>A comma separated list of API names of fields in the Rollup Data object the group by maps to. This allows group by values to be persisted along with the rollup data</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>A comma separated list of API names of fields in the Rollup Data object the group by maps to. This allows group by values to be persisted along with the rollup data</inlineHelpText>
+        <label>Group By Map To</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__GroupBy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>A comma separated list of API names of group by fields</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>A comma separated list of API names of group by fields</inlineHelpText>
+        <label>Group By</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__InclusionCriteriaFieldName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The filter inclusion criteria field</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The filter inclusion criteria field</inlineHelpText>
+        <label>Inclusion Criteria Field (Deprecated)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__InclusionCriteriaFieldNames__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The list of field names used in the inclusion criteria</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The list of field names used in the inclusion criteria</inlineHelpText>
+        <label>Inclusion Criteria Field Names</label>
+        <length>1024</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__InclusionCriteriaFieldValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The filter inclusion criteria value</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The filter inclusion criteria value</inlineHelpText>
+        <label>Inclusion Criteria Value (Deprecated)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__InclusionCriteria__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The inclusion criteria specification</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The inclusion criteria specification</inlineHelpText>
+        <label>Inclusion Criteria</label>
+        <length>8000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RollupEffectiveDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rollup effective date</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The rollup effective date</inlineHelpText>
+        <label>Rollup Effective Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RollupEndDateSourceObject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the rollup business object or a child filter that contains the rollup end date source</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the rollup business object or a child filter that contains the rollup end date source</inlineHelpText>
+        <label>Rollup End Date Source Object</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RollupEndDateSource__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the source field in the rollup business object or a child object which determines the rollup end date</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the source field in the rollup business object or a child object which determines the rollup end date</inlineHelpText>
+        <label>Rollup End Date Source</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RollupEndDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rollup end date</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The rollup end date</inlineHelpText>
+        <label>Rollup End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RollupExclusionCriteria__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rollup exclusion filter criteria specification</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The rollup exclusion filter criteria specification</inlineHelpText>
+        <label>Rollup Exclusion Criteria</label>
+        <length>16000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RollupExpirationDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rollup expiration date</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The rollup expiration date</inlineHelpText>
+        <label>Rollup Expiration Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RollupField__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rollup field</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The rollup field</inlineHelpText>
+        <label>Rollup Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RollupPeriodSource__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the source field in the rollup business object which determines the rollup period</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the source field in the rollup business object which determines the rollup period</inlineHelpText>
+        <label>Rollup Period Source</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RollupStartDateSourceObject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the rollup business object or a child filter that contains the rollup start date source</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the rollup business object or a child filter that contains the rollup start date source</inlineHelpText>
+        <label>Rollup Start Date Source Object</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RollupStartDateSource__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the source field in the rollup business object or a child object which determines the rollup start date</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the source field in the rollup business object or a child object which determines the rollup start date</inlineHelpText>
+        <label>Rollup Start Date Source</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RollupStartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rollup start date</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The rollup start date</inlineHelpText>
+        <label>Rollup Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+</CustomObject>
