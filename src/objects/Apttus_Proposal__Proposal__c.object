@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>APTS_ConfigureProductsTP__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(LEN(Apttus_QPConfig__PriceListId__c) &gt; 0,IF(NokiaCPQ_Environment_Access_Type__c = &apos;sCRM&apos;,IF((Quote_Type__c == &apos;Direct CPQ&apos; &amp;&amp; (Is_List_Price_Only__c=FALSE &amp;&amp; NOT(ISPICKVAL(NokiaCPQ_Portfolio__c ,&apos;Fixed Network&apos;)))),(&quot;/apex/Apttus_Lightning_Page_Redirect?id=&quot; &amp;Id &amp; &quot;&amp;flow=DirectFlow&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Direct_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;),IF(Quote_Type__c == &apos;Indirect CPQ&apos;,(&quot;/apex/Apttus_Lightning_Page_Redirect?id=&quot; &amp;Id &amp; &quot;&amp;flow=IndirectFlow&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Project_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;),IF((Is_List_Price_Only__c=FALSE &amp;&amp; (ISPICKVAL(NokiaCPQ_Portfolio__c , &apos;Fixed Network&apos;))),(&quot;/apex/Apttus_Lightning_Page_Redirect?id=&quot; &amp;Id &amp; &quot;&amp;flow=Turbo Flow for FN&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Direct_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;),null))),null),null)</formula>
+        <label>Configure Product TP</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>APTS_Configure_Products_TP__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(LEN(Apttus_QPConfig__PriceListId__c) &gt; 0,IF(NokiaCPQ_Environment_Access_Type__c = &apos;sCRM&apos;,IF((Quote_Type__c == &apos;Direct CPQ&apos; &amp;&amp; (Is_List_Price_Only__c=FALSE &amp;&amp; NOT(ISPICKVAL(NokiaCPQ_Portfolio__c ,&apos;Fixed Network&apos;)))),(&quot;/apex/Apttus_Lightning_Page_Redirect?id=&quot; &amp;Id &amp; &quot;&amp;flow=DirectFlow&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Direct_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;),IF(Quote_Type__c == &apos;Indirect CPQ&apos;,(&quot;/apex/Apttus_Lightning_Page_Redirect?id=&quot; &amp;Id &amp; &quot;&amp;flow=IndirectFlow&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Project_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;),IF((Is_List_Price_Only__c=FALSE &amp;&amp; (ISPICKVAL(NokiaCPQ_Portfolio__c , &apos;Fixed Network&apos;))),(&quot;/apex/Apttus_Lightning_Page_Redirect?id=&quot; &amp;Id &amp; &quot;&amp;flow=Turbo Flow for FN&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Direct_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;),null))),null),null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Configure Products (Turbo)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_QPConfig__ConfigurationEffectiveDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The configuration effective date</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The configuration effective date</inlineHelpText>
+        <label>Configuration Effective Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_QPConfig__ConfigurationFinalizedDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date when the configuration was finalized for the quote/proposal</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Configuration Finalized Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_QPConfig__ConfigurationSyncDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date when the configuration was synchronized for the quote/proposal</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Date when the configuration was synchronized for the quote/proposal</inlineHelpText>
+        <label>Configuration Sync Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_QPConfig__PODate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The purchase order date</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The purchase order date</inlineHelpText>
+        <label>PO Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_QPConfig__PONumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The purchase order number</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The purchase order number</inlineHelpText>
+        <label>PO Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_QPConfig__PricingDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The pricing date, The product list price is determined based on this date.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Pricing Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_QPConfig__PurchaseId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The default purchase identifier associated with the quote/proposal</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>true</externalId>
+        <inlineHelpText>The default purchase identifier associated with the quote/proposal</inlineHelpText>
+        <label>Purchase Identifier</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_QPConfig__ReadyForActivationDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date the order is ready for activation. The order is activated on this date.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the order is ready for activation. The order is activated on this date.</inlineHelpText>
+        <label>Ready For Activation Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_QPConfig__ReadyForBillingDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date when the order is ready for billing. The billing schedules are created on this date.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date when the order is ready for billing. The billing schedules are created on this date.</inlineHelpText>
+        <label>Ready For Billing Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_QPConfig__ReadyForFulfillmentDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date the order is ready for fulfillment. The order is fulfilled on this date.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the order is ready for fulfillment. The order is fulfilled on this date.</inlineHelpText>
+        <label>Ready For Fulfillment Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_QPConfig__ReadyForRevRecDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date when the order is ready for revenue recognition. The revenue schedules are created on this date.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date when the order is ready for revenue recognition. The revenue schedules are created on this date.</inlineHelpText>
+        <label>Ready For Revenue Recognition Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Basic_Quote_Export__c</fullName>
+        <description>Basic Export Quote field will be displayed in Quote Actions Lightning Components</description>
+        <externalId>false</externalId>
+        <formula>IF(AND(TEXT(Apttus_Proposal__Approval_Stage__c)!=&apos;Expired&apos;,TEXT(Apttus_Proposal__Approval_Stage__c)!=&apos;Closed(not won)&apos;),IF(Roll_Up_Of_Proposal_Line_Item__c &gt;0,IF( 
+Reprice_In_Progress__c = true, 
+null, 
+IF(Quote_Type__c &lt;&gt; &apos;Direct CPQ&apos;, 
+IF(NokiaCPQ_Environment_Access_Type__c = &apos;sCRM&apos;, ($CustomMetadata.CPQ_XAEApps__mdt.Basic_Quote_Export.CPQ_AppUrl__c + Id),(NokiaCPQ_Environment_Access_URL__c &amp;  $CustomMetadata.CPQ_XAEApps__mdt.Basic_Quote_Export.CPQ_AppUrl__c + Id)),null) 
+),null),null)</formula>
+        <inlineHelpText>Basic Export Quote field will be displayed in Quote Actions Lightning Components</inlineHelpText>
+        <label>Basic Quote Export</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bill_of_Material_Button_Field__c</fullName>
+        <description>Bill of Material Button in Quote Actions Lightning Component</description>
+        <externalId>false</externalId>
+        <formula>IF(  AND(Roll_Up_Of_Proposal_Line_Item__c &gt;0,  NOT(ISPICKVAL(Apttus_Proposal__Approval_Stage__c  , &apos;Closed(not won)&apos;)), NOT(ISPICKVAL(Apttus_Proposal__Approval_Stage__c  , &apos;Expired&apos;))) ,IF(AND (NokiaCPQ_Environment_Access_Type__c = &apos;sCRM&apos;, NOT(ISPICKVAL(NokiaCPQ_Portfolio__c , &apos;Modular Private Wireless Solution&apos;))),( $CustomMetadata.CPQ_XAEApps__mdt.BOM.CPQ_AppUrl__c +Id),IF(NokiaCPQ_Environment_Access_Type__c = &apos;sCRM&apos;,( $CustomMetadata.CPQ_XAEApps__mdt.BOM_MPW.CPQ_AppUrl__c +Id),null)),null)</formula>
+        <inlineHelpText>Bill of Material Button in Quote Actions Lightning Component</inlineHelpText>
+        <label>Bill of Material Button Field</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CPQ_PortfolioClusterSF1__c</fullName>
+        <defaultValue>&quot;Not Applicable&quot;</defaultValue>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Portfolio Cluster Search Filter 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CPQ_PortfolioClusterSF2__c</fullName>
+        <defaultValue>&quot;Not Applicable&quot;</defaultValue>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Portfolio Cluster Search Filter 2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CPQ_PortfolioClusterSF3__c</fullName>
+        <defaultValue>&quot;Not Applicable&quot;</defaultValue>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Portfolio Cluster Search Filter 3</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CPQ_PortfolioClusterSF4__c</fullName>
+        <defaultValue>&quot;Not Applicable&quot;</defaultValue>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Portfolio Cluster Search Filter 4</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CPQ_SubPortfolio__c</fullName>
+        <externalId>false</externalId>
+        <label>Accredited Solutions</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>CPQ_SubPortfolio</valueSetName>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Configure_button_field_TP__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(LEN(Apttus_QPConfig__PriceListId__c) &gt; 0,
+IF(NokiaCPQ_Environment_Access_Type__c = &apos;sCRM&apos;,
+IF(($Profile.Name != &quot;System Administrator&quot; &amp;&amp; NOT($Permission.PricingManager) &amp;&amp; NOT($Permission.PartnerSalesManager)),
+IF(NokiaCPQ_DOD_Per__c==0,(&quot;/apex/Apttus_Lightning_Page_Redirect?id=&quot; &amp;Id &amp; &quot;&amp;flow=TurboNewUIPartner&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Project_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;),
+IF(NokiaCPQ_DOD_Per__c&gt;0 &amp;&amp; NokiaCPQ_DPD_Per__c==0,(&quot;/apex/Apttus_Lightning_Page_Redirect?id=&quot; &amp;Id &amp; &quot;&amp;flow=TurboNewUIWithDOD&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Project_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;),
+IF(NokiaCPQ_DOD_Per__c&gt;0 &amp;&amp; NokiaCPQ_DPD_Per__c&gt;0,(&quot;/apex/Apttus_Lightning_Page_Redirect?id=&quot; &amp;Id &amp; &quot;&amp;flow=TurboNewUIWithDODDPD&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Project_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;),null))),
+IF(($Profile.Name = &quot;System Administrator&quot; || $Permission.PricingManager || $Permission.PartnerSalesManager),(&quot;/apex/Apttus_Lightning_Page_Redirect?id=&quot; &amp;Id &amp; &quot;&amp;flow=TurboNewUI&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Project_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;),null)),
+IF(NokiaCPQ_Environment_Access_Type__c = &apos;PRM&apos; &amp;&amp; IsCollaborationProgress__c = false,
+IF(NokiaCPQ_DOD_Per__c == 0,(NokiaCPQ_Environment_Access_URL__c &amp; &quot;/Apttus_Lightning_Page_Redirect?id=&quot; &amp;Id &amp; &quot;&amp;flow=TurboNewUIPartner&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Project_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;),
+IF(NokiaCPQ_DOD_Per__c&gt;0 &amp;&amp; NokiaCPQ_DPD_Per__c==0,(NokiaCPQ_Environment_Access_URL__c &amp; &quot;/Apttus_Lightning_Page_Redirect?id=&quot; &amp;Id &amp; &quot;&amp;flow=TurboNewUIWithDOD&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Project_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;),
+IF(NokiaCPQ_DPD_Per__c&gt;0,(NokiaCPQ_Environment_Access_URL__c &amp; &quot;/Apttus_Lightning_Page_Redirect?id=&quot; &amp;Id &amp; &quot;&amp;flow=TurboNewUIWithDODDPD&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Project_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;),null))),null)),null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Configure button field TP</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Configure_button_field__c</fullName>
+        <description>returns configure link</description>
+        <externalId>false</externalId>
+        <formula>IF(LEN(Apttus_QPConfig__PriceListId__c) &gt; 0, 
+IF(NokiaCPQ_Environment_Access_Type__c = &apos;sCRM&apos;, 
+IF(($Profile.Name != &quot;System Administrator&quot; &amp;&amp; NOT($Permission.PricingManager) &amp;&amp; NOT($Permission.PartnerSalesManager)), 
+IF(NokiaCPQ_DOD_Per__c==0,(&quot;/apex/Apttus_QPConfig__ProposalConfiguration?id=&quot; &amp;Id &amp; &quot;&amp;flow=NewUIPartner&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Project_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;), 
+IF(NokiaCPQ_DOD_Per__c&gt;0 &amp;&amp; NokiaCPQ_DPD_Per__c==0,(&quot;/apex/Apttus_QPConfig__ProposalConfiguration?id=&quot; &amp;Id &amp; &quot;&amp;flow=NewUIWithDOD&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Project_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;), 
+IF(NokiaCPQ_DOD_Per__c&gt;0 &amp;&amp; NokiaCPQ_DPD_Per__c&gt;0,(&quot;/apex/Apttus_QPConfig__ProposalConfiguration?id=&quot; &amp;Id &amp; &quot;&amp;flow=NewUIWithDODDPD&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Project_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;),null))), 
+IF(($Profile.Name = &quot;System Administrator&quot; || $Permission.PricingManager || $Permission.PartnerSalesManager),(&quot;/apex/Apttus_QPConfig__ProposalConfiguration?id=&quot; &amp;Id &amp; &quot;&amp;flow=NewUI&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Project_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;),null)), 
+IF(NokiaCPQ_Environment_Access_Type__c = &apos;PRM&apos; &amp;&amp; IsCollaborationProgress__c = false, 
+IF(NokiaCPQ_DOD_Per__c == 0,(NokiaCPQ_Environment_Access_URL__c &amp; &quot;/Apttus_QPConfig__ProposalConfiguration?id=&quot; &amp;Id &amp; &quot;&amp;flow=NewUIPartner&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Project_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;), 
+IF(NokiaCPQ_DOD_Per__c&gt;0 &amp;&amp; NokiaCPQ_DPD_Per__c==0,(NokiaCPQ_Environment_Access_URL__c &amp; &quot;/Apttus_QPConfig__ProposalConfiguration?id=&quot; &amp;Id &amp; &quot;&amp;flow=NewUIWithDOD&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Project_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;), 
+IF(NokiaCPQ_DPD_Per__c&gt;0,(NokiaCPQ_Environment_Access_URL__c &amp; &quot;/Apttus_QPConfig__ProposalConfiguration?id=&quot; &amp;Id &amp; &quot;&amp;flow=NewUIWithDODDPD&quot; &amp; &quot;&amp;cntrNbr_1=&quot;&amp;Project_Price_List_Number__c &amp; &quot;&amp;productOrderByClause=CPQ_CatalogOrder__c NULLS LAST, Name&quot;),null))),null)),null)</formula>
+        <inlineHelpText>returns configure link</inlineHelpText>
+        <label>Configure button field</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Export_Quote_Button_Field__c</fullName>
+        <description>Export Quote field will be displayed in Quote Actions Lightning Components</description>
+        <externalId>false</externalId>
+        <formula>IF(AND(TEXT(Apttus_Proposal__Approval_Stage__c)!=&apos;Expired&apos;,TEXT(Apttus_Proposal__Approval_Stage__c)!=&apos;Closed(not won)&apos;),IF(Roll_Up_Of_Proposal_Line_Item__c &gt;0,IF( 
+Reprice_In_Progress__c = true, 
+null, 
+IF(Quote_Type__c &lt;&gt; &apos;Direct CPQ&apos;, 
+IF(NokiaCPQ_Environment_Access_Type__c = &apos;sCRM&apos;,( $CustomMetadata.CPQ_XAEApps__mdt.Advanced_Quote_Export.CPQ_AppUrl__c +Id),(NokiaCPQ_Environment_Access_URL__c &amp;  $CustomMetadata.CPQ_XAEApps__mdt.Advanced_Quote_Export.CPQ_AppUrl__c + Id)), 
+IF(NokiaCPQ_Environment_Access_Type__c = &apos;sCRM&apos;,( $CustomMetadata.CPQ_XAEApps__mdt.Quote_Export_Direct.CPQ_AppUrl__c + Id),(NokiaCPQ_Environment_Access_URL__c &amp;  $CustomMetadata.CPQ_XAEApps__mdt.Quote_Export_Direct.CPQ_AppUrl__c + Id))) 
+),null),null)</formula>
+        <inlineHelpText>Export Quote field will be displayed in Quote Actions Lightning Components</inlineHelpText>
+        <label>Export Quote Button Field</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NokiaCPQ_Existing_IONMaint_Contract__c</fullName>
+        <externalId>false</externalId>
+        <label>Existing Maintenance Contract?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>NokiaCPQ_Portfolio__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Modular Private Wireless Solution</controllingFieldValue>
+                <controllingFieldValue>Microwave</controllingFieldValue>
+                <controllingFieldValue>Fixed Network</controllingFieldValue>
+                <controllingFieldValue>Fixed Networks</controllingFieldValue>
+                <controllingFieldValue>IP Routing</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - POL</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - FBA</controllingFieldValue>
+                <controllingFieldValue>Optics</controllingFieldValue>
+                <controllingFieldValue>Nokia Software</controllingFieldValue>
+                <controllingFieldValue>Nuage</controllingFieldValue>
+                <controllingFieldValue>Optics - WaveLite</controllingFieldValue>
+                <controllingFieldValue>FastMile</controllingFieldValue>
+                <controllingFieldValue>Wireless PON</controllingFieldValue>
+                <valueName>Yes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Modular Private Wireless Solution</controllingFieldValue>
+                <controllingFieldValue>Microwave</controllingFieldValue>
+                <controllingFieldValue>Fixed Network</controllingFieldValue>
+                <controllingFieldValue>Fixed Networks</controllingFieldValue>
+                <controllingFieldValue>IP Routing</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - POL</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - FBA</controllingFieldValue>
+                <controllingFieldValue>Optics</controllingFieldValue>
+                <controllingFieldValue>Nokia Software</controllingFieldValue>
+                <controllingFieldValue>Nuage</controllingFieldValue>
+                <controllingFieldValue>Optics - WaveLite</controllingFieldValue>
+                <controllingFieldValue>FastMile</controllingFieldValue>
+                <controllingFieldValue>Wireless PON</controllingFieldValue>
+                <valueName>No</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NokiaCPQ_Maintenance_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Maintenance Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>NokiaCPQ_Portfolio__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetName>Maintenance_Type</valueSetName>
+            <valueSettings>
+                <controllingFieldValue>Modular Private Wireless Solution</controllingFieldValue>
+                <valueName>Solution Support</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Microwave</controllingFieldValue>
+                <valueName>Basic Support</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Microwave</controllingFieldValue>
+                <valueName>Pro Support</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Microwave</controllingFieldValue>
+                <valueName>Total Care</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Fixed Network</controllingFieldValue>
+                <controllingFieldValue>Fixed Networks</controllingFieldValue>
+                <controllingFieldValue>IP Routing</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - POL</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - FBA</controllingFieldValue>
+                <controllingFieldValue>Optics</controllingFieldValue>
+                <controllingFieldValue>Nuage</controllingFieldValue>
+                <controllingFieldValue>Optics - WaveLite</controllingFieldValue>
+                <controllingFieldValue>FastMile</controllingFieldValue>
+                <valueName>Gold (Return for Exchange)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Fixed Network</controllingFieldValue>
+                <controllingFieldValue>Fixed Networks</controllingFieldValue>
+                <controllingFieldValue>IP Routing</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - POL</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - FBA</controllingFieldValue>
+                <controllingFieldValue>Optics</controllingFieldValue>
+                <controllingFieldValue>Nuage</controllingFieldValue>
+                <controllingFieldValue>Optics - WaveLite</controllingFieldValue>
+                <controllingFieldValue>FastMile</controllingFieldValue>
+                <valueName>Gold (Return for Repair)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Fixed Network</controllingFieldValue>
+                <controllingFieldValue>Fixed Networks</controllingFieldValue>
+                <controllingFieldValue>IP Routing</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - POL</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - FBA</controllingFieldValue>
+                <controllingFieldValue>Optics</controllingFieldValue>
+                <controllingFieldValue>Nuage</controllingFieldValue>
+                <controllingFieldValue>Optics - WaveLite</controllingFieldValue>
+                <controllingFieldValue>FastMile</controllingFieldValue>
+                <valueName>Gold (Advanced Exchange)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Fixed Networks</controllingFieldValue>
+                <controllingFieldValue>IP Routing</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - POL</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - FBA</controllingFieldValue>
+                <controllingFieldValue>Optics</controllingFieldValue>
+                <controllingFieldValue>Nuage</controllingFieldValue>
+                <controllingFieldValue>Optics - WaveLite</controllingFieldValue>
+                <controllingFieldValue>FastMile</controllingFieldValue>
+                <valueName>Bronze (Return for Exchange)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Airscale Wifi</controllingFieldValue>
+                <valueName>MN GS TSS Basic</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Airscale Wifi</controllingFieldValue>
+                <valueName>MN GS TSS Enhanced</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Airscale Wifi</controllingFieldValue>
+                <valueName>MN GS TSS Enhanced Emergency</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NokiaCPQ_No_of_Years__c</fullName>
+        <externalId>false</externalId>
+        <label>No. of Years for Maintenance</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>NokiaCPQ_Portfolio__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                    <label>0</label>
+                </value>
+                <value>
+                    <fullName>1</fullName>
+                    <default>true</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>5</label>
+                </value>
+                <value>
+                    <fullName>6</fullName>
+                    <default>false</default>
+                    <label>6</label>
+                </value>
+                <value>
+                    <fullName>7</fullName>
+                    <default>false</default>
+                    <label>7</label>
+                </value>
+                <value>
+                    <fullName>8</fullName>
+                    <default>false</default>
+                    <label>8</label>
+                </value>
+                <value>
+                    <fullName>9</fullName>
+                    <default>false</default>
+                    <label>9</label>
+                </value>
+                <value>
+                    <fullName>10</fullName>
+                    <default>false</default>
+                    <label>10</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Modular Private Wireless Solution</controllingFieldValue>
+                <controllingFieldValue>Microwave</controllingFieldValue>
+                <controllingFieldValue>Fixed Network</controllingFieldValue>
+                <controllingFieldValue>Fixed Networks</controllingFieldValue>
+                <controllingFieldValue>IP Routing</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - POL</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - FBA</controllingFieldValue>
+                <controllingFieldValue>Optics</controllingFieldValue>
+                <controllingFieldValue>Nokia Software</controllingFieldValue>
+                <controllingFieldValue>Nuage</controllingFieldValue>
+                <controllingFieldValue>Optics - WaveLite</controllingFieldValue>
+                <controllingFieldValue>Airscale Wifi</controllingFieldValue>
+                <controllingFieldValue>FastMile</controllingFieldValue>
+                <valueName>1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Modular Private Wireless Solution</controllingFieldValue>
+                <controllingFieldValue>Microwave</controllingFieldValue>
+                <controllingFieldValue>Fixed Network</controllingFieldValue>
+                <controllingFieldValue>Fixed Networks</controllingFieldValue>
+                <controllingFieldValue>IP Routing</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - POL</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - FBA</controllingFieldValue>
+                <controllingFieldValue>Optics</controllingFieldValue>
+                <controllingFieldValue>Nokia Software</controllingFieldValue>
+                <controllingFieldValue>Nuage</controllingFieldValue>
+                <controllingFieldValue>Optics - WaveLite</controllingFieldValue>
+                <controllingFieldValue>Airscale Wifi</controllingFieldValue>
+                <controllingFieldValue>FastMile</controllingFieldValue>
+                <valueName>3</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Modular Private Wireless Solution</controllingFieldValue>
+                <controllingFieldValue>Microwave</controllingFieldValue>
+                <controllingFieldValue>Fixed Network</controllingFieldValue>
+                <controllingFieldValue>Fixed Networks</controllingFieldValue>
+                <controllingFieldValue>IP Routing</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - POL</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - FBA</controllingFieldValue>
+                <controllingFieldValue>Optics</controllingFieldValue>
+                <controllingFieldValue>Nuage</controllingFieldValue>
+                <controllingFieldValue>Optics - WaveLite</controllingFieldValue>
+                <controllingFieldValue>Airscale Wifi</controllingFieldValue>
+                <controllingFieldValue>FastMile</controllingFieldValue>
+                <valueName>4</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Modular Private Wireless Solution</controllingFieldValue>
+                <controllingFieldValue>Microwave</controllingFieldValue>
+                <controllingFieldValue>Fixed Network</controllingFieldValue>
+                <controllingFieldValue>Fixed Networks</controllingFieldValue>
+                <controllingFieldValue>IP Routing</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - POL</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - FBA</controllingFieldValue>
+                <controllingFieldValue>Optics</controllingFieldValue>
+                <controllingFieldValue>Nuage</controllingFieldValue>
+                <controllingFieldValue>Optics - WaveLite</controllingFieldValue>
+                <controllingFieldValue>Airscale Wifi</controllingFieldValue>
+                <controllingFieldValue>FastMile</controllingFieldValue>
+                <valueName>5</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Microwave</controllingFieldValue>
+                <controllingFieldValue>Fixed Network</controllingFieldValue>
+                <controllingFieldValue>Fixed Networks</controllingFieldValue>
+                <controllingFieldValue>IP Routing</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - POL</controllingFieldValue>
+                <controllingFieldValue>Fixed Access - FBA</controllingFieldValue>
+                <controllingFieldValue>Optics</controllingFieldValue>
+                <controllingFieldValue>Nokia Software</controllingFieldValue>
+                <controllingFieldValue>Nuage</controllingFieldValue>
+                <controllingFieldValue>Optics - WaveLite</controllingFieldValue>
+                <controllingFieldValue>Airscale Wifi</controllingFieldValue>
+                <controllingFieldValue>FastMile</controllingFieldValue>
+                <valueName>2</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NokiaCPQ_Portfolio__c</fullName>
+        <externalId>false</externalId>
+        <label>Portfolio</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Airscale Wifi</fullName>
+                    <default>false</default>
+                    <label>Airscale Wifi</label>
+                </value>
+                <value>
+                    <fullName>Fixed Access - FBA</fullName>
+                    <default>false</default>
+                    <label>Broadband Access Networks</label>
+                </value>
+                <value>
+                    <fullName>Fixed Network</fullName>
+                    <default>false</default>
+                    <label>Fixed Network</label>
+                </value>
+                <value>
+                    <fullName>Fixed Networks</fullName>
+                    <default>false</default>
+                    <label>Fixed Networks</label>
+                </value>
+                <value>
+                    <fullName>FastMile</fullName>
+                    <default>false</default>
+                    <label>Fixed Wireless Access</label>
+                </value>
+                <value>
+                    <fullName>Global Services</fullName>
+                    <default>false</default>
+                    <label>Global Services</label>
+                </value>
+                <value>
+                    <fullName>IP Routing</fullName>
+                    <default>false</default>
+                    <label>IP Routing</label>
+                </value>
+                <value>
+                    <fullName>Microwave</fullName>
+                    <default>false</default>
+                    <label>Microwave</label>
+                </value>
+                <value>
+                    <fullName>Modular Private Wireless Solution</fullName>
+                    <default>false</default>
+                    <label>Modular Private Wireless Solution</label>
+                </value>
+                <value>
+                    <fullName>Nokia Software</fullName>
+                    <default>false</default>
+                    <label>Nokia Software</label>
+                </value>
+                <value>
+                    <fullName>Nuage</fullName>
+                    <default>false</default>
+                    <label>Nuage</label>
+                </value>
+                <value>
+                    <fullName>Fixed Access - POL</fullName>
+                    <default>false</default>
+                    <label>Optical LAN</label>
+                </value>
+                <value>
+                    <fullName>Optics</fullName>
+                    <default>false</default>
+                    <label>Optics</label>
+                </value>
+                <value>
+                    <fullName>Optics - WaveLite</fullName>
+                    <default>false</default>
+                    <label>Optics - WaveLite</label>
+                </value>
+                <value>
+                    <fullName>QTC</fullName>
+                    <default>false</default>
+                    <label>QTC</label>
+                </value>
+                <value>
+                    <fullName>Wireless PON</fullName>
+                    <default>false</default>
+                    <label>Wireless PON</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+</CustomObject>

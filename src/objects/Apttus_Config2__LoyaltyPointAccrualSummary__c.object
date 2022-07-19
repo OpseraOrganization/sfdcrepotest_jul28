@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__Comments__c</fullName>
+        <deprecated>false</deprecated>
+        <description>User Entered Memo text</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>User Entered Memo text</inlineHelpText>
+        <label>Comments</label>
+        <length>1000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__CycleEndDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The loyalty cycle end date associated with the point accrual summary</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The loyalty cycle end date associated with the point accrual summary</inlineHelpText>
+        <label>Cycle End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__CycleStartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The loyalty cycle start date associated with the point accrual summary</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The loyalty cycle start date associated with the point accrual summary</inlineHelpText>
+        <label>Cycle Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__GrantDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date the loyalty level was granted to the account/contact based on points accrued for the incentive</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the loyalty level was granted to the account/contact based on points accrued for the incentive</inlineHelpText>
+        <label>Grant Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__LoyaltyLevelEarned__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The loyalty level earned by the account/contact or custom point accrual level based on points accrued for the incentive</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The loyalty level earned by the account/contact or custom point accrual level based on points accrued for the incentive</inlineHelpText>
+        <label>Loyalty Level (Earned)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__LoyaltyLevelOverride__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The loyalty level override granted to the account/contact or custom point accrual level</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The loyalty level override granted to the account/contact or custom point accrual level</inlineHelpText>
+        <label>Loyalty Level (Override)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__LoyaltyLevel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The loyalty level granted to the account/contact based on points accrued for the incentive</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The loyalty level granted to the account/contact based on points accrued for the incentive</inlineHelpText>
+        <label>Loyalty Level</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__OverrideDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date the loyalty level was overridden</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the loyalty level was overridden</inlineHelpText>
+        <label>Override Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+</CustomObject>

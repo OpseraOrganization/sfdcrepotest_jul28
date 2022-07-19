@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__BenefitSectionFieldset__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Benefit Section Fieldset</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__CriteriaValueTypeOptions__c</fullName>
+        <deprecated>false</deprecated>
+        <description>List of options for the Value Type field in criteria, separated by a semicolon;.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>List of options for the Value Type field in criteria, separated by a semicolon.</inlineHelpText>
+        <label>Criteria Value Type Options</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__DefaultFieldValues__c</fullName>
+        <deprecated>false</deprecated>
+        <description>List of fields and their corresponding default values.  List should contain field name, equal sign then value with new line as the delimiter.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>List of fields and their corresponding default values.  List should contain field name, equal sign then value with new line as the delimiter.</inlineHelpText>
+        <label>Default Field Values</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__InformationAdditionalSectionFieldset__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Overrides the fields set in the information additional data section to use a custom fieldset.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Information Additional Section Fieldset</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__InformationSectionFieldset__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Overrides the fields sets in the application to use a custom fieldset.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Information Section Fieldset</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__NavigationPages__c</fullName>
+        <defaultValue>&quot;All&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Will provide the pages to be displayed and sequence of display
+For e.g. a string like: SCBDLP
+
+S: Scope
+C: Criteria
+B: Benefit
+D: Deduction
+L: Limit
+P: Coupons</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Will provide the pages to be displayed and sequence of display
+For e.g. a string like: SCBDLP
+
+S: Scope
+C: Criteria
+B: Benefit
+D: Deduction
+L: Limit
+P: Coupons</inlineHelpText>
+        <label>Navigation Pages</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RateTabelFieldset__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Overrides the fields sets in the application to use a custom fieldset in the rate table.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Rate Tabel Fieldset</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RateTableFieldset__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Overrides the fields sets in the application to use a custom fieldset in the rate table.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Rate Table Fieldset</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__SubtitleText__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Controles the text displayed to the left of the Incentive Name on the Incentive Manager Page.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Controles the text displayed to the left of the Incentive Name on the Incentive Manager Page.</inlineHelpText>
+        <label>Subtitle Text</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__UseType__c</fullName>
+        <defaultValue>&quot;Rebate&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The incentive use type. Valid Values are:
+
+Promotion
+Rebate
+Milestone Incentive</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The incentive use type. Valid Values are:
+
+Promotion
+Rebate
+Milestone Incentive</inlineHelpText>
+        <label>Application Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

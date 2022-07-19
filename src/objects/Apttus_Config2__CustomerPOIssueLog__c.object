@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__ContextField__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The API name of the field from purchase order header or the purchase order item for which the issue is logged</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The API name of the field from purchase order header or the purchase order item for which the issue is logged</inlineHelpText>
+        <label>Context Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__IssueDetails2__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The details of the issue</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The details of the issue</inlineHelpText>
+        <label>Issue Details</label>
+        <length>1024</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__IssueDetails__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The details of the issue</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The details of the issue</inlineHelpText>
+        <label>Issue Details (Deprecated)</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ResolutionDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The DateTime when the issue was resolved</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The DateTime when the issue was resolved</inlineHelpText>
+        <label>Resolution Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Resolution__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Holds information about the final resolution of the issue</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Holds information about the final resolution of the issue</inlineHelpText>
+        <label>Resolution</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+</CustomObject>

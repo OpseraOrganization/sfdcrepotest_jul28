@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__EligibilityStartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date when the member becomes eligible</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date when the member becomes eligible</inlineHelpText>
+        <label>Eligibility Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__EndDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The enrollment end date</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The enrollment end date</inlineHelpText>
+        <label>End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__LastProcessedOrderDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The last order date processed for loyalty point accrual</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The last order date processed for loyalty point accrual</inlineHelpText>
+        <label>Last Processed Order Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__LastProcessedOrderNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The last order number processed for loyalty point accrual</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The last order number processed for loyalty point accrual</inlineHelpText>
+        <label>Last Processed Order Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__LoyaltyLevelEarned__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The loyalty level earned by the account/contact or custom point accrual level based on points accrued for the incentive</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The loyalty level earned by the account/contact or custom point accrual level based on points accrued for the incentive</inlineHelpText>
+        <label>Loyalty Level (Earned)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__LoyaltyLevelInitial__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The loyalty level granted to the account/contact or custom point accrual level from the previous cycle. This level becomes the starting level for the new cycle unless an override is in effect.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The loyalty level granted to the account/contact or custom point accrual level from the previous cycle. This level becomes the starting level for the new cycle unless an override is in effect.</inlineHelpText>
+        <label>Loyalty Level (Initial)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__LoyaltyLevelOverride__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The loyalty level override granted to the account/contact or custom point accrual level</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The loyalty level override granted to the account/contact or custom point accrual level</inlineHelpText>
+        <label>Loyalty Level (Override)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__LoyaltyLevel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The loyalty level granted to the account/contact based on points accrued for the incentive</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The loyalty level granted to the account/contact based on points accrued for the incentive</inlineHelpText>
+        <label>Loyalty Level</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__OverrideDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date the loyalty level was overridden</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the loyalty level was overridden</inlineHelpText>
+        <label>Override Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__StartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The enrollment start date</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The enrollment start date</inlineHelpText>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+</CustomObject>

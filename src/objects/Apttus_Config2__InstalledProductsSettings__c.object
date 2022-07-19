@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__AmendChangeFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Comma separated line item field names whose values can turn an existing asset line into amended asset line.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Comma separated line item field names whose values can turn an existing asset line into amended asset line.</inlineHelpText>
+        <label>Amend Change Fields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__AssetSource__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the account source which the asset line items will be retrieved from.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the account source which the asset line items will be retrieved from.</inlineHelpText>
+        <label>Asset Source</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__AssetTerminationFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Comma separated field names to display during asset termination.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Comma separated field names to display during asset termination.</inlineHelpText>
+        <label>Asset Termination Fields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__BasePriceDefaultingMethodForRenewal__c</fullName>
+        <defaultValue>&quot;Net Unit Price&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates how the base price should be defaulted when the asset is renewed. Valid Values are:
+
+Net Unit Price (default if not specified)
+Higher Of Contract Unit Price / Net Unit Price
+Lower Of Contract Unit Price / Net Unit Price</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates how the base price should be defaulted when the asset is renewed. Valid Values are:
+
+Net Unit Price (default if not specified)
+Higher Of Contract Unit Price / Net Unit Price
+Lower Of Contract Unit Price / Net Unit Price</inlineHelpText>
+        <label>Base Price Defaulting Method For Renewal</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__CoterminationPreferencesDuringRenewal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Select one of more cotermination preference to be used during a renewal and define the default.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Cotermination Preferences During Renewal.</inlineHelpText>
+        <label>Cotermination Preferences During Renewal</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__DefaultCoterminationOption__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Default end date preference for Cotermination.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Default end date preference for Cotermination.</inlineHelpText>
+        <label>Default Cotermination Option</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__DefaultRenewalCoterminationOption__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Default cotermination preference during renewal.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Default cotermination preference during renewal.</inlineHelpText>
+        <label>Default Renewal Cotermination Option</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__DefaultRenewalPriceList__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Default Renewal Price List</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__EditableFieldsForCancelledLines__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Comma separated list of editable asset line item fields for cancelled lines.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Comma separated list of editable asset line item fields for cancelled lines.</inlineHelpText>
+        <label>Editable Fields For Cancelled Lines</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__EndDatePreferencesForCotermination__c</fullName>
+        <deprecated>false</deprecated>
+        <description>End Date preferences for Cotermination.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>End Date preferences for Cotermination.</inlineHelpText>
+        <label>End Date preferences for Cotermination</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__FilterFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Asset Line Fields to be displayed on filter.   Works with text fields and End Date.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Asset Line Fields to be displayed on filter.  Works with text fields and End Date.</inlineHelpText>
+        <label>Filter Fields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__MassEditActionCriteriaFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>List of comma separated asset line item field API names to enable the mass edit action</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>List of comma separated asset line item field API names to enable the mass edit action</inlineHelpText>
+        <label>Mass Edit Action Criteria Fields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__MergeActionCriteriaFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>List of asset line item fields separated by comma to enable merge asset action</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>List of asset line item fields separated by comma to enable merge asset action</inlineHelpText>
+        <label>Merge Action Criteria Fields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__PurchaseIdentificationCriteria__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Identify the fields that determine the eligibility for cotermination and the cumulation of the quantity.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>List of comma separated asset line item fields that determine the eligibility for cotermination and quantity cumulation.</inlineHelpText>
+        <label>Purchase Identification Criteria</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RelateActionCriteriaFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>List of asset line item fields separated by comma to enable relate asset action</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>List of asset line item fields separated by comma to enable relate asset action</inlineHelpText>
+        <label>Relate Action Criteria Fields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RenewalBusinessObjectType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Quote or agreement used in renewal product configuration</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Renewal Business Object Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RenewalDefaultPriceBook__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Default price book name used in renewal opportunity</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Renewal Default Price Book</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RenewalExecutionMode__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Renewal Execution Mode</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__RenewalGroupFields__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Renewal Group Fields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ShowAssets__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Determines whether current, parent, or child assets of the current asset&apos;s account will be shown. Accepted values are a comma separated string of Parents and/or Children. If empty, only context account assets are shown.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Comma separated values of Parents and/or Children or empty. If empty, only context account assets are shown. Examples: 1) parents 2) parents,children.</inlineHelpText>
+        <label>Show Assets</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__SplitAssetActions__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Specify the actions that can be performed on a split asset</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify the actions that can be performed on a split asset</inlineHelpText>
+        <label>Split Asset Actions</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__SubmenuActions__c</fullName>
+        <deprecated>false</deprecated>
+        <description>List of actions to be displayed in the asset action submenu dropdowns separated by commas.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>List of actions to be displayed in the asset action submenu dropdowns separated by commas.</inlineHelpText>
+        <label>Submenu Actions</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+</CustomObject>

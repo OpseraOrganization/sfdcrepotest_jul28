@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__BeneficiaryId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>ID of the beneficiary associated with the benefit</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>true</externalId>
+        <inlineHelpText>ID of the beneficiary associated with the benefit</inlineHelpText>
+        <label>Beneficiary</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Criteria__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rule criteria specification</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The rule criteria specification</inlineHelpText>
+        <label>Rule Criteria</label>
+        <length>4000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__CustomPricePointSource__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the source field in the business object which holds the custom price point value</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the source field in the business object which holds the custom price point value</inlineHelpText>
+        <label>Custom Price Point Source</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The description for the rule</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__EffectiveDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rule or benefit effective date. The rule or benefit becomes effective on this date. It may also indicate the start date of a price ramp.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The rule or benefit effective date. The rule or benefit becomes effective on this date. It may also indicate the start date of a price ramp.</inlineHelpText>
+        <label>Effective Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__ExpirationDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The rule or benefit expiration date. The rule or benefit is no longer applicable after this date. It may also indicate the end date for a price ramp.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The rule or benefit expiration date. The rule or benefit is no longer applicable after this date. It may also indicate the end date for a price ramp.</inlineHelpText>
+        <label>Expiration Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__MetricValueSource__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The data source which provides the value for the rate table metric.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Fields from the transaction records that represent volume or revenue 
+1.	VOLUME:  Generally represented by the standard field “Quantity” 
+2.	REVENUE: Generally represented by the standard field “Net Price”.  However,  can also use other fields</inlineHelpText>
+        <label>Metric Value Source</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__WaterfallMetricFieldName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of the LineItem field used as a Price Waterfall Metric</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the LineItem field used as a Price Waterfall Metric</inlineHelpText>
+        <label>Price Waterfall Metric Field Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

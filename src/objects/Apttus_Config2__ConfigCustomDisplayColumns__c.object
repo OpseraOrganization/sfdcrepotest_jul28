@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__DisplayType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The column display type. 
+
+Valid values are the following
+
+Cart LineItem 
+Installed Product</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The column display type. 
+
+Valid values are the following
+
+Cart LineItem 
+Installed Product</inlineHelpText>
+        <label>Display Type</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__FieldName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter the field API name for the column.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the field API name for the column.</inlineHelpText>
+        <label>Field Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Flow__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The flow associated with the column</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The flow associated with the column</inlineHelpText>
+        <label>Flow</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__HeaderStyle__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The style used to display the header of a column, used primarily for adding inline CSS styles.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The style used to display the header of a column, used primarily for adding inline CSS styles.</inlineHelpText>
+        <label>Header Style</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__StyleClass__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Holds the Style classes applied to dynamic columns</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Holds the Style classes applied to dynamic columns</inlineHelpText>
+        <label>Style Class</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Style__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The style used to display the column, used primarily for adding inline CSS styles.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The style used to display the column, used primarily for adding inline CSS styles.</inlineHelpText>
+        <label>Style</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Apttus_Config2__Criteria__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The additional criteria used to select the input records for processing.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The additional criteria used to select the input records for processing.</inlineHelpText>
+        <label>Criteria</label>
+        <length>4000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__EndTime__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The job end time</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>End Time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__Exception__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The exception reported by the job</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The exception reported by the job</inlineHelpText>
+        <label>Exception</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__InputAgreementIds__c</fullName>
+        <deprecated>false</deprecated>
+        <description>A comma separated list of rebate agreement ids provided as input for the rebate calculation job</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>A comma separated list of rebate agreement ids provided as input for the rebate calculation job</inlineHelpText>
+        <label>Input Agreements</label>
+        <length>500</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__InputRollupOrRebateIds__c</fullName>
+        <deprecated>false</deprecated>
+        <description>A comma separated list of rollup or rebate ids provided as input for the rollup/rebate calculation job</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>A comma separated list of rollup or rebate ids provided as input for the rollup/rebate calculation job</inlineHelpText>
+        <label>Input Rollups Or Rebates</label>
+        <length>500</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__JobId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>ID of the apex job</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Job Id</label>
+        <length>25</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__JobSpec__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The job specification</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Job Spec</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__NextRunDate__c</fullName>
+        <defaultValue>DATETIMEVALUE(&apos;2000-01-01 00:00:00&apos;)</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates the date/time when the job would run next</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the date/time when the job would run next</inlineHelpText>
+        <label>Next Run Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__PeriodEndDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The fixed end date up to which the input records will be considered for rollup or rebate calculation. Only applicable for fixed calculation period.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The fixed end date up to which the input records will be considered for rollup or rebate calculation. Only applicable for fixed calculation period.</inlineHelpText>
+        <label>Period End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__PeriodSource__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the source field in the input business object which determines the period</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the source field in the input business object which determines the period</inlineHelpText>
+        <label>Period Source</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__PeriodStartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The fixed start date from which the input records  will be considered for rollup or rebate calculation. Only applicable for fixed calculation period.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>The fixed start date from which the input records  will be considered for rollup or rebate calculation. Only applicable for fixed calculation period.</inlineHelpText>
+        <label>Period Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Apttus_Config2__StartTime__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The job start time</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Start Time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+</CustomObject>
